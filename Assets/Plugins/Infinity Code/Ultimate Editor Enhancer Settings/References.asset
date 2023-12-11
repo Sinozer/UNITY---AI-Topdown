@@ -434,14 +434,8 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
-  - name: Main - JUN
-    path: Assets/Level/Scenes/Jun/Main - JUN.unity
-  - name: Main - MATTHIEU
-    path: Assets/Level/Scenes/Matthieu/Main - MATTHIEU.unity
-  - name: Main - THEO
-    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
+  - name: Demo
+    path: Assets/Warped Shooting Fx/Scenes/Demo.unity
   - name: Main - YOANN
     path: Assets/Level/Scenes/Yoann/Main - YOANN.unity
-  - name: Main - GUILLAUME
-    path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   _notes: []
