@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 797121580}
   m_Layer: 0
-  m_Name: '## CAMERA ##'
+  m_Name: -- CAMERA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1483213503}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1084433239
@@ -164,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1084433240}
   m_Layer: 0
-  m_Name: '## MANAGERS ##'
+  m_Name: -- MANAGERS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1137984256}
   m_Layer: 0
-  m_Name: '## ENTITIES ##'
+  m_Name: -- ENTITIES
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,12 +302,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483213500}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 797121580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1304130052698546896
 PrefabInstance:
@@ -371,6 +372,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1137984256}
   - {fileID: 797121580}
-  - {fileID: 1483213503}
   - {fileID: 1084433240}
   - {fileID: 1304130052698546896}
