@@ -36,4 +36,9 @@ public class SceneManager : Singleton<SceneManager>
     {
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(sceneIndex);
     }
+
+    public UnityEngine.SceneManagement.Scene GetCurrentScene()
+    {
+        return UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+    }
 }
