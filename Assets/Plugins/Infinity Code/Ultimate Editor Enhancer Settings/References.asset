@@ -56,8 +56,32 @@ MonoBehaviour:
   - enabled: 1
     condition: 0
     value: --
-    trimChars: -=
+    trimChars: -=1
     backgroundColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textAlign: 1
+    textStyle: 1
+  - enabled: 1
+    condition: 0
+    value: -1
+    trimChars: -=1
+    backgroundColor: {r: 1, g: 0, b: 0, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textAlign: 1
+    textStyle: 1
+  - enabled: 1
+    condition: 0
+    value: -2
+    trimChars: -=2
+    backgroundColor: {r: 0, g: 0.25344753, b: 1, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textAlign: 1
+    textStyle: 1
+  - enabled: 1
+    condition: 0
+    value: -3
+    trimChars: -=3
+    backgroundColor: {r: 0.09067465, g: 0.6132076, b: 0.020247431, a: 1}
     textColor: {r: 1, g: 1, b: 1, a: 1}
     textAlign: 1
     textStyle: 1
