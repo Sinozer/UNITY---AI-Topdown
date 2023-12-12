@@ -458,6 +458,8 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
+  - name: Main - THEO
+    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   - name: Main - GUILLAUME
     path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   - name: Template
