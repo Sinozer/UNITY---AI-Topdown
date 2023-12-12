@@ -305,7 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 613340433}
   m_Layer: 0
-  m_Name: -- ENTITIES
+  m_Name: -2 ENTITIES
   m_TagString: EditorOnly
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -418,7 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1611335506}
   m_Layer: 0
-  m_Name: -- CAMERA
+  m_Name: -1 CAMERA
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -449,7 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2092855593}
   m_Layer: 0
-  m_Name: -- MANAGERS
+  m_Name: -3 MANAGERS
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
