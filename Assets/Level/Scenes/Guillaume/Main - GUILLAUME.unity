@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 761638386}
   m_Layer: 0
-  m_Name: -- CAMERA
+  m_Name: -1 CAMERA
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,7 +323,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1284191918}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &959593740
 MonoBehaviour:
@@ -522,7 +522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1284191918}
   m_Layer: 0
-  m_Name: -- ENTITIES
+  m_Name: -2 ENTITIES
   m_TagString: EditorOnly
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -540,8 +540,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 959593739}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1651929382
@@ -554,7 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1651929383}
   m_Layer: 0
-  m_Name: -- MANAGERS
+  m_Name: -3 MANAGERS
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,6 +581,7 @@ SceneRoots:
   - {fileID: 761638386}
   - {fileID: 1230733367}
   - {fileID: 1284191918}
+  - {fileID: 959593739}
   - {fileID: 1651929383}
   - {fileID: 779887637}
   - {fileID: 950723201}

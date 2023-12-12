@@ -458,6 +458,8 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
+  - name: Main - GUILLAUME
+    path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   - name: Template
     path: Assets/Level/Scenes/Template.unity
   _notes: []
