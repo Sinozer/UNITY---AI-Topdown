@@ -434,8 +434,20 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
-  - name: Demo
-    path: Assets/Warped Shooting Fx/Scenes/Demo.unity
+  - name: Template Scene
+    path: Assets/Level/Scenes/Template Scene.unity
   - name: Main - YOANN
     path: Assets/Level/Scenes/Yoann/Main - YOANN.unity
+  - name: Main - THEO
+    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
+  - name: Main - MATTHIEU
+    path: Assets/Level/Scenes/Matthieu/Main - MATTHIEU.unity
+  - name: Main - JUN
+    path: Assets/Level/Scenes/Jun/Main - JUN.unity
+  - name: Main - GUILLAUME
+    path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
+  - name: Main
+    path: Assets/Level/Scenes/Main.unity
+  - name: Demo
+    path: Assets/Warped Shooting Fx/Scenes/Demo.unity
   _notes: []
