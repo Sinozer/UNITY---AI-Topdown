@@ -20,6 +20,14 @@ MonoBehaviour:
   _quickAccessItems: []
   _projectFolderIcons: []
   _sceneHistory:
+  - name: Main
+    path: Assets/Level/Scenes/Main.unity
+  - name: Settings
+    path: Assets/Level/Scenes/Settings.unity
+  - name: MainMenu
+    path: Assets/Level/Scenes/MainMenu.unity
   - name: Main - JUN
     path: Assets/Level/Scenes/Jun/Main - JUN.unity
+  - name: Main - THEO
+    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   _notes: []
