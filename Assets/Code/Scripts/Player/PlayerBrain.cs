@@ -21,13 +21,20 @@ public class PlayerBrain : MonoBehaviour
         IsDead
     }
 
+    [Header("Inputs")] 
+    [SerializeField] private InputActionReference  _moveInput;
+    [SerializeField] private InputActionReference _shootInput;
+    [SerializeField] private InputActionReference _reloadInput;
+    
+    
+    [Header("References")]
     [SerializeField] private GameObject Actions;
     [SerializeField] private GameObject Render;
 
     private Animator _animator;
     private PlayerInput _playerInput;
 
-    private bool _shootInput;
+    private bool aaa;
 
     private Movement _movement;
     private Shooting _shooting;
@@ -46,20 +53,20 @@ public class PlayerBrain : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerInput.actions["Move"].performed += OnMovePerformed;
-        _playerInput.actions["Move"].canceled += OnMoveCanceled;
-        _playerInput.actions["Shoot"].performed += OnShootPerformed;
-        _playerInput.actions["Shoot"].canceled += OnShootCanceled;
-        _playerInput.actions["Reload"].performed += OnReloadPerformed;
+        _moveInput.action.performed += OnMovePerformed;
+        _moveInput.action.canceled += OnMoveCanceled;
+        _shootInput.action.performed += OnShootPerformed;
+        _shootInput.action.canceled += OnShootCanceled;
+        _reloadInput.action.performed += OnReloadPerformed;
     }
 
     private void OnDisable()
     {
-        _playerInput.actions["Move"].performed -= OnMovePerformed;
-        _playerInput.actions["Move"].canceled -= OnMoveCanceled;
-        _playerInput.actions["Shoot"].performed -= OnShootPerformed;
-        _playerInput.actions["Shoot"].canceled -= OnShootCanceled;
-        _playerInput.actions["Reload"].performed -= OnReloadPerformed;
+        _moveInput.action.performed -= OnMovePerformed;
+        _moveInput.action.canceled -= OnMoveCanceled;
+        _shootInput.action.performed -= OnShootPerformed;
+        _shootInput.action.canceled -= OnShootCanceled;
+        _reloadInput.action.performed -= OnReloadPerformed;
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
@@ -76,12 +83,12 @@ public class PlayerBrain : MonoBehaviour
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        _shootInput = context.ReadValue<float>() > 0f;
+        aaa = context.ReadValue<float>() > 0f;
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
     {
-        _shootInput = false;
+        aaa = false;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
         _shooting.ResetAnimationSpeed(_animator);
     }
@@ -93,7 +100,7 @@ public class PlayerBrain : MonoBehaviour
     
     void Update()
     {
-        if (_shootInput)
+        if (aaa)
         {
             SetAnimatorCondition(AnimatorCondition.IsShoot);
             _shooting.SetAnimationSpeed(_animator);

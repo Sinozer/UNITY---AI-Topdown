@@ -5,6 +5,8 @@ using UnityEngine.Serialization;
 
 public class Shooting : MonoBehaviour
 {
+    [SerializeField] private Transform _aim;
+    
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
     
@@ -21,9 +23,9 @@ public class Shooting : MonoBehaviour
         if (Time.time > _nextFireTime)
         {
             Vector2 playerPosition = transform.position;
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            Vector2 direction = (mousePosition - playerPosition).normalized;
+            Vector2 mousePosition = _aim.position;
 
+            Vector2 direction = (mousePosition - playerPosition).normalized;
             float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             // Create a bullet
