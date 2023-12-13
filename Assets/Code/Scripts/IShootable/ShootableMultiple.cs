@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class ShootableMultiple : MonoBehaviour, IShootable
 {
-    public void Shoot(Rigidbody rigibody, float speed)
+    public void Shoot(Rigidbody2D rigibody, Vector2 direction, float speed)
     {
 
     }

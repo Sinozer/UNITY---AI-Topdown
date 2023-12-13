@@ -9,17 +9,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float speed;
     [SerializeField] float lifetime;
-    [SerializeField] Rigidbody2D rigibody;
+    public float Speed;
 
     void Start()
     {
         Destroy(gameObject,lifetime);
-    }
-
-    void Update()
-    {
-        
     }
 }
