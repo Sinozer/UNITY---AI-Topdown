@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3438069787250001889}
   - component: {fileID: 1608390619376643330}
   - component: {fileID: 3817924598131905088}
+  - component: {fileID: 1130981719044542428}
   m_Layer: 0
   m_Name: Laser_Blue
   m_TagString: Untagged
@@ -180,3 +181,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1130981719044542428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648940981784709971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c401251d031aa74e971c4e1a2dfd61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  lifetime: 0
+  rigibody: {fileID: 3817924598131905088}
