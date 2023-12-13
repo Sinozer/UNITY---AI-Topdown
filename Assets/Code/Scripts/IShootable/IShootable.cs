@@ -1,4 +1,6 @@
+using UnityEngine;
+
 public interface IShootable 
 {
-    void Shoot(float speed);
+    void Shoot(Rigidbody rigibody, float speed);
 }
