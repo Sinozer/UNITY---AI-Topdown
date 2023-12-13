@@ -7,7 +7,8 @@ using UnityEngine.Serialization;
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private Transform _aim;
-    
+
+    public Weapon weapon;
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
     
@@ -29,7 +30,7 @@ public class Shooting : MonoBehaviour
        _playerPosition  = transform.position;
        _mousePosition = _aim.position;
 
-        _direction = (_mousePosition - _playerPosition).normalized;
+       _direction = (_mousePosition - _playerPosition).normalized;
     }
 
     public void Shoot()
