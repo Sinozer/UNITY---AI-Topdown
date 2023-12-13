@@ -6,7 +6,12 @@ using UnityEngine.InputSystem;
 
 public class FollowCursor : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
+    private Camera _camera;
+
+    private void Start()
+    {
+        _camera = Camera.main;
+    }
 
     private void Update()
     {

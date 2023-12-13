@@ -19,17 +19,17 @@ public class Movement : MonoBehaviour
     public float Speed = 10f;
     private float _defaultSpeed = 10f;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
     private void Start()
     {
-        rb = ObjectToMove.GetComponent<Rigidbody2D>();
-        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        _rb = ObjectToMove.GetComponent<Rigidbody2D>();
+        _rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
     public void Move(float speed)
     {
         Speed = speed;
-        rb.MovePosition(rb.position + MoveInput * Speed * Time.fixedDeltaTime);
+        _rb.MovePosition(_rb.position + MoveInput * Speed * Time.fixedDeltaTime);
     }
     
     
@@ -38,7 +38,6 @@ public class Movement : MonoBehaviour
     {
         // Calculate the speed based on fire rate and adjust the speed of the animator
         animator.speed = Speed / _defaultSpeed;
-        Debug.Log($"{ Speed / _defaultSpeed}");
     }
     public void ResetAnimationSpeed(Animator animator)
     {

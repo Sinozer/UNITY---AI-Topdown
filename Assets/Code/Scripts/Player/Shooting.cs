@@ -8,8 +8,8 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField] private Transform _aim;
     
-    public GameObject bulletPrefab;
-    public float bulletSpeed = 10f;
+    public GameObject BulletPrefab;
+    public float BulletSpeed = 10f;
     
     
     // The time between each shot
@@ -34,23 +34,19 @@ public class Shooting : MonoBehaviour
 
     public void Shoot()
     {
+        if (!(Time.time > _nextFireTime)) return;
+        float rotation = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
 
-        if (Time.time > _nextFireTime)
-        {
-           
-            float rotation = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+        // Create a bullet
+        GameObject bullet = Instantiate(BulletPrefab,
+            _playerPosition,
+            Quaternion.Euler(0, 0, rotation));
 
-            // Create a bullet
-            GameObject bullet = Instantiate(bulletPrefab,
-                _playerPosition,
-                Quaternion.Euler(0, 0, rotation));
-
-            // Add force to the bullet in the direction of the mouse
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = _direction * bulletSpeed;
+        // Add force to the bullet in the direction of the mouse
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.velocity = _direction * BulletSpeed;
             
-            _nextFireTime = Time.time + FireRate;
-        }
+        _nextFireTime = Time.time + FireRate;
     }
     
     public void SetAnimationSpeed(Animator animator)

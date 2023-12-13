@@ -21,14 +21,14 @@ public class PlayerBrain : Entity
         IsDead
     }
 
-    [Header("Inputs")] [SerializeField] private InputActionReference _moveInput;
+    [Header("Inputs")] 
+    [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _shootInput;
     [SerializeField] private InputActionReference _reloadInput;
 
 
-    [Header("References")] [SerializeField]
-    private GameObject Actions;
-
+    [Header("References")] 
+    [SerializeField] private GameObject Actions;
     [SerializeField] private GameObject Render;
 
     private Animator _animator;
@@ -39,7 +39,7 @@ public class PlayerBrain : Entity
     private Movement _movementAction;
     private Shooting _shootingAction;
 
-    private string[] animatorConditionNames;
+    private string[] _animatorConditionNames;
 
     private void Awake()
     {
@@ -48,7 +48,7 @@ public class PlayerBrain : Entity
         _shootingAction = Actions.GetComponent<Shooting>();
         _animator = Render.GetComponent<Animator>();
 
-        animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
+        _animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
     }
 
     private void OnEnable()
@@ -83,7 +83,7 @@ public class PlayerBrain : Entity
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        _shoot = context.ReadValue<float>() > 0f;
+        _shoot = context.ReadValue<float>() > 0;
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
@@ -100,34 +100,34 @@ public class PlayerBrain : Entity
 
     void Update()
     {
-        if (!IsDead)
+        if (IsDead)
+            SetAnimatorCondition(AnimatorCondition.IsDead);
+        else
         {
-            if (_shoot)
+            if (!_shoot)
+            {
+                _shootingAction.ResetAnimationSpeed(_animator);
+            }
+            else
             {
                 SetAnimatorCondition(AnimatorCondition.IsShoot);
                 _shootingAction.SetAnimationSpeed(_animator);
                 _shootingAction.Shoot();
             }
-            else
-            {
-                _shootingAction.ResetAnimationSpeed(_animator);
-            }
 
-            if (_movementAction.MoveInput != Vector2.zero)
+            if (_movementAction.MoveInput == Vector2.zero)
+            {
+                _movementAction.ResetAnimationSpeed(_animator);
+            }
+            else
             {
                 SetAnimatorCondition(AnimatorCondition.IsRun);
                 _movementAction.SetAnimationSpeed(_animator);
                 _movementAction.Move(_speed);
             }
-            else
-            {
-                _movementAction.ResetAnimationSpeed(_animator);
-            }
 
             Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
         }
-        else
-            SetAnimatorCondition(AnimatorCondition.IsDead);
     }
 
     public void StopReloading()
@@ -137,8 +137,8 @@ public class PlayerBrain : Entity
 
     private void SetAnimatorCondition(AnimatorCondition trueCondition)
     {
-        var trueConditionName = animatorConditionNames[(int)trueCondition];
-        foreach (var conditionName in animatorConditionNames)
+        var trueConditionName = _animatorConditionNames[(int)trueCondition];
+        foreach (var conditionName in _animatorConditionNames)
         {
             _animator.SetBool(conditionName, conditionName == trueConditionName);
         }

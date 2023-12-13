@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AnimationEventBridge : MonoBehaviour
 {
-    public PlayerBrain playerBrain; // reference to your main script
+    public PlayerBrain PlayerBrain; // reference to your main script
 
     // Animation event function
     public void OnReloadAnimationComplete()
     {
-        playerBrain.StopReloading();
+        PlayerBrain.StopReloading();
     }
 }

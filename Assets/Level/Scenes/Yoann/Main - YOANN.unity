@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e02618e2664290d4ea9149252b09bf0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBrain: {fileID: 2074709973}
+  PlayerBrain: {fileID: 2074709973}
 --- !u!1 &713993467
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e001842f2c11e4e9347c03bb746d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 1483213502}
 --- !u!1001 &1833872837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -854,6 +853,10 @@ PrefabInstance:
       propertyPath: fireRate
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2673421808987519354, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 3707298295942658395, guid: ca10828682dc1fe4595cdb5e86df4aa2, type: 3}
     - target: {fileID: 3451938306501995873, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
       propertyPath: Speed
       value: 1

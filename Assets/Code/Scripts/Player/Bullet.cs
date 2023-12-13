@@ -6,13 +6,14 @@
 // --------------------------------------- //
 
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Bullet : MonoBehaviour
 {
-    public float lifetime = 10f; // Bullet lifetime set to 10 seconds
+    public float Lifetime = 10f; // Bullet lifetime set to 10 seconds
 
     void Start()
     {
-        Destroy(gameObject, lifetime); // Destroy the bullet after "lifetime" seconds
+        Destroy(gameObject, Lifetime); // Destroy the bullet after "lifetime" seconds
     }
 }
