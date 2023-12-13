@@ -34,18 +34,18 @@ public class PlayerBrain : MonoBehaviour
     private Animator _animator;
     private PlayerInput _playerInput;
 
-    private bool aaa;
+    private bool _shoot;
 
-    private Movement _movement;
-    private Shooting _shooting;
+    private Movement _movementAction;
+    private Shooting _shootingAction;
     
     private string[] animatorConditionNames;
 
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
-        _movement = Actions.GetComponent<Movement>();
-        _shooting = Actions.GetComponent<Shooting>();
+        _movementAction = Actions.GetComponent<Movement>();
+        _shootingAction = Actions.GetComponent<Shooting>();
         _animator = Render.GetComponent<Animator>();
 
         animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
@@ -71,26 +71,26 @@ public class PlayerBrain : MonoBehaviour
 
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
-        _movement.MoveInput = context.ReadValue<Vector2>();
+        _movementAction.MoveInput = context.ReadValue<Vector2>();
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        _movement.MoveInput = Vector2.zero;
+        _movementAction.MoveInput = Vector2.zero;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
-        _movement.ResetAnimationSpeed(_animator);
+        _movementAction.ResetAnimationSpeed(_animator);
     }
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        aaa = context.ReadValue<float>() > 0f;
+        _shoot = context.ReadValue<float>() > 0f;
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
     {
-        aaa = false;
+        _shoot = false;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
-        _shooting.ResetAnimationSpeed(_animator);
+        _shootingAction.ResetAnimationSpeed(_animator);
     }
 
     private void OnReloadPerformed(InputAction.CallbackContext context)
@@ -100,27 +100,29 @@ public class PlayerBrain : MonoBehaviour
     
     void Update()
     {
-        if (aaa)
+        if (_shoot)
         {
             SetAnimatorCondition(AnimatorCondition.IsShoot);
-            _shooting.SetAnimationSpeed(_animator);
-            _shooting.Shoot();
+            _shootingAction.SetAnimationSpeed(_animator);
+            _shootingAction.Shoot();
         }
         else
         {
-            _shooting.ResetAnimationSpeed(_animator);
+            _shootingAction.ResetAnimationSpeed(_animator);
         }
 
-        if (_movement.MoveInput != Vector2.zero)
+        if (_movementAction.MoveInput != Vector2.zero)
         {
             SetAnimatorCondition(AnimatorCondition.IsRun);
-            _movement.SetAnimationSpeed(_animator);
-            _movement.Move();
+            _movementAction.SetAnimationSpeed(_animator);
+            _movementAction.Move();
         }
         else
         {
-            _movement.ResetAnimationSpeed(_animator);
+            _movementAction.ResetAnimationSpeed(_animator);
         }
+        
+        Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
     }
 
     public void StopReloading()

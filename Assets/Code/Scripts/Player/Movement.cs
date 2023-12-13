@@ -6,10 +6,11 @@
 // --------------------------------------- //
 
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Movement : MonoBehaviour
 {
-    public Transform Player;
+    [FormerlySerializedAs("Player")] public Transform ObjectToMove;
     
     public Vector2 MoveInput { get; set; }
     
@@ -19,8 +20,10 @@ public class Movement : MonoBehaviour
 
     public void Move()
     {
-        Player.Translate(MoveInput * (Time.deltaTime * Speed));
+        ObjectToMove.Translate(MoveInput * (Time.smoothDeltaTime * Speed));
     }
+    
+    
     
     public void SetAnimationSpeed(Animator animator)
     {

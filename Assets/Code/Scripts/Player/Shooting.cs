@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -17,25 +18,36 @@ public class Shooting : MonoBehaviour
     private float _nextFireTime = 0f;
     private float _defaultFireRate = 0.5f;
     
+    public float LookX => _direction.x;
+
+    private Vector2 _direction;
+    private Vector2 _playerPosition;
+    private Vector2 _mousePosition;
+
+    private void Update()
+    {
+       _playerPosition  = transform.position;
+       _mousePosition = _aim.position;
+
+        _direction = (_mousePosition - _playerPosition).normalized;
+    }
+
     public void Shoot()
     {
 
         if (Time.time > _nextFireTime)
         {
-            Vector2 playerPosition = transform.position;
-            Vector2 mousePosition = _aim.position;
-
-            Vector2 direction = (mousePosition - playerPosition).normalized;
-            float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+           
+            float rotation = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
 
             // Create a bullet
             GameObject bullet = Instantiate(bulletPrefab,
-                playerPosition,
+                _playerPosition,
                 Quaternion.Euler(0, 0, rotation));
 
             // Add force to the bullet in the direction of the mouse
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = direction * bulletSpeed;
+            rb.velocity = _direction * bulletSpeed;
             
             _nextFireTime = Time.time + FireRate;
         }
