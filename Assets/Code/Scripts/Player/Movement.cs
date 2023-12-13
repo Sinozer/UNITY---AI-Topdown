@@ -5,22 +5,31 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Movement : MonoBehaviour
 {
-    [FormerlySerializedAs("Player")] public Transform ObjectToMove;
+    public Transform ObjectToMove;
     
     public Vector2 MoveInput { get; set; }
     
     [Header("Sats")]
-    public float Speed = 4f;
-    private float _defaultSpeed = 4f;
+    public float Speed = 1f;
+    private float _defaultSpeed = 1f;
 
-    public void Move()
+    private Rigidbody2D rb;
+    private void Start()
     {
-        ObjectToMove.Translate(MoveInput * (Time.smoothDeltaTime * Speed));
+        rb = ObjectToMove.GetComponent<Rigidbody2D>();
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+    }
+
+    public void Move(float speed)
+    {
+        Speed = speed;
+        rb.AddForce(MoveInput * Speed);
     }
     
     

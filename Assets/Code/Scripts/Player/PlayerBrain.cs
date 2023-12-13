@@ -9,7 +9,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerBrain : MonoBehaviour
+public class PlayerBrain : Entity
 {
     private enum AnimatorCondition
     {
@@ -21,14 +21,14 @@ public class PlayerBrain : MonoBehaviour
         IsDead
     }
 
-    [Header("Inputs")] 
-    [SerializeField] private InputActionReference  _moveInput;
+    [Header("Inputs")] [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _shootInput;
     [SerializeField] private InputActionReference _reloadInput;
-    
-    
-    [Header("References")]
-    [SerializeField] private GameObject Actions;
+
+
+    [Header("References")] [SerializeField]
+    private GameObject Actions;
+
     [SerializeField] private GameObject Render;
 
     private Animator _animator;
@@ -38,7 +38,7 @@ public class PlayerBrain : MonoBehaviour
 
     private Movement _movementAction;
     private Shooting _shootingAction;
-    
+
     private string[] animatorConditionNames;
 
     private void Awake()
@@ -97,32 +97,37 @@ public class PlayerBrain : MonoBehaviour
     {
         SetAnimatorCondition(AnimatorCondition.IsReload);
     }
-    
+
     void Update()
     {
-        if (_shoot)
+        if (!IsDead)
         {
-            SetAnimatorCondition(AnimatorCondition.IsShoot);
-            _shootingAction.SetAnimationSpeed(_animator);
-            _shootingAction.Shoot();
-        }
-        else
-        {
-            _shootingAction.ResetAnimationSpeed(_animator);
-        }
+            if (_shoot)
+            {
+                SetAnimatorCondition(AnimatorCondition.IsShoot);
+                _shootingAction.SetAnimationSpeed(_animator);
+                _shootingAction.Shoot();
+            }
+            else
+            {
+                _shootingAction.ResetAnimationSpeed(_animator);
+            }
 
-        if (_movementAction.MoveInput != Vector2.zero)
-        {
-            SetAnimatorCondition(AnimatorCondition.IsRun);
-            _movementAction.SetAnimationSpeed(_animator);
-            _movementAction.Move();
+            if (_movementAction.MoveInput != Vector2.zero)
+            {
+                SetAnimatorCondition(AnimatorCondition.IsRun);
+                _movementAction.SetAnimationSpeed(_animator);
+                _movementAction.Move(_speed);
+            }
+            else
+            {
+                _movementAction.ResetAnimationSpeed(_animator);
+            }
+
+            Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
         }
         else
-        {
-            _movementAction.ResetAnimationSpeed(_animator);
-        }
-        
-        Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
+            SetAnimatorCondition(AnimatorCondition.IsDead);
     }
 
     public void StopReloading()
