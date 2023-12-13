@@ -449,7 +449,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!58 &1346499649
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -971,7 +971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1741937805456882724, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
       propertyPath: _speed
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1741937805456882724, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
       propertyPath: _moveInput
@@ -1118,7 +1118,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2074709973 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1741937805456882724, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}

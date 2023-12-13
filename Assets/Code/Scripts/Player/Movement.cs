@@ -16,8 +16,8 @@ public class Movement : MonoBehaviour
     public Vector2 MoveInput { get; set; }
     
     [Header("Sats")]
-    public float Speed = 1f;
-    private float _defaultSpeed = 1f;
+    public float Speed = 10f;
+    private float _defaultSpeed = 10f;
 
     private Rigidbody2D rb;
     private void Start()
@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     public void Move(float speed)
     {
         Speed = speed;
-        rb.AddForce(MoveInput * Speed);
+        rb.MovePosition(rb.position + MoveInput * Speed * Time.fixedDeltaTime);
     }
     
     
@@ -38,6 +38,7 @@ public class Movement : MonoBehaviour
     {
         // Calculate the speed based on fire rate and adjust the speed of the animator
         animator.speed = Speed / _defaultSpeed;
+        Debug.Log($"{ Speed / _defaultSpeed}");
     }
     public void ResetAnimationSpeed(Animator animator)
     {
