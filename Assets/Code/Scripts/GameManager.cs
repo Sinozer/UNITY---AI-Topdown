@@ -11,12 +11,15 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private Transform _player;
-
+    
     private void Start()
     {
-        if (_player == null)
-            _player = GameObject.FindGameObjectWithTag("Player").transform;
-        
+        SetPlayer();
+    }
+
+    public void SetPlayer()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
     public void Quit()
