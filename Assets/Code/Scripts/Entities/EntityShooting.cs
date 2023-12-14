@@ -19,12 +19,16 @@ public class EntityShooting : MonoBehaviour
 
     [SerializeField] private SOProjectile _projectile;
 
+    [SerializeField] private float _fireRate;
+    public float FireRate { get => _fireRate; set => _fireRate = value;}
+    
+
     public float LookX => _direction.x;
     private Vector2 _direction;
 
     private void Awake()
     {
-        if (CompareTag("Player"))
+        if (transform.parent.gameObject.CompareTag("Player"))
             _isNpc = false;
     }
 
@@ -68,8 +72,7 @@ public class EntityShooting : MonoBehaviour
     {
         while (true)
         {
-            if (_target == null)
-                GetTarget();
+            GetTarget();
 
             GameObject projectile = new GameObject("Projectile");
             projectile.transform.position = transform.position;
@@ -81,20 +84,25 @@ public class EntityShooting : MonoBehaviour
             Rigidbody2D r2d = projectile.AddComponent<Rigidbody2D>();
             r2d.bodyType = RigidbodyType2D.Kinematic;
             _direction = (_targetPosition - (Vector2)transform.position).normalized;
+            
             r2d.velocity = _direction * _projectile.Speed;
 
+            float rotation = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+            projectile.transform.rotation = Quaternion.Euler(0, 0, rotation);
+            
             Destroy(projectile, _projectile.LifeTime);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(_fireRate);
         }
     }
 
-    public void StartShooting()
+    public void StartShooting(float fireRate)
     {
+        _fireRate = fireRate;
         _shootCoroutine = StartCoroutine(Shoot());
     }
 
-    public void StopShooting()
+    public void StopShooting() 
     {
         StopCoroutine(_shootCoroutine);
     }

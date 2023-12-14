@@ -21,6 +21,10 @@ public class PlayerBrain : Entity
         IsDead
     }
 
+    [SerializeField] private float _fireRate;
+    public float FireRate => 1 / _fireRate;
+    
+    
     [Header("Inputs")] 
     [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _shootInput;
@@ -82,7 +86,7 @@ public class PlayerBrain : Entity
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
         _shoot = context.ReadValue<float>() > 0;
-        _shootingAction.StartShooting();
+        _shootingAction.StartShooting(FireRate);
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
