@@ -84,6 +84,7 @@ public class PlayerBrain : Entity
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
         _shoot = context.ReadValue<float>() > 0;
+        _shootingAction.StartShooting();
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
@@ -91,6 +92,8 @@ public class PlayerBrain : Entity
         _shoot = false;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
         _shootingAction.ResetAnimationSpeed(_animator);
+        _shootingAction.StopShooting();
+
     }
 
     private void OnReloadPerformed(InputAction.CallbackContext context)
@@ -112,7 +115,6 @@ public class PlayerBrain : Entity
             {
                 SetAnimatorCondition(AnimatorCondition.IsShoot);
                 _shootingAction.SetAnimationSpeed(_animator);
-                _shootingAction.Shoot();
             }
 
             if (_movementAction.MoveInput == Vector2.zero)
