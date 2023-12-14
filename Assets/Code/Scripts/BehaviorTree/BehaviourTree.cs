@@ -11,16 +11,16 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(menuName = "BehaviorTree/BehaviorTree")]
 public class BehaviourTree : ScriptableObject
 {
-   public Node rootNode;
-   public Node.State treeState = Node.State.Running;
+   public Node RootNode;
+   public Node.State TreeState = Node.State.Running;
    
    public Node.State Update()
    {
-       if(rootNode.state == Node.State.Running)
+       if(RootNode.CurrentState == Node.State.Running)
        {
-           treeState = rootNode.Update();
+           TreeState = RootNode.Update();
        }
 
-       return treeState;
+       return TreeState;
    }
 }

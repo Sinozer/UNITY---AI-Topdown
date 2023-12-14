@@ -6,24 +6,25 @@
 // --------------------------------------- //
 
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DebugLogNode : ActionNode
 {
-    public string message;
+    public string Message;
     
     public override void OnStart()
     {
-        Debug.Log($"OnStart: {message}");
+        Debug.Log($"OnStart: {Message}");
     }
 
     public override void OnStop()
     {
-        Debug.Log($"OnStop: {message}");
+        Debug.Log($"OnStop: {Message}");
     }
 
     public override State OnUpdate()
     {
-        Debug.Log($"OnUpdate: {message}");
+        Debug.Log($"OnUpdate: {Message}");
         return State.Success;
     }
 }

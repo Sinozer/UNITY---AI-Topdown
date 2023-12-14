@@ -6,6 +6,7 @@
 // --------------------------------------- //
 
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class Node : ScriptableObject
 {
@@ -16,26 +17,26 @@ public abstract class Node : ScriptableObject
         Failure
     }
 
-    public State state = State.Running;
-    public bool started = false;
+    public State CurrentState = State.Running;
+    public bool Started = false;
 
     public State Update()
     {
-        if(!started)
+        if(!Started)
         {
             OnStart();
-            started = true;
+            Started = true;
         }
         
-        state = OnUpdate();
+        CurrentState = OnUpdate();
         
-        if(state == State.Failure || state == State.Success)
+        if(CurrentState == State.Failure || CurrentState == State.Success)
         {
             OnStop();
-            started = false;
+            Started = false;
         }
 
-        return state;
+        return CurrentState;
     }
     
     public abstract void OnStart();

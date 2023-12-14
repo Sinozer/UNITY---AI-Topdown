@@ -6,15 +6,16 @@
 // --------------------------------------- //
 
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WaitNode : ActionNode
 {
-    public float duration = 1;
-    private float startTime;
+    public float Duration = 1;
+    private float _startTime;
     
     public override void OnStart()
     {
-        startTime = Time.time;
+        _startTime = Time.time;
     }
 
     public override void OnStop()
@@ -24,6 +25,6 @@ public class WaitNode : ActionNode
 
     public override State OnUpdate()
     {
-        return Time.time - startTime > duration ? State.Success : State.Running;
+        return Time.time - _startTime > Duration ? State.Success : State.Running;
     }
 }

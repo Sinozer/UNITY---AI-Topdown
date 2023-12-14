@@ -10,11 +10,11 @@ using UnityEngine;
 
 public class SequencerNode : CompositeNode
 {
-    private int currentChild;
+    private int _currentChild;
     
     public override void OnStart()
     {
-        currentChild = 0;
+        _currentChild = 0;
     }
 
     public override void OnStop()
@@ -24,18 +24,18 @@ public class SequencerNode : CompositeNode
 
     public override State OnUpdate()
     {
-        Node child = children[currentChild];
+        Node child = Children[_currentChild];
         switch (child.OnUpdate())
         {
             case State.Running:
                 return State.Running;
             case State.Success:
-                currentChild++;
+                _currentChild++;
                 break;
             case State.Failure:
                 return State.Failure;
         }
         
-        return currentChild == children.Count ? State.Success : State.Running;
+        return _currentChild == Children.Count ? State.Success : State.Running;
     }
 }

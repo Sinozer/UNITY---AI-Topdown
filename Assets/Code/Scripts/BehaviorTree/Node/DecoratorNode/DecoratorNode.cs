@@ -6,8 +6,9 @@
 // --------------------------------------- //
 
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class DecoratorNode : Node
 {
-   public Node child;
+   public Node Child;
 }

@@ -9,22 +9,22 @@ using UnityEngine;
 
 public class BehaviorTreeRunner : MonoBehaviour
 {
-    private BehaviourTree tree;
+    private BehaviourTree _tree;
     void Start()
     {
-        tree = ScriptableObject.CreateInstance<BehaviourTree>();
+        _tree = ScriptableObject.CreateInstance<BehaviourTree>();
         
         DebugLogNode log = ScriptableObject.CreateInstance<DebugLogNode>();
-        log.message = "League of Legends is a !good game";
+        log.Message = "League of Legends is a !good game";
 
         RepeatNode loop = ScriptableObject.CreateInstance<RepeatNode>();
-        loop.child = log;
+        loop.Child = log;
         
-        tree.rootNode = loop;
+        _tree.RootNode = loop;
     }
 
     void Update()
     {
-        tree.Update();
+        _tree.Update();
     }
 }
