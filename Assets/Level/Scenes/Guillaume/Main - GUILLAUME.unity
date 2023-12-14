@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: _reloadInput
       value: 
       objectReference: {fileID: -6401934985596150359, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
+    - target: {fileID: 1741937805456882724, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
+      propertyPath: _movementSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2673421808987519354, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
       propertyPath: _aim
       value: 
