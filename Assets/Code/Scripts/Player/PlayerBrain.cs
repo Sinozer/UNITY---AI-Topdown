@@ -32,7 +32,6 @@ public class PlayerBrain : Entity
     [SerializeField] private GameObject Render;
 
     private Animator _animator;
-    private PlayerInput _playerInput;
 
     private bool _shoot;
 
@@ -43,7 +42,6 @@ public class PlayerBrain : Entity
 
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
         _movementAction = Actions.GetComponent<Movement>();
         _shootingAction = Actions.GetComponent<Shooting>();
         _animator = Render.GetComponent<Animator>();
