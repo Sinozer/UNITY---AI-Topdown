@@ -9,43 +9,40 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private Transform _aim;
     [SerializeField] GameObject bulletPrefab;
 
     public IShootable Shootable;
     public float BulletSpeed;
     public float FireRate = 2.5f;
     
-    private float _fireTimer = 0;
-    private bool _canFire = false;
-    private Rigidbody2D _bulletRigidbody;
+
+    private Vector2 _direction;
+    private Vector2 _playerPosition;
+    private Vector2 _mousePosition;
+
 
     void Start()
     {
-        _fireTimer = 0;
-        _bulletRigidbody = bulletPrefab.GetComponent<Rigidbody2D>();
         BulletSpeed = bulletPrefab.GetComponent<Projectile>().Speed;
         Shootable = bulletPrefab.GetComponent<IShootable>();
     }
 
     private void Update()
     {
-        if (!_canFire)
-        {
-            _fireTimer -= Time.deltaTime;
-            if (_fireTimer <= 0)
-            {
-                _canFire = true;
-            }
-        }
+        _playerPosition = transform.position;
+        _mousePosition = _aim.position;
+        _direction = (_mousePosition - _playerPosition).normalized;
     }
 
-    public void Shoot(Vector2 direction)
+    public void Shoot()
     {
-        if (_canFire && Shootable != null)
+        if (Shootable != null)
         {
-            Shootable.Shoot(_bulletRigidbody, direction, BulletSpeed);
-            _canFire = false;
-            _fireTimer = 1 / FireRate;
+            float rotation = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+            GameObject bullet = Instantiate(bulletPrefab, _playerPosition, Quaternion.Euler(0, 0, rotation));
+            Rigidbody2D rg = bullet.GetComponent<Rigidbody2D>();
+            Shootable.Shoot(rg, _direction, BulletSpeed);
         }
     }
 }

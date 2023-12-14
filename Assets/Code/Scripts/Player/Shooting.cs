@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -27,30 +28,35 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-       _playerPosition  = transform.position;
-       _mousePosition = _aim.position;
-
-       _direction = (_mousePosition - _playerPosition).normalized;
+        _playerPosition  = transform.position;
+        _mousePosition = _aim.position;
+        
+        _direction = (_mousePosition - _playerPosition).normalized;
     }
 
-    public void Shoot()
+    public IEnumerator Shoot()
     {
+        /*        if (Time.time > _nextFireTime)
+                {
 
-        if (Time.time > _nextFireTime)
+                    float rotation = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+
+                    // Create a bullet
+                    GameObject bullet = Instantiate(bulletPrefab,
+                        _playerPosition,
+                        Quaternion.Euler(0, 0, rotation));
+
+                    // Add force to the bullet in the direction of the mouse
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    rb.velocity = _direction * bulletSpeed;
+
+                    _nextFireTime = Time.time + FireRate;
+                }*/
+        while (true)
         {
-           
-            float rotation = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+            weapon.Shoot();
 
-            // Create a bullet
-            GameObject bullet = Instantiate(bulletPrefab,
-                _playerPosition,
-                Quaternion.Euler(0, 0, rotation));
-
-            // Add force to the bullet in the direction of the mouse
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = _direction * bulletSpeed;
-            
-            _nextFireTime = Time.time + FireRate;
+            yield return new WaitForSeconds(weapon.FireRate);
         }
     }
     
