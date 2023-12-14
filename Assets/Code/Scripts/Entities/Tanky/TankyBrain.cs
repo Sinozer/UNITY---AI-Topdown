@@ -5,14 +5,20 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
 using UnityEngine;
 
 public class TankyBrain : Enemy
 {
     public bool SeePlayer => _seePlayer;
+    public Animator Animator => _animator;
+
+    [SerializeField] private GameObject _render;
+    [SerializeField] private bool _seePlayer = false;
 
     private TankyStateManager _stateManager;
-    [SerializeField] private bool _seePlayer = false;
+    private Animator _animator;
+
 
     private void Awake()
     {
@@ -23,12 +29,21 @@ public class TankyBrain : Enemy
         _attackRange = 10;
 
         _stateManager = new TankyStateManager(this);
+        _animator = _render.GetComponent<Animator>();
     }
 
     private void Update()
     {
         _stateManager.Update();
+
         if (IsDead)
-            Destroy(gameObject);
+            return;
+
+        _distFromPlayer = CalculateDistFromPlayer();
+        if (_distFromPlayer < _attackRange)
+            _seePlayer = true;
+        else 
+            _seePlayer = false;
+
     }
 }

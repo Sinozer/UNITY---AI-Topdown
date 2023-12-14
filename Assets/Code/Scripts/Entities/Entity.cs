@@ -35,4 +35,9 @@ public abstract class Entity : MonoBehaviour
     {
         entity.TakeDamage(_damage);
     }
+
+    public void Die(float time)
+    {
+        Destroy(transform.parent.gameObject, time);
+    }
 }
