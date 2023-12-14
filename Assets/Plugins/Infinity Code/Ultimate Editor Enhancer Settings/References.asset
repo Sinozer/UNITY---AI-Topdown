@@ -458,6 +458,10 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
+  - name: 2D
+    path: Assets/AstarPathfindingProject/ExampleScenes/Example15_2D/2D.unity
+  - name: Main - GUILLAUME
+    path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   - name: Main - MATTHIEU
     path: Assets/Level/Scenes/Matthieu/Main - MATTHIEU.unity
   - name: Main - THEO
@@ -474,6 +478,4 @@ MonoBehaviour:
     path: Assets/Level/Scenes/Yoann/Main - YOANN.unity
   - name: Template
     path: Assets/Level/Scenes/Template.unity
-  - name: Main - GUILLAUME
-    path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   _notes: []
