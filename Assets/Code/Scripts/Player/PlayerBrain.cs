@@ -123,7 +123,7 @@ public class PlayerBrain : Entity
             {
                 SetAnimatorCondition(AnimatorCondition.IsRun);
                 _movementAction.SetAnimationSpeed(_animator);
-                _movementAction.Move(_speed);
+                _movementAction.Move(_movementSpeed);
             }
 
             Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
