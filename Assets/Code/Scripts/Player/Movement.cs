@@ -15,9 +15,9 @@ public class Movement : MonoBehaviour
     
     public Vector2 MoveInput { get; set; }
     
-    [Header("Sats")]
+    [Header("Stats")]
     public float Speed = 10f;
-    private float _defaultSpeed = 10f;
+    private float _defaultSpeed = 5f;
 
     private Rigidbody2D _rb;
     private void Start()
