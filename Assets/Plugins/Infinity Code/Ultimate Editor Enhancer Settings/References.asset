@@ -458,12 +458,14 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
-  - name: MainMenu
-    path: Assets/Level/Scenes/MainMenu.unity
-  - name: Main
-    path: Assets/Level/Scenes/Main.unity
   - name: Level - YOANN
     path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
+  - name: Settings
+    path: Assets/Level/Scenes/Settings.unity
+  - name: Main
+    path: Assets/Level/Scenes/Main.unity
+  - name: MainMenu
+    path: Assets/Level/Scenes/MainMenu.unity
   - name: Main - YOANN
     path: Assets/Level/Scenes/Yoann/Main - YOANN.unity
   - name: Template
