@@ -102,32 +102,33 @@ public class PlayerBrain : Entity
     void Update()
     {
         if (IsDead)
+        {
             SetAnimatorCondition(AnimatorCondition.IsDead);
+            return;
+        }
+
+        if (!_shoot)
+        {
+            _shootingAction.ResetAnimationSpeed(_animator);
+        }
         else
         {
-            if (!_shoot)
-            {
-                _shootingAction.ResetAnimationSpeed(_animator);
-            }
-            else
-            {
-                SetAnimatorCondition(AnimatorCondition.IsShoot);
-                _shootingAction.SetAnimationSpeed(_animator);
-            }
-
-            if (_movementAction.MoveInput == Vector2.zero)
-            {
-                _movementAction.ResetAnimationSpeed(_animator);
-            }
-            else
-            {
-                SetAnimatorCondition(AnimatorCondition.IsRun);
-                _movementAction.SetAnimationSpeed(_animator);
-                _movementAction.Move(_speed);
-            }
-
-            Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
+            SetAnimatorCondition(AnimatorCondition.IsShoot);
+            _shootingAction.SetAnimationSpeed(_animator);
         }
+
+        if (_movementAction.MoveInput == Vector2.zero)
+        {
+            _movementAction.ResetAnimationSpeed(_animator);
+        }
+        else
+        {
+            SetAnimatorCondition(AnimatorCondition.IsRun);
+            _movementAction.SetAnimationSpeed(_animator);
+            _movementAction.Move(_speed);
+        }
+
+        Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
     }
 
     public void StopReloading()
