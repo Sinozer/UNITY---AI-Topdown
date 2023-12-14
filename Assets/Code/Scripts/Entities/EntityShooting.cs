@@ -20,7 +20,7 @@ public class EntityShooting : MonoBehaviour
     [SerializeField] private SOProjectile _projectile;
 
     [SerializeField] private float _fireRate;
-    public float FireRate { get => _fireRate; set => _fireRate = value;}
+    public float FireRate => 1 / _fireRate;
     
 
     public float LookX => _direction.x;
