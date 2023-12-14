@@ -13,7 +13,7 @@ public class Enemy : Entity
 
     protected float _distFromPlayer;
 
-    [SerializeField] private Movement _movement;
+    //[SerializeField] private Movement _movement;
     private Vector3 GetPlayerPos()
     {
         string playerTag = "Player";
