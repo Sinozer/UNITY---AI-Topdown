@@ -5,8 +5,6 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using UnityEngine.SceneManagement;
-
 public class SceneManager : Singleton<SceneManager>
 {
     public void LoadScene(string sceneName)
@@ -42,20 +40,5 @@ public class SceneManager : Singleton<SceneManager>
     public UnityEngine.SceneManagement.Scene GetCurrentScene()
     {
         return UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-    }
-    
-    void OnEnable()
-    {
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnDisable()
-    {
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        GameManager.Instance.SetPlayer();
     }
 }
