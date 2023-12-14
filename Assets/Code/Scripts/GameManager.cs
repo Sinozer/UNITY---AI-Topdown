@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private Transform _player;
+    [SerializeField] private Player _player;
 
     private void Start()
     {
@@ -31,17 +31,17 @@ public class GameManager : Singleton<GameManager>
         UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void FindPlayer()
+    private void FindPlayer()
     {
         GameObject go = GameObject.FindGameObjectWithTag("Player");
 
         if (go == null)
             return;
 
-        _player = go.transform;
+        _player = go.GetComponent<Player>();
     }
 
-    public Transform GetPlayer()
+    public Player GetPlayer()
     {
         return _player;
     }

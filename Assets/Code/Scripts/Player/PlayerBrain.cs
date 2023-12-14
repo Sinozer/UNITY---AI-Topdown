@@ -36,14 +36,14 @@ public class PlayerBrain : Entity
     private bool _shoot;
 
     private Movement _movementAction;
-    private Shooting _shootingAction;
+    private EntityShooting _shootingAction;
 
     private string[] _animatorConditionNames;
 
     private void Awake()
     {
         _movementAction = Actions.GetComponent<Movement>();
-        _shootingAction = Actions.GetComponent<Shooting>();
+        _shootingAction = Actions.GetComponent<EntityShooting>();
         _animator = Render.GetComponent<Animator>();
 
         _animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
