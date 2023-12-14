@@ -1,0 +1,1054 @@
+fileFormatVersion: 2
+guid: 4b52fad06492b1a45b334aae77ad32b9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CyberpunkInterior_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bbb4c34896a0404b8e9924200d81c4b
+      internalID: 1549745883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072dae08d6ff32d4698a8900d2757edb
+      internalID: -1321987634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 736dfa0a956ac8f4e91c91ed692839f5
+      internalID: -450314638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71d26f369ebc5841aa5cf5534a03443
+      internalID: -577754702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c89cd57195bb34e83321792aeb6051
+      internalID: 630830041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07535553356dd5e478966de49a9961f2
+      internalID: -204608983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5d22126d2ba0c41b72ae359bba1780
+      internalID: 479664836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2402a3d5e5fdde941b27da7d1b455e45
+      internalID: -1494243344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f24bfac890d34e4f8370d53c144c278
+      internalID: -1840206588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a644afa1553137442b2b2b0a935ba734
+      internalID: 1281479964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3751d0d47f1f0b84fbaa23944e70893c
+      internalID: -1955694217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_39
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c166b69cf38852479f41b5c3066b68b
+      internalID: 1856961904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_40
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165e83a7c5d1a0348a8b64acbdbaf7ce
+      internalID: 1654783754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_41
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73bcb09fc062e54e9e8f0a95269927a
+      internalID: 22870206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_42
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2cc07c8c77fdb4c8da6abb8ca4c92a
+      internalID: 540787961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960b9eb1ce7027449a962b13b72f7b50
+      internalID: 716295719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_58
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0561cb7386f834c8ca8a2c15524f9b
+      internalID: 2075999682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_59
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c11c55837f83e4185e96b15f94ba4d
+      internalID: -372377166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_60
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db3e2b14146d2947b6de42e20ae2182
+      internalID: -307527585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_61
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9fdf414cf00aa6408d2ca3584356693
+      internalID: -2113959025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_72
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8536738ad0466004baa00ef5eee653aa
+      internalID: -330479876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_73
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d233ac0bdf8f6c4da8dc0bbe9ce8cff
+      internalID: 888955772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_74
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edaa9a36b9590f141aa94c908a2bd6cc
+      internalID: 1724358288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670ae0a4601c148448c68e8ebd117887
+      internalID: 747198391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_82
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758aff49e1b88de408e7f30aacfa46fe
+      internalID: 651765495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_83
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f21ecc589bf3aa43a2c3002ea32a8f7
+      internalID: -523671411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_84
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec9ed959cd15a74f95f078a4db253d2
+      internalID: 361363898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c734c3a0b6bd184eb8ef1d479eb4b49
+      internalID: -678947484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_97
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c5b788a3d041cf498e30b60412b1d83
+      internalID: -611335330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_106
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2cf8ef4f1a3824a9373f4eefe3373e
+      internalID: -1525248590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_107
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 993522afe133de041b5a6d3ce95c820b
+      internalID: 1386005320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_108
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2ff3c0d7bfe1e4b86acdea9059b0f1
+      internalID: 1939460752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_109
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52d5203a4f76a04d9b5b3bcc711e788
+      internalID: -1263717781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_123
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f06a0d6fa9fe1e41a211dd10611df58
+      internalID: 821310939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_124
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19388906a8043bd41966c1c438c6c068
+      internalID: -786811727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_125
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3418940832eed3241892440548c50073
+      internalID: 1621287413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberpunkInterior_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 193
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57067171919ca3b4b854d68b6412c74a
+      internalID: -1218056819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      CyberpunkInterior_0: 1549745883
+      CyberpunkInterior_1: -1321987634
+      CyberpunkInterior_10: 1810551608
+      CyberpunkInterior_100: -1293723472
+      CyberpunkInterior_101: -169415793
+      CyberpunkInterior_102: 1781828261
+      CyberpunkInterior_103: 1245018900
+      CyberpunkInterior_104: -1967671390
+      CyberpunkInterior_105: -797838397
+      CyberpunkInterior_106: -1525248590
+      CyberpunkInterior_107: 1386005320
+      CyberpunkInterior_108: 1939460752
+      CyberpunkInterior_109: -1263717781
+      CyberpunkInterior_11: -125631294
+      CyberpunkInterior_110: -1945967059
+      CyberpunkInterior_111: 414342713
+      CyberpunkInterior_112: -1505011925
+      CyberpunkInterior_113: 554017156
+      CyberpunkInterior_114: -1375400833
+      CyberpunkInterior_115: 1219211235
+      CyberpunkInterior_116: 285988740
+      CyberpunkInterior_117: 1161236040
+      CyberpunkInterior_118: -1537449653
+      CyberpunkInterior_119: 1329007947
+      CyberpunkInterior_12: 959191144
+      CyberpunkInterior_120: 1622369890
+      CyberpunkInterior_121: 92419766
+      CyberpunkInterior_122: -977329620
+      CyberpunkInterior_123: 821310939
+      CyberpunkInterior_124: -786811727
+      CyberpunkInterior_125: 1621287413
+      CyberpunkInterior_126: 1258885532
+      CyberpunkInterior_127: -1489416480
+      CyberpunkInterior_128: 2138737193
+      CyberpunkInterior_129: -1642443448
+      CyberpunkInterior_13: -698550726
+      CyberpunkInterior_130: -1492702831
+      CyberpunkInterior_131: 1896295216
+      CyberpunkInterior_132: -1332344144
+      CyberpunkInterior_133: -846449951
+      CyberpunkInterior_134: 1768282143
+      CyberpunkInterior_135: -383290071
+      CyberpunkInterior_136: 1980711155
+      CyberpunkInterior_137: -28523933
+      CyberpunkInterior_138: -351085230
+      CyberpunkInterior_139: 635496588
+      CyberpunkInterior_14: 127440995
+      CyberpunkInterior_140: 1048401991
+      CyberpunkInterior_141: 984984122
+      CyberpunkInterior_142: -1785208975
+      CyberpunkInterior_143: 851975959
+      CyberpunkInterior_144: 1865449342
+      CyberpunkInterior_145: -1129513426
+      CyberpunkInterior_146: -90786473
+      CyberpunkInterior_147: 2061269927
+      CyberpunkInterior_148: 997706123
+      CyberpunkInterior_149: -580850417
+      CyberpunkInterior_15: 2123481655
+      CyberpunkInterior_16: -86292048
+      CyberpunkInterior_17: -1780463511
+      CyberpunkInterior_18: -556279102
+      CyberpunkInterior_19: 502904584
+      CyberpunkInterior_2: -450314638
+      CyberpunkInterior_20: -204608983
+      CyberpunkInterior_21: 479664836
+      CyberpunkInterior_22: -1494243344
+      CyberpunkInterior_23: -1840206588
+      CyberpunkInterior_24: 1281479964
+      CyberpunkInterior_25: -1501948692
+      CyberpunkInterior_26: -973614130
+      CyberpunkInterior_27: 1538519959
+      CyberpunkInterior_28: 1376061469
+      CyberpunkInterior_29: -279795898
+      CyberpunkInterior_3: -577754702
+      CyberpunkInterior_30: 1438199049
+      CyberpunkInterior_31: 347531940
+      CyberpunkInterior_32: -787329826
+      CyberpunkInterior_33: 326145854
+      CyberpunkInterior_34: 1676132622
+      CyberpunkInterior_35: 384462037
+      CyberpunkInterior_36: -65927537
+      CyberpunkInterior_37: 1376072124
+      CyberpunkInterior_38: -1955694217
+      CyberpunkInterior_39: 1856961904
+      CyberpunkInterior_4: 630830041
+      CyberpunkInterior_40: 1654783754
+      CyberpunkInterior_41: 22870206
+      CyberpunkInterior_42: 540787961
+      CyberpunkInterior_43: 933475514
+      CyberpunkInterior_44: 1594953406
+      CyberpunkInterior_45: -346851277
+      CyberpunkInterior_46: -978836045
+      CyberpunkInterior_47: -2001660204
+      CyberpunkInterior_48: -1954710435
+      CyberpunkInterior_49: -768806308
+      CyberpunkInterior_5: -1218056819
+      CyberpunkInterior_50: 75492306
+      CyberpunkInterior_51: 1096513046
+      CyberpunkInterior_52: 1286576813
+      CyberpunkInterior_53: -1190884877
+      CyberpunkInterior_54: 1319808910
+      CyberpunkInterior_55: -1338364586
+      CyberpunkInterior_56: -1961111773
+      CyberpunkInterior_57: 716295719
+      CyberpunkInterior_58: 2075999682
+      CyberpunkInterior_59: -372377166
+      CyberpunkInterior_6: 181886018
+      CyberpunkInterior_60: -307527585
+      CyberpunkInterior_61: -2113959025
+      CyberpunkInterior_62: 1425873097
+      CyberpunkInterior_63: -498282335
+      CyberpunkInterior_64: -357446384
+      CyberpunkInterior_65: -1100907170
+      CyberpunkInterior_66: 537613569
+      CyberpunkInterior_67: -404891618
+      CyberpunkInterior_68: -834106220
+      CyberpunkInterior_69: -1288811385
+      CyberpunkInterior_7: -848734486
+      CyberpunkInterior_70: 1316919157
+      CyberpunkInterior_71: 1347936763
+      CyberpunkInterior_72: -330479876
+      CyberpunkInterior_73: 888955772
+      CyberpunkInterior_74: 1724358288
+      CyberpunkInterior_75: -490784172
+      CyberpunkInterior_76: -1951649227
+      CyberpunkInterior_77: 106251334
+      CyberpunkInterior_78: -669721998
+      CyberpunkInterior_79: 1027755000
+      CyberpunkInterior_8: 2000124194
+      CyberpunkInterior_80: 1839892337
+      CyberpunkInterior_81: 747198391
+      CyberpunkInterior_82: 651765495
+      CyberpunkInterior_83: -523671411
+      CyberpunkInterior_84: 361363898
+      CyberpunkInterior_85: 1998923866
+      CyberpunkInterior_86: -1645769797
+      CyberpunkInterior_87: 1754460966
+      CyberpunkInterior_88: -323223049
+      CyberpunkInterior_89: 876634813
+      CyberpunkInterior_9: 1556148341
+      CyberpunkInterior_90: -2041808429
+      CyberpunkInterior_91: 183168801
+      CyberpunkInterior_92: -438247258
+      CyberpunkInterior_93: -1214957488
+      CyberpunkInterior_94: 2081642478
+      CyberpunkInterior_95: 1783051952
+      CyberpunkInterior_96: -678947484
+      CyberpunkInterior_97: -611335330
+      CyberpunkInterior_98: 115707970
+      CyberpunkInterior_99: 1644646959
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
