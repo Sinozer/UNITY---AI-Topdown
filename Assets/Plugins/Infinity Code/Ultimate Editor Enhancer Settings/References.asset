@@ -61,6 +61,30 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 1}
     textAlign: 1
     textStyle: 1
+  - enabled: 1
+    condition: 0
+    value: -1
+    trimChars: -=1
+    backgroundColor: {r: 1, g: 0, b: 0, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textAlign: 1
+    textStyle: 1
+  - enabled: 1
+    condition: 0
+    value: -2
+    trimChars: -=2
+    backgroundColor: {r: 0.029381275, g: 0.6509434, b: 0, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textAlign: 1
+    textStyle: 1
+  - enabled: 1
+    condition: 0
+    value: -3
+    trimChars: -=3
+    backgroundColor: {r: 0, g: 0.44265446, b: 0.6509804, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textAlign: 1
+    textStyle: 1
   _quickAccessItems:
   - tooltip: Open Scene
     expanded: 0
@@ -434,6 +458,20 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
-  - name: Main - MATTHIEU
-    path: Assets/Level/Scenes/Matthieu/Main - MATTHIEU.unity
+  - name: Main - THEO
+    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
+  - name: Level - YOANN
+    path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
+  - name: Settings
+    path: Assets/Level/Scenes/Settings.unity
+  - name: Main
+    path: Assets/Level/Scenes/Main.unity
+  - name: MainMenu
+    path: Assets/Level/Scenes/MainMenu.unity
+  - name: Main - YOANN
+    path: Assets/Level/Scenes/Yoann/Main - YOANN.unity
+  - name: Template
+    path: Assets/Level/Scenes/Template.unity
+  - name: Main - GUILLAUME
+    path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   _notes: []
