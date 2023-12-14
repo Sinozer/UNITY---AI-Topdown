@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using UnityEngine;
@@ -16,15 +15,16 @@ public class Shooting : MonoBehaviour
     
     // The time between each shot
     public float FireRate = 0.5f;
-    // When the next shot will be available
-    private float _nextFireTime = 0f;
-    private float _defaultFireRate = 0.5f;
-    
+
+    private readonly float _defaultFireRate = 0.5f;
+
     public float LookX => _direction.x;
 
     private Vector2 _direction;
     private Vector2 _playerPosition;
     private Vector2 _mousePosition;
+    
+    private Coroutine _shootCoroutine;
 
     private void Update()
     {
@@ -59,12 +59,13 @@ public class Shooting : MonoBehaviour
             yield return new WaitForSeconds(weapon.FireRate);
         }
     }
-    
+
     public void SetAnimationSpeed(Animator animator)
     {
         // Calculate the speed based on fire rate and adjust the speed of the animator
         animator.speed = _defaultFireRate / FireRate;
     }
+
     public void ResetAnimationSpeed(Animator animator)
     {
         animator.speed = 1;

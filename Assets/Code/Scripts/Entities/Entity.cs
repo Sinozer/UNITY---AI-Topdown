@@ -11,14 +11,14 @@ public class Entity : MonoBehaviour
 {
     public bool IsDead => _health <= 0 ;
 
-    [SerializeField] private int _health;
-    [SerializeField] private float _speed;
-    [SerializeField] private int _damage;
+    [SerializeField] protected int _health;
+    [SerializeField] protected float _speed;
+    [SerializeField] protected int _damage;
 
     public Entity()
     {
         _health = 100;
-        _speed = 1;
+        _speed = 5;
         _damage = 10;
     }
 

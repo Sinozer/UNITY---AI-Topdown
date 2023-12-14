@@ -76,9 +76,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5304042611006956102}
+  - component: {fileID: 1584910359832499066}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +103,33 @@ Transform:
   - {fileID: 2659190269368966462}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1584910359832499066
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061051873336289640}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &6073030441954184744
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,6 +141,7 @@ GameObject:
   - component: {fileID: 3474960497854906520}
   - component: {fileID: 3451572352257105406}
   - component: {fileID: 9176962285699109453}
+  - component: {fileID: 1360210263185511573}
   m_Layer: 0
   m_Name: Render
   m_TagString: Untagged
@@ -208,6 +237,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1360210263185511573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6073030441954184744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e02618e2664290d4ea9149252b09bf0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerBrain: {fileID: 1741937805456882724}
 --- !u!1 &7003143102151617594
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +325,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810be1dde55692941a8289c0b74043ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 100
+  _speed: 10
+  _damage: 10
+  _moveInput: {fileID: 3292558435713424574, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
+  _shootInput: {fileID: -3436438092290266539, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
+  _reloadInput: {fileID: -6401934985596150359, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
   Actions: {fileID: 7252970658352413072}
   Render: {fileID: 6073030441954184744}
 --- !u!1 &7252970658352413072
@@ -330,8 +378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78fbd771d54b43b62cd3bf3b90b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 5304042611006956102}
-  Speed: 5
+  ObjectToMove: {fileID: 5304042611006956102}
+  Speed: 1
 --- !u!114 &2673421808987519354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b15937ccf5772c4b9f6f7846aeaae25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3707298295942658395, guid: ca10828682dc1fe4595cdb5e86df4aa2, type: 3}
-  bulletSpeed: 10
+  _aim: {fileID: 0}
+  BulletPrefab: {fileID: 3707298295942658395, guid: ca10828682dc1fe4595cdb5e86df4aa2, type: 3}
+  BulletSpeed: 10
   FireRate: 0.5

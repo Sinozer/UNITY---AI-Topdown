@@ -9,7 +9,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerBrain : MonoBehaviour
+public class PlayerBrain : Entity
 {
     private enum AnimatorCondition
     {
@@ -22,33 +22,31 @@ public class PlayerBrain : MonoBehaviour
     }
 
     [Header("Inputs")] 
-    [SerializeField] private InputActionReference  _moveInput;
+    [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _shootInput;
     [SerializeField] private InputActionReference _reloadInput;
-    
-    
-    [Header("References")]
+
+
+    [Header("References")] 
     [SerializeField] private GameObject Actions;
     [SerializeField] private GameObject Render;
 
     private Animator _animator;
-    private PlayerInput _playerInput;
 
     private bool _shoot;
 
     private Movement _movementAction;
     private Shooting _shootingAction;
-    
-    private string[] animatorConditionNames;
+
+    private string[] _animatorConditionNames;
 
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
         _movementAction = Actions.GetComponent<Movement>();
         _shootingAction = Actions.GetComponent<Shooting>();
         _animator = Render.GetComponent<Animator>();
 
-        animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
+        _animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
     }
 
     private void OnEnable()
@@ -83,7 +81,8 @@ public class PlayerBrain : MonoBehaviour
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        _shoot = context.ReadValue<float>() > 0f;
+        _shoot = context.ReadValue<float>() > 0;
+        _shootingAction.StartShooting();
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
@@ -91,38 +90,44 @@ public class PlayerBrain : MonoBehaviour
         _shoot = false;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
         _shootingAction.ResetAnimationSpeed(_animator);
+        _shootingAction.StopShooting();
+
     }
 
     private void OnReloadPerformed(InputAction.CallbackContext context)
     {
         SetAnimatorCondition(AnimatorCondition.IsReload);
     }
-    
+
     void Update()
     {
-        if (_shoot)
-        {
-            SetAnimatorCondition(AnimatorCondition.IsShoot);
-            _shootingAction.SetAnimationSpeed(_animator);
-            _shootingAction.Shoot();
-        }
+        if (IsDead)
+            SetAnimatorCondition(AnimatorCondition.IsDead);
         else
         {
-            _shootingAction.ResetAnimationSpeed(_animator);
-        }
+            if (!_shoot)
+            {
+                _shootingAction.ResetAnimationSpeed(_animator);
+            }
+            else
+            {
+                SetAnimatorCondition(AnimatorCondition.IsShoot);
+                _shootingAction.SetAnimationSpeed(_animator);
+            }
 
-        if (_movementAction.MoveInput != Vector2.zero)
-        {
-            SetAnimatorCondition(AnimatorCondition.IsRun);
-            _movementAction.SetAnimationSpeed(_animator);
-            _movementAction.Move();
+            if (_movementAction.MoveInput == Vector2.zero)
+            {
+                _movementAction.ResetAnimationSpeed(_animator);
+            }
+            else
+            {
+                SetAnimatorCondition(AnimatorCondition.IsRun);
+                _movementAction.SetAnimationSpeed(_animator);
+                _movementAction.Move(_speed);
+            }
+
+            Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
         }
-        else
-        {
-            _movementAction.ResetAnimationSpeed(_animator);
-        }
-        
-        Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
     }
 
     public void StopReloading()
@@ -132,8 +137,8 @@ public class PlayerBrain : MonoBehaviour
 
     private void SetAnimatorCondition(AnimatorCondition trueCondition)
     {
-        var trueConditionName = animatorConditionNames[(int)trueCondition];
-        foreach (var conditionName in animatorConditionNames)
+        var trueConditionName = _animatorConditionNames[(int)trueCondition];
+        foreach (var conditionName in _animatorConditionNames)
         {
             _animator.SetBool(conditionName, conditionName == trueConditionName);
         }

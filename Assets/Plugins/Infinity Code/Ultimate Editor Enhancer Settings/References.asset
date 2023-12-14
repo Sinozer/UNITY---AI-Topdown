@@ -51,198 +51,6 @@ MonoBehaviour:
     - title: Import Custom Package
       menuPath: Assets/Import Package/Custom Package...
       enabled: 1
-    - title: Package Manager
-      menuPath: Window/Package Manager
-      enabled: 1
-  - title: Text
-    enabled: 1
-    items:
-    - title: Font Asset Creator
-      menuPath: Window/Text/Font Asset Creator
-      enabled: 1
-    - title: Sprite Importer
-      menuPath: Window/Text/Sprite Importer
-      enabled: 1
-  - title: TextMeshPro
-    enabled: 1
-    items:
-    - title: Font Asset Creator
-      menuPath: Window/TextMeshPro/Font Asset Creator
-      enabled: 1
-    - title: Sprite Importer
-      menuPath: Window/TextMeshPro/Sprite Importer
-      enabled: 1
-    - title: Import TMP Essential Resources
-      menuPath: Window/TextMeshPro/Import TMP Essential Resources
-      enabled: 1
-    - title: Import TMP Examples and Extras
-      menuPath: Window/TextMeshPro/Import TMP Examples and Extras
-      enabled: 1
-    - title: Project Files GUID Remapping Tool
-      menuPath: Window/TextMeshPro/Project Files GUID Remapping Tool
-      enabled: 1
-    - title: Project Text Spacing Conversion Tool
-      menuPath: Window/TextMeshPro/Project Text Spacing Conversion Tool
-      enabled: 1
-  - title: General
-    enabled: 1
-    items:
-    - title: Scene
-      menuPath: Window/General/Scene
-      enabled: 1
-    - title: Game
-      menuPath: Window/General/Game
-      enabled: 1
-    - title: Inspector
-      menuPath: Window/General/Inspector
-      enabled: 1
-    - title: Hierarchy
-      menuPath: Window/General/Hierarchy
-      enabled: 1
-    - title: Project
-      menuPath: Window/General/Project
-      enabled: 1
-    - title: Console
-      menuPath: Window/General/Console
-      enabled: 1
-    - title: Progress
-      menuPath: Window/General/Progress
-      enabled: 1
-    - title: Test Runner
-      menuPath: Window/General/Test Runner
-      enabled: 1
-    - title: Services
-      menuPath: Window/General/Services
-      enabled: 1
-    - title: Device Simulator
-      menuPath: Window/General/Device Simulator
-      enabled: 1
-  - title: Rendering
-    enabled: 1
-    items:
-    - title: Lighting
-      menuPath: Window/Rendering/Lighting
-      enabled: 1
-    - title: Light Explorer
-      menuPath: Window/Rendering/Light Explorer
-      enabled: 1
-    - title: Probe Volume Settings (Experimental)
-      menuPath: Window/Rendering/Probe Volume Settings (Experimental)
-      enabled: 1
-    - title: Render Pipeline Converter
-      menuPath: Window/Rendering/Render Pipeline Converter
-      enabled: 1
-    - title: Occlusion Culling
-      menuPath: Window/Rendering/Occlusion Culling
-      enabled: 1
-    - title: Look Dev
-      menuPath: Window/Rendering/Look Dev
-      enabled: 1
-  - title: Animation
-    enabled: 1
-    items:
-    - title: Animation
-      menuPath: Window/Animation/Animation
-      enabled: 1
-    - title: Animator
-      menuPath: Window/Animation/Animator
-      enabled: 1
-    - title: Animator Parameter
-      menuPath: Window/Animation/Animator Parameter
-      enabled: 1
-  - title: Audio
-    enabled: 1
-    items:
-    - title: Audio Mixer
-      menuPath: Window/Audio/Audio Mixer
-      enabled: 1
-  - title: Sequencing
-    enabled: 1
-    items:
-    - title: Timeline
-      menuPath: Window/Sequencing/Timeline
-      enabled: 1
-  - title: Analysis
-    enabled: 1
-    items:
-    - title: Profiler
-      menuPath: Window/Analysis/Profiler
-      enabled: 1
-    - title: Profiler (Standalone Process)
-      menuPath: Window/Analysis/Profiler (Standalone Process)
-      enabled: 1
-    - title: Frame Debugger
-      menuPath: Window/Analysis/Frame Debugger
-      enabled: 1
-    - title: Physics Debugger
-      menuPath: Window/Analysis/Physics Debugger
-      enabled: 1
-    - title: Import Activity
-      menuPath: Window/Analysis/Import Activity
-      enabled: 1
-    - title: Performance Markers
-      menuPath: Window/Analysis/Performance Markers
-      enabled: 1
-    - title: Input Debugger
-      menuPath: Window/Analysis/Input Debugger
-      enabled: 1
-    - title: Rendering Debugger
-      menuPath: Window/Analysis/Rendering Debugger
-      enabled: 1
-    - title: Render Graph Viewer
-      menuPath: Window/Analysis/Render Graph Viewer
-      enabled: 1
-    - title: IMGUI Debugger
-      menuPath: Window/Analysis/IMGUI Debugger
-      enabled: 1
-  - title: Asset Management
-    enabled: 1
-    items:
-    - title: Version Control
-      menuPath: Window/Asset Management/Version Control
-      enabled: 1
-  - title: 2D
-    enabled: 1
-    items:
-    - title: Sprite Editor
-      menuPath: Window/2D/Sprite Editor
-      enabled: 1
-    - title: Tile Palette
-      menuPath: Window/2D/Tile Palette
-      enabled: 1
-    - title: 2D Animation Asset Upgrader
-      menuPath: Window/2D/2D Animation Asset Upgrader
-      enabled: 1
-    - title: Light Batching Debugger
-      menuPath: Window/2D/Light Batching Debugger
-      enabled: 1
-    - title: Sprite Library Editor
-      menuPath: Window/2D/Sprite Library Editor
-      enabled: 1
-  - title: UI Toolkit
-    enabled: 1
-    items:
-    - title: UI Builder
-      menuPath: Window/UI Toolkit/UI Builder
-      enabled: 1
-    - title: Samples
-      menuPath: Window/UI Toolkit/Samples
-      enabled: 1
-    - title: Debugger
-      menuPath: Window/UI Toolkit/Debugger
-      enabled: 1
-    - title: Event Debugger
-      menuPath: Window/UI Toolkit/Event Debugger
-      enabled: 1
-    - title: Package Asset Converter
-      menuPath: Window/UI Toolkit/Package Asset Converter
-      enabled: 1
-  - title: Visual Scripting
-    enabled: 1
-    items:
-    - title: Visual Scripting Graph
-      menuPath: Window/Visual Scripting/Visual Scripting Graph
-      enabled: 1
   _favoriteWindows: []
   _headerRules:
   - enabled: 1
@@ -250,6 +58,30 @@ MonoBehaviour:
     value: --
     trimChars: -=
     backgroundColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textAlign: 1
+    textStyle: 1
+  - enabled: 1
+    condition: 0
+    value: -1
+    trimChars: -=1
+    backgroundColor: {r: 1, g: 0, b: 0, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textAlign: 1
+    textStyle: 1
+  - enabled: 1
+    condition: 0
+    value: -2
+    trimChars: -=2
+    backgroundColor: {r: 0.029381275, g: 0.6509434, b: 0, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textAlign: 1
+    textStyle: 1
+  - enabled: 1
+    condition: 0
+    value: -3
+    trimChars: -=3
+    backgroundColor: {r: 0, g: 0.44265446, b: 0.6509804, a: 1}
     textColor: {r: 1, g: 1, b: 1, a: 1}
     textAlign: 1
     textStyle: 1
@@ -625,5 +457,19 @@ MonoBehaviour:
     color: {r: 0.5764706, g: 0.43921572, b: 0.8588236, a: 1}
     rootOnly: 0
     recursive: 1
-  _sceneHistory: []
+  _sceneHistory:
+  - name: Level - YOANN
+    path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
+  - name: Settings
+    path: Assets/Level/Scenes/Settings.unity
+  - name: Main
+    path: Assets/Level/Scenes/Main.unity
+  - name: MainMenu
+    path: Assets/Level/Scenes/MainMenu.unity
+  - name: Main - YOANN
+    path: Assets/Level/Scenes/Yoann/Main - YOANN.unity
+  - name: Template
+    path: Assets/Level/Scenes/Template.unity
+  - name: Main - GUILLAUME
+    path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   _notes: []
