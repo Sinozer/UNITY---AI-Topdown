@@ -5,7 +5,7 @@
     xmlns:editor="UnityEditor.UIElements"
     xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
 >
-    <Style src="project://database/Assets/Editor/BehaviorTreeEditor/BehaviorTreeEditor.uss?fileID=7433441132597879392&amp;guid=76aa1fa95b7ca9340ac6042d2926d059&amp;type=3#BehaviorTreeEditor" />
+    <Style src="project://database/Assets/Editor/BehaviourTreeEditor/BehaviourTreeEditor.uss?fileID=7433441132597879392&amp;guid=98d06edfea158194ba4391142fae5519&amp;type=3#BehaviourTreeEditor" />
 	<engine:Label text="Hello World! From UXML" />
 	<engine:Label class="custom-label" text="Hello World! With Style" />
 
