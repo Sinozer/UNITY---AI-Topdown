@@ -460,6 +460,8 @@ MonoBehaviour:
   _sceneHistory:
   - name: Main - JUN
     path: Assets/Level/Scenes/Jun/Main - JUN.unity
+  - name: Main - MATTHIEU
+    path: Assets/Level/Scenes/Matthieu/Main - MATTHIEU.unity
   - name: Main - THEO
     path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   - name: Level - YOANN
