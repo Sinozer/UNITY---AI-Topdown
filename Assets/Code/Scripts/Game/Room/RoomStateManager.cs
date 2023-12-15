@@ -57,16 +57,22 @@ public class RoomLockedState : BaseState<RoomStateManager, RoomStateManager.ERoo
 {
     private static void CheckLocked(RoomStateManager manager)
     {
-        if (manager.Owner.IsLocked == false)
-        {
-            manager.ChangeState(RoomStateManager.ERoomState.Unlocked);
+        if (manager.Owner.IsLocked == true)
             return;
-        }
+
+        manager.ChangeState(RoomStateManager.ERoomState.Unlocked);
+        return;
     }
 
     public override void OnEnter(RoomStateManager manager)
     {
         Debug.Log("Enter Locked");
+
+        foreach (var gate in manager.Owner.Gates)
+        {
+            gate.SetActive(true);
+        }
+
         CheckLocked(manager);
     }
 
@@ -90,17 +96,22 @@ public class RoomUnlockedState : BaseState<RoomStateManager, RoomStateManager.ER
 {
     private void CheckEntered(RoomStateManager manager)
     {
-        if (manager.Owner.HasBeenEntered == true)
-        {
-            manager.ChangeState(RoomStateManager.ERoomState.Enter);
+        if (manager.Owner.IsPlayerInside == false)
             return;
-        }
+
+        manager.ChangeState(RoomStateManager.ERoomState.Enter);
+        return;
     }
 
     public override void OnEnter(RoomStateManager manager)
     {
         Debug.Log("Enter Unlocked");
         CheckEntered(manager);
+
+        foreach (var gate in manager.Owner.Gates)
+        {
+            gate.SetActive(false);
+        }
 
         if (manager.Owner.RoomType != Room.ERoomType.Join)
             return;
@@ -149,6 +160,11 @@ public class RoomEnterState : BaseState<RoomStateManager, RoomStateManager.ERoom
                 // Bypass this state, for now he's not that useful
                 manager.ChangeState(RoomStateManager.ERoomState.Setup);
                 break;
+        }
+
+        foreach (var gate in manager.Owner.Gates)
+        {
+            gate.SetActive(true);
         }
     }
 
@@ -273,9 +289,24 @@ public class RoomPlayState : BaseState<RoomStateManager, RoomStateManager.ERoomS
 
 public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomState, Room>
 {
+    private void CheckLeft(RoomStateManager manager)
+    {
+        if (manager.Owner.IsPlayerInside == true)
+            return;
+
+        manager.ChangeState(RoomStateManager.ERoomState.Leave);
+        return;
+    }
+
     public override void OnEnter(RoomStateManager manager)
     {
         Debug.Log("Enter End");
+        CheckLeft(manager);
+
+        foreach (var gate in manager.Owner.Gates)
+        {
+            gate.SetActive(false);
+        }
     }
 
     public override void OnExit(RoomStateManager manager)
@@ -286,6 +317,7 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
     public override void OnUpdate(RoomStateManager manager)
     {
         Debug.Log("Update End");
+        CheckLeft(manager);
     }
 }
 
@@ -298,6 +330,8 @@ public class RoomLeaveState : BaseState<RoomStateManager, RoomStateManager.ERoom
     public override void OnEnter(RoomStateManager manager)
     {
         Debug.Log("Enter Leave");
+
+        manager.Owner.NextRoom.IsLocked = false;
     }
 
     public override void OnExit(RoomStateManager manager)

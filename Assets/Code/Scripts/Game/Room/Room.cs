@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -16,6 +17,14 @@ public class Room : MonoBehaviour
     {
         get => _isLocked;
         set => _isLocked = value;
+    }
+
+    [SerializeField]
+    protected bool _isPlayerInside = false;
+    public bool IsPlayerInside
+    {
+        get => _isPlayerInside;
+        set => _isPlayerInside = value;
     }
 
     protected bool _hasBeenEntered = false;
@@ -65,6 +74,12 @@ public class Room : MonoBehaviour
     [SerializeField] protected ERoomType _roomType;
     public ERoomType RoomType => _roomType;
 
+    [SerializeField] protected Room _nextRoom;
+
+    [SerializeField] protected List<GameObject> _gates;
+    public List<GameObject> Gates => _gates;
+    public Room NextRoom => _nextRoom;
+
     protected virtual void Start()
     {
         _stateManager = new RoomStateManager(this);
@@ -73,5 +88,15 @@ public class Room : MonoBehaviour
     protected virtual void Update()
     {
         _stateManager.Update();
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        _isPlayerInside = true;
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        _isPlayerInside = false;
     }
 }

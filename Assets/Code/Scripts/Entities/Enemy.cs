@@ -15,10 +15,14 @@ public class Enemy : Entity
 
     private Vector3 GetPlayerPos()
     {
-        string playerTag = "Player";
-        GameObject player = GameObject.FindGameObjectsWithTag(playerTag)[0];
+        Vector3 returnValue = Vector3.zero;
 
-        return player.transform.position;
+        Player player = GameManager.Instance.GetPlayer();
+
+        if (player != null)
+            returnValue = player.transform.position;
+
+        return returnValue;
     }
 
     protected float CalculateDistFromPlayer()

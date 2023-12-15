@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using Cinemachine;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -14,7 +15,17 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        if (_aim == null)
-            _aim = GameObject.FindGameObjectWithTag("Aim");
+        GameManager.Instance.Player = this;
+
+        // Instantiate new empty gameobject
+        _aim = new GameObject("Aim");
+        _aim.AddComponent<FollowCursor>();
+
+        CinemachineTargetGroup vcam = FindFirstObjectByType<CinemachineTargetGroup>();
+        if (vcam == null)
+            return;
+
+        vcam.AddMember(_aim.transform, 1, 1);
+        vcam.AddMember(transform, 3, 1);
     }
 }

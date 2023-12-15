@@ -12,9 +12,9 @@ public class EntityShooting : MonoBehaviour
 {
     [SerializeField] private SOProjectile _projectile;
     [SerializeField] private float _fireRate;
-    
+
     public float LookX => _direction.x;
-    
+
     private Vector2 _direction;
     private bool _isNpc = true;
     private GameObject _target;
@@ -72,19 +72,19 @@ public class EntityShooting : MonoBehaviour
             GameObject projectile = new GameObject("Projectile");
             projectile.transform.position = transform.position;
             //projectile.transform.rotation = TODO: Look at the target
-            
+
             projectile.AddComponent<SpriteRenderer>();
 
             projectile.AddComponent<Animator>().runtimeAnimatorController = _projectile.Controller;
             Rigidbody2D r2d = projectile.AddComponent<Rigidbody2D>();
             r2d.bodyType = RigidbodyType2D.Kinematic;
             _direction = (_targetPosition - (Vector2)transform.position).normalized;
-            
+
             r2d.velocity = _direction * _projectile.Speed;
 
             float rotation = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.Euler(0, 0, rotation);
-            
+
             Destroy(projectile, _projectile.LifeTime);
 
             yield return new WaitForSeconds(_fireRate);
@@ -97,7 +97,7 @@ public class EntityShooting : MonoBehaviour
         _shootCoroutine = StartCoroutine(Shoot());
     }
 
-    public void StopShooting() 
+    public void StopShooting()
     {
         StopCoroutine(_shootCoroutine);
     }
