@@ -5,15 +5,14 @@ using UnityEditor;
 #endif
 /// <summary>
 /// Simple patrol behavior.
-/// This will set the destination on the agent so that it moves through the sequence of objects in the <see cref="targets"/> array.
+/// This will set the destination on the agent so that it moves through the sequence of objects in the <see cref="_targets"/> array.
 /// Upon reaching a target it will wait for <see cref="delay"/> seconds.
 /// </summary>
 public class CustomPatrol : MonoBehaviour {
     /// <summary>Target points to move to in order</summary>
-    public Vector3[] targets;
+    public SOPatrol PatrolWaypoints;
 
     /// <summary>Time in seconds to wait at each target</summary>
-    public float delay = 0;
 
     /// <summary>Current target index</summary>
     int index;
@@ -25,16 +24,20 @@ public class CustomPatrol : MonoBehaviour {
         agent = GetComponent<IAstarAI>();
     }
 
+    private void Start()
+    {
+    }
+
     /// <summary>Update is called once per frame</summary>
     private void Update () {
-        if (targets.Length == 0) return;
+        if (PatrolWaypoints.Waypoints.Length == 0) return;
 
         bool search = false;
 
         // Note: using reachedEndOfPath and pathPending instead of reachedDestination here because
         // if the destination cannot be reached by the agent, we don't want it to get stuck, we just want it to get as close as possible and then move on.
         if (agent.reachedEndOfPath && !agent.pathPending && float.IsPositiveInfinity(switchTime)) {
-            switchTime = Time.time + delay;
+            switchTime = Time.time + PatrolWaypoints.Delay;
         }
 
         if (Time.time >= switchTime) {
@@ -43,8 +46,8 @@ public class CustomPatrol : MonoBehaviour {
             switchTime = float.PositiveInfinity;
         }
 
-        index = index % targets.Length;
-        agent.destination = targets[index];
+        index = index % PatrolWaypoints.Waypoints.Length;
+        agent.destination = PatrolWaypoints.Waypoints[index];
 
         if (search) agent.SearchPath();
     }
@@ -52,23 +55,23 @@ public class CustomPatrol : MonoBehaviour {
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        if (enabled == false || targets == null || targets.Length == 0)
+        if (enabled == false || PatrolWaypoints == null || PatrolWaypoints.Waypoints.Length == 0)
             return;
 
         Gizmos.color = Color.cyan; 
         Handles.color = Color.white;
-        for (int i = 0; i < targets.Length; i++)
+        for (int i = 0; i < PatrolWaypoints.Waypoints.Length; i++)
         {
-            Handles.DrawWireDisc(targets[i], Vector3.back, 0.1f);
+            Handles.DrawWireDisc(PatrolWaypoints.Waypoints[i], Vector3.back, 0.1f);
         }
 
-        // draw lines between targets
-        for (int i = 0; i < targets.Length; i++)
+        // draw lines between PatrolWaypoints.Waypoints
+        for (int i = 0; i < PatrolWaypoints.Waypoints.Length; i++)
         {
-            if (i == targets.Length - 1)
-                Gizmos.DrawLine(targets[i], targets[0]);
+            if (i == PatrolWaypoints.Waypoints.Length - 1)
+                Gizmos.DrawLine(PatrolWaypoints.Waypoints[i], PatrolWaypoints.Waypoints[0]);
             else
-                Gizmos.DrawLine(targets[i], targets[i + 1]);
+                Gizmos.DrawLine(PatrolWaypoints.Waypoints[i], PatrolWaypoints.Waypoints[i + 1]);
         }
     }
 #endif

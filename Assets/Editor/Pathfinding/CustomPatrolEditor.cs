@@ -16,7 +16,7 @@ public class CustomPatrolEditor : Editor
         CustomPatrol patrol = target as CustomPatrol;
         if (patrol == null || patrol.enabled == false)
             return;
-        Vector3[] patrolTargets = patrol.targets;
+        Vector3[] patrolTargets = patrol.PatrolWaypoints.Waypoints;
         EditorGUI.BeginChangeCheck();
         Handles.color = Color.white;
         for (int i = 0; i < patrolTargets.Length; i++)
