@@ -10,21 +10,16 @@ using UnityEngine;
 
 public class EntityShooting : MonoBehaviour
 {
+    [SerializeField] private SOProjectile _projectile;
+    [SerializeField] private float _fireRate;
+    
+    public float LookX => _direction.x;
+    
+    private Vector2 _direction;
     private bool _isNpc = true;
-
     private GameObject _target;
     private Vector2 _targetPosition;
-
     private Coroutine _shootCoroutine;
-
-    [SerializeField] private SOProjectile _projectile;
-
-    [SerializeField] private float _fireRate;
-    public float FireRate => 1 / _fireRate;
-    
-
-    public float LookX => _direction.x;
-    private Vector2 _direction;
 
     private void Awake()
     {
