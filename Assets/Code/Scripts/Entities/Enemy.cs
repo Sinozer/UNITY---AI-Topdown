@@ -12,8 +12,6 @@ public class Enemy : Entity
     public float DistFromPlayer => _distFromPlayer;
 
     protected float _distFromPlayer;
-
-    [SerializeField] private Movement _movement;
     private Vector3 GetPlayerPos()
     {
         string playerTag = "Player";
