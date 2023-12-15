@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using Pathfinding;
 using System;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public class TankyBrain : Enemy
     public Animator Animator => _animator;
 
     [SerializeField] private GameObject _render;
+    [SerializeField] private AIPath _aiPath;
+    [SerializeField] private CustomDestinationSetter _followPlayerScript;
     [SerializeField] private bool _seePlayer = false;
 
     private TankyStateManager _stateManager;
@@ -30,6 +33,8 @@ public class TankyBrain : Enemy
 
         _stateManager = new TankyStateManager(this);
         _animator = _render.GetComponent<Animator>();
+
+        _aiPath.maxSpeed = _movementSpeed;
     }
 
     private void Update()
@@ -45,5 +50,15 @@ public class TankyBrain : Enemy
         else 
             _seePlayer = false;
 
+    }
+
+    public void StopFollowingPlayer()
+    {
+        _followPlayerScript.enabled = false;
+    }
+
+    public void StartFollowingPlayer()
+    {
+        _followPlayerScript.enabled = true;
     }
 }
