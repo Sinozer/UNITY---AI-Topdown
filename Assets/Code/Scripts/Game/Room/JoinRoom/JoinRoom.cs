@@ -5,8 +5,13 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using UnityEngine;
+
 public class JoinRoom : Room
 {
+    [SerializeField] private GameObject _playerPrefab;
+    public GameObject PlayerPrefab => _playerPrefab;
+
     protected override void Start()
     {
         base.Start();

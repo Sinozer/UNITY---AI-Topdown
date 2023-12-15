@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Collection
   - Aim
+  - Enemy
+  - Room
   layers:
   - Default
   - TransparentFX

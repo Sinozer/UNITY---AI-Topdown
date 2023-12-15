@@ -55,15 +55,19 @@ public class RoomStateManager : BaseStateManager<RoomStateManager, RoomStateMana
 
 public class RoomLockedState : BaseState<RoomStateManager, RoomStateManager.ERoomState, Room>
 {
-    public override void OnEnter(RoomStateManager manager)
+    private static void CheckLocked(RoomStateManager manager)
     {
-        Debug.Log("Enter Locked");
-
         if (manager.Owner.IsLocked == false)
         {
             manager.ChangeState(RoomStateManager.ERoomState.Unlocked);
             return;
         }
+    }
+
+    public override void OnEnter(RoomStateManager manager)
+    {
+        Debug.Log("Enter Locked");
+        CheckLocked(manager);
     }
 
     public override void OnExit(RoomStateManager manager)
@@ -74,17 +78,12 @@ public class RoomLockedState : BaseState<RoomStateManager, RoomStateManager.ERoo
     public override void OnUpdate(RoomStateManager manager)
     {
         Debug.Log("Update Locked");
-
-        if (manager.Owner.IsLocked == false)
-        {
-            manager.ChangeState(RoomStateManager.ERoomState.Unlocked);
-            return;
-        }
+        CheckLocked(manager);
     }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-/// RoomIdleState //////////////////////////////////////////////////////////////
+/// RoomUnlockedState //////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 public class RoomUnlockedState : BaseState<RoomStateManager, RoomStateManager.ERoomState, Room>
@@ -102,6 +101,17 @@ public class RoomUnlockedState : BaseState<RoomStateManager, RoomStateManager.ER
     {
         Debug.Log("Enter Unlocked");
         CheckEntered(manager);
+
+        if (manager.Owner.RoomType != Room.ERoomType.Join)
+            return;
+
+        GameObject.Instantiate(
+            ((JoinRoom)manager.Owner).PlayerPrefab,
+            manager.Owner.transform.position,
+            Quaternion.identity
+        );
+
+        manager.ChangeState(RoomStateManager.ERoomState.Enter);
     }
 
     public override void OnExit(RoomStateManager manager)
