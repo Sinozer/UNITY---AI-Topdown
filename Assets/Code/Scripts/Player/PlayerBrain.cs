@@ -129,6 +129,20 @@ public class PlayerBrain : Entity
         {
             SetAnimatorCondition(AnimatorCondition.IsRun);
             _movementAction.SetAnimationSpeed(_animator);
+            _movementAction.Move(_movementSpeed);
+        }
+
+        Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
+        
+
+        if (_movementAction.MoveInput == Vector2.zero)
+        {
+            _movementAction.ResetAnimationSpeed(_animator);
+        }
+        else
+        {
+            SetAnimatorCondition(AnimatorCondition.IsRun);
+            _movementAction.SetAnimationSpeed(_animator);
             _movementAction.Move(_speed);
         }
 
