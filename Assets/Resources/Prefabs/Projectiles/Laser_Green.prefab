@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6317629229731303932}
   - component: {fileID: 8175033807155754674}
   - component: {fileID: 297040719786061883}
+  - component: {fileID: 7963248871476141997}
   m_Layer: 0
   m_Name: Laser_Green
   m_TagString: Untagged
@@ -180,3 +181,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7963248871476141997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4701076515055680667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6233c1e55d9156e47af12691d24e8d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
