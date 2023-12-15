@@ -27,7 +27,10 @@ namespace BehaviorTree
         public Node Parent = null;
 
         protected List<Node> _children = new();
-
+        /// <summary>
+        /// Blackboard is a dictionary of key value pairs that can be used to store data
+        /// shared between nodes.
+        /// </summary>
         private Dictionary<string, object> _blackboard = new();
 
         public Node()
