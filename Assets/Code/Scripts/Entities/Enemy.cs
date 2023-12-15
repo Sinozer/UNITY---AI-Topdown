@@ -12,7 +12,6 @@ public class Enemy : Entity
     public float DistFromPlayer => _distFromPlayer;
 
     protected float _distFromPlayer;
-
     private Vector3 GetPlayerPos()
     {
         Vector3 returnValue = Vector3.zero;

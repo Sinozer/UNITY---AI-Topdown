@@ -161,11 +161,6 @@ public class RoomEnterState : BaseState<RoomStateManager, RoomStateManager.ERoom
                 manager.ChangeState(RoomStateManager.ERoomState.Setup);
                 break;
         }
-
-        foreach (var gate in manager.Owner.Gates)
-        {
-            gate.SetActive(true);
-        }
     }
 
     public override void OnExit(RoomStateManager manager)
@@ -212,6 +207,11 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
             case Room.ERoomType.End:
                 // Show end level screen
                 break;
+        }
+
+        foreach (var gate in manager.Owner.Gates)
+        {
+            gate.SetActive(true);
         }
 
         manager.ChangeState(RoomStateManager.ERoomState.Play);
