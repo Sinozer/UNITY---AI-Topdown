@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 283429335343818037}
   m_Layer: 0
   m_Name: Tanky
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   _attackRange: 5
   _visionRange: 10
   _render: {fileID: 7092188209763420944}
-  _followPlayerScripts: {fileID: 1750387432106420760}
+  _pathFinder: {fileID: 1750387432106420760}
   _seePlayer: 0
   _canShootAtPlayer: 0
 --- !u!1 &2964172246596107366
@@ -331,12 +331,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2626724350525983646, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3913698015946000838, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3913698015946000838, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
+      propertyPath: PatrolWaypoints
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c8509f2ebbeacb4f929f2467813fea8, type: 2}
     - target: {fileID: 4335451173371978194, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -379,7 +383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8347939333940023950, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

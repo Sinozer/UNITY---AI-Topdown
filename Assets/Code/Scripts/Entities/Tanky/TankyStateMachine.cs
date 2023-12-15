@@ -158,7 +158,7 @@ public class FollowingPlayerState : BaseState<TankyStateManager, TankyStateManag
         }
         if (!manager.Owner.SeePlayer)
         {
-            manager.ChangeState(TankyStateManager.ETankyState.IdleActivated);
+            manager.ChangeState(TankyStateManager.ETankyState.Patrolling);
             return;
         }
     }
@@ -168,11 +168,13 @@ public class PatrollingState : BaseState<TankyStateManager, TankyStateManager.ET
 {
     public override void OnEnter(TankyStateManager manager)
     {
+        manager.Owner.StartPatrolling();
         manager.Owner.Animator.SetBool(ETankyState.Patrolling.ToString(), true);
     }
 
     public override void OnExit(TankyStateManager manager)
     {
+        manager.Owner.StopPatrolling();
         manager.Owner.Animator.SetBool(ETankyState.Patrolling.ToString(), false);
     }
 
@@ -183,10 +185,10 @@ public class PatrollingState : BaseState<TankyStateManager, TankyStateManager.ET
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
         }
-        if (!manager.Owner.SeePlayer)
+        if (manager.Owner.SeePlayer)
         {
-            manager.ChangeState(TankyStateManager.ETankyState.IdleActivated);
-            manager.Owner.Animator.SetBool(ETankyState.IdleActivated.ToString(), true);
+            manager.ChangeState(TankyStateManager.ETankyState.FollowingPlayer);
+            manager.Owner.Animator.SetBool(ETankyState.FollowingPlayer.ToString(), true);
             return;
         }
     }
@@ -196,11 +198,13 @@ public class AttackingState : BaseState<TankyStateManager, TankyStateManager.ETa
 {
     public override void OnEnter(TankyStateManager manager)
     {
+        manager.Owner.DisableAIPath();
         manager.Owner.Animator.SetBool(ETankyState.Attacking.ToString(), true);
     }
 
     public override void OnExit(TankyStateManager manager)
     {
+        manager.Owner.EnableAIPath();
         manager.Owner.Animator.SetBool(ETankyState.Attacking.ToString(), false);
     }
 
@@ -213,7 +217,7 @@ public class AttackingState : BaseState<TankyStateManager, TankyStateManager.ETa
         }
         if (!manager.Owner.SeePlayer)
         {
-            manager.ChangeState(TankyStateManager.ETankyState.IdleActivated);
+            manager.ChangeState(TankyStateManager.ETankyState.Patrolling);
             return;
         }
         if (!manager.Owner.CanShootAtPlayer)

@@ -17,7 +17,7 @@ public class TankyBrain : Enemy
     public Animator Animator => _animator;
 
     [SerializeField] private GameObject _render;
-    [SerializeField] private GameObject _followPlayerScripts;
+    [SerializeField] private GameObject _pathFinder;
     [SerializeField] private bool _seePlayer = false;
     [SerializeField] private bool _canShootAtPlayer = false;
 
@@ -30,7 +30,7 @@ public class TankyBrain : Enemy
         _stateManager = new TankyStateManager(this);
         _animator = _render.GetComponent<Animator>();
 
-        _followPlayerScripts.GetComponent<AIPath>().maxSpeed = _movementSpeed;
+        _pathFinder.GetComponent<AIPath>().maxSpeed = _movementSpeed;
     }
 
     private void Update()
@@ -46,14 +46,31 @@ public class TankyBrain : Enemy
         _seePlayer = _distFromPlayer < _visionRange ? true : false;
     }
 
-    public void StopFollowingPlayer()
-    {
-        _followPlayerScripts.SetActive(false);
-    }
-
     public void StartFollowingPlayer()
     {
-        _followPlayerScripts.SetActive(true);
+        _pathFinder.GetComponent<CustomDestinationSetter>().enabled = true;
+    }
+    public void StopFollowingPlayer()
+    {
+        _pathFinder.GetComponent<CustomDestinationSetter>().enabled = false;
+    }
+
+    public void StartPatrolling()
+    {
+        _pathFinder.GetComponent<CustomPatrol>().enabled = true;
+    }
+    public void StopPatrolling()
+    {
+        _pathFinder.GetComponent<CustomPatrol>().enabled = false;
+    }
+
+    public void EnableAIPath()
+    {
+        _pathFinder.GetComponent<AIPath>().enabled = true;
+    }
+    public void DisableAIPath()
+    {
+        _pathFinder.GetComponent<AIPath>().enabled = false;
     }
 
     public void EndActivating()
