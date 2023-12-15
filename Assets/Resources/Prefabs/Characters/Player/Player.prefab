@@ -76,7 +76,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5304042611006956102}
-  - component: {fileID: 1584910359832499066}
+  - component: {fileID: 98392681913919484}
+  - component: {fileID: 2079754400785509942}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -103,7 +104,20 @@ Transform:
   - {fileID: 2659190269368966462}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1584910359832499066
+--- !u!114 &98392681913919484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061051873336289640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb8b8286593a844d848074536c76b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aim: {fileID: 0}
+--- !u!50 &2079754400785509942
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -343,7 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8517247716624378217}
   - component: {fileID: 3451938306501995873}
-  - component: {fileID: 2673421808987519354}
+  - component: {fileID: 6333655552870947972}
   m_Layer: 0
   m_Name: Actions
   m_TagString: Untagged
@@ -380,7 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectToMove: {fileID: 5304042611006956102}
   Speed: 1
---- !u!114 &2673421808987519354
+--- !u!114 &6333655552870947972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -389,10 +403,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7252970658352413072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b15937ccf5772c4b9f6f7846aeaae25, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aim: {fileID: 0}
-  BulletPrefab: {fileID: 3707298295942658395, guid: ca10828682dc1fe4595cdb5e86df4aa2, type: 3}
-  BulletSpeed: 10
-  FireRate: 0.5
+  _projectile: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
