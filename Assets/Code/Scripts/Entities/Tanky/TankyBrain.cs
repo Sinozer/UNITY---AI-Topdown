@@ -11,30 +11,26 @@ using UnityEngine;
 
 public class TankyBrain : Enemy
 {
+    public bool EndActivatingAnim => _endActivating;
     public bool SeePlayer => _seePlayer;
+    public bool CanShootAtPlayer => _canShootAtPlayer;
     public Animator Animator => _animator;
 
     [SerializeField] private GameObject _render;
-    [SerializeField] private AIPath _aiPath;
-    [SerializeField] private CustomDestinationSetter _followPlayerScript;
+    [SerializeField] private GameObject _followPlayerScripts;
     [SerializeField] private bool _seePlayer = false;
+    [SerializeField] private bool _canShootAtPlayer = false;
 
+    private bool _endActivating = false;
     private TankyStateManager _stateManager;
     private Animator _animator;
 
-
     private void Awake()
     {
-        _health = 150;
-        _movementSpeed = 0.6f;
-        _attackSpeed = 1.1f;
-        _damage = 6;
-        _attackRange = 10;
-
         _stateManager = new TankyStateManager(this);
         _animator = _render.GetComponent<Animator>();
 
-        _aiPath.maxSpeed = _movementSpeed;
+        _followPlayerScripts.GetComponent<AIPath>().maxSpeed = _movementSpeed;
     }
 
     private void Update()
@@ -45,20 +41,23 @@ public class TankyBrain : Enemy
             return;
 
         _distFromPlayer = CalculateDistFromPlayer();
-        if (_distFromPlayer < _attackRange)
-            _seePlayer = true;
-        else 
-            _seePlayer = false;
 
+        _canShootAtPlayer = _distFromPlayer < _attackRange ? true : false;
+        _seePlayer = _distFromPlayer < _visionRange ? true : false;
     }
 
     public void StopFollowingPlayer()
     {
-        _followPlayerScript.enabled = false;
+        _followPlayerScripts.SetActive(false);
     }
 
     public void StartFollowingPlayer()
     {
-        _followPlayerScript.enabled = true;
+        _followPlayerScripts.SetActive(true);
+    }
+
+    public void EndActivating()
+    {
+        _endActivating = true;
     }
 }
