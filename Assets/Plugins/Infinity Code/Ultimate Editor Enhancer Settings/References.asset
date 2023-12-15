@@ -458,6 +458,8 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
+  - name: Main - JUN
+    path: Assets/Level/Scenes/Jun/Main - JUN.unity
   - name: Main - MATTHIEU
     path: Assets/Level/Scenes/Matthieu/Main - MATTHIEU.unity
   - name: Main - THEO
