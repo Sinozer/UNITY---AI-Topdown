@@ -1,7 +1,8 @@
-using UnityEditor;
 using UnityEngine;
 using Pathfinding;
-
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 /// <summary>
 /// Simple patrol behavior.
 /// This will set the destination on the agent so that it moves through the sequence of objects in the <see cref="targets"/> array.
@@ -48,6 +49,7 @@ public class CustomPatrol : MonoBehaviour {
         if (search) agent.SearchPath();
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         if (enabled == false || targets == null || targets.Length == 0)
@@ -69,4 +71,5 @@ public class CustomPatrol : MonoBehaviour {
                 Gizmos.DrawLine(targets[i], targets[i + 1]);
         }
     }
+#endif
 }
