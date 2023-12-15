@@ -353,7 +353,9 @@ namespace Pathfinding {
 		/// to make sure that this script finds them. It is unfortunately prohibitive from a performance standpoint to look for components every frame.
 		/// </summary>
 		public virtual void FindComponents () {
-			tr = transform;
+			tr = transform.parent;
+			if (tr == null) 
+				tr = transform;
 			seeker = GetComponent<Seeker>();
 			// Find attached movement components
 			controller = GetComponent<CharacterController>();
