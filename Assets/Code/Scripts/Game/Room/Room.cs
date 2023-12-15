@@ -12,29 +12,55 @@ public class Room : MonoBehaviour
     private RoomStateManager _stateManager;
 
     protected bool _isLocked = true;
-    public bool IsLocked => _isLocked;
+    public bool IsLocked
+    {
+        get => _isLocked;
+        set => _isLocked = value;
+    }
 
     protected bool _hasBeenEntered = false;
-    public bool HasBeenEntered => _hasBeenEntered;
+    public bool HasBeenEntered
+    {
+        get => _hasBeenEntered;
+        set => _hasBeenEntered = value;
+    }
 
     protected bool _hasBeenSetup = false;
-    public bool HasBeenSetup => _hasBeenSetup;
+    public bool HasBeenSetup
+    {
+        get => _hasBeenSetup;
+        set => _hasBeenSetup = value;
+    }
 
     protected bool _isPlaying = false;
-    public bool IsPlaying => _isPlaying;
+    public bool IsPlaying
+    {
+        get => _isPlaying;
+        set => _isPlaying = value;
+    }
 
     protected bool _hasBeenPlayed = false;
-    public bool HasBeenPlayed => _hasBeenPlayed;
+    public bool HasBeenPlayed
+    {
+        get => _hasBeenPlayed;
+        set => _hasBeenPlayed = value;
+    }
 
     protected bool _isEnded = false;
-    public bool IsEnded => _isEnded;
+    public bool IsEnded
+    {
+        get => _isEnded;
+        set => _isEnded = value;
+    }
 
     public enum ERoomType
     {
-        Idle,
-        Combat,
-        Treasure,
-        Boss,
+        Join,           // Room that is used to join the level
+        Idle,           // Room that does nothing
+        Combat,         // Room that is used to fight
+        Treasure,       // Room that is used to get a treasure
+        Boss,           // Room that is used to fight a boss
+        End,            // Room that is used to end the level
     }
     [SerializeField] protected ERoomType _roomType;
     public ERoomType RoomType => _roomType;
@@ -47,6 +73,5 @@ public class Room : MonoBehaviour
     protected virtual void Update()
     {
         _stateManager.Update();
-
     }
 }

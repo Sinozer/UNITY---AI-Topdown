@@ -5,9 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using UnityEngine;
-
 public class LevelManager : Singleton<LevelManager>
 {
-    private LevelStateMachine _levelStateMachine;
+
 }

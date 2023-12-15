@@ -23,7 +23,7 @@ public class RoomStateManager : BaseStateManager<RoomStateManager, RoomStateMana
     private static readonly BaseState<RoomStateManager, ERoomState, Room>[] _states =
     {
         new RoomLockedState(),
-        new RoomIdleState(),
+        new RoomUnlockedState(),
         new RoomEnterState(),
         new RoomSetupState(),
         new RoomPlayState(),
@@ -58,6 +58,12 @@ public class RoomLockedState : BaseState<RoomStateManager, RoomStateManager.ERoo
     public override void OnEnter(RoomStateManager manager)
     {
         Debug.Log("Enter Locked");
+
+        if (manager.Owner.IsLocked == false)
+        {
+            manager.ChangeState(RoomStateManager.ERoomState.Unlocked);
+            return;
+        }
     }
 
     public override void OnExit(RoomStateManager manager)
@@ -68,6 +74,12 @@ public class RoomLockedState : BaseState<RoomStateManager, RoomStateManager.ERoo
     public override void OnUpdate(RoomStateManager manager)
     {
         Debug.Log("Update Locked");
+
+        if (manager.Owner.IsLocked == false)
+        {
+            manager.ChangeState(RoomStateManager.ERoomState.Unlocked);
+            return;
+        }
     }
 }
 
@@ -75,21 +87,32 @@ public class RoomLockedState : BaseState<RoomStateManager, RoomStateManager.ERoo
 /// RoomIdleState //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-public class RoomIdleState : BaseState<RoomStateManager, RoomStateManager.ERoomState, Room>
+public class RoomUnlockedState : BaseState<RoomStateManager, RoomStateManager.ERoomState, Room>
 {
+    private void CheckEntered(RoomStateManager manager)
+    {
+        if (manager.Owner.HasBeenEntered == true)
+        {
+            manager.ChangeState(RoomStateManager.ERoomState.Enter);
+            return;
+        }
+    }
+
     public override void OnEnter(RoomStateManager manager)
     {
-        Debug.Log("Enter Idle");
+        Debug.Log("Enter Unlocked");
+        CheckEntered(manager);
     }
 
     public override void OnExit(RoomStateManager manager)
     {
-        Debug.Log("Exit Idle");
+        Debug.Log("Exit Unlocked");
     }
 
     public override void OnUpdate(RoomStateManager manager)
     {
-        Debug.Log("Update Idle");
+        Debug.Log("Update Unlocked");
+        CheckEntered(manager);
     }
 }
 
@@ -102,6 +125,21 @@ public class RoomEnterState : BaseState<RoomStateManager, RoomStateManager.ERoom
     public override void OnEnter(RoomStateManager manager)
     {
         Debug.Log("Enter Enter");
+
+        manager.Owner.HasBeenEntered = true;
+
+        switch (manager.Owner.RoomType)
+        {
+            case Room.ERoomType.Join:
+            case Room.ERoomType.Idle:
+            case Room.ERoomType.Combat:
+            case Room.ERoomType.Treasure:
+            case Room.ERoomType.Boss:
+            case Room.ERoomType.End:
+                // Bypass this state, for now he's not that useful
+                manager.ChangeState(RoomStateManager.ERoomState.Setup);
+                break;
+        }
     }
 
     public override void OnExit(RoomStateManager manager)
@@ -124,11 +162,40 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
     public override void OnEnter(RoomStateManager manager)
     {
         Debug.Log("Enter Setup");
+
+        // Do things to setup the room based on the room type
+
+        switch (manager.Owner.RoomType)
+        {
+            case Room.ERoomType.Join:
+                // Spawn the player at the right place
+                // Show player inputs instructions / base mechanics
+                break;
+            case Room.ERoomType.Idle:
+                // Pretty much nothing to do here
+                break;
+            case Room.ERoomType.Combat:
+                // Spawn enemies
+                break;
+            case Room.ERoomType.Treasure:
+                // Spawn treasures
+                break;
+            case Room.ERoomType.Boss:
+                // Spawn boss
+                break;
+            case Room.ERoomType.End:
+                // Show end level screen
+                break;
+        }
+
+        manager.ChangeState(RoomStateManager.ERoomState.Play);
     }
 
     public override void OnExit(RoomStateManager manager)
     {
         Debug.Log("Exit Setup");
+
+        manager.Owner.HasBeenSetup = true;
     }
 
     public override void OnUpdate(RoomStateManager manager)
@@ -143,19 +210,50 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
 
 public class RoomPlayState : BaseState<RoomStateManager, RoomStateManager.ERoomState, Room>
 {
+    private static void CheckPlayed(RoomStateManager manager)
+    {
+        switch (manager.Owner.RoomType)
+        {
+            case Room.ERoomType.Join:
+            case Room.ERoomType.Idle:
+            case Room.ERoomType.Treasure:
+                manager.ChangeState(RoomStateManager.ERoomState.End);
+                break;
+            case Room.ERoomType.Combat:
+                // Wait for all enemies to be dead
+                break;
+            case Room.ERoomType.Boss:
+                // Wait for boss to be dead
+                break;
+            case Room.ERoomType.End:
+                // Wait for player to click on the end level screen
+                break;
+            default:
+                break;
+        }
+    }
+
     public override void OnEnter(RoomStateManager manager)
     {
         Debug.Log("Enter Play");
+
+        manager.Owner.IsPlaying = true;
+        CheckPlayed(manager);
     }
 
     public override void OnExit(RoomStateManager manager)
     {
         Debug.Log("Exit Play");
+
+        manager.Owner.IsPlaying = false;
+        manager.Owner.HasBeenPlayed = true;
     }
 
     public override void OnUpdate(RoomStateManager manager)
     {
         Debug.Log("Update Play");
+
+        CheckPlayed(manager);
     }
 }
 
