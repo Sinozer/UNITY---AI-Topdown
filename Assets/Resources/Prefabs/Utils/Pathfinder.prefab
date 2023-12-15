@@ -112,13 +112,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2626724350525983646}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46273c9b654b73249b9b0eee4e256335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets: []
-  delay: 0
+  PatrolWaypoints: {fileID: 0}
 --- !u!114 &8347939333940023950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,9 +125,8 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2626724350525983646}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03f4e8366be628345b868d33f49afb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}

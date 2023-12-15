@@ -92,11 +92,19 @@ public class Room : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player") == false)
+            return;
+
+        Debug.Log("Player entered room");
+
         _isPlayerInside = true;
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player") == false)
+            return;
+
         _isPlayerInside = false;
     }
 }

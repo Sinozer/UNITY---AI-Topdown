@@ -72,8 +72,6 @@ public class RoomLockedState : BaseState<RoomStateManager, RoomStateManager.ERoo
         {
             gate.SetActive(true);
         }
-
-        CheckLocked(manager);
     }
 
     public override void OnExit(RoomStateManager manager)
@@ -106,7 +104,6 @@ public class RoomUnlockedState : BaseState<RoomStateManager, RoomStateManager.ER
     public override void OnEnter(RoomStateManager manager)
     {
         Debug.Log("Enter Unlocked");
-        CheckEntered(manager);
 
         foreach (var gate in manager.Owner.Gates)
         {
@@ -148,6 +145,16 @@ public class RoomEnterState : BaseState<RoomStateManager, RoomStateManager.ERoom
         Debug.Log("Enter Enter");
 
         manager.Owner.HasBeenEntered = true;
+    }
+
+    public override void OnExit(RoomStateManager manager)
+    {
+        Debug.Log("Exit Enter");
+    }
+
+    public override void OnUpdate(RoomStateManager manager)
+    {
+        Debug.Log("Update Enter");
 
         switch (manager.Owner.RoomType)
         {
@@ -161,16 +168,6 @@ public class RoomEnterState : BaseState<RoomStateManager, RoomStateManager.ERoom
                 manager.ChangeState(RoomStateManager.ERoomState.Setup);
                 break;
         }
-    }
-
-    public override void OnExit(RoomStateManager manager)
-    {
-        Debug.Log("Exit Enter");
-    }
-
-    public override void OnUpdate(RoomStateManager manager)
-    {
-        Debug.Log("Update Enter");
     }
 }
 
@@ -264,7 +261,6 @@ public class RoomPlayState : BaseState<RoomStateManager, RoomStateManager.ERoomS
         Debug.Log("Enter Play");
 
         manager.Owner.IsPlaying = true;
-        CheckPlayed(manager);
     }
 
     public override void OnExit(RoomStateManager manager)
@@ -301,7 +297,6 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
     public override void OnEnter(RoomStateManager manager)
     {
         Debug.Log("Enter End");
-        CheckLeft(manager);
 
         foreach (var gate in manager.Owner.Gates)
         {
