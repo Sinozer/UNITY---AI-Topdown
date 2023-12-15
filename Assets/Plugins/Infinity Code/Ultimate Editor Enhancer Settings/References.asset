@@ -19,5 +19,7 @@ MonoBehaviour:
   _headerRules: []
   _quickAccessItems: []
   _projectFolderIcons: []
-  _sceneHistory: []
+  _sceneHistory:
+  - name: Main - GUILLAUME
+    path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   _notes: []
