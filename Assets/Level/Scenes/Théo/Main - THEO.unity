@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 238988306}
   - component: {fileID: 238988305}
   - component: {fileID: 238988304}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Entry
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -13114,7 +13114,7 @@ GameObject:
   - component: {fileID: 859354424}
   - component: {fileID: 859354423}
   - component: {fileID: 859354425}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: 1
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -14041,7 +14041,7 @@ GameObject:
   - component: {fileID: 1690753637}
   - component: {fileID: 1690753636}
   - component: {fileID: 1690753638}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: 2
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -15017,7 +15017,7 @@ GameObject:
   - component: {fileID: 2123362492}
   - component: {fileID: 2123362491}
   - component: {fileID: 2123362493}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: 3
   m_TagString: Room
   m_Icon: {fileID: 0}
