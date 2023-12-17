@@ -34,10 +34,16 @@ public class Enemy : Entity
 
     public float DistFromPlayer => _distFromPlayer;
     protected float _distFromPlayer;
-
     private Vector3 GetPlayerPos()
     {
-        return GameManager.Instance.Player.position;
+        Vector3 returnValue = Vector3.zero;
+
+        Player player = GameManager.Instance.Player;
+
+        if (player != null)
+            returnValue = player.transform.position;
+
+        return returnValue;
     }
 
     protected float CalculateDistFromPlayer()

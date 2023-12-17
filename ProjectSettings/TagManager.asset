@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Collection
+  - Aim
   - Enemy
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -32,11 +34,11 @@ TagManager:
   - 
   - 
   - 
+  - Room
   - 
   - 
   - 
-  - 
-  - 
+  - Player
   - 
   - 
   m_SortingLayers:

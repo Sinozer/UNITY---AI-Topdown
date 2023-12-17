@@ -10,8 +10,12 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     #region Fields
-    public Transform Player => _player;
-    [SerializeField] private Transform _player;
+    [SerializeField] private Player _player;
+    public Player Player
+    {
+        get => _player;
+        set => _player = value;
+    }
 
     public SOEntityList EntityList => _entityList;
     [SerializeField] private SOEntityList _entityList;
@@ -36,14 +40,14 @@ public class GameManager : Singleton<GameManager>
         UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void FindPlayer()
+    private void FindPlayer()
     {
         GameObject go = GameObject.FindGameObjectWithTag("Player");
 
         if (go == null)
             return;
 
-        _player = go.transform;
+        _player = go.GetComponent<Player>();
     }
     public void Quit()
     {
