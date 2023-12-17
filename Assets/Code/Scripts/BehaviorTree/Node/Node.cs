@@ -17,10 +17,12 @@ public abstract class Node : ScriptableObject
         Failure
     }
 
-    public State CurrentState = State.Running;
-    public bool Started = false;
+    [HideInInspector] public State CurrentState = State.Running;
+    [HideInInspector] public bool Started = false;
 
-    public string Guid;
+    [HideInInspector] public string Guid;
+    [HideInInspector] public Vector2 Position;
+    
 
     public State Update()
     {
@@ -39,6 +41,12 @@ public abstract class Node : ScriptableObject
         }
 
         return CurrentState;
+    }
+    
+    public virtual Node Clone()
+    {
+        Node node = Instantiate(this);
+        return node;
     }
     
     public abstract void OnStart();

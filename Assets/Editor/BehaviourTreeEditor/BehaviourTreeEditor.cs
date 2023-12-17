@@ -13,11 +13,11 @@ public class BehaviourTreeEditor : EditorWindow
     private BehaviourTreeView _treeView;
     private InspectorView _inspectorView;
     
-    [MenuItem("Tools/Behavior Tree Editor")]
+    [MenuItem("Tools/Behaviour Tree Editor")]
     public static void ShowExample()
     {
         BehaviourTreeEditor wnd = GetWindow<BehaviourTreeEditor>();
-        wnd.titleContent = new GUIContent("Behavior Tree Editor");
+        wnd.titleContent = new GUIContent("Behaviour Tree Editor");
     }
 
     public void CreateGUI()
@@ -27,22 +27,30 @@ public class BehaviourTreeEditor : EditorWindow
 
         // Instantiate UXML
         _visualTreeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(
-            "Assets/Editor/BehaviorTreeEditor/BehaviorTreeEditor.uxml");
+            "Assets/Editor/BehaviourTreeEditor/BehaviourTreeEditor.uxml");
         _visualTreeAsset.CloneTree(root);
         
         StyleSheet styleSheet = 
-            AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/BehaviorTreeEditor/BehaviorTreeEditor.uss");
+            AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/BehaviourTreeEditor/BehaviourTreeEditor.uss");
         root.styleSheets.Add(styleSheet);
 
         _treeView = root.Q<BehaviourTreeView>();
         _inspectorView = root.Q<InspectorView>();
+        _treeView.OnNodeSelected = OnNodeSelectionChanged;
+        OnSelectionChange();
     }
 
     private void OnSelectionChange()
     {
-        if (Selection.activeObject is BehaviourTree)
+        BehaviourTree tree = Selection.activeObject as BehaviourTree;
+        if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
         {
-            _treeView.PopulateView(Selection.activeObject as BehaviourTree);
+            _treeView.PopulateView(tree);
         }
+    }
+
+    private void OnNodeSelectionChanged(NodeView node)
+    {
+        _inspectorView.UpdateSelection(node);
     }
 }

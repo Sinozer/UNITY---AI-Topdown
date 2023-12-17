@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7007180522375043924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26bd35f499bae7741b18dde675774165, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 832cebc0d5458ed43b668d0e1a6fd497
+  Position: {x: 277.12, y: 161.5}
+  Child: {fileID: 2021375099050048897}
+--- !u!114 &-6369755164967923845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c61b8d40bc6e604896ba18932c237cb, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 8ce433ed626644349974d65d44bc556f
+  Position: {x: 828, y: 70}
+  Message: LOL is a !good game
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f82a8a26f169c4ba4852e783c93690, type: 3}
+  m_Name: New Behaviour Tree
+  m_EditorClassIdentifier: 
+  RootNode: {fileID: 593281619218953978}
+  TreeState: 0
+  Nodes:
+  - {fileID: -6369755164967923845}
+  - {fileID: 2021375099050048897}
+  - {fileID: -7007180522375043924}
+  - {fileID: 4770621246987179115}
+  - {fileID: 593281619218953978}
+  - {fileID: 5840275668450510319}
+  - {fileID: 8122640440479628538}
+  - {fileID: 1780922743434086734}
+--- !u!114 &593281619218953978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd51032bae40cc4eb9e67f0b742f264, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 9100c615c9314d74eaffcd00a2b2eb16
+  Position: {x: 38.840027, y: 147.08}
+  Child: {fileID: -7007180522375043924}
+--- !u!114 &1780922743434086734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c61b8d40bc6e604896ba18932c237cb, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 60b809a3fc83ad349bdd1d5e4f133c07
+  Position: {x: 828, y: 571}
+  Message: meleche
+--- !u!114 &2021375099050048897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 5079042ed25f87f4083fb27f08a12ba1
+  Position: {x: 511, y: 161.24}
+  Children:
+  - {fileID: -6369755164967923845}
+  - {fileID: 4770621246987179115}
+  - {fileID: 5840275668450510319}
+  - {fileID: 8122640440479628538}
+  - {fileID: 1780922743434086734}
+--- !u!114 &4770621246987179115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bb3586f198a244ca26cdd85035a56b, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 14b031d218f1d284994420c3ad92fbec
+  Position: {x: 828, y: 224}
+  Duration: 1
+--- !u!114 &5840275668450510319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c61b8d40bc6e604896ba18932c237cb, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 8aa30dce4f14b684997d2baf70944eb4
+  Position: {x: 828, y: 332.36}
+  Message: melon
+--- !u!114 &8122640440479628538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bb3586f198a244ca26cdd85035a56b, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: b7269d000d91ac1469cb177b94af88ef
+  Position: {x: 828, y: 458}
+  Duration: 1

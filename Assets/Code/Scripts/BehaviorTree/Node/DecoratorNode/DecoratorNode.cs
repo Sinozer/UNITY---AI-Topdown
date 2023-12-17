@@ -10,5 +10,12 @@ using UnityEngine.Serialization;
 
 public abstract class DecoratorNode : Node
 {
-   public Node Child;
+   [HideInInspector] public Node Child;
+   
+   public override Node Clone()
+   {
+      DecoratorNode node = Instantiate(this);
+      node.Child = Child.Clone();
+      return node;
+   }
 }
