@@ -458,10 +458,12 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
-  - name: Level - YOANN
-    path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
   - name: Main - GUILLAUME
     path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
+  - name: Main
+    path: Assets/Level/Scenes/Main.unity
+  - name: Level - YOANN
+    path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
   - name: Main - MATTHIEU
     path: Assets/Level/Scenes/Matthieu/Main - MATTHIEU.unity
   - name: Template

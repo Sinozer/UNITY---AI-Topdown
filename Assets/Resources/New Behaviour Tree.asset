@@ -16,7 +16,9 @@ MonoBehaviour:
   Started: 0
   Guid: abb72eb107392f5428df1a73cc6f5b10
   Position: {x: 662.57245, y: 154.5}
-  Children: []
+  Children:
+  - {fileID: 1203906552756102494}
+  - {fileID: 9097557295790654918}
 --- !u!114 &-6854671455108787830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,8 +71,8 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 89a2bf9df95e3cd40bf7274789e39a1c
-  Position: {x: 0, y: 0}
-  Message: 
+  Position: {x: 909.99994, y: 140.18501}
+  Message: LOL is a !good game
 --- !u!114 &9097557295790654918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +88,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 3af92b466d2f335458777db4b01b1a66
-  Position: {x: 0, y: 0}
+  Position: {x: 909.87994, y: 281.6925}
   Duration: 1
 --- !u!114 &9148541365496835221
 MonoBehaviour:
