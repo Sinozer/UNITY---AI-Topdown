@@ -113,7 +113,7 @@ public class BehaviourTreeView : GraphView
         //base.BuildContextualMenu(evt);
         {
             TypeCache.TypeCollection types = TypeCache.GetTypesDerivedFrom<ActionNode>();
-            foreach (var type in types)
+            foreach (Type type in types)
             {
                 evt.menu.AppendAction($"Add Node/{type.BaseType.Name}/{type.Name}",
                     a => CreateNode(type));

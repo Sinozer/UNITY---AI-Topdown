@@ -1,97 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7007180522375043924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26bd35f499bae7741b18dde675774165, type: 3}
-  m_Name: RepeatNode
-  m_EditorClassIdentifier: 
-  CurrentState: 0
-  Started: 0
-  Guid: 832cebc0d5458ed43b668d0e1a6fd497
-  Position: {x: 277.12, y: 161.5}
-  Child: {fileID: 2021375099050048897}
---- !u!114 &-6369755164967923845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c61b8d40bc6e604896ba18932c237cb, type: 3}
-  m_Name: DebugLogNode
-  m_EditorClassIdentifier: 
-  CurrentState: 0
-  Started: 0
-  Guid: 8ce433ed626644349974d65d44bc556f
-  Position: {x: 828, y: 70}
-  Message: LOL is a !good game
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f82a8a26f169c4ba4852e783c93690, type: 3}
-  m_Name: New Behaviour Tree
-  m_EditorClassIdentifier: 
-  RootNode: {fileID: 593281619218953978}
-  TreeState: 0
-  Nodes:
-  - {fileID: -6369755164967923845}
-  - {fileID: 2021375099050048897}
-  - {fileID: -7007180522375043924}
-  - {fileID: 4770621246987179115}
-  - {fileID: 593281619218953978}
-  - {fileID: 5840275668450510319}
-  - {fileID: 8122640440479628538}
-  - {fileID: 1780922743434086734}
---- !u!114 &593281619218953978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd51032bae40cc4eb9e67f0b742f264, type: 3}
-  m_Name: RootNode
-  m_EditorClassIdentifier: 
-  CurrentState: 0
-  Started: 0
-  Guid: 9100c615c9314d74eaffcd00a2b2eb16
-  Position: {x: 38.840027, y: 147.08}
-  Child: {fileID: -7007180522375043924}
---- !u!114 &1780922743434086734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c61b8d40bc6e604896ba18932c237cb, type: 3}
-  m_Name: DebugLogNode
-  m_EditorClassIdentifier: 
-  CurrentState: 0
-  Started: 0
-  Guid: 60b809a3fc83ad349bdd1d5e4f133c07
-  Position: {x: 828, y: 571}
-  Message: meleche
---- !u!114 &2021375099050048897
+--- !u!114 &-8737598154745190338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,15 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: 0
   Started: 0
-  Guid: 5079042ed25f87f4083fb27f08a12ba1
-  Position: {x: 511, y: 161.24}
-  Children:
-  - {fileID: -6369755164967923845}
-  - {fileID: 4770621246987179115}
-  - {fileID: 5840275668450510319}
-  - {fileID: 8122640440479628538}
-  - {fileID: 1780922743434086734}
---- !u!114 &4770621246987179115
+  Guid: abb72eb107392f5428df1a73cc6f5b10
+  Position: {x: 662.57245, y: 154.5}
+  Children: []
+--- !u!114 &-6854671455108787830
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,15 +26,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5bb3586f198a244ca26cdd85035a56b, type: 3}
-  m_Name: WaitNode
+  m_Script: {fileID: 11500000, guid: 26bd35f499bae7741b18dde675774165, type: 3}
+  m_Name: RepeatNode
   m_EditorClassIdentifier: 
   CurrentState: 0
   Started: 0
-  Guid: 14b031d218f1d284994420c3ad92fbec
-  Position: {x: 828, y: 224}
-  Duration: 1
---- !u!114 &5840275668450510319
+  Guid: 68e61744e4a1e834fa3ed546166bab65
+  Position: {x: 449, y: 193}
+  Child: {fileID: -8737598154745190338}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f82a8a26f169c4ba4852e783c93690, type: 3}
+  m_Name: New Behaviour Tree
+  m_EditorClassIdentifier: 
+  RootNode: {fileID: 9148541365496835221}
+  TreeState: 0
+  Nodes:
+  - {fileID: 9148541365496835221}
+  - {fileID: -6854671455108787830}
+  - {fileID: -8737598154745190338}
+  - {fileID: 1203906552756102494}
+  - {fileID: 9097557295790654918}
+--- !u!114 &1203906552756102494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,10 +68,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: 0
   Started: 0
-  Guid: 8aa30dce4f14b684997d2baf70944eb4
-  Position: {x: 828, y: 332.36}
-  Message: melon
---- !u!114 &8122640440479628538
+  Guid: 89a2bf9df95e3cd40bf7274789e39a1c
+  Position: {x: 0, y: 0}
+  Message: 
+--- !u!114 &9097557295790654918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,6 +85,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: 0
   Started: 0
-  Guid: b7269d000d91ac1469cb177b94af88ef
-  Position: {x: 828, y: 458}
+  Guid: 3af92b466d2f335458777db4b01b1a66
+  Position: {x: 0, y: 0}
   Duration: 1
+--- !u!114 &9148541365496835221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd51032bae40cc4eb9e67f0b742f264, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 0ced82f55b6b51949b65b1f3316ee557
+  Position: {x: 198, y: 193}
+  Child: {fileID: -6854671455108787830}
