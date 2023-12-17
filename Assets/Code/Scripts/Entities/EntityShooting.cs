@@ -70,6 +70,12 @@ public class EntityShooting : MonoBehaviour
             GetTarget();
 
             GameObject projectile = Instantiate(GameManager.Instance.Projectile);
+
+            if (_isNpc == true)
+                projectile.layer = LayerMask.NameToLayer("OtherProjectile");
+            else
+                projectile.layer = LayerMask.NameToLayer("PlayerProjectile");
+
             projectile.transform.position = transform.position;
 
             _direction = (_targetPosition - (Vector2)transform.position).normalized;
@@ -78,6 +84,10 @@ public class EntityShooting : MonoBehaviour
             projectile.GetComponent<Animator>().runtimeAnimatorController = _projectileData.Controller;
 
             projectile.GetComponent<Rigidbody2D>().velocity = _direction * _projectileData.Speed;
+
+            // Add a box collider to the projectile and fix the size automatically
+            BoxCollider2D boxCollider = projectile.AddComponent<BoxCollider2D>();
+            boxCollider.size = projectile.GetComponent<SpriteRenderer>().size;
 
             Destroy(projectile, _projectileData.LifeTime);
 
