@@ -18,7 +18,6 @@ public class JoinRoom : Room
         
         _roomType = ERoomType.Join;
         _isLocked = false;
-        //_isPlayerInside = true;
     }
 
     protected override void Update()

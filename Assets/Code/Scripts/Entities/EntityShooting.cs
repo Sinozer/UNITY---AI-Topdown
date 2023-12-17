@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class EntityShooting : MonoBehaviour
 {
-    [SerializeField] private SOProjectile _projectile;
+    [SerializeField] private SOProjectile _projectileData;
     [SerializeField] private float _fireRate;
 
     public float LookX => _direction.x;
@@ -31,7 +31,7 @@ public class EntityShooting : MonoBehaviour
     {
         GetTarget();
 
-        if (_projectile != null)
+        if (_projectileData != null)
         {
             // TODO: Create a list of all existing projectile that the GameManager knows
 
@@ -41,11 +41,11 @@ public class EntityShooting : MonoBehaviour
 
     private void GetTarget()
     {
-        Player player = GameManager.Instance.GetPlayer();
+        Player player = GameManager.Instance.Player;
 
         if (_isNpc == true)
         {
-            player = GameManager.Instance.GetPlayer();
+            player = GameManager.Instance.Player;
             if (player == null)
                 return;
 
@@ -54,7 +54,7 @@ public class EntityShooting : MonoBehaviour
         }
         else
         {
-            player = GameManager.Instance.GetPlayer();
+            player = GameManager.Instance.Player;
             if (player == null)
                 return;
 
@@ -69,23 +69,17 @@ public class EntityShooting : MonoBehaviour
         {
             GetTarget();
 
-            GameObject projectile = new GameObject("Projectile");
+            GameObject projectile = Instantiate(GameManager.Instance.Projectile);
             projectile.transform.position = transform.position;
-            //projectile.transform.rotation = TODO: Look at the target
 
-            projectile.AddComponent<SpriteRenderer>();
-
-            projectile.AddComponent<Animator>().runtimeAnimatorController = _projectile.Controller;
-            Rigidbody2D r2d = projectile.AddComponent<Rigidbody2D>();
-            r2d.bodyType = RigidbodyType2D.Kinematic;
             _direction = (_targetPosition - (Vector2)transform.position).normalized;
+            projectile.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg);
 
-            r2d.velocity = _direction * _projectile.Speed;
+            projectile.GetComponent<Animator>().runtimeAnimatorController = _projectileData.Controller;
 
-            float rotation = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
-            projectile.transform.rotation = Quaternion.Euler(0, 0, rotation);
+            projectile.GetComponent<Rigidbody2D>().velocity = _direction * _projectileData.Speed;
 
-            Destroy(projectile, _projectile.LifeTime);
+            Destroy(projectile, _projectileData.LifeTime);
 
             yield return new WaitForSeconds(_fireRate);
         }

@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
+  _maxHealth: 0
   _damage: 10
   _movementSpeed: 3
   _attackSpeed: 0
@@ -411,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
+  _projectileData: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
   _fireRate: 0
 --- !u!1001 &1236402627777782308
 PrefabInstance:

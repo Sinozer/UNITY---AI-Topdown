@@ -117,7 +117,7 @@ public class RoomUnlockedState : BaseState<RoomStateManager, RoomStateManager.ER
             ((JoinRoom)manager.Owner).PlayerPrefab,
             manager.Owner.transform.position,
             Quaternion.identity
-        );
+        ).name = "Player";
 
         manager.ChangeState(RoomStateManager.ERoomState.Enter);
     }

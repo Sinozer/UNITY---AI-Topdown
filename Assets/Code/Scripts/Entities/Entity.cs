@@ -25,7 +25,6 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected float _attackSpeed;
     public float AttackRange => _attackRange;
     [SerializeField] protected float _attackRange;
-    [SerializeField] protected float _visionRange;
 
     public float VisionRange => _visionRange;
     [SerializeField] protected float _visionRange;

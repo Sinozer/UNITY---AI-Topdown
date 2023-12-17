@@ -108,11 +108,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 150
+  _maxHealth: 0
   _damage: 6
   _movementSpeed: 1
   _attackSpeed: 1.1
   _attackRange: 5
   _visionRange: 10
+  _baseData: {fileID: 11400000, guid: ff63ba2190dc8d541a8229bb85580cd7, type: 2}
   _render: {fileID: 7092188209763420944}
   _pathFinder: {fileID: 1750387432106420760}
   _seePlayer: 0

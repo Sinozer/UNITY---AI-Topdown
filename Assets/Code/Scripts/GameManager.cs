@@ -10,15 +10,18 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     #region Fields
-    [SerializeField] private Player _player;
     public Player Player
     {
         get => _player;
         set => _player = value;
     }
+    [SerializeField] private Player _player;
 
     public SOEntityList EntityList => _entityList;
     [SerializeField] private SOEntityList _entityList;
+
+    public GameObject Projectile => _projectile;
+    [SerializeField] private GameObject _projectile;
     #endregion Fields
     private void Start()
     {

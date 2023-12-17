@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using Sirenix.Utilities;
 using System.Linq;
 using UnityEngine;
 
@@ -12,8 +13,9 @@ public class Enemy : Entity
 {
     [SerializeField] protected SOEntity _baseData;
 
-    private void Awake()
+    protected virtual void Awake()
     {
+
         if (_baseData == null)
         {
             // NOT TESTED
