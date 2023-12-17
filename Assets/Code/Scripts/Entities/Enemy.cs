@@ -5,19 +5,39 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : Entity
 {
-    public float DistFromPlayer => _distFromPlayer;
+    [SerializeField] protected SOEntity _baseData;
 
+    private void Awake()
+    {
+        if (_baseData == null)
+        {
+            // NOT TESTED
+            if (GameManager.Instance.EntityList.List.ContainsKey(name))
+                _baseData = GameManager.Instance.EntityList.List[name];
+            else
+                _baseData = GameManager.Instance.EntityList.List.First().Value;
+        }
+
+        _health = _baseData.MaxHealth;
+        _maxHealth = _baseData.MaxHealth;
+        _damage = _baseData.Damage;
+        _movementSpeed = _baseData.MovementSpeed;
+        _attackSpeed = _baseData.AttackSpeed;
+        _attackRange = _baseData.AttackRange;
+        _visionRange = _baseData.VisionRange;
+    }
+
+    public float DistFromPlayer => _distFromPlayer;
     protected float _distFromPlayer;
+
     private Vector3 GetPlayerPos()
     {
-        string playerTag = "Player";
-        GameObject player = GameObject.FindGameObjectsWithTag(playerTag)[0];
-
-        return player.transform.position;
+        return GameManager.Instance.Player.position;
     }
 
     protected float CalculateDistFromPlayer()

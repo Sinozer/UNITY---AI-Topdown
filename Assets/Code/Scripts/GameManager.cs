@@ -9,8 +9,13 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    #region Fields
+    public Transform Player => _player;
     [SerializeField] private Transform _player;
 
+    public SOEntityList EntityList => _entityList;
+    [SerializeField] private SOEntityList _entityList;
+    #endregion Fields
     private void Start()
     {
         FindPlayer();
@@ -40,12 +45,6 @@ public class GameManager : Singleton<GameManager>
 
         _player = go.transform;
     }
-
-    public Transform GetPlayer()
-    {
-        return _player;
-    }
-
     public void Quit()
     {
         Application.Quit();

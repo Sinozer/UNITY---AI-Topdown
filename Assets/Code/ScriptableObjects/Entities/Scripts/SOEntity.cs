@@ -1,58 +1,35 @@
 // --------------------------------------- //
 // --------------------------------------- //
-//  Creation Date: 13/12/23
+//  Creation Date: 17/12/23
 //  Description: AI - Topdown
 // --------------------------------------- //
 // --------------------------------------- //
 
-using System.Linq;
 using UnityEngine;
 
-public abstract class Entity : MonoBehaviour
+public class SOEntity : ScriptableObject
 {
-    public float Health => _health;
-    [SerializeField] protected float _health;
+    // The health of the entity
     public float MaxHealth => _maxHealth;
     [SerializeField] protected float _maxHealth;
 
+    // The damage the entity can deal
     public float Damage => _damage;
     [SerializeField] protected float _damage;
 
+    // The speed at which the entity can move
     public float MovementSpeed => _movementSpeed;
     [SerializeField] protected float _movementSpeed;
 
+    // The speed at which the entity can attack
     public float AttackSpeed => _attackSpeed;
     [SerializeField] protected float _attackSpeed;
+
+    // The range at which the entity can attack
     public float AttackRange => _attackRange;
     [SerializeField] protected float _attackRange;
 
+    // The range at which the entity can see
     public float VisionRange => _visionRange;
     [SerializeField] protected float _visionRange;
-    
-    public bool IsAlive => _health > 0;
-    public bool IsDead => _health < 0;
-
-    public virtual void Heal(float healAmount)
-    {
-        _health = Mathf.Clamp(_health + healAmount, 0, _maxHealth);
-    }
-
-    public virtual void TakeDamage(float damage)
-    {
-        _health -= damage;
-        if (_health <= 0)
-        {
-            Die();
-        }
-    }
-
-    public virtual void Die(float timeBeforeDestroy = 0)
-    {
-        Destroy(gameObject, timeBeforeDestroy);
-    }
-
-    public virtual void Attack(Entity target)
-    {
-        target.TakeDamage(_damage);
-    }
 }
