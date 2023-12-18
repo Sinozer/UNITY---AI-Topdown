@@ -16,5 +16,5 @@ MonoBehaviour:
   _damage: 6
   _movementSpeed: 0.6
   _attackSpeed: 1.1
-  _attackRange: 4
-  _visionRange: 7
+  _attackRange: 10
+  _visionRange: 10
