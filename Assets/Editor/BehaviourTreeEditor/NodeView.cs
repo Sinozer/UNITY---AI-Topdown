@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using UnityEditor;
+using System.Collections.Generic;
 
 public class NodeView : UnityEditor.Experimental.GraphView.Node
 {
@@ -132,6 +133,14 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
             case Node.State.Failure:
                 AddToClassList("failure");
                 break;
+        }
+    }
+
+    internal void Sort()
+    {
+        if (Node is CompositeNode compositeNode)
+        {
+            compositeNode.Children.Sort((a, b) => a.Position.x.CompareTo(b.Position.x));
         }
     }
 }

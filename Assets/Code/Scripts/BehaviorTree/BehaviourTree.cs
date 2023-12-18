@@ -136,7 +136,6 @@ public class BehaviourTree : ScriptableObject
 
         tree.Nodes.ForEach(node =>
         {
-            Debug.Log(node.name);
             node.Blackboard = tree.Blackboard;
         });
 
