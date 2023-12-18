@@ -11,11 +11,12 @@ using UnityEngine;
 public class BehaviorTreeRunner : MonoBehaviour
 {
     public BehaviourTree Tree;
-    public Blackboard Blackboard;
+    public CustomBlackboard Blackboard;
 
     void Start()
     {
         Tree = Tree.Clone();
+        Blackboard = Blackboard.Clone();
     }
 
     void Update()
