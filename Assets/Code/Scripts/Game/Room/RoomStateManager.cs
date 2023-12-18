@@ -145,6 +145,11 @@ public class RoomEnterState : BaseState<RoomStateManager, RoomStateManager.ERoom
         Debug.Log("Enter Enter");
 
         manager.Owner.HasBeenEntered = true;
+
+        foreach (var gate in manager.Owner.Gates)
+        {
+            gate.SetActive(true);
+        }
     }
 
     public override void OnExit(RoomStateManager manager)
@@ -194,6 +199,7 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
                 break;
             case Room.ERoomType.Combat:
                 // Spawn enemies
+                ((CombatRoom)manager.Owner).EntitySpawner.SpawnWave();
                 break;
             case Room.ERoomType.Treasure:
                 // Spawn treasures
@@ -204,11 +210,6 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
             case Room.ERoomType.End:
                 // Show end level screen
                 break;
-        }
-
-        foreach (var gate in manager.Owner.Gates)
-        {
-            gate.SetActive(true);
         }
 
         manager.ChangeState(RoomStateManager.ERoomState.Play);
@@ -244,6 +245,12 @@ public class RoomPlayState : BaseState<RoomStateManager, RoomStateManager.ERoomS
                 break;
             case Room.ERoomType.Combat:
                 // Wait for all enemies to be dead
+                EntitySpawner spawner = ((CombatRoom)manager.Owner).EntitySpawner;
+                if (spawner.IsInFight == true)
+                    return;
+
+                manager.ChangeState(RoomStateManager.ERoomState.End);
+
                 break;
             case Room.ERoomType.Boss:
                 // Wait for boss to be dead

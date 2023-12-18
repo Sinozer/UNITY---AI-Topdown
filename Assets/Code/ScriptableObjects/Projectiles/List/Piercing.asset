@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controller: {fileID: 9100000, guid: bcdca1a645dee964a87fd3cf8f689fae, type: 2}
   _speed: 10
-  _damage: 7
+  _damage: 70
   _lifeTime: 5

@@ -38,10 +38,8 @@ public abstract class Entity : MonoBehaviour
     #endregion Fields
 
     #region Events
-    //public delegate void EntityEventHandler(float health);
-
     public event Action<float> OnHealthChanged;
-    //public event EntityEventHandler OnHealthChanged;
+    public event Action OnDeath;
     #endregion Events
 
     public virtual void Heal(float healAmount)
@@ -60,6 +58,7 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void Die()
     {
+        OnDeath?.Invoke();
         Destroy(gameObject);
     }
 
