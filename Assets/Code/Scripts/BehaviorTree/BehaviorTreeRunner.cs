@@ -9,14 +9,21 @@ using UnityEngine;
 
 public class BehaviorTreeRunner : MonoBehaviour
 {
-    public BehaviourTree _tree;
+    public BehaviourTree Tree;
+
     void Start()
     {
-        _tree = _tree.Clone();
+        Tree = Tree.Clone();
+        Tree.Blackboard.SetValue("Self", gameObject);
     }
 
     void Update()
     {
-        _tree.Update();
+        Tree.Update();
+    }
+
+    public CustomBlackboard GetBlackboard()
+    {
+        return Tree.Blackboard;
     }
 }
