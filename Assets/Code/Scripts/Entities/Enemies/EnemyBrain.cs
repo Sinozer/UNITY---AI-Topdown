@@ -28,7 +28,7 @@ public class EnemyBrain : MonoBehaviour
     protected bool _seePlayer = false;
     protected bool _canShootAtPlayer = false;
     protected Animator _animator;
-    protected void Awake()
+    protected virtual void Awake()
     {
         _entity = GetComponentInParent<Entity>();
 
