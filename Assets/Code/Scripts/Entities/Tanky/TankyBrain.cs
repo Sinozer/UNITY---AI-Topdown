@@ -51,6 +51,7 @@ public class TankyBrain : Enemy
     {
         _pathFinder.GetComponent<CustomDestinationSetter>().enabled = true;
     }
+
     public void StopFollowingPlayer()
     {
         _pathFinder.GetComponent<CustomDestinationSetter>().enabled = false;
@@ -60,6 +61,7 @@ public class TankyBrain : Enemy
     {
         _pathFinder.GetComponent<CustomPatrol>().enabled = true;
     }
+
     public void StopPatrolling()
     {
         _pathFinder.GetComponent<CustomPatrol>().enabled = false;
@@ -69,6 +71,7 @@ public class TankyBrain : Enemy
     {
         _pathFinder.GetComponent<AIPath>().enabled = true;
     }
+
     public void DisableAIPath()
     {
         _pathFinder.GetComponent<AIPath>().enabled = false;

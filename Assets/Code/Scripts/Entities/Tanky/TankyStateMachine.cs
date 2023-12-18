@@ -232,8 +232,7 @@ public class IsDeadState : BaseState<TankyStateManager, TankyStateManager.ETanky
 {
     public override void OnEnter(TankyStateManager manager)
     {
-        // Maybe call die when the animator is done, to avoid the hardcoded 2 seconds delay
-        manager.Owner.Die(2);
+        manager.Owner.DisableAIPath();
         manager.Owner.Animator.SetBool(ETankyState.IsDead.ToString(), true);
     }
 
