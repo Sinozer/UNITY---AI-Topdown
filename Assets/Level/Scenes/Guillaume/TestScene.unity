@@ -382,6 +382,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1333162226}
     m_Modifications:
+    - target: {fileID: 173811963108677713, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
+      propertyPath: _projectileData
+      value: 
+      objectReference: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
     - target: {fileID: 368097344119135122, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
       propertyPath: m_Name
       value: Tanky (2)
@@ -663,6 +667,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1333162226}
     m_Modifications:
+    - target: {fileID: 173811963108677713, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
+      propertyPath: _projectileData
+      value: 
+      objectReference: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
     - target: {fileID: 368097344119135122, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
       propertyPath: m_Name
       value: Tanky (3)
@@ -790,6 +798,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1333162226}
     m_Modifications:
+    - target: {fileID: 173811963108677713, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
+      propertyPath: _projectileData
+      value: 
+      objectReference: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
     - target: {fileID: 368097344119135122, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
       propertyPath: m_Name
       value: Tanky (1)
@@ -1284,6 +1296,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1333162226}
     m_Modifications:
+    - target: {fileID: 173811963108677713, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
+      propertyPath: _projectileData
+      value: 
+      objectReference: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
     - target: {fileID: 368097344119135122, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
       propertyPath: m_Name
       value: Tanky
@@ -1776,6 +1792,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5304042611006956102, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026025289065108871, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026025289065108871, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

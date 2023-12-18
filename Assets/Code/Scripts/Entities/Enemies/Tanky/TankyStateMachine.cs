@@ -7,7 +7,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using static ExampleStateManager;
 using static TankyStateManager;
 
 public class TankyStateManager : BaseStateManager<TankyStateManager, TankyStateManager.ETankyState, TankyBrain>
