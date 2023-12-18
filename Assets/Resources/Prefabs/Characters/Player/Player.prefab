@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2659190269368966462}
   - component: {fileID: 1367853592707553469}
+  - component: {fileID: 3385470842342855118}
   m_Layer: 29
   m_Name: Physics
   m_TagString: Player
@@ -67,6 +68,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0036627054, y: -0.17703122}
   m_Size: {x: 0.39011884, y: 0.64593756}
   m_Direction: 0
+--- !u!114 &3385470842342855118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50295164892452977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5aa53c162e02504081475bc1670f6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1061051873336289640
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,8 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isNpc: 1
-  _health: 0
-  _maxHealth: 0
+  _health: 100
+  _maxHealth: 100
   _damage: 0
   _movementSpeed: 0
   _attackSpeed: 0
@@ -373,7 +386,6 @@ GameObject:
   - component: {fileID: 8517247716624378217}
   - component: {fileID: 3451938306501995873}
   - component: {fileID: 6333655552870947972}
-  - component: {fileID: 3737515230942996620}
   m_Layer: 29
   m_Name: Actions
   m_TagString: Player
@@ -423,20 +435,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 0}
-  _projectileData: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
+  _projectileData: {fileID: 0}
   _fireRate: 0
---- !u!114 &3737515230942996620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7252970658352413072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5aa53c162e02504081475bc1670f6dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1236402627777782308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -540,6 +540,10 @@ PrefabInstance:
     - target: {fileID: 5076764050585210840, guid: f5ad0c7ed0caa9e4397956ee9e5873bd, type: 3}
       propertyPath: m_Layer
       value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420226146582452574, guid: f5ad0c7ed0caa9e4397956ee9e5873bd, type: 3}
+      propertyPath: m_WholeNumbers
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7812187955738900387, guid: f5ad0c7ed0caa9e4397956ee9e5873bd, type: 3}
       propertyPath: m_AnchorMax.x

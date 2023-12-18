@@ -6,6 +6,7 @@
 // --------------------------------------- //
 
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class EntityShooting : MonoBehaviour
@@ -15,6 +16,15 @@ public class EntityShooting : MonoBehaviour
     private void Awake()
     {
         _entity = GetComponentInParent<Entity>();
+
+        if (_projectileData == null)
+        {
+            // NOT TESTED
+            if (GameManager.Instance.EntityList.List.ContainsKey(name))
+                _projectileData = GameManager.Instance.ProjectileList.List[name];
+            else
+                _projectileData = GameManager.Instance.ProjectileList.List.First().Value;
+        }
     }
 
     [SerializeField] private SOProjectile _projectileData;
