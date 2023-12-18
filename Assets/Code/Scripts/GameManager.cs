@@ -20,6 +20,9 @@ public class GameManager : Singleton<GameManager>
     public SOEntityList EntityList => _entityList;
     [SerializeField] private SOEntityList _entityList;
 
+    public SOProjectileList ProjectileList => _projectileList;
+    [SerializeField] private SOProjectileList _projectileList;
+
     public GameObject Projectile => _projectile;
     [SerializeField] private GameObject _projectile;
     #endregion Fields

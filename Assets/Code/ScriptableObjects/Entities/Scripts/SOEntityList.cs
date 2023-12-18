@@ -44,7 +44,6 @@ public class SOEntityList : SerializedScriptableObject
 
         List.Add(newEntity.name, newEntity);
 
-        // Save the changes to the scriptable object
         UnityEditor.EditorUtility.SetDirty(this);
         UnityEditor.AssetDatabase.SaveAssets();
     }
