@@ -13,8 +13,10 @@ public class BehaviorTreeRunner : MonoBehaviour
 
     void Start()
     {
+        GameObject parentGameObject = transform.parent.gameObject;
         Tree = Tree.Clone();
-        Tree.Blackboard.SetValue("Self", gameObject);
+        //Tree.Blackboard.SetValue("Self", gameObject);
+        Tree.Blackboard.SetValue("Self", parentGameObject);
     }
 
     void Update()
