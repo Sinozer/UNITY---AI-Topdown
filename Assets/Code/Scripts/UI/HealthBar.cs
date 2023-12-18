@@ -10,9 +10,31 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    [SerializeField] private Entity _entity;
+
     public Slider Slider;
     public Image Fill;
     public Gradient Gradient;
+
+    private void OnEnable()
+    {
+        _entity.OnHealthChanged += SetHealth;
+    }
+
+    private void OnDisable()
+    {
+        _entity.OnHealthChanged -= SetHealth;
+    }
+
+    private void Awake()
+    {
+        _entity = GetComponentInParent<Entity>();
+    }
+
+    private void Start()
+    {
+        SetMaxHealth(_entity.MaxHealth);
+    }
 
     public void SetMaxHealth(float maxHealth) 
     { 
