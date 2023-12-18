@@ -21,7 +21,7 @@ public abstract class Node : ScriptableObject
 
     [HideInInspector] public string Guid;
     [HideInInspector] public Vector2 Position;
-    public CustomBlackboard Blackboard;
+    [HideInInspector] public CustomBlackboard Blackboard;
     
     public State Update()
     {
