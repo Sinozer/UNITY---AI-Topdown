@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
 using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
@@ -37,8 +38,10 @@ public abstract class Entity : MonoBehaviour
     #endregion Fields
 
     #region Events
-    public delegate void EntityEventHandler(float health);
-    public event EntityEventHandler OnHealthChanged;
+    //public delegate void EntityEventHandler(float health);
+
+    public event Action<float> OnHealthChanged;
+    //public event EntityEventHandler OnHealthChanged;
     #endregion Events
 
     public virtual void Heal(float healAmount)
