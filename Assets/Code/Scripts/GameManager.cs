@@ -9,8 +9,23 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private Transform _player;
+    #region Fields
+    public Player Player
+    {
+        get => _player;
+        set => _player = value;
+    }
+    [SerializeField] private Player _player;
 
+    public SOEntityList EntityList => _entityList;
+    [SerializeField] private SOEntityList _entityList;
+
+    public SOProjectileList ProjectileList => _projectileList;
+    [SerializeField] private SOProjectileList _projectileList;
+
+    public GameObject Projectile => _projectile;
+    [SerializeField] private GameObject _projectile;
+    #endregion Fields
     private void Start()
     {
         FindPlayer();
@@ -31,21 +46,15 @@ public class GameManager : Singleton<GameManager>
         UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void FindPlayer()
+    private void FindPlayer()
     {
         GameObject go = GameObject.FindGameObjectWithTag("Player");
 
         if (go == null)
             return;
 
-        _player = go.transform;
+        _player = go.GetComponent<Player>();
     }
-
-    public Transform GetPlayer()
-    {
-        return _player;
-    }
-
     public void Quit()
     {
         Application.Quit();
