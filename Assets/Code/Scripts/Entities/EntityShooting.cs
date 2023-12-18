@@ -68,7 +68,7 @@ public class EntityShooting : MonoBehaviour
         }
     }
 
-    public IEnumerator Shoot()
+    private IEnumerator Shoot()
     {
         while (true)
         {

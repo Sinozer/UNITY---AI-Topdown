@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4586895946451193394}
   - component: {fileID: 283429335343818037}
   - component: {fileID: 6442645273211949174}
+  - component: {fileID: 173811963108677713}
   m_Layer: 31
   m_Name: Tanky
   m_TagString: Enemy
@@ -86,6 +87,21 @@ MonoBehaviour:
   _attackRange: 0
   _visionRange: 0
   _baseData: {fileID: 11400000, guid: ff63ba2190dc8d541a8229bb85580cd7, type: 2}
+--- !u!114 &173811963108677713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368097344119135122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entity: {fileID: 6442645273211949174}
+  _projectileData: {fileID: 11400000, guid: a30ff2d7b36971647ade4763e1701571, type: 2}
+  _fireRate: 2
 --- !u!1 &1992755724239779000
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,11 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06718aa199a9f9b40b10667e2e5889ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 0}
+  _entity: {fileID: 6442645273211949174}
+  _entityShooting: {fileID: 173811963108677713}
   _render: {fileID: 7092188209763420944}
-  _pathFinder: {fileID: 1750387432106420760}
-  _seePlayer: 0
-  _canShootAtPlayer: 0
+  _aiPath: {fileID: 3057240511054091042}
+  _customPatrol: {fileID: 750236801241081920}
+  _customDestinationSetter: {fileID: 5755751373551121160}
 --- !u!1 &2964172246596107366
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,8 +494,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4335451173371978194, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
   m_PrefabInstance: {fileID: 4339605240307949958}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1750387432106420760 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2626724350525983646, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
+--- !u!114 &750236801241081920 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3913698015946000838, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
   m_PrefabInstance: {fileID: 4339605240307949958}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46273c9b654b73249b9b0eee4e256335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3057240511054091042 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1609157200367497892, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
+  m_PrefabInstance: {fileID: 4339605240307949958}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5755751373551121160 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8347939333940023950, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
+  m_PrefabInstance: {fileID: 4339605240307949958}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f4e8366be628345b868d33f49afb1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
