@@ -26,7 +26,11 @@ public class BlackboardView : VisualElement
         Clear();
         Object.DestroyImmediate(_editor);
         _editor = Editor.CreateEditor(_blackboard);
-        IMGUIContainer container = new IMGUIContainer(() => { _editor.OnInspectorGUI(); });
+        IMGUIContainer container = new IMGUIContainer(() => 
+        {
+            if (_editor.target)
+                _editor.OnInspectorGUI();
+        });
         Add(container);
     }
 }

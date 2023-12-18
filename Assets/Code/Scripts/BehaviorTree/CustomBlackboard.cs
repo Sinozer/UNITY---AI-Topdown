@@ -14,15 +14,15 @@ using UnityEngine;
 [System.Serializable]
 public class CustomBlackboard : ScriptableObject
 {
-    [SerializeField] SerializedDictionary<string, float> _floatData;
-    [SerializeField] SerializedDictionary<string, int> _intData;
-    [SerializeField] SerializedDictionary<string, bool> _boolData;
-    [SerializeField] SerializedDictionary<string, Vector2> _vector2Data;
-    [SerializeField] SerializedDictionary<string, Vector3> _vector3Data;
-    [SerializeField] SerializedDictionary<string, GameObject> _gameObjectData;
-    [SerializeField] SerializedDictionary<string, string> _stringData;
+    [SerializeField] private SerializedDictionary<string, float> _floatData;
+    [SerializeField] private SerializedDictionary<string, int> _intData;
+    [SerializeField] private SerializedDictionary<string, bool> _boolData;
+    [SerializeField] private SerializedDictionary<string, Vector2> _vector2Data;
+    [SerializeField] private SerializedDictionary<string, Vector3> _vector3Data;
+    [SerializeField] private SerializedDictionary<string, GameObject> _gameObjectData;
+    [SerializeField] private SerializedDictionary<string, string> _stringData;
 
-    private SerializedDictionary<System.Type, object> _typeMap;
+    //[SerializeField] private SerializedDictionary<System.Type, object> _typeMap;
 
     public CustomBlackboard Clone()
     {
@@ -32,16 +32,16 @@ public class CustomBlackboard : ScriptableObject
     private void Awake()
     {
         //Debug.Log("Awake");
-        _typeMap = new SerializedDictionary<System.Type, object>
-        {
-            { typeof(float), _floatData },
-            { typeof(int), _intData },
-            { typeof(bool), _boolData },
-            { typeof(Vector2), _vector2Data },
-            { typeof(Vector3), _vector3Data },
-            { typeof(GameObject), _gameObjectData },
-            { typeof(string), _stringData }
-        };
+        //_typeMap = new SerializedDictionary<System.Type, object>
+        //{
+        //    { typeof(float), _floatData },
+        //    { typeof(int), _intData },
+        //    { typeof(bool), _boolData },
+        //    { typeof(Vector2), _vector2Data },
+        //    { typeof(Vector3), _vector3Data },
+        //    { typeof(GameObject), _gameObjectData },
+        //    { typeof(string), _stringData }
+        //};
     }
 
     public bool TryFind<T>(string key, out T value)
