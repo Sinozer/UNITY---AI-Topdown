@@ -145,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3269381640455520910}
   - component: {fileID: 7586430711747166152}
+  - component: {fileID: 2740197953113066212}
   m_Layer: 31
   m_Name: Physics
   m_TagString: Untagged
@@ -202,6 +203,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.96, y: 0.96}
   m_Direction: 0
+--- !u!114 &2740197953113066212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2964172246596107366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5aa53c162e02504081475bc1670f6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4113511494978517384
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +225,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7185533333530606388}
   - component: {fileID: 5360656159522053966}
-  - component: {fileID: 4949614126080957679}
   m_Layer: 0
   m_Name: Action
   m_TagString: Untagged
@@ -250,18 +262,6 @@ MonoBehaviour:
   _entity: {fileID: 0}
   _projectileData: {fileID: 0}
   _fireRate: 0
---- !u!114 &4949614126080957679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4113511494978517384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5aa53c162e02504081475bc1670f6dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7092188209763420944
 GameObject:
   m_ObjectHideFlags: 0
