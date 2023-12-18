@@ -8,12 +8,10 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField] private Transform _aim;
 
-    public GameObject BulletPrefab;
-    public float BulletSpeed = 10f;
+    public Weapon weapon;
 
-
-    // The time between each shot
-    public float FireRate = 0.5f;
+    
+    
 
     private readonly float _defaultFireRate = 0.5f;
 
@@ -27,15 +25,9 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        _playerPosition = transform.position;
+        _playerPosition  = transform.position;
         _mousePosition = _aim.position;
-
         _direction = (_mousePosition - _playerPosition).normalized;
-    }
-
-    public void SetFireRate(float fireRate)
-    {
-        FireRate = fireRate;
     }
 
     public void StartShooting()
@@ -48,29 +40,20 @@ public class Shooting : MonoBehaviour
         StopCoroutine(_shootCoroutine);
     }
 
-    private IEnumerator Shoot()
+    public IEnumerator Shoot()
     {
         while (true)
         {
-            float rotation = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+            weapon.Shoot();
 
-            // Create a bullet
-            GameObject bullet = Instantiate(BulletPrefab,
-                _playerPosition,
-                Quaternion.Euler(0, 0, rotation));
-
-            // Add force to the bullet in the direction of the mouse
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = _direction * BulletSpeed;
-
-            yield return new WaitForSecondsRealtime(FireRate);
+            yield return new WaitForSeconds(1 / weapon.FireRate);
         }
     }
 
     public void SetAnimationSpeed(Animator animator)
     {
         // Calculate the speed based on fire rate and adjust the speed of the animator
-        animator.speed = _defaultFireRate / FireRate;
+        animator.speed = _defaultFireRate / weapon.FireRate;
     }
 
     public void ResetAnimationSpeed(Animator animator)

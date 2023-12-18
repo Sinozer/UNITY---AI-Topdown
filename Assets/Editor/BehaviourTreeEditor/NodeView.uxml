@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editor/BehaviourTreeEditor/NodeView.uss?fileID=7433441132597879392&amp;guid=071a85de8a5f45e438b75379f330ce90&amp;type=3#NodeView" />
+    <ui:VisualElement name="node-border" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+        <ui:VisualElement name="contents">
+            <ui:VisualElement name="input" picking-mode="Ignore" class="input" style="-unity-text-align: lower-center; margin-top: 0; flex-wrap: wrap; flex-grow: 0; align-items: center; align-self: center; justify-content: center; width: auto; flex-direction: column-reverse; padding-top: 10px; min-width: 100%;" />
+            <ui:VisualElement name="divider" class="horizontal" style="margin-bottom: 5px;" />
+            <ui:VisualElement name="title" style="-unity-text-align: upper-center;">
+                <ui:Label name="title-label" text="RepeatNode" class="unity-text-element unity-label" style="justify-content: center; align-items: center; -unity-text-align: upper-center;" />
+                <ui:VisualElement name="title-button-container">
+                    <ui:VisualElement name="collapse-button">
+                        <ui:VisualElement name="icon" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="divider" class="horizontal" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 5px;" />
+            <ui:VisualElement name="output" picking-mode="Ignore" style="-unity-text-align: upper-center; margin-bottom: 0; padding-bottom: 10px; min-width: 100%; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="selection-border" />
+</ui:UXML>
