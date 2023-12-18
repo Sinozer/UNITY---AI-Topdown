@@ -10,22 +10,22 @@ using UnityEngine;
 
 public class EntityShooting : MonoBehaviour
 {
+    [SerializeField] private Entity _entity;
+
+    private void Awake()
+    {
+        _entity = GetComponentInParent<Entity>();
+    }
+
     [SerializeField] private SOProjectile _projectileData;
     [SerializeField] private float _fireRate;
 
     public float LookX => _direction.x;
 
     private Vector2 _direction;
-    private bool _isNpc = true;
     private GameObject _target;
     private Vector2 _targetPosition;
     private Coroutine _shootCoroutine;
-
-    private void Awake()
-    {
-        if (transform.parent.gameObject.CompareTag("Player"))
-            _isNpc = false;
-    }
 
     private void Start()
     {
@@ -43,7 +43,7 @@ public class EntityShooting : MonoBehaviour
     {
         Player player = GameManager.Instance.Player;
 
-        if (_isNpc == true)
+        if (_entity.IsNpc == true)
         {
             player = GameManager.Instance.Player;
             if (player == null)
@@ -71,7 +71,7 @@ public class EntityShooting : MonoBehaviour
 
             GameObject projectile = Instantiate(GameManager.Instance.Projectile);
 
-            if (_isNpc == true)
+            if (_entity.IsNpc == true)
                 projectile.layer = LayerMask.NameToLayer("OtherProjectile");
             else
                 projectile.layer = LayerMask.NameToLayer("PlayerProjectile");

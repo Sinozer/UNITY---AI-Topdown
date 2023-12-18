@@ -10,6 +10,9 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
+    public bool IsNpc => _isNpc;
+    [SerializeField] protected bool _isNpc = true;
+
     public float Health => _health;
     [SerializeField] protected float _health;
     public float MaxHealth => _maxHealth;

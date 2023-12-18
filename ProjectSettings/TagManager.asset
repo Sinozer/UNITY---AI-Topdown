@@ -39,8 +39,8 @@ TagManager:
   - 
   - 
   - Player
-  - 
-  - 
+  - Friend
+  - Enemy
   m_SortingLayers:
   - name: Default
     uniqueID: 0

@@ -8,10 +8,15 @@
 using Cinemachine;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
     [SerializeField] private GameObject _aim;
     public GameObject Aim => _aim;
+
+    private void Awake()
+    {
+        _isNpc = false;
+    }
 
     private void Start()
     {
