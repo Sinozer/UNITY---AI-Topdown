@@ -29,7 +29,7 @@ public class CustomDestinationSetter : MonoBehaviour
 
     private void Start()
     {
-        _target = GameManager.Instance.GetPlayer();
+        _target = GameManager.Instance.Player.transform;
         if (_target == null)
             _target = GameObject.FindGameObjectWithTag("Player").transform;
     }

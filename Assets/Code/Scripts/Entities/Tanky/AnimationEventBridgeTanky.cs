@@ -1,5 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+// --------------------------------------- //
+// --------------------------------------- //
+//  Creation Date: 17/12/23
+//  Description: AI - Topdown
+// --------------------------------------- //
+// --------------------------------------- //
+
 using UnityEngine;
 
 public class AnimationEventBridgeTanky : MonoBehaviour
@@ -10,5 +15,9 @@ public class AnimationEventBridgeTanky : MonoBehaviour
     public void OnReloadAnimationComplete()
     {
         TankyBrain.EndActivating();
+    }
+    public void Die()
+    { 
+        TankyBrain.Die();
     }
 }
