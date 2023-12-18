@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Entity _entity;
 
     public Slider Slider;
+    public Slider ChangedHealth;
     public Image Fill;
     public Gradient Gradient;
 
@@ -41,13 +43,24 @@ public class HealthBar : MonoBehaviour
         Slider.maxValue = maxHealth;
         Slider.value = maxHealth;
 
+        ChangedHealth.maxValue = maxHealth;
+        ChangedHealth.value = maxHealth;
+
         Gradient.Evaluate(1f);
     }
 
     public void SetHealth(float value)
     {
         Slider.value = value;
+        StartCoroutine(SetChangedHealth());
 
         Fill.color = Gradient.Evaluate(Slider.normalizedValue);
+    }
+
+    public IEnumerator SetChangedHealth()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        ChangedHealth.value = Slider.value;
     }
 }
