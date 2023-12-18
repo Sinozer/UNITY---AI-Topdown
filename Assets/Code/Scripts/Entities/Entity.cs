@@ -5,36 +5,57 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System.Linq;
 using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    public bool IsDead => _health <= 0 ;
+    public bool IsNpc => _isNpc;
+    [SerializeField] protected bool _isNpc = true;
 
-    [SerializeField] protected int _health;
-    [SerializeField] protected int _damage;
+    public float Health => _health;
+    [SerializeField] protected float _health;
+    public float MaxHealth => _maxHealth;
+    [SerializeField] protected float _maxHealth;
+
+    public float Damage => _damage;
+    [SerializeField] protected float _damage;
+
+    public float MovementSpeed => _movementSpeed;
     [SerializeField] protected float _movementSpeed;
+
+    public float AttackSpeed => _attackSpeed;
     [SerializeField] protected float _attackSpeed;
+    public float AttackRange => _attackRange;
     [SerializeField] protected float _attackRange;
+
+    public float VisionRange => _visionRange;
     [SerializeField] protected float _visionRange;
+    
+    public bool IsAlive => _health > 0;
+    public bool IsDead => _health < 0;
 
-    private void Awake()
+    public virtual void Heal(float healAmount)
     {
-
+        _health = Mathf.Clamp(_health + healAmount, 0, _maxHealth);
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(float damage)
     {
-        _health = (_health - damage < 0) ? _health - damage : 0;
+        _health -= damage;
+        if (_health <= 0)
+        {
+            Die();
+        }
     }
 
-    public void Attack(Entity entity)
+    public virtual void Die(float timeBeforeDestroy = 0)
     {
-        entity.TakeDamage(_damage);
+        Destroy(gameObject, timeBeforeDestroy);
     }
 
-    public void Die(float time)
+    public virtual void Attack(Entity target)
     {
-        Destroy(transform.parent.gameObject, time);
+        target.TakeDamage(_damage);
     }
 }

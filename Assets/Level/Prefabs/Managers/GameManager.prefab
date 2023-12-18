@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697e0ac0200f0184db6daa9fd4d6f8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _entityList: {fileID: 11400000, guid: 7b9640df1ec6a2e47aa7822a27b8f9a7, type: 2}
+  _projectile: {fileID: 648940981784709971, guid: 31ea23026cb4e0e438d5dff3da0780c4, type: 3}

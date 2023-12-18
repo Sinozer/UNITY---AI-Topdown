@@ -21,6 +21,10 @@ public class PlayerBrain : Entity
         IsDead
     }
 
+    [SerializeField] private float _fireRate;
+    public float FireRate => 1 / _fireRate;
+    
+    
     [Header("Inputs")] 
     [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _shootInput;
@@ -36,14 +40,14 @@ public class PlayerBrain : Entity
     private bool _shoot;
 
     private Movement _movementAction;
-    private Shooting _shootingAction;
+    private EntityShooting _shootingAction;
 
     private string[] _animatorConditionNames;
 
     private void Awake()
     {
         _movementAction = Actions.GetComponent<Movement>();
-        _shootingAction = Actions.GetComponent<Shooting>();
+        _shootingAction = Actions.GetComponent<EntityShooting>();
         _animator = Render.GetComponent<Animator>();
 
         _animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
@@ -82,7 +86,7 @@ public class PlayerBrain : Entity
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
         _shoot = context.ReadValue<float>() > 0;
-        _shootingAction.StartShooting();
+        _shootingAction.StartShooting(FireRate);
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
@@ -102,32 +106,47 @@ public class PlayerBrain : Entity
     void Update()
     {
         if (IsDead)
+        {
             SetAnimatorCondition(AnimatorCondition.IsDead);
+            return;
+        }
+
+        if (!_shoot)
+        {
+            _shootingAction.ResetAnimationSpeed(_animator);
+        }
         else
         {
-            if (!_shoot)
-            {
-                _shootingAction.ResetAnimationSpeed(_animator);
-            }
-            else
-            {
-                SetAnimatorCondition(AnimatorCondition.IsShoot);
-                _shootingAction.SetAnimationSpeed(_animator);
-            }
-
-            if (_movementAction.MoveInput == Vector2.zero)
-            {
-                _movementAction.ResetAnimationSpeed(_animator);
-            }
-            else
-            {
-                SetAnimatorCondition(AnimatorCondition.IsRun);
-                _movementAction.SetAnimationSpeed(_animator);
-                _movementAction.Move(_movementSpeed);
-            }
-
-            Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
+            SetAnimatorCondition(AnimatorCondition.IsShoot);
+            _shootingAction.SetAnimationSpeed(_animator);
         }
+
+        if (_movementAction.MoveInput == Vector2.zero)
+        {
+            _movementAction.ResetAnimationSpeed(_animator);
+        }
+        else
+        {
+            SetAnimatorCondition(AnimatorCondition.IsRun);
+            _movementAction.SetAnimationSpeed(_animator);
+            _movementAction.Move(_movementSpeed);
+        }
+
+        Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
+        
+
+        if (_movementAction.MoveInput == Vector2.zero)
+        {
+            _movementAction.ResetAnimationSpeed(_animator);
+        }
+        else
+        {
+            SetAnimatorCondition(AnimatorCondition.IsRun);
+            _movementAction.SetAnimationSpeed(_animator);
+            _movementAction.Move(_movementSpeed);
+        }
+
+        Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
     }
 
     public void StopReloading()

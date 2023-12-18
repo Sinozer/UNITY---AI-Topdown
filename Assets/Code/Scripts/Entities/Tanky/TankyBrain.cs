@@ -25,8 +25,9 @@ public class TankyBrain : Enemy
     private TankyStateManager _stateManager;
     private Animator _animator;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _stateManager = new TankyStateManager(this);
         _animator = _render.GetComponent<Animator>();
 
