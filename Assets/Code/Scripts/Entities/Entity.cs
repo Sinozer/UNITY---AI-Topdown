@@ -33,7 +33,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected float _visionRange;
     
     public bool IsAlive => _health > 0;
-    public bool IsDead => _health < 0;
+    public bool IsDead => _health <= 0;
 
     public virtual void Heal(float healAmount)
     {
@@ -43,9 +43,12 @@ public abstract class Entity : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         _health -= damage;
+
+        Debug.Log($"{name} took {damage} damage. Health: {_health}");
+
         if (_health <= 0)
         {
-            Die();
+            //Die();
         }
     }
 

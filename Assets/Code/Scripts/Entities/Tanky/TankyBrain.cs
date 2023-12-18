@@ -9,8 +9,15 @@ using Pathfinding;
 using System;
 using UnityEngine;
 
-public class TankyBrain : Enemy
+public class TankyBrain : MonoBehaviour
 {
+    [SerializeField] private Entity _entity;
+    private Enemy _enemy => _entity as Enemy;
+
+    public bool IsDead => _entity.IsDead;
+
+    public Action<float> Die => _entity.Die;
+
     public bool EndActivatingAnim => _endActivating;
     public bool SeePlayer => _seePlayer;
     public bool CanShootAtPlayer => _canShootAtPlayer;
@@ -25,26 +32,27 @@ public class TankyBrain : Enemy
     private TankyStateManager _stateManager;
     private Animator _animator;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
+        _entity = GetComponentInParent<Entity>();
+
         _stateManager = new TankyStateManager(this);
         _animator = _render.GetComponent<Animator>();
 
-        _pathFinder.GetComponent<AIPath>().maxSpeed = _movementSpeed;
+        _pathFinder.GetComponent<AIPath>().maxSpeed = _entity.MovementSpeed;
     }
 
     private void Update()
     {
         _stateManager.Update();
 
-        if (IsDead)
+        if (_entity.IsDead)
             return;
 
-        _distFromPlayer = CalculateDistFromPlayer();
+        _enemy.DistFromPlayer = _enemy.CalculateDistFromPlayer();
 
-        _canShootAtPlayer = _distFromPlayer < _attackRange ? true : false;
-        _seePlayer = _distFromPlayer < _visionRange ? true : false;
+        _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
+        _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
     }
 
     public void StartFollowingPlayer()

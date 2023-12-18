@@ -42,22 +42,17 @@ public class EntityShooting : MonoBehaviour
     private void GetTarget()
     {
         Player player = GameManager.Instance.Player;
+        if (player == null)
+            return;
 
         if (_entity.IsNpc == true)
         {
-            player = GameManager.Instance.Player;
-            if (player == null)
-                return;
 
             _target = player.gameObject;
             _targetPosition = _target.transform.position;
         }
         else
         {
-            player = GameManager.Instance.Player;
-            if (player == null)
-                return;
-
             _target = player.Aim;
             _targetPosition = _target.transform.position;
         }
@@ -85,9 +80,9 @@ public class EntityShooting : MonoBehaviour
 
             projectile.GetComponent<Rigidbody2D>().velocity = _direction * _projectileData.Speed;
 
-            // Add a box collider to the projectile and fix the size automatically
-            BoxCollider2D boxCollider = projectile.AddComponent<BoxCollider2D>();
-            boxCollider.size = projectile.GetComponent<SpriteRenderer>().size;
+            projectile.GetComponent<BoxCollider2D>().size = projectile.GetComponent<SpriteRenderer>().size;
+
+            projectile.GetComponent<Projectile>().Damage = _projectileData.Damage;
 
             Destroy(projectile, _projectileData.LifeTime);
 
