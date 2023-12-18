@@ -9,6 +9,8 @@
 using System;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.UIElements;
+using UnityEditor;
 
 public class NodeView : UnityEditor.Experimental.GraphView.Node
 {
@@ -17,7 +19,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
     public Port InputPort;
     public Port OutputPort;
     
-    public NodeView(Node node)
+    public NodeView(Node node) : base("Assets/Editor/BehaviourTreeEditor/NodeView.uxml")
     {
         Node = node;
         title = node.name;
@@ -28,6 +30,26 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         
         CreateInputPorts();
         CreateOutputPorts();
+        AddStyleClass();
+    }
+
+    private void AddStyleClass()
+    {
+        switch(Node)
+        {
+            case RootNode:
+                AddToClassList("rootNode");
+                break;
+            case ActionNode:
+                AddToClassList("actionNode");
+                break;
+            case CompositeNode:
+                AddToClassList("compositeNode");
+                break;
+            case DecoratorNode:
+                AddToClassList("decoratorNode");
+                break;
+        }
     }
     
     private void CreateInputPorts()
@@ -37,18 +59,19 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
             case RootNode:
                 break;
             case ActionNode:
-                InputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+                InputPort = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
                 break;
             case CompositeNode:
-                InputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+                InputPort = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
                 break;
             case DecoratorNode:
-                InputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+                InputPort = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
                 break;
         }
 
         if (InputPort == null) return;
-        InputPort.portName = "Input";
+        InputPort.portName = "";
+        InputPort.style.flexDirection = FlexDirection.Column;
         inputContainer.Add(InputPort);
     }
     
@@ -59,29 +82,56 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
             case ActionNode:
                 break;
             case CompositeNode:
-                OutputPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
+                OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
                 break;
             case DecoratorNode:
-                OutputPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+                OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
                 break;
             case RootNode:
-                OutputPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+                OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
                 break;
         }
         if (OutputPort == null) return;
-        OutputPort.portName = "Output";
+        OutputPort.portName = "";
+        OutputPort.style.flexDirection = FlexDirection.ColumnReverse;
         outputContainer.Add(OutputPort);
     }
 
     public override void SetPosition(Rect newPos)
     {
         base.SetPosition(newPos);
+        Undo.RecordObject(Node, "Node Moved");
         Node.Position = newPos.position;
+        EditorUtility.SetDirty(Node);
     }
     
     public override void OnSelected()
     {
         base.OnSelected();
         OnNodeSelected?.Invoke(this);
+    }
+
+    public void UpdateNodeGUI()
+    {
+        RemoveFromClassList("running");
+        RemoveFromClassList("success");
+        RemoveFromClassList("failure");
+
+        if (!Application.isPlaying) 
+            return;
+
+        switch (Node.CurrentState)
+        {
+            case Node.State.Running:
+                if (Node.Started)
+                    AddToClassList("running");
+                break;
+            case Node.State.Success:
+                AddToClassList("success");
+                break;
+            case Node.State.Failure:
+                AddToClassList("failure");
+                break;
+        }
     }
 }

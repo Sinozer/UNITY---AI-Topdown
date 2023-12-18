@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
@@ -35,11 +36,80 @@ public class BehaviourTreeView : GraphView
         var grid = new GridBackground();
         Insert(0, grid);
         grid.StretchToParentSize();
+
+        Undo.undoRedoPerformed += OnUndoRedoPerformed;
+        //serializeGraphElements += OnSerializeGraphElements;
+        //unserializeAndPaste += OnUnserializeAndPaste;
+    }
+
+    //private void OnUnserializeAndPaste(string operationName, string data)
+    //{
+    //    if (operationName == "Paste")
+    //    {
+    //        string[] lines = data.Split('\n');
+    //        List<Node> nodes = new List<Node>();
+    //        List<Edge> edges = new List<Edge>();
+    //        foreach (string line in lines)
+    //        {
+    //            if (string.IsNullOrEmpty(line))
+    //                continue;
+    //            string[] elements = line.Split(' ');
+    //            if (elements.Length == 3)
+    //            {
+    //                Node node = _tree.CreateNode(Type.GetType(elements[0]));
+    //                node.Position = new Vector2(float.Parse(elements[1]), float.Parse(elements[2]));
+    //                nodes.Add(node);
+    //            }
+    //            else if (elements.Length == 2)
+    //            {
+    //                Node parent = nodes.Find(n => n.Guid == elements[0]);
+    //                Node child = nodes.Find(n => n.Guid == elements[1]);
+    //                edges.Add(FindNodeView(parent).OutputPort.ConnectTo(FindNodeView(child).InputPort));
+    //            }
+    //        }
+
+    //        nodes.ForEach(CreateNodeView);
+    //        edges.ForEach(AddElement);
+    //    }
+    //}
+
+    //private string OnSerializeGraphElements(IEnumerable<GraphElement> elements)
+    //{
+    //    string data = string.Empty;
+    //    elements.ToList().ForEach(element =>
+    //    {
+    //        switch (element)
+    //        {
+    //            case NodeView nodeView:
+    //                data += $"{nodeView.Node.name} {nodeView.Node.Guid} {nodeView.GetPosition().position.x} {nodeView.GetPosition().position.y}\n";
+    //                break;
+    //            case Edge edge:
+    //                NodeView parentView = edge.output.node as NodeView;
+    //                NodeView childView = edge.input.node as NodeView;
+    //                data += $"{parentView.Node.Guid} {childView.Node.Guid}\n";
+    //                break;
+    //        }
+    //    });
+    //    return data;
+    //}
+
+    private void OnUndoRedoPerformed()
+    {
+        PopulateView(_tree);
     }
 
     NodeView FindNodeView(Node node)
     {
         return graphElements.ToList().Find(view => (view as NodeView).Node == node) as NodeView;
+    }
+
+    public void UpdateTreeGUI()
+    {
+        nodes.ForEach(node =>
+        {
+            NodeView nodeView = node as NodeView;
+            nodeView.UpdateNodeGUI();
+        });
     }
     
     internal void PopulateView(BehaviourTree tree)
@@ -110,6 +180,8 @@ public class BehaviourTreeView : GraphView
 
     public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
     {
+        if (Application.isPlaying)
+            return;
         //base.BuildContextualMenu(evt);
         {
             TypeCache.TypeCollection types = TypeCache.GetTypesDerivedFrom<ActionNode>();

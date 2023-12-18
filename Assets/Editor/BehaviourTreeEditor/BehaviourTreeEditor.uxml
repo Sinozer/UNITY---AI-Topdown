@@ -1,12 +1,16 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/Editor/BehaviourTreeEditor/BehaviourTreeEditor.uss?fileID=7433441132597879392&amp;guid=98d06edfea158194ba4391142fae5519&amp;type=3#BehaviourTreeEditor" />
-    <uie:Toolbar>
-        <uie:ToolbarMenu tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" text="Asset" />
-    </uie:Toolbar>
     <SplitView fixed-pane-initial-dimension="300">
         <ui:VisualElement name="LeftPanel" style="flex-grow: 1;">
-            <ui:Label tabindex="-1" text="Inspector" parse-escape-sequences="true" display-tooltip-when-elided="true" name="InspectorLabel" style="color: rgb(255, 255, 255); background-color: rgb(40, 40, 40); -unity-background-image-tint-color: rgb(40, 40, 40);" />
-            <InspectorView />
+            <SplitView orientation="Vertical" fixed-pane-initial-dimension="208" style="align-items: stretch;">
+                <ui:VisualElement name="InspectorPanel" style="flex-grow: 1; height: 300px;">
+                    <ui:Label tabindex="-1" text="Inspector" parse-escape-sequences="true" display-tooltip-when-elided="true" name="InspectorLabel" style="color: rgb(255, 255, 255); background-color: rgb(40, 40, 40); -unity-background-image-tint-color: rgb(40, 40, 40);" />
+                    <InspectorView name="InspectorView" />
+                </ui:VisualElement>
+                <ui:VisualElement name="BlackboardPanel" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Blackboard" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BlackboardLabel" style="color: rgb(255, 255, 255); background-color: rgb(40, 40, 40); -unity-background-image-tint-color: rgb(40, 40, 40);" />
+                </ui:VisualElement>
+            </SplitView>
         </ui:VisualElement>
         <ui:VisualElement name="RightPanel" style="flex-grow: 1;">
             <ui:Label tabindex="-1" text="Tree View" parse-escape-sequences="true" display-tooltip-when-elided="true" name="TreeViewLabel" style="-unity-background-image-tint-color: rgb(40, 40, 40); background-color: rgb(40, 40, 40); color: rgb(255, 255, 255);" />

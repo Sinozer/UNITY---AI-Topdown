@@ -1,9 +1,8 @@
 using System;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Serialization;
 using UnityEngine.UIElements;
+using UnityEditor.Callbacks;
 
 public class BehaviourTreeEditor : EditorWindow
 {
@@ -12,12 +11,25 @@ public class BehaviourTreeEditor : EditorWindow
 
     private BehaviourTreeView _treeView;
     private InspectorView _inspectorView;
+    private BlackboardView _blackboardView;
     
     [MenuItem("Tools/Behaviour Tree Editor")]
-    public static void ShowExample()
+    public static void CreateWindow()
     {
         BehaviourTreeEditor wnd = GetWindow<BehaviourTreeEditor>();
         wnd.titleContent = new GUIContent("Behaviour Tree Editor");
+    }
+
+    [OnOpenAsset]
+    public static bool OnOpenAsset(int instanceID, int line)
+    {
+        if (Selection.activeObject is BehaviourTree)
+        {
+            CreateWindow();
+            return true;
+        }
+
+        return false;
     }
 
     public void CreateGUI()
@@ -37,20 +49,64 @@ public class BehaviourTreeEditor : EditorWindow
         _treeView = root.Q<BehaviourTreeView>();
         _inspectorView = root.Q<InspectorView>();
         _treeView.OnNodeSelected = OnNodeSelectionChanged;
-        OnSelectionChange();
+        Selection.selectionChanged += TreeSelected;
+        TreeSelected();
     }
 
-    private void OnSelectionChange()
+    private void OnEnable()
+    {
+        EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+        EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+    }
+
+    private void OnPlayModeStateChanged(PlayModeStateChange change)
+    {
+        switch(change)
+        {
+            case PlayModeStateChange.EnteredPlayMode:
+                TreeSelected();
+                break;
+            case PlayModeStateChange.EnteredEditMode:
+                TreeSelected();
+                break;
+        }
+    }
+
+    private void TreeSelected()
     {
         BehaviourTree tree = Selection.activeObject as BehaviourTree;
         if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
         {
             _treeView.PopulateView(tree);
+            return;
         }
+
+        if (!Selection.activeGameObject)
+            return;
+
+        BehaviorTreeRunner tr = Selection.activeGameObject.GetComponent<BehaviorTreeRunner>();
+        if (!tr)
+            return;
+
+        if(tr.Tree)
+            _treeView.PopulateView(tr.Tree);
     }
 
     private void OnNodeSelectionChanged(NodeView node)
     {
         _inspectorView.UpdateSelection(node);
+    }
+
+    private void Update()
+    {
+        if (!Application.isPlaying)
+            return;
+
+        _treeView?.UpdateTreeGUI();
     }
 }

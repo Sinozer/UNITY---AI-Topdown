@@ -6,7 +6,6 @@
 // --------------------------------------- //
 
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class RootNode : Node
 {
