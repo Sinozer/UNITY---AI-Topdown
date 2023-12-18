@@ -5,22 +5,25 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BehaviorTreeRunner : MonoBehaviour
 {
     public BehaviourTree Tree;
-    public CustomBlackboard Blackboard;
 
     void Start()
     {
         Tree = Tree.Clone();
-        Blackboard = Blackboard.Clone();
+        Tree.Blackboard.SetValue("Self", gameObject);
     }
 
     void Update()
     {
         Tree.Update();
+    }
+
+    public CustomBlackboard GetBlackboard()
+    {
+        return Tree.Blackboard;
     }
 }

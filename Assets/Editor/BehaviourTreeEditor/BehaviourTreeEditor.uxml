@@ -9,6 +9,7 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="BlackboardPanel" style="flex-grow: 1;">
                     <ui:Label tabindex="-1" text="Blackboard" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BlackboardLabel" style="color: rgb(255, 255, 255); background-color: rgb(40, 40, 40); -unity-background-image-tint-color: rgb(40, 40, 40);" />
+                    <BlackboardView />
                 </ui:VisualElement>
             </SplitView>
         </ui:VisualElement>

@@ -13,6 +13,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "BehaviorTree/BehaviorTree")]
 public class BehaviourTree : ScriptableObject
 {
+    public CustomBlackboard Blackboard;
     public Node RootNode;
     public Node.State TreeState = Node.State.Running;
     public List<Node> Nodes = new List<Node>();
@@ -24,6 +25,15 @@ public class BehaviourTree : ScriptableObject
             TreeState = RootNode.Update();
         }
         return TreeState;
+    }
+
+    public void CreateBlackboard()
+    {
+        CustomBlackboard cb = CreateInstance<CustomBlackboard>();
+        cb.name = "Blackboard";
+        Blackboard = cb;
+        AssetDatabase.AddObjectToAsset(cb, this);
+        AssetDatabase.SaveAssets();
     }
 
     public Node CreateNode(Type type)
@@ -117,10 +127,17 @@ public class BehaviourTree : ScriptableObject
     {
         BehaviourTree tree = Instantiate(this);
         tree.RootNode = RootNode.Clone();
+        tree.Blackboard = Blackboard.Clone();
         tree.Nodes = new List<Node>();
         TraverseTree(tree.RootNode, node =>
         {
             tree.Nodes.Add(node);
+        });
+
+        tree.Nodes.ForEach(node =>
+        {
+            Debug.Log(node.name);
+            node.Blackboard = tree.Blackboard;
         });
 
         return tree;

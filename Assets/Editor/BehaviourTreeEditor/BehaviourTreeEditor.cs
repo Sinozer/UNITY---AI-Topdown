@@ -48,6 +48,7 @@ public class BehaviourTreeEditor : EditorWindow
 
         _treeView = root.Q<BehaviourTreeView>();
         _inspectorView = root.Q<InspectorView>();
+        _blackboardView = root.Q<BlackboardView>();
         _treeView.OnNodeSelected = OnNodeSelectionChanged;
         Selection.selectionChanged += TreeSelected;
         TreeSelected();
@@ -83,6 +84,10 @@ public class BehaviourTreeEditor : EditorWindow
         if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
         {
             _treeView.PopulateView(tree);
+            if (_blackboardView != null)
+                _blackboardView.InspectBlackboard(tree.Blackboard);
+            else
+                Debug.Log("Blackboard view is null");
             return;
         }
 
@@ -94,7 +99,10 @@ public class BehaviourTreeEditor : EditorWindow
             return;
 
         if(tr.Tree)
+        {
             _treeView.PopulateView(tr.Tree);
+            _blackboardView.InspectBlackboard(tr.Tree.Blackboard);
+        }
     }
 
     private void OnNodeSelectionChanged(NodeView node)

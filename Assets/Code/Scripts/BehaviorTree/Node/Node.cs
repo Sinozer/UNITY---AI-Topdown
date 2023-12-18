@@ -6,7 +6,6 @@
 // --------------------------------------- //
 
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public abstract class Node : ScriptableObject
 {
@@ -22,8 +21,8 @@ public abstract class Node : ScriptableObject
 
     [HideInInspector] public string Guid;
     [HideInInspector] public Vector2 Position;
+    public CustomBlackboard Blackboard;
     
-
     public State Update()
     {
         if(!Started)

@@ -120,6 +120,13 @@ public class BehaviourTreeView : GraphView
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;
 
+        if (_tree.Blackboard == null)
+        {
+            _tree.CreateBlackboard();
+            EditorUtility.SetDirty(_tree);
+            AssetDatabase.SaveAssets();
+        }
+
         if (_tree.RootNode == null)
         {
             _tree.RootNode = _tree.CreateNode(typeof(RootNode)) as RootNode;

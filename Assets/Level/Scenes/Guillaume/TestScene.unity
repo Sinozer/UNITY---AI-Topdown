@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tree: {fileID: 11400000, guid: a91d459902f47fb41927afc418335531, type: 2}
+  Blackboard: {fileID: 11400000, guid: cbec40bc4ddc72b4981b489e0b77fc04, type: 2}
 --- !u!1001 &168310513
 PrefabInstance:
   m_ObjectHideFlags: 0
