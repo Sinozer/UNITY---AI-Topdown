@@ -34,7 +34,11 @@ public class Enemy : Entity
         _visionRange = _baseData.VisionRange;
     }
 
-    public float DistFromPlayer => _distFromPlayer;
+    public float DistFromPlayer
+    {
+        get => _distFromPlayer;
+        set => _distFromPlayer = value;
+    }
     protected float _distFromPlayer;
     private Vector3 GetPlayerPos()
     {
@@ -48,7 +52,7 @@ public class Enemy : Entity
         return returnValue;
     }
 
-    protected float CalculateDistFromPlayer()
+    public float CalculateDistFromPlayer()
     {
         return Vector2.Distance(GetPlayerPos(), transform.position);
     }

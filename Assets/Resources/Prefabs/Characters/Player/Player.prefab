@@ -117,6 +117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb8b8286593a844d848074536c76b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isNpc: 1
+  _health: 0
+  _maxHealth: 0
+  _damage: 0
+  _movementSpeed: 0
+  _attackSpeed: 0
+  _attackRange: 0
+  _visionRange: 0
   _aim: {fileID: 0}
 --- !u!50 &2079754400785509942
 Rigidbody2D:
@@ -340,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810be1dde55692941a8289c0b74043ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isNpc: 1
   _health: 100
   _maxHealth: 0
   _damage: 10
@@ -364,6 +373,7 @@ GameObject:
   - component: {fileID: 8517247716624378217}
   - component: {fileID: 3451938306501995873}
   - component: {fileID: 6333655552870947972}
+  - component: {fileID: 3737515230942996620}
   m_Layer: 29
   m_Name: Actions
   m_TagString: Player
@@ -412,8 +422,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _entity: {fileID: 0}
   _projectileData: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
   _fireRate: 0
+--- !u!114 &3737515230942996620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252970658352413072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5aa53c162e02504081475bc1670f6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1236402627777782308
 PrefabInstance:
   m_ObjectHideFlags: 0

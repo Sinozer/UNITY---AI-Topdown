@@ -9,8 +9,15 @@ using Pathfinding;
 using System;
 using UnityEngine;
 
-public class TankyBrain : Enemy
+public class TankyBrain : MonoBehaviour
 {
+    [SerializeField] private Entity _entity;
+    private Enemy _enemy => _entity as Enemy;
+
+    public bool IsDead => _entity.IsDead;
+
+    public Action Die => _entity.Die;
+
     public bool EndActivatingAnim => _endActivating;
     public bool SeePlayer => _seePlayer;
     public bool CanShootAtPlayer => _canShootAtPlayer;
@@ -25,32 +32,34 @@ public class TankyBrain : Enemy
     private TankyStateManager _stateManager;
     private Animator _animator;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
+        _entity = GetComponentInParent<Entity>();
+
         _stateManager = new TankyStateManager(this);
         _animator = _render.GetComponent<Animator>();
 
-        _pathFinder.GetComponent<AIPath>().maxSpeed = _movementSpeed;
+        _pathFinder.GetComponent<AIPath>().maxSpeed = _entity.MovementSpeed;
     }
 
     private void Update()
     {
         _stateManager.Update();
 
-        if (IsDead)
+        if (_entity.IsDead)
             return;
 
-        _distFromPlayer = CalculateDistFromPlayer();
+        _enemy.DistFromPlayer = _enemy.CalculateDistFromPlayer();
 
-        _canShootAtPlayer = _distFromPlayer < _attackRange ? true : false;
-        _seePlayer = _distFromPlayer < _visionRange ? true : false;
+        _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
+        _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
     }
 
     public void StartFollowingPlayer()
     {
         _pathFinder.GetComponent<CustomDestinationSetter>().enabled = true;
     }
+
     public void StopFollowingPlayer()
     {
         _pathFinder.GetComponent<CustomDestinationSetter>().enabled = false;
@@ -60,6 +69,7 @@ public class TankyBrain : Enemy
     {
         _pathFinder.GetComponent<CustomPatrol>().enabled = true;
     }
+
     public void StopPatrolling()
     {
         _pathFinder.GetComponent<CustomPatrol>().enabled = false;
@@ -69,6 +79,7 @@ public class TankyBrain : Enemy
     {
         _pathFinder.GetComponent<AIPath>().enabled = true;
     }
+
     public void DisableAIPath()
     {
         _pathFinder.GetComponent<AIPath>().enabled = false;

@@ -9,11 +9,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float lifetime;
-    public float Speed;
-
-    void Start()
+    public float Damage
     {
-        Destroy(gameObject,lifetime);
+        get => _damage;
+        set => _damage = value;
+    }
+    [SerializeField] private float _damage;
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 }

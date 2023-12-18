@@ -24,7 +24,7 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        BulletSpeed = bulletPrefab.GetComponent<Projectile>().Speed;
+        //BulletSpeed = bulletPrefab.GetComponent<Projectile>().Speed;
         Shootable = bulletPrefab.GetComponent<IShootable>();
     }
 

@@ -92,11 +92,17 @@ public class Room : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.layer != LayerMask.NameToLayer("Player"))
+            return;
+
         _isPlayerInside = true;
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.gameObject.layer != LayerMask.NameToLayer("Player"))
+            return;
+
         _isPlayerInside = false;
     }
 }

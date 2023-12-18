@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationEventBridgeTanky : MonoBehaviour
@@ -10,5 +8,9 @@ public class AnimationEventBridgeTanky : MonoBehaviour
     public void OnReloadAnimationComplete()
     {
         TankyBrain.EndActivating();
+    }
+    public void Die()
+    { 
+        TankyBrain.Die();
     }
 }
