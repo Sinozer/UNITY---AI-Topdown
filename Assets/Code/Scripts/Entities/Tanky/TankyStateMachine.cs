@@ -234,6 +234,7 @@ public class IsDeadState : BaseState<TankyStateManager, TankyStateManager.ETanky
     {
         manager.Owner.DisableAIPath();
         manager.Owner.Animator.SetBool(ETankyState.IsDead.ToString(), true);
+        manager.Owner.transform.parent.GetComponentInChildren<Collider2D>().enabled = false;
     }
 
     public override void OnExit(TankyStateManager manager)

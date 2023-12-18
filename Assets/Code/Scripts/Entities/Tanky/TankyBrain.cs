@@ -16,7 +16,7 @@ public class TankyBrain : MonoBehaviour
 
     public bool IsDead => _entity.IsDead;
 
-    public Action<float> Die => _entity.Die;
+    public Action Die => _entity.Die;
 
     public bool EndActivatingAnim => _endActivating;
     public bool SeePlayer => _seePlayer;

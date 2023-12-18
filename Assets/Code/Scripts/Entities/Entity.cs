@@ -42,19 +42,12 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-        _health -= damage;
-
-        Debug.Log($"{name} took {damage} damage. Health: {_health}");
-
-        if (_health <= 0)
-        {
-            //Die();
-        }
+        _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
     }
 
-    public virtual void Die(float timeBeforeDestroy = 0)
+    public virtual void Die()
     {
-        Destroy(transform.parent.gameObject, timeBeforeDestroy);
+        Destroy(gameObject);
     }
 
     public virtual void Attack(Entity target)
