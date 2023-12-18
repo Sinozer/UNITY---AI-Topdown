@@ -13558,7 +13558,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - {fileID: 11400000, guid: 939682aa6022b704b97bfd20a6dce3b1, type: 2}
-  - {fileID: 11400000, guid: 6719907b159731f459b69c4896e9e166, type: 2}
 --- !u!1 &1216322613
 GameObject:
   m_ObjectHideFlags: 0
@@ -14104,7 +14103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - {fileID: 11400000, guid: 939682aa6022b704b97bfd20a6dce3b1, type: 2}
-  - {fileID: 11400000, guid: 6719907b159731f459b69c4896e9e166, type: 2}
+  - {fileID: 11400000, guid: f08b58e7376e16d438bfc072e191243b, type: 2}
 --- !u!1 &1635506779
 GameObject:
   m_ObjectHideFlags: 0
