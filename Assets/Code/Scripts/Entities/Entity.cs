@@ -54,7 +54,7 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void Die(float timeBeforeDestroy = 0)
     {
-        Destroy(gameObject, timeBeforeDestroy);
+        Destroy(transform.parent.gameObject, timeBeforeDestroy);
     }
 
     public virtual void Attack(Entity target)

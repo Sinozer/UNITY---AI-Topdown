@@ -11,4 +11,8 @@ public class AnimationEventBridgeTanky : MonoBehaviour
     {
         TankyBrain.EndActivating();
     }
+    public void Die()
+    { 
+        TankyBrain.Die();
+    }
 }
