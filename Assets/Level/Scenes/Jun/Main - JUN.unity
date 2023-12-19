@@ -13909,14 +13909,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1700240109}
     m_Modifications:
-    - target: {fileID: 6911678311760679765, guid: ed402cbe2b8ddf84fbb652816e60ac64, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6911678311760679765, guid: ed402cbe2b8ddf84fbb652816e60ac64, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8952492399295809874, guid: ed402cbe2b8ddf84fbb652816e60ac64, type: 3}
       propertyPath: m_Name
       value: Zach Scuderi

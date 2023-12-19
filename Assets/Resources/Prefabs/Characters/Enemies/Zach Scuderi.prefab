@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9175431187490501191}
-  - component: {fileID: 3430974122605727135}
+  - component: {fileID: 6994915413311866051}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9131213383940304585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3430974122605727135
+--- !u!114 &6994915413311866051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 668866078276987958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1654ade11189434885588eb4335a6f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 76f3d1a247bb9254fb1a5ef35b7d880f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Tree: {fileID: 11400000, guid: 22d100d959823df4ab1107a8a626acba, type: 2}
