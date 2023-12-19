@@ -19,11 +19,12 @@ public class EntityShooting : MonoBehaviour
 
         if (_projectileData == null)
         {
+            var list = GameManager.Instance.ProjectileList.List;
             // NOT TESTED
-            if (GameManager.Instance.EntityList.List.ContainsKey(name))
-                _projectileData = GameManager.Instance.ProjectileList.List[name];
+            if (list.ContainsKey(name))
+                _projectileData = list[name];
             else
-                _projectileData = GameManager.Instance.ProjectileList.List.First().Value;
+                _projectileData = list.First().Value;
         }
     }
 
