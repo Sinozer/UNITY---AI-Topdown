@@ -4,6 +4,7 @@
 //  Description: AI - Topdown
 // --------------------------------------- //
 // --------------------------------------- //
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SelectorNode : CompositeNode
@@ -45,7 +46,7 @@ public class SelectorNode : CompositeNode
                 break;
         }
 
-        return State.Failure;
+        return _currentChild < Children.Count ? State.Running : State.Failure;
     }
 
     private State UpdateAllNodes()
