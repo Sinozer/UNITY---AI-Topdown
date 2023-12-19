@@ -66,7 +66,6 @@ public class RoomLockedState : BaseState<RoomStateManager, RoomStateManager.ERoo
 
     public override void OnEnter(RoomStateManager manager)
     {
-        Debug.Log("Enter Locked");
 
         foreach (var gate in manager.Owner.Gates)
         {
@@ -76,12 +75,10 @@ public class RoomLockedState : BaseState<RoomStateManager, RoomStateManager.ERoo
 
     public override void OnExit(RoomStateManager manager)
     {
-        Debug.Log("Exit Locked");
     }
 
     public override void OnUpdate(RoomStateManager manager)
     {
-        Debug.Log("Update Locked");
         CheckLocked(manager);
     }
 }
@@ -103,7 +100,6 @@ public class RoomUnlockedState : BaseState<RoomStateManager, RoomStateManager.ER
 
     public override void OnEnter(RoomStateManager manager)
     {
-        Debug.Log("Enter Unlocked");
 
         foreach (var gate in manager.Owner.Gates)
         {
@@ -124,12 +120,10 @@ public class RoomUnlockedState : BaseState<RoomStateManager, RoomStateManager.ER
 
     public override void OnExit(RoomStateManager manager)
     {
-        Debug.Log("Exit Unlocked");
     }
 
     public override void OnUpdate(RoomStateManager manager)
     {
-        Debug.Log("Update Unlocked");
         CheckEntered(manager);
     }
 }
@@ -142,7 +136,6 @@ public class RoomEnterState : BaseState<RoomStateManager, RoomStateManager.ERoom
 {
     public override void OnEnter(RoomStateManager manager)
     {
-        Debug.Log("Enter Enter");
 
         manager.Owner.HasBeenEntered = true;
 
@@ -154,12 +147,10 @@ public class RoomEnterState : BaseState<RoomStateManager, RoomStateManager.ERoom
 
     public override void OnExit(RoomStateManager manager)
     {
-        Debug.Log("Exit Enter");
     }
 
     public override void OnUpdate(RoomStateManager manager)
     {
-        Debug.Log("Update Enter");
 
         switch (manager.Owner.RoomType)
         {
@@ -184,7 +175,6 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
 {
     public override void OnEnter(RoomStateManager manager)
     {
-        Debug.Log("Enter Setup");
 
         // Do things to setup the room based on the room type
 
@@ -217,14 +207,12 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
 
     public override void OnExit(RoomStateManager manager)
     {
-        Debug.Log("Exit Setup");
 
         manager.Owner.HasBeenSetup = true;
     }
 
     public override void OnUpdate(RoomStateManager manager)
     {
-        Debug.Log("Update Setup");
     }
 }
 
@@ -268,14 +256,12 @@ public class RoomPlayState : BaseState<RoomStateManager, RoomStateManager.ERoomS
 
     public override void OnEnter(RoomStateManager manager)
     {
-        Debug.Log("Enter Play");
 
         manager.Owner.IsPlaying = true;
     }
 
     public override void OnExit(RoomStateManager manager)
     {
-        Debug.Log("Exit Play");
 
         manager.Owner.IsPlaying = false;
         manager.Owner.HasBeenPlayed = true;
@@ -283,7 +269,6 @@ public class RoomPlayState : BaseState<RoomStateManager, RoomStateManager.ERoomS
 
     public override void OnUpdate(RoomStateManager manager)
     {
-        Debug.Log("Update Play");
 
         CheckPlayed(manager);
     }
@@ -306,7 +291,6 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
 
     public override void OnEnter(RoomStateManager manager)
     {
-        Debug.Log("Enter End");
 
         foreach (var gate in manager.Owner.Gates)
         {
@@ -323,12 +307,10 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
 
     public override void OnExit(RoomStateManager manager)
     {
-        Debug.Log("Exit End");
     }
 
     public override void OnUpdate(RoomStateManager manager)
     {
-        Debug.Log("Update End");
         CheckLeft(manager);
     }
 }
@@ -341,18 +323,14 @@ public class RoomLeaveState : BaseState<RoomStateManager, RoomStateManager.ERoom
 {
     public override void OnEnter(RoomStateManager manager)
     {
-        Debug.Log("Enter Leave");
-
         manager.Owner.NextRoom.IsLocked = false;
     }
 
     public override void OnExit(RoomStateManager manager)
     {
-        Debug.Log("Exit Leave");
     }
 
     public override void OnUpdate(RoomStateManager manager)
     {
-        Debug.Log("Update Leave");
     }
 }
