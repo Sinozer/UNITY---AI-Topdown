@@ -38,11 +38,13 @@ public class TankyStateManager : BaseStateManager<TankyStateManager, TankyStateM
         _currentState = _states[ETankyState.Idle];
         _currentState.OnEnter(this);
     }
+
     protected override BaseState<TankyStateManager, ETankyState, TankyBrain> GetState(ETankyState state)
     {
         return _states[state];
     }
 }
+
 public class IdleState : BaseState<TankyStateManager, TankyStateManager.ETankyState, TankyBrain>
 {
     public override void OnEnter(TankyStateManager manager)
@@ -134,13 +136,13 @@ public class FollowingPlayerState : BaseState<TankyStateManager, TankyStateManag
 {
     public override void OnEnter(TankyStateManager manager)
     {
-        manager.Owner.StartFollowingPlayer();
+        manager.Owner.FollowingPlayer(true);
         manager.Owner.Animator.SetBool(ETankyState.FollowingPlayer.ToString(), true);
     }
 
     public override void OnExit(TankyStateManager manager)
     {
-        manager.Owner.StopFollowingPlayer();
+        manager.Owner.FollowingPlayer(false);
         manager.Owner.Animator.SetBool(ETankyState.FollowingPlayer.ToString(), false);
     }
 
@@ -168,13 +170,13 @@ public class PatrollingState : BaseState<TankyStateManager, TankyStateManager.ET
 {
     public override void OnEnter(TankyStateManager manager)
     {
-        manager.Owner.StartPatrolling();
+        manager.Owner.Patrolling(true);
         manager.Owner.Animator.SetBool(ETankyState.Patrolling.ToString(), true);
     }
 
     public override void OnExit(TankyStateManager manager)
     {
-        manager.Owner.StopPatrolling();
+        manager.Owner.Patrolling(false);
         manager.Owner.Animator.SetBool(ETankyState.Patrolling.ToString(), false);
     }
 
@@ -198,13 +200,15 @@ public class AttackingState : BaseState<TankyStateManager, TankyStateManager.ETa
 {
     public override void OnEnter(TankyStateManager manager)
     {
-        manager.Owner.DisableAIPath();
+        manager.Owner.AIPath(false);
+        manager.Owner.StartShooting();
         manager.Owner.Animator.SetBool(ETankyState.Attacking.ToString(), true);
     }
 
     public override void OnExit(TankyStateManager manager)
     {
-        manager.Owner.EnableAIPath();
+        manager.Owner.AIPath(true);
+        manager.Owner.StopShooting();
         manager.Owner.Animator.SetBool(ETankyState.Attacking.ToString(), false);
     }
 
@@ -232,7 +236,7 @@ public class IsDeadState : BaseState<TankyStateManager, TankyStateManager.ETanky
 {
     public override void OnEnter(TankyStateManager manager)
     {
-        manager.Owner.DisableAIPath();
+        manager.Owner.AIPath(false);
         manager.Owner.Animator.SetBool(ETankyState.IsDead.ToString(), true);
         manager.Owner.transform.parent.GetComponentInChildren<Collider2D>().enabled = false;
     }
