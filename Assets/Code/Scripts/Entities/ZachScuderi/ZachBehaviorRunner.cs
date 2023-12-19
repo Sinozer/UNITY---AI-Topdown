@@ -9,13 +9,11 @@ using UnityEngine;
 
 public class ZachBehaviorRunner : MonoBehaviour
 {
-    public BehaviourTree Tree;
-
-    private Enemy _enemyData;
+    private BehaviourTree Tree;
+    
     void Start()
     {
         GameObject parentGameObject = transform.parent.gameObject;
-        _enemyData = parentGameObject.GetComponent<Enemy>();
         Tree = Tree.Clone();
         Tree.Blackboard.SetValue("Self", parentGameObject);
     }
@@ -29,4 +27,5 @@ public class ZachBehaviorRunner : MonoBehaviour
     {
         return Tree.Blackboard;
     }
+    
 }
