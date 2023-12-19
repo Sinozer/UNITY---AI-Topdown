@@ -21,7 +21,7 @@ public class BehaviourTreeView : GraphView
     
     public Action<NodeView> OnNodeSelected;
 
-    private BehaviourTree _tree;
+    private static BehaviourTree _tree;
 
     
     public BehaviourTreeView()
@@ -135,12 +135,12 @@ public class BehaviourTreeView : GraphView
         }
 
         // Create nodes views
-        tree.Nodes.ForEach(CreateNodeView);
-        
+        _tree.Nodes.ForEach(CreateNodeView);
+
         // Create edges views
-        tree.Nodes.ForEach(n =>
+        _tree.Nodes.ForEach(n =>
         {
-            List<Node> children = tree.GetChildren(n);
+            List<Node> children = _tree.GetChildren(n);
             children.ForEach(c =>
             {
                 NodeView parentView = FindNodeView(n);

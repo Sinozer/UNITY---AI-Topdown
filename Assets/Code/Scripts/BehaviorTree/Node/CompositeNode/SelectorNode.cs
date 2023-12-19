@@ -1,17 +1,15 @@
 // --------------------------------------- //
 // --------------------------------------- //
-//  Creation Date: 14/12/23
+//  Creation Date: 19/12/23
 //  Description: AI - Topdown
 // --------------------------------------- //
 // --------------------------------------- //
-
-using System;
 using UnityEngine;
 
-public class SequencerNode : CompositeNode
+public class SelectorNode : CompositeNode
 {
     private int _currentChild;
-    [SerializeField] private bool executeAllEachFrame = false;  // Default to false to maintain current behavior
+    [SerializeField] private bool executeAllEachFrame = false;
 
     public override void OnStart()
     {
@@ -20,7 +18,6 @@ public class SequencerNode : CompositeNode
 
     public override void OnStop()
     {
-
     }
 
     public override State OnUpdate()
@@ -37,34 +34,33 @@ public class SequencerNode : CompositeNode
 
     private State UpdateSingleNode()
     {
-        Node child = Children[_currentChild];
-        switch (child.Update())
+        switch (Children[_currentChild].Update())
         {
             case State.Running:
                 return State.Running;
             case State.Success:
+                return State.Success;
+            case State.Failure:
                 _currentChild++;
                 break;
-            case State.Failure:
-                return State.Failure;
         }
 
-        return _currentChild == Children.Count ? State.Success : State.Running;
+        return State.Failure;
     }
 
     private State UpdateAllNodes()
     {
-        foreach (Node child in Children)
+        foreach(Node child in Children)
         {
             switch (child.Update())
             {
                 case State.Running:
                     return State.Running;
-                case State.Failure:
-                    return State.Failure;
+                case State.Success:
+                    return State.Success;
             }
         }
 
-        return State.Success;
+        return State.Failure;
     }
 }
