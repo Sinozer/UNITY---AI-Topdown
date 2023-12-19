@@ -405,6 +405,7 @@ MonoBehaviour:
   _nextRoom: {fileID: 0}
   _gates:
   - {fileID: 2000626125}
+  _nextLevelId: 0
 --- !u!1 &122230000
 GameObject:
   m_ObjectHideFlags: 0
@@ -59725,7 +59726,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc43089df8d29c04ea29a322ba929160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPoints: []
   _waves: []
 --- !u!1 &461682422
 GameObject:
@@ -59771,7 +59771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc43089df8d29c04ea29a322ba929160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPoints: []
   _waves: []
 --- !u!1 &472807330
 GameObject:
@@ -59977,8 +59976,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc43089df8d29c04ea29a322ba929160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPoints:
-  - {x: 0, y: 0}
   _waves:
   - {fileID: 11400000, guid: 939682aa6022b704b97bfd20a6dce3b1, type: 2}
 --- !u!1 &820548556
@@ -61779,7 +61776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc43089df8d29c04ea29a322ba929160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPoints: []
   _waves: []
 --- !u!1 &1374485258
 GameObject:
@@ -61984,7 +61980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc43089df8d29c04ea29a322ba929160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPoints: []
   _waves: []
 --- !u!1 &1635506779
 GameObject:
@@ -62503,7 +62498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc43089df8d29c04ea29a322ba929160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPoints: []
   _waves: []
 --- !u!1 &1744799695
 GameObject:

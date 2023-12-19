@@ -31,7 +31,7 @@ public class SOWave : SerializedScriptableObject
 
     [SerializeField] private float _timeBetweenEnemyTypes;
 
-    public IEnumerator RunWave()
+    public IEnumerator RunWave(EntitySpawner spawner)
     {
         int totalOfEnemies = 0;
 
@@ -42,6 +42,7 @@ public class SOWave : SerializedScriptableObject
             {
                 // Spawn enemy
                 Enemy instance = Instantiate(enemy.Entity, Vector3.zero, Quaternion.identity);
+                instance.transform.position = spawner.GetRandomPositionInRoom();
 
                 totalOfEnemies++;
 

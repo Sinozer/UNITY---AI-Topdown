@@ -301,8 +301,12 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
             return;
 
         // Go to next level
-        //SceneManager.Instance.LoadScene(2);
-        Debug.LogWarning("Next level");
+        int nextLevelId = ((EndRoom)manager.Owner).NextLevelId;
+
+        if (nextLevelId == -1)
+            return;
+        
+        SceneManager.Instance.LoadScene(nextLevelId);
     }
 
     public override void OnExit(RoomStateManager manager)

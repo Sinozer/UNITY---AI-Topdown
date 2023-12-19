@@ -5,8 +5,13 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using UnityEngine;
+
 public class EndRoom : Room
 {
+    public int NextLevelId => _nextLevelId;
+    [SerializeField] private int _nextLevelId;
+    
     protected override void Start()
     {
         base.Start();

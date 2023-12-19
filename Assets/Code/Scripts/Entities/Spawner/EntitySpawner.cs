@@ -5,29 +5,63 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class EntitySpawner : MonoBehaviour
 {
+    private BoxCollider2D _roomCollider;
+    private Tilemap _floorTilemap;
+
+    private void Awake()
+    {
+        if (_waves == null)
+            return;
+
+        if (_roomCollider == null)
+            _roomCollider = GetComponentInParent<BoxCollider2D>();
+        if (_floorTilemap == null)
+            _floorTilemap = GameObject.Find("Floor").GetComponent<Tilemap>();
+    }
+
+    public Vector3 GetRandomPositionInRoom()
+    {
+        while (true)
+        {
+            var roomBounds = _roomCollider.bounds;
+            var floorBounds = _floorTilemap.localBounds;
+            var x = UnityEngine.Random.Range(roomBounds.min.x, roomBounds.max.x);
+            var y = UnityEngine.Random.Range(roomBounds.min.y, roomBounds.max.y);
+
+            Vector3 value = new Vector3(x, y, 0);
+
+            bool IsValidPosition()
+            {
+                var tile = _floorTilemap.GetTile(_floorTilemap.WorldToCell(value));
+                Player player = GameManager.Instance.Player;
+                // Check also if the player is not too close
+                if (player == null)
+                    return tile != null;
+            
+                var distance = Vector3.Distance(player.transform.position, value);
+                
+                
+                return tile != null && distance > 2;
+            }
+
+            if (!IsValidPosition()) continue;
+
+            return value;
+            break;
+        }
+    }
+
     public bool IsEnded => _currentWaveIndex > _waves.Count;
-
-
-    public List<Vector2> SpawnPoints => _spawnPoints;
-    [SerializeField] private List<Vector2> _spawnPoints = new List<Vector2>();
-
-    //public enum ESpawnType
-    //{
-    //    Wave,       // Spawn a wave of enemies, the next wave will spawn when the previous one is defeated
-    //    Timed       // Spawn waves of enemies at a timed interval
-    //}
-    //private ESpawnType _spawnType = ESpawnType.Wave;
-    //
-    //public float TimeBetweenWaves => _timeBetweenWaves;
-    //[SerializeField] private float _timeBetweenWaves;
 
     public List<SOWave> Waves => _waves;
     [SerializeField, InlineEditor] private List<SOWave> _waves;
@@ -35,8 +69,9 @@ public class EntitySpawner : MonoBehaviour
     public int CurrentWaveIndex
     {
         get => _currentWaveIndex;
-        set => _currentWaveIndex = value;   
+        set => _currentWaveIndex = value;
     }
+
     private int _currentWaveIndex = 0;
 
     private Coroutine _spawnRoutine;
@@ -45,13 +80,15 @@ public class EntitySpawner : MonoBehaviour
 
     public void SpawnWave()
     {
-        _spawnRoutine= StartCoroutine(RoomWaves());
+        _spawnRoutine = StartCoroutine(RoomWaves());
+
         IEnumerator RoomWaves()
         {
-            foreach(var w in _waves)
+            foreach (var w in _waves)
             {
-                yield return w.RunWave();
+                yield return w.RunWave(this);
             }
+
             _spawnRoutine = null;
         }
     }
