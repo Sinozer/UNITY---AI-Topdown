@@ -29,11 +29,12 @@ public class PlayerBrain : Entity
     [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _shootInput;
     [SerializeField] private InputActionReference _reloadInput;
-
+    [SerializeField] private InputActionReference _minimapInput;
 
     [Header("References")] 
     [SerializeField] private GameObject Actions;
     [SerializeField] private GameObject Render;
+    [SerializeField] private GameObject Minimap;
 
     private Animator _animator;
 
@@ -60,7 +61,12 @@ public class PlayerBrain : Entity
         _shootInput.action.performed += OnShootPerformed;
         _shootInput.action.canceled += OnShootCanceled;
         _reloadInput.action.performed += OnReloadPerformed;
+        _minimapInput.action.performed += OnMinimapPerformed;
+        _minimapInput.action.canceled += OnMinimapCanceled;
     }
+    
+
+    
 
     private void OnDisable()
     {
@@ -69,6 +75,8 @@ public class PlayerBrain : Entity
         _shootInput.action.performed -= OnShootPerformed;
         _shootInput.action.canceled -= OnShootCanceled;
         _reloadInput.action.performed -= OnReloadPerformed;
+        _minimapInput.action.performed -= OnMinimapPerformed;
+        _minimapInput.action.canceled -= OnMinimapCanceled;
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
@@ -103,6 +111,15 @@ public class PlayerBrain : Entity
         SetAnimatorCondition(AnimatorCondition.IsReload);
     }
 
+    private void OnMinimapPerformed(InputAction.CallbackContext obj)
+    {
+        Minimap.SetActive(true);
+    }
+    private void OnMinimapCanceled(InputAction.CallbackContext obj)
+    {
+        Minimap.SetActive(false);
+    }
+    
     void Update()
     {
         if (IsDead)
