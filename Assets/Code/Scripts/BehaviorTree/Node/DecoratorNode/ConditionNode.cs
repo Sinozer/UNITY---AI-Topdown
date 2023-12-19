@@ -10,7 +10,7 @@ using UnityEngine;
 public class ConditionNode : DecoratorNode
 {
     [SerializeField] private string _conditionName;
-
+    [SerializeField] private bool _not;
     public override void OnStart()
     {
     }
@@ -21,12 +21,15 @@ public class ConditionNode : DecoratorNode
 
     public override State OnUpdate()
     {
-        Blackboard.TryFind(_conditionName, out bool condition);
-        if (condition)
+        if (!Blackboard.TryFind(_conditionName, out bool condition))
+            return State.Failure;
+
+        if (condition ^ _not)
         {
             Child.Update();
             return State.Success;
         }
+
         return State.Failure;
     }
 }
