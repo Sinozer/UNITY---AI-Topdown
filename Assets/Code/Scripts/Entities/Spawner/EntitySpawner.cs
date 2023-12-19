@@ -15,6 +15,10 @@ public class EntitySpawner : MonoBehaviour
 {
     public bool IsEnded => _currentWaveIndex > _waves.Count;
 
+
+    public List<Vector2> SpawnPoints => _spawnPoints;
+    [SerializeField] private List<Vector2> _spawnPoints = new List<Vector2>();
+
     //public enum ESpawnType
     //{
     //    Wave,       // Spawn a wave of enemies, the next wave will spawn when the previous one is defeated

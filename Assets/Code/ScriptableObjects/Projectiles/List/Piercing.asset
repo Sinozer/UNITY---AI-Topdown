@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20be3e4e5963fd4da82b9ea07ab4bb3, type: 3}
   m_Name: Piercing
   m_EditorClassIdentifier: 
-  _controller: {fileID: 9100000, guid: bcdca1a645dee964a87fd3cf8f689fae, type: 2}
+  _controller: {fileID: 9100000, guid: 9aa0f1cd736d6c748a4c0a37e9f5129a, type: 2}
   _speed: 10
-  _damage: 70
+  _damage: 7
   _lifeTime: 5
