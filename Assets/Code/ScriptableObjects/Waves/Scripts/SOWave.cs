@@ -14,7 +14,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Wave", menuName = "ScriptableObjects/Wave", order = 1)]
 public class SOWave : SerializedScriptableObject
 {
-    [System.Serializable]
+    [Serializable]
     public class EnemyType
     {
         public Enemy Entity => _entity;
@@ -27,37 +27,28 @@ public class SOWave : SerializedScriptableObject
     public List<EnemyType> Enemies => _enemies;
     [SerializeField] private List<EnemyType> _enemies;
 
-    public bool IsSpawned => _isSpawned;
-    private bool _isSpawned = false;
-
     [SerializeField] private float _timeBetweenSpawns;
 
     [SerializeField] private float _timeBetweenEnemyTypes;
 
-    public event Action<Enemy> PrepareNewSpawnType;
-
-    public IEnumerator RunWave(MonoBehaviour mb)
+    public IEnumerator RunWave()
     {
-        int _totalOfEnemies = 0;
+        int totalOfEnemies = 0;
 
         // Instantiate
         foreach (var enemy in Enemies)
         {
-            Enemy instance = null;
-            PrepareNewSpawnType?.Invoke(instance);
-            yield return new WaitForSeconds(1f);
-
             for (int i = 0; i < enemy.NumberOfEnemies; i++)
             {
                 // Spawn enemy
-                instance = GameObject.Instantiate(enemy.Entity, Vector3.zero, Quaternion.identity);
+                Enemy instance = Instantiate(enemy.Entity, Vector3.zero, Quaternion.identity);
 
-                _totalOfEnemies++;
+                totalOfEnemies++;
 
                 instance.OnDeath += ManageDeath;
                 void ManageDeath()
                 {
-                    _totalOfEnemies--;
+                    totalOfEnemies--;
                     instance.OnDeath -= ManageDeath;
                 }
 
@@ -70,8 +61,9 @@ public class SOWave : SerializedScriptableObject
         }
 
         // Pending
-        while(_totalOfEnemies > 0)
+        while (totalOfEnemies > 0)
         {
+            Debug.Log(totalOfEnemies);
             yield return null;
         }
 

@@ -257,6 +257,9 @@ public class RoomPlayState : BaseState<RoomStateManager, RoomStateManager.ERoomS
                 break;
             case Room.ERoomType.End:
                 // Wait for player to click on the end level screen
+
+                // For now, just go to end state
+                manager.ChangeState(RoomStateManager.ERoomState.End);
                 break;
             default:
                 break;
@@ -309,6 +312,13 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
         {
             gate.SetActive(false);
         }
+
+        if (manager.Owner.RoomType != Room.ERoomType.End)
+            return;
+
+        // Go to next level
+        //SceneManager.Instance.LoadScene(2);
+        Debug.LogWarning("Next level");
     }
 
     public override void OnExit(RoomStateManager manager)

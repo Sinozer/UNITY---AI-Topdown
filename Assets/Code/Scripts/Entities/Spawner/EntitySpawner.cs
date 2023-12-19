@@ -35,23 +35,20 @@ public class EntitySpawner : MonoBehaviour
     }
     private int _currentWaveIndex = 0;
 
-    public int TotalOfEnemies => _totalOfEnemies;
-    private int _totalOfEnemies = 0;
+    private Coroutine _spawnRoutine;
 
-    Coroutine spawnRoutine;
-
-    public bool IsInFight => spawnRoutine != null;
+    public bool IsInFight => _spawnRoutine != null;
 
     public void SpawnWave()
     {
-        spawnRoutine= StartCoroutine(RoomWaves());
+        _spawnRoutine= StartCoroutine(RoomWaves());
         IEnumerator RoomWaves()
         {
             foreach(var w in _waves)
             {
-                yield return w.RunWave(this);
+                yield return w.RunWave();
             }
-            spawnRoutine = null;
+            _spawnRoutine = null;
         }
     }
 }
