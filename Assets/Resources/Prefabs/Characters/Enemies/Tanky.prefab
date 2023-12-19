@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 6442645273211949174}
-  _projectileData: {fileID: 11400000, guid: a30ff2d7b36971647ade4763e1701571, type: 2}
+  _projectileData: {fileID: 11400000, guid: 7e3453553af54c947960048c91b91b93, type: 2}
   _fireRate: 2
 --- !u!1 &1992755724239779000
 GameObject:
