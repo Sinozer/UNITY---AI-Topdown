@@ -365,7 +365,7 @@ MonoBehaviour:
   _health: 100
   _maxHealth: 0
   _damage: 10
-  _movementSpeed: 3
+  _movementSpeed: 15
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
