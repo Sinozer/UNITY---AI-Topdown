@@ -629,9 +629,9 @@ MonoBehaviour:
   _shootInput: {fileID: -3436438092290266539, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
   _reloadInput: {fileID: -6401934985596150359, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
   _minimapInput: {fileID: -7636862414004200615, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
-  Actions: {fileID: 7252970658352413072}
-  Render: {fileID: 6073030441954184744}
-  Minimap: {fileID: 3159795226139761739}
+  _actions: {fileID: 7252970658352413072}
+  _render: {fileID: 6073030441954184744}
+  _minimap: {fileID: 3159795226139761739}
 --- !u!1 &7252970658352413072
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,20 +13,17 @@ public class MinimapCamera : MonoBehaviour
     private Transform _playerRef;
     public float PlayerOffset = 10f;
     
-    private void Start()
-    {
-        _playerRef = GameManager.Instance.Player?.gameObject.transform;
-    }
-
     void Update()
     {
-        if (_playerRef == null)
+        if (_playerRef != null)
         {
-            _playerRef = GameManager.Instance.Player.gameObject.transform;
+            var position = _playerRef.position;
+            transform.position = new Vector3(position.x, position.y, PlayerOffset);
         }
         else
         {
-            transform.position = new Vector3(_playerRef.position.x, _playerRef.position.y , PlayerOffset);
+            if (GameManager.Instance.Player == null) return;
+            _playerRef = GameManager.Instance.Player.gameObject.transform;
         }
     }
 }

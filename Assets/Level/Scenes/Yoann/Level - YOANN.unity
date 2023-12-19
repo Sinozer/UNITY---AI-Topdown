@@ -1238,7 +1238,7 @@ GameObject:
   - component: {fileID: 274362355}
   - component: {fileID: 274362357}
   - component: {fileID: 274362356}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59641,7 +59641,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1315874680}
   - component: {fileID: 1315874679}
-  - component: {fileID: 1315874678}
   - component: {fileID: 1315874682}
   - component: {fileID: 1315874681}
   m_Layer: 0
@@ -59651,14 +59650,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1315874678
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315874677}
-  m_Enabled: 1
 --- !u!20 &1315874679
 Camera:
   m_ObjectHideFlags: 0
