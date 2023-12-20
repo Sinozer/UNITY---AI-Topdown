@@ -6,19 +6,23 @@
 // --------------------------------------- //
 
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MinimapCamera : MonoBehaviour
 {
     [Header("Minimap Camera")] [SerializeField]
     private Transform _playerRef;
-    public float PlayerOffset = 10f;
+
+    [SerializeField] private float _playerOffset = 10f;
+    [SerializeField] private float _zoom;
+    
     
     void Update()
     {
         if (_playerRef != null)
         {
             var position = _playerRef.position;
-            transform.position = new Vector3(position.x, position.y, PlayerOffset);
+            transform.position = new Vector3(position.x, position.y, _playerOffset);
         }
         else
         {
@@ -26,4 +30,21 @@ public class MinimapCamera : MonoBehaviour
             _playerRef = GameManager.Instance.Player.gameObject.transform;
         }
     }
+    
+    public void Zoom(float zoom)
+    {
+        _zoom = zoom;
+        GetComponent<Camera>().orthographicSize = _zoom;
+    }
+    
+    public void ActivateSeeAll()
+    {
+        _playerOffset = -_playerOffset;
+    }
+    
+    public void DeactivateSeeAll()
+    {
+        _playerOffset = Mathf.Abs(_playerOffset);
+    }
+    
 }
