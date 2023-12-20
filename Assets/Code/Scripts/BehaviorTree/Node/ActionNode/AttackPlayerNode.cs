@@ -13,18 +13,20 @@ public class AttackPlayerNode : ActionNode
     EnemyBrain _brain;
     public override void OnStart()
     {
-        Debug.Log("Attack start");
         Blackboard.TryFind("Self", out _self);
+        Blackboard.TryFind("EnemyBrain", out _brain);
     }
 
     public override void OnStop()
     {
-        Debug.Log("Attack stop");
     }
 
     public override State OnUpdate()
     {
         //Debug.Log("Attack update");
-        return State.Success;
+        if (!_brain.CanShootAtPlayer)
+            return State.Failure;
+
+        return State.Running;
     }
 }
