@@ -16,7 +16,7 @@ public class TankyBrain : EnemyBrain
     private bool _endActivating = false;
     private TankyStateManager _stateManager;
 
-    protected void Awake()
+    protected override void Awake()
     {
         base.Awake();
         _stateManager = new TankyStateManager(this);

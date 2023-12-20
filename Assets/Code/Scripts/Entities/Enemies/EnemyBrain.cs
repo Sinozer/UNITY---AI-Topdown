@@ -28,17 +28,16 @@ public class EnemyBrain : MonoBehaviour
     protected bool _seePlayer = false;
     protected bool _canShootAtPlayer = false;
     protected Animator _animator;
-    protected void Awake()
+    protected virtual void Awake()
     {
         _entity = GetComponentInParent<Entity>();
-
         _animator = _render.GetComponent<Animator>();
         _customPatrol.enabled = false;
         _customDestinationSetter.enabled = false;
         _aiPath.enabled = true;
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         _aiPath.maxSpeed = _entity.MovementSpeed;
     }
