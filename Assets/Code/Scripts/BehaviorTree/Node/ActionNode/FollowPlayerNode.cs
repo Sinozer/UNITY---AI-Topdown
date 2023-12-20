@@ -10,10 +10,13 @@ using UnityEngine;
 public class FollowPlayerNode : ActionNode
 {
     GameObject _self;
+    EnemyBrain _brain;
 
     public override void OnStart()
     {
         Blackboard.TryFind("Self", out _self);
+        Blackboard.TryFind("EnemyBrain", out _brain);
+        _brain.FollowingPlayer(true);
     }
 
     public override void OnStop()
@@ -25,6 +28,7 @@ public class FollowPlayerNode : ActionNode
     {
         if (_self == null)
             return State.Failure;
+
 
         return State.Success;
     }

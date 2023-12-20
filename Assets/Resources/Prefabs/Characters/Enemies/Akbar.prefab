@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 269799197286269109}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000000037253}
+  m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 144649184479858842}
@@ -156,7 +156,7 @@ MonoBehaviour:
   _aiPath: {fileID: 4195213446074584695}
   _customPatrol: {fileID: 1890531114674664725}
   _customDestinationSetter: {fileID: 6896538303090978397}
-  _runner: {fileID: 937942114339331956}
+  _runner: {fileID: 3823734348124932002}
 --- !u!1 &4924087853665070742
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.3, y: 0.3}
   m_Direction: 0
 --- !u!114 &2852438737413608974
 MonoBehaviour:
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 6622460835130148161}
   - component: {fileID: 6773139260745474400}
   - component: {fileID: 7685008893180977911}
-  - component: {fileID: 937942114339331956}
+  - component: {fileID: 3823734348124932002}
   m_Layer: 0
   m_Name: Akbar
   m_TagString: Untagged
@@ -339,7 +339,7 @@ MonoBehaviour:
   _entity: {fileID: 6773139260745474400}
   _projectileData: {fileID: 11400000, guid: 7e3453553af54c947960048c91b91b93, type: 2}
   _fireRate: 0
---- !u!114 &937942114339331956
+--- !u!114 &3823734348124932002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -348,10 +348,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7061661399083870510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1654ade11189434885588eb4335a6f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 84bf4c6f52c96a3478f136355f94f072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Tree: {fileID: 11400000, guid: 75cadf27f7755bb4d85c1d32177d6062, type: 2}
+  _enemyBrain: {fileID: 8549478148808783436}
 --- !u!1001 &3201139680986627283
 PrefabInstance:
   m_ObjectHideFlags: 0
