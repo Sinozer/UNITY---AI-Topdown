@@ -13,7 +13,23 @@ MonoBehaviour:
   m_Name: References
   m_EditorClassIdentifier: 
   _backgroundRules: []
-  _bookmarks: []
+  _bookmarks:
+  - title: Player
+    type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 1061051873336289640, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
+  - title: Tanky
+    type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 368097344119135122, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
+  - title: Boss
+    type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 3992989477553719847, guid: 4225501ad5f899f4f9a0aa13fdd9867b, type: 3}
+  - title: Scenes
+    type: UnityEditor.DefaultAsset, UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 102900000, guid: 2594ad098d3e14e47bec7bfe30162415, type: 3}
   _emptyInspectorItems:
   - title: Ultimate Editor Enhancer
     enabled: 1
@@ -458,6 +474,8 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
+  - name: Main - THEO
+    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   - name: Main
     path: Assets/Level/Scenes/Main.unity
   - name: MainMenu
@@ -472,12 +490,19 @@ MonoBehaviour:
     path: Assets/Level/Scenes/Guillaume/TestScene.unity
   - name: Main - GUILLAUME
     path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
-  - name: Main - THEO
-    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   - name: Main - GUILLAUME
     path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   - name: Template
     path: Assets/Level/Scenes/Template.unity
   - name: Main - YOANN
     path: Assets/Level/Scenes/Yoann/Main - YOANN.unity
-  _notes: []
+  _notes:
+  - text: Add a collider
+    gid: GlobalObjectId_V1-2-8fefc074875e334488625891faf09629-1044354429-0
+    expanded: 1
+  - text: Parent for all type of colliders
+    gid: GlobalObjectId_V1-2-8fefc074875e334488625891faf09629-1914217377-0
+    expanded: 1
+  - text: Parent for all things needed to be rendered
+    gid: GlobalObjectId_V1-2-8fefc074875e334488625891faf09629-415440034-0
+    expanded: 1
