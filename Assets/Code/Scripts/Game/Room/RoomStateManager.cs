@@ -138,6 +138,11 @@ public class RoomEnterState : BaseState<RoomStateManager, RoomStateManager.ERoom
     {
 
         manager.Owner.HasBeenEntered = true;
+
+        foreach (var gate in manager.Owner.Gates)
+        {
+            gate.SetActive(true);
+        }
     }
 
     public override void OnExit(RoomStateManager manager)
@@ -184,6 +189,7 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
                 break;
             case Room.ERoomType.Combat:
                 // Spawn enemies
+                ((CombatRoom)manager.Owner).EntitySpawner.SpawnWave();
                 break;
             case Room.ERoomType.Treasure:
                 // Spawn treasures
@@ -194,11 +200,6 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
             case Room.ERoomType.End:
                 // Show end level screen
                 break;
-        }
-
-        foreach (var gate in manager.Owner.Gates)
-        {
-            gate.SetActive(true);
         }
 
         manager.ChangeState(RoomStateManager.ERoomState.Play);
@@ -232,12 +233,21 @@ public class RoomPlayState : BaseState<RoomStateManager, RoomStateManager.ERoomS
                 break;
             case Room.ERoomType.Combat:
                 // Wait for all enemies to be dead
+                EntitySpawner spawner = ((CombatRoom)manager.Owner).EntitySpawner;
+                if (spawner.IsInFight == true)
+                    return;
+
+                manager.ChangeState(RoomStateManager.ERoomState.End);
+
                 break;
             case Room.ERoomType.Boss:
                 // Wait for boss to be dead
                 break;
             case Room.ERoomType.End:
                 // Wait for player to click on the end level screen
+
+                // For now, just go to end state
+                manager.ChangeState(RoomStateManager.ERoomState.End);
                 break;
             default:
                 break;
@@ -286,6 +296,17 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
         {
             gate.SetActive(false);
         }
+
+        if (manager.Owner.RoomType != Room.ERoomType.End)
+            return;
+
+        // Go to next level
+        int nextLevelId = ((EndRoom)manager.Owner).NextLevelId;
+
+        if (nextLevelId == -1)
+            return;
+        
+        SceneManager.Instance.LoadScene(nextLevelId);
     }
 
     public override void OnExit(RoomStateManager manager)

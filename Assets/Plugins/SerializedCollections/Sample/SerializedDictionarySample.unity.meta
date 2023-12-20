@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Code/ScriptableObjects/Waves/List.meta
+guid: 54a0ecf24c99fc94989bcbcc4e0533a5
+folderAsset: yes
+========
 guid: 775eee5db3c5db649a686dee79b27afc
+>>>>>>>> LevelDesign:Assets/Plugins/SerializedCollections/Sample/SerializedDictionarySample.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
