@@ -93,7 +93,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: fd8e0b92f26c06a4a847b4df9dc18be3
-  Position: {x: 41, y: 304}
+  Position: {x: 62, y: 310}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: 6084878039918353315}
