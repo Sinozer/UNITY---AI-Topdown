@@ -74,4 +74,9 @@ public class EnemyBrain : MonoBehaviour
     {
         _entityShooting.StopShooting();
     }
+
+    public void AttackPlayer()
+    {
+        _entity.Attack(GameManager.Instance.Player);
+    }
 }

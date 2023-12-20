@@ -366,6 +366,7 @@ MonoBehaviour:
   _customPatrol: {fileID: 4126449638645797488}
   _customDestinationSetter: {fileID: 7259832254941533447}
   _runner: {fileID: 9022942392556322074}
+  _collider2D: {fileID: 0}
 --- !u!1 &7048234183470225861
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46273c9b654b73249b9b0eee4e256335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PatrolWaypoints: {fileID: 11400000, guid: 0c8509f2ebbeacb4f929f2467813fea8, type: 2}
+  PatrolWaypoints: {fileID: 11400000, guid: 9d38663f5a208b949be60ad2defd676a, type: 2}
 --- !u!114 &7259832254941533447
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ public class AkbarBrain : EnemyBrain
 
     private void Update()
     {
-        _enemy.DistFromPlayer = _enemy.CalculateDistFromPlayer();
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
 

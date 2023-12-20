@@ -10,10 +10,18 @@ using UnityEngine;
 public class HitterBrain : EnemyBrain
 {
     [SerializeField] EnemyBTRunner _runner;
-    
+
+
+    protected override void Start()
+    {
+        base.Start();
+        
+        _runner.GetBlackboard().SetValue("AttackSpeed", _entity.AttackSpeed);
+
+    }
+
     private void Update()
     {
-        _enemy.DistFromPlayer = _enemy.CalculateDistFromPlayer();
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
 
@@ -24,6 +32,8 @@ public class HitterBrain : EnemyBrain
             _runner.GetBlackboard().SetValue("PlayerPosition", Vector2.zero);
 
         _runner.GetBlackboard().SetValue("SeePlayer", _seePlayer);
+        _runner.GetBlackboard().SetValue("CanAttack", _canShootAtPlayer);
+
     }
     
 }

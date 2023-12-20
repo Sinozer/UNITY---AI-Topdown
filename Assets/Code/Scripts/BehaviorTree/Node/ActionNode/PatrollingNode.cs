@@ -1,13 +1,13 @@
 // --------------------------------------- //
 // --------------------------------------- //
-//  Creation Date: 19/12/23
+//  Creation Date: 20/12/23
 //  Description: AI - Topdown
 // --------------------------------------- //
 // --------------------------------------- //
 
 using UnityEngine;
 
-public class FollowPlayerNode : ActionNode
+public class PatrollingNode : ActionNode
 {
     GameObject _self;
     EnemyBrain _brain;
@@ -17,15 +17,16 @@ public class FollowPlayerNode : ActionNode
         Debug.Log("Follow start");
         Blackboard.TryFind("Self", out _self);
         Blackboard.TryFind("EnemyBrain", out _brain);
-        _brain.FollowingPlayer(true);
+        _brain.FollowingPlayer(false);
+        _brain.Patrolling(true);
         _brain.AIPath(true);
     }
 
     public override void OnStop()
     {
         Debug.Log("Follow stop");
-        _brain?.FollowingPlayer(false);
-        _brain?.AIPath(false);
+        _brain.Patrolling(false);
+        _brain.AIPath(false);
     }
 
     public override State OnUpdate()
