@@ -7,10 +7,11 @@
 
 using UnityEngine;
 
-public class ConditionNode : DecoratorNode
+public class ConditionNode : ActionNode
 {
     [SerializeField] private string _conditionName;
     [SerializeField] private bool _not;
+
     public override void OnStart()
     {
     }
@@ -26,7 +27,6 @@ public class ConditionNode : DecoratorNode
 
         if (condition ^ _not)
         {
-            Child.Update();
             return State.Success;
         }
 
