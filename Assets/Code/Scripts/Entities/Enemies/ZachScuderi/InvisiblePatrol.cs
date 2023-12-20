@@ -8,7 +8,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PatrolNode : ActionNode
+public class InvisiblePatrol : ActionNode
 {
     private GameObject _self;
     private SpriteRenderer _sprite;
@@ -22,7 +22,7 @@ public class PatrolNode : ActionNode
 
     public override void OnStop()
     {
-        _sprite.enabled = true;
+        
     }
 
     public override State OnUpdate()
@@ -30,16 +30,16 @@ public class PatrolNode : ActionNode
         if (_self == null)
             return State.Failure;
         
-        FadeOut();
+        //FadeOut();
         return State.Running;
     }
 
-    private void FadeOut()
-    {
-        Color color = _sprite.color;
-        _elapsedTime += Time.deltaTime; 
-        float alpha = Mathf.Lerp(1, 0, _elapsedTime);
-        color.a = alpha;
-        _sprite.color = color;
-    }
+    // private void FadeOut()
+    // {
+    //     Color color = _sprite.color;
+    //     _elapsedTime += Time.deltaTime; 
+    //     float alpha = Mathf.Lerp(1, 0, _elapsedTime);
+    //     color.a = alpha;
+    //     _sprite.color = color;
+    // }
 }

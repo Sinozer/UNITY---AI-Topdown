@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 9067308646145663940}
   - component: {fileID: 6253735827035942176}
   - component: {fileID: 8908695298342139744}
+  - component: {fileID: 7922721962150025163}
   m_Layer: 31
   m_Name: Render
   m_TagString: Untagged
@@ -364,6 +365,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TankyBrain: {fileID: 3833611419306082487}
+--- !u!114 &7922721962150025163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092188209763420944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5237129e5becce044bfde03df6220fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4339605240307949958
 PrefabInstance:
   m_ObjectHideFlags: 0

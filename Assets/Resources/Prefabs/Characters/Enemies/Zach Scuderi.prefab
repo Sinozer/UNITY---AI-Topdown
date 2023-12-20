@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9175431187490501191}
-  - component: {fileID: 6994915413311866051}
-  - component: {fileID: 5410139040664000473}
+  - component: {fileID: 2321689215174488458}
+  - component: {fileID: 6050319034097792352}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9131213383940304585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6994915413311866051
+--- !u!114 &2321689215174488458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,11 +42,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 668866078276987958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f3d1a247bb9254fb1a5ef35b7d880f, type: 3}
+  m_Script: {fileID: 11500000, guid: 84bf4c6f52c96a3478f136355f94f072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Tree: {fileID: 11400000, guid: 22d100d959823df4ab1107a8a626acba, type: 2}
---- !u!114 &5410139040664000473
+  _enemyBrain: {fileID: 6050319034097792352}
+--- !u!114 &6050319034097792352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,11 +56,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 668866078276987958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48b4c476b03cbea4790c2e74e73cec18, type: 3}
+  m_Script: {fileID: 11500000, guid: 360a6a1554d8ac643934a3e91d9f0d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 5006468203164486030}
-  _entityShooting: {fileID: 0}
+  _entityShooting: {fileID: 3004115849309751593}
   _render: {fileID: 6699824516727120118}
   _aiPath: {fileID: 8246023904421043574}
   _customPatrol: {fileID: 5938879445708514836}
@@ -143,6 +144,7 @@ GameObject:
   - component: {fileID: 189233464504881019}
   - component: {fileID: 6911678311760679765}
   - component: {fileID: 1022957764160296384}
+  - component: {fileID: 5282714665573219095}
   m_Layer: 0
   m_Name: Render
   m_TagString: Untagged
@@ -205,7 +207,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 1637047588, guid: 8b415b8567d69084db824f4efb3a7fea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -238,6 +240,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5282714665573219095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6699824516727120118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5237129e5becce044bfde03df6220fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8930964842707393354
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4f608f63049b443ac0f0c3e944818e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flipSpriteComponent: {fileID: 5282714665573219095}
 --- !u!1 &8952492399295809874
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +352,7 @@ GameObject:
   - component: {fileID: 9131213383940304585}
   - component: {fileID: 1694053797246633096}
   - component: {fileID: 5006468203164486030}
+  - component: {fileID: 3004115849309751593}
   m_Layer: 0
   m_Name: Zach Scuderi
   m_TagString: Untagged
@@ -411,6 +427,21 @@ MonoBehaviour:
   _attackRange: 0
   _visionRange: 0
   _baseData: {fileID: 0}
+--- !u!114 &3004115849309751593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8952492399295809874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entity: {fileID: 5006468203164486030}
+  _projectileData: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
+  _fireRate: 1
 --- !u!1001 &7222398313051451346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,7 +456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3913698015946000838, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3913698015946000838, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
       propertyPath: PatrolWaypoints
@@ -493,7 +524,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7222398313051451346}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46273c9b654b73249b9b0eee4e256335, type: 3}
   m_Name: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ZachPatrol
   m_EditorClassIdentifier: 
   Waypoints:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: -1.1811094, y: -14.616229, z: 0}
+  - {x: 5.167355, y: -7.923277, z: 0}
+  - {x: 5.118143, y: -14.567019, z: 0}
   Delay: 1
