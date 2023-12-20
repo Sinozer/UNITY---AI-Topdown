@@ -35,9 +35,9 @@ public class FollowPlayerNode : ActionNode
             return State.Failure;
 
         if (!_brain.CanShootAtPlayer) return State.Running;
-        Debug.Log("perdu");
         
-        return State.Failure;
+        Debug.Log("");
+        return State.Success;
 
     }
 }
