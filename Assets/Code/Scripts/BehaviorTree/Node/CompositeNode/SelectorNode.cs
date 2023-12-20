@@ -19,18 +19,12 @@ public class SelectorNode : CompositeNode
 
     public override void OnStop()
     {
+        
     }
 
     public override State OnUpdate()
     {
-        if (!executeAllEachFrame)
-        {
-            return UpdateSingleNode();
-        }
-        else
-        {
-            return UpdateAllNodes();
-        }
+        return !executeAllEachFrame ? UpdateSingleNode() : UpdateAllNodes();
     }
 
     private State UpdateSingleNode()

@@ -11,6 +11,14 @@ using UnityEngine;
 
 public class EnemyBrain : MonoBehaviour
 {
+    private enum AnimatorCondition
+    {
+        IsIdle,
+        IsRun,
+        IsAttack,
+        IsDead
+    }
+    
     public bool IsDead => _entity.IsDead;
     public Action Die => _entity.Die;
     public bool SeePlayer => _seePlayer;

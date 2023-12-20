@@ -34,12 +34,10 @@ public class FollowPlayerNode : ActionNode
         if (_self == null)
             return State.Failure;
 
-        if(_brain.CanShootAtPlayer)
-        {
-            Debug.Log("");
-            return State.Success;
-        }
+        if (!_brain.CanShootAtPlayer) return State.Running;
+        Debug.Log("perdu");
+        
+        return State.Failure;
 
-        return State.Running;
     }
 }

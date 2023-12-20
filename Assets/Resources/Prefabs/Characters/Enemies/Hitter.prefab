@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2898198614785544099}
   - component: {fileID: 5766436915664568087}
   - component: {fileID: 4788285572007626977}
+  - component: {fileID: 9022942392556322074}
   m_Layer: 31
   m_Name: Hitter
   m_TagString: Enemy
@@ -101,6 +102,20 @@ MonoBehaviour:
   _entity: {fileID: 5766436915664568087}
   _projectileData: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
   _fireRate: 2
+--- !u!114 &9022942392556322074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602625598448712294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84bf4c6f52c96a3478f136355f94f072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tree: {fileID: 11400000, guid: 68e381f72dc1afb41a430f88a2275671, type: 2}
+  _enemyBrain: {fileID: 3325428967905620700}
 --- !u!1 &5367106740148608715
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,8 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2516471272207081433}
-  - component: {fileID: 6912494630238790200}
-  - component: {fileID: 4858039341634070697}
+  - component: {fileID: 3325428967905620700}
   m_Layer: 31
   m_Name: Brain
   m_TagString: Untagged
@@ -333,7 +347,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1329973013711767314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6912494630238790200
+--- !u!114 &3325428967905620700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,7 +356,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6959901535677557712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48b4c476b03cbea4790c2e74e73cec18, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a73120414e48254cbde12d72defeab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 5766436915664568087}
@@ -351,20 +365,7 @@ MonoBehaviour:
   _aiPath: {fileID: 3013565200633720282}
   _customPatrol: {fileID: 4126449638645797488}
   _customDestinationSetter: {fileID: 7259832254941533447}
---- !u!114 &4858039341634070697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6959901535677557712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84bf4c6f52c96a3478f136355f94f072, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tree: {fileID: 11400000, guid: 68e381f72dc1afb41a430f88a2275671, type: 2}
-  _enemyBrain: {fileID: 6912494630238790200}
+  _runner: {fileID: 9022942392556322074}
 --- !u!1 &7048234183470225861
 GameObject:
   m_ObjectHideFlags: 0
