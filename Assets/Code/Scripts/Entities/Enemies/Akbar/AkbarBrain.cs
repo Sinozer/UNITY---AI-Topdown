@@ -24,5 +24,6 @@ public class AkbarBrain : EnemyBrain
             _runner.GetBlackboard().SetValue("PlayerPosition", Vector2.zero);
 
         _runner.GetBlackboard().SetValue("SeePlayer", _seePlayer);
+        _runner.GetBlackboard().SetValue("CanShoot", _canShootAtPlayer);
     }
 }
