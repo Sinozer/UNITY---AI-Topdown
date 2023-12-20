@@ -19,6 +19,16 @@ public class SelectorNode : CompositeNode
 
     public override void OnStop()
     {
+        if (CurrentState == State.Success)
+        {
+            foreach (var child in Children)
+            {
+                if (child.CurrentState != State.Running)
+                    continue;
+                child.OnStop();
+                child.Started = false;
+            }
+        }
     }
 
     public override State OnUpdate()
