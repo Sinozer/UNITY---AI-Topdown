@@ -5,7 +5,6 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using Sirenix.Utilities;
 using System.Linq;
 using UnityEngine;
 
@@ -40,7 +39,7 @@ public class Enemy : Entity
         set => _distFromPlayer = value;
     }
     protected float _distFromPlayer;
-    private Vector3 GetPlayerPos()
+    public Vector3 GetPlayerPos()
     {
         Vector3 returnValue = Vector3.zero;
 

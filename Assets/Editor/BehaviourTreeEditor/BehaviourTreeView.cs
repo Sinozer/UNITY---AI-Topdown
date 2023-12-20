@@ -199,12 +199,15 @@ public class BehaviourTreeView : GraphView
         if (Application.isPlaying)
             return;
         //base.BuildContextualMenu(evt);
+        Vector2 localMousePosition = this.contentViewContainer.WorldToLocal(evt.mousePosition);
+
         {
             TypeCache.TypeCollection types = TypeCache.GetTypesDerivedFrom<ActionNode>();
             foreach (Type type in types)
             {
                 evt.menu.AppendAction($"Add Node/{type.BaseType.Name}/{type.Name}",
-                    a => CreateNode(type));
+                    a => CreateNode(type, localMousePosition));
+                
             }
         }
 
@@ -213,7 +216,7 @@ public class BehaviourTreeView : GraphView
             foreach (var type in types)
             {
                 evt.menu.AppendAction($"Add Node/{type.BaseType.Name}/{type.Name}",
-                    a => CreateNode(type));
+                    a => CreateNode(type, localMousePosition));
             }
         }
 
@@ -222,7 +225,7 @@ public class BehaviourTreeView : GraphView
             foreach (var type in types)
             {
                 evt.menu.AppendAction($"Add Node/{type.BaseType.Name}/{type.Name}",
-                    a => CreateNode(type));
+                    a => CreateNode(type,localMousePosition));
             }
         }
     }
@@ -234,9 +237,10 @@ public class BehaviourTreeView : GraphView
             port.node != startPort.node).ToList();
     }
 
-    private void CreateNode(Type type)
+    private void CreateNode(Type type, Vector2 position)
     {
         Node node = _tree.CreateNode(type);
+        node.Position = position;
         CreateNodeView(node);
     }
 

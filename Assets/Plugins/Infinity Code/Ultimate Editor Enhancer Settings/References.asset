@@ -458,18 +458,20 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
-  - name: Main - JUN
-    path: Assets/Level/Scenes/Jun/Main - JUN.unity
-  - name: TestScene
-    path: Assets/Level/Scenes/Guillaume/TestScene.unity
-  - name: Level - YOANN
-    path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
-  - name: Main - GUILLAUME
-    path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   - name: Main
     path: Assets/Level/Scenes/Main.unity
+  - name: MainMenu
+    path: Assets/Level/Scenes/MainMenu.unity
+  - name: Level - YOANN
+    path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
+  - name: Level2 - YOANN
+    path: Assets/Level/Scenes/Yoann/Level2 - YOANN.unity
   - name: Main - MATTHIEU
     path: Assets/Level/Scenes/Matthieu/Main - MATTHIEU.unity
+  - name: TestScene
+    path: Assets/Level/Scenes/Guillaume/TestScene.unity
+  - name: Main - GUILLAUME
+    path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   - name: Main - THEO
     path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   - name: Main - GUILLAUME

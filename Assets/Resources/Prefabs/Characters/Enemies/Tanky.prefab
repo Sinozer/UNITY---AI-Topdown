@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 6442645273211949174}
-  _projectileData: {fileID: 11400000, guid: a30ff2d7b36971647ade4763e1701571, type: 2}
+  _projectileData: {fileID: 11400000, guid: 7e3453553af54c947960048c91b91b93, type: 2}
   _fireRate: 2
 --- !u!1 &1992755724239779000
 GameObject:
@@ -306,7 +306,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 499617746, guid: 8b415b8567d69084db824f4efb3a7fea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
