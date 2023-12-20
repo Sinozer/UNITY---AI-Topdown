@@ -14,8 +14,5 @@ public class EnemyBTRunner : BehaviorTreeRunner
     void Start()
     {
         Tree.Blackboard.SetValue("EnemyBrain", _enemyBrain);
-
-        if (Tree.Blackboard.TryFind("EnemyBrain", out BehaviorTreeRunner eb))
-            Debug.Log(eb);
     }
 }
