@@ -31,7 +31,6 @@ public class EnemyBrain : MonoBehaviour
     protected virtual void Awake()
     {
         _entity = GetComponentInParent<Entity>();
-
         _animator = _render.GetComponent<Animator>();
         _customPatrol.enabled = false;
         _customDestinationSetter.enabled = false;
