@@ -27,7 +27,7 @@ public class IdleNode : ActionNode
 
     public override State OnUpdate()
     {
-        Debug.Log("Idle update");
+        //Debug.Log("Idle update");
         if (_self == null)
             return State.Failure;
 
