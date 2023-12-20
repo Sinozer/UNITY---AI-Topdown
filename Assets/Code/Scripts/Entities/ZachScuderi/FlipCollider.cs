@@ -5,27 +5,35 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
 using UnityEngine;
 
 public class FlipCollider : MonoBehaviour
 {
-    private EdgeCollider2D edgeCollider;
-    private Vector2[] originalPoints;
-
+    private EdgeCollider2D _edgeCollider;
+    private Vector2[] _originalPoints;
+    private Enemy _data;
+    
     void Start()
     {
-        edgeCollider = GetComponent<EdgeCollider2D>();
-        originalPoints = edgeCollider.points;
+        _data = GetComponentInParent<Enemy>();
+        _edgeCollider = GetComponent<EdgeCollider2D>();
+        _originalPoints = _edgeCollider.points;
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+    }
+
 
     public void Flip()
     {
-        Vector2[] flippedPoints = new Vector2[originalPoints.Length];
-        for (int i = 0; i < originalPoints.Length; i++)
+        Vector2[] flippedPoints = new Vector2[_originalPoints.Length];
+        for (int i = 0; i < _originalPoints.Length; i++)
         {
-            flippedPoints[i] = new Vector2(-originalPoints[i].x, originalPoints[i].y);
+            flippedPoints[i] = new Vector2(-_originalPoints[i].x, _originalPoints[i].y);
         }
-        edgeCollider.points = flippedPoints;
+        _edgeCollider.points = flippedPoints;
     }
 }
