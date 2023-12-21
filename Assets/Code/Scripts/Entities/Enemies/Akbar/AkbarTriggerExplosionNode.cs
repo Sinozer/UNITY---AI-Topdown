@@ -1,35 +1,30 @@
 // --------------------------------------- //
 // --------------------------------------- //
-//  Creation Date: 19/12/23
+//  Creation Date: 21/12/23
 //  Description: AI - Topdown
 // --------------------------------------- //
 // --------------------------------------- //
 
 using UnityEngine;
 
-public class ConditionNode : ActionNode
+public class AkbarTriggerExplosionNode : ActionNode
 {
-    [SerializeField] private string _conditionName;
-    [SerializeField] private bool _not;
+    AkbarBrain _brain;
 
     public override void OnStart()
     {
+        Blackboard.TryFind("EnemyBrain", out _brain);
+        Blackboard.SetValue("TriggerExplosion", true);
+        _brain.Explode();
     }
 
     public override void OnStop()
     {
+
     }
 
     public override State OnUpdate()
     {
-        if (!Blackboard.TryFind(_conditionName, out bool condition))
-            return State.Failure;
-
-        if (condition ^ _not)
-        {
-            return State.Success;
-        }
-
-        return State.Failure;
+        return State.Success;
     }
 }

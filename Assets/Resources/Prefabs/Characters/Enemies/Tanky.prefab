@@ -85,6 +85,7 @@ MonoBehaviour:
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
+  _fxHit: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
   _baseData: {fileID: 11400000, guid: ff63ba2190dc8d541a8229bb85580cd7, type: 2}
 --- !u!114 &173811963108677713
 MonoBehaviour:
@@ -309,7 +310,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_Sprite: {fileID: 499617746, guid: 8b415b8567d69084db824f4efb3a7fea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.96, y: 0.96}
@@ -363,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2532e4d41b8034845997a68d28d51541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TankyBrain: {fileID: 3833611419306082487}
+  EnemyBrain: {fileID: 3833611419306082487}
 --- !u!1001 &4339605240307949958
 PrefabInstance:
   m_ObjectHideFlags: 0

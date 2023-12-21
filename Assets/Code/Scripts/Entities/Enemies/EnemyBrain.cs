@@ -11,6 +11,15 @@ using UnityEngine;
 
 public class EnemyBrain : MonoBehaviour
 {
+    public enum AnimatorCondition
+    {
+        Idle,
+        Run,
+        Attack,
+        Hit,
+        Dead
+    }
+    
     public bool IsDead => _entity.IsDead;
     public Action Die => _entity.Die;
     public bool SeePlayer => _seePlayer;
@@ -28,6 +37,7 @@ public class EnemyBrain : MonoBehaviour
     protected bool _seePlayer = false;
     protected bool _canShootAtPlayer = false;
     protected Animator _animator;
+    protected SpriteRenderer _spriteRenderer;
     protected virtual void Awake()
     {
         _entity = GetComponentInParent<Entity>();
@@ -40,6 +50,14 @@ public class EnemyBrain : MonoBehaviour
     protected virtual void Start()
     {
         _aiPath.maxSpeed = _entity.MovementSpeed;
+        _spriteRenderer = _render.GetComponent<SpriteRenderer>();        
+    }
+
+    protected virtual void Update()
+    {
+        //if (_entity.IsDead)
+        //    return;
+        _spriteRenderer.flipX = _aiPath.targetDirection.x < 0;
     }
 
     public void FollowingPlayer(bool enable)
@@ -65,5 +83,15 @@ public class EnemyBrain : MonoBehaviour
     public void StopShooting()
     {
         _entityShooting.StopShooting();
+    }
+
+    public void AttackPlayer()
+    {
+        _entity.Attack(GameManager.Instance.Player);
+    }
+
+    public void OnHit()
+    {
+        _enemy.OnHit();
     }
 }

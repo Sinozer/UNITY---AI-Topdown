@@ -7,6 +7,7 @@
 
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : Entity
 {
@@ -33,12 +34,8 @@ public class Enemy : Entity
         _visionRange = _baseData.VisionRange;
     }
 
-    public float DistFromPlayer
-    {
-        get => _distFromPlayer;
-        set => _distFromPlayer = value;
-    }
-    protected float _distFromPlayer;
+    public float DistFromPlayer => CalculateDistFromPlayer();
+    
     public Vector3 GetPlayerPos()
     {
         Vector3 returnValue = Vector3.zero;

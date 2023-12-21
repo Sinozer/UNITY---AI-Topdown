@@ -7,17 +7,13 @@
 
 using UnityEngine;
 
-public class AnimationEventBridgeTanky : MonoBehaviour
+public class AnimationEventBridgeTanky : AnimationEventBridgeEnemy
 {
-    public TankyBrain TankyBrain; // reference to your main script
+    private TankyBrain _tankyBrain => EnemyBrain as TankyBrain;
 
     // Animation event function
     public void OnReloadAnimationComplete()
     {
-        TankyBrain.EndActivating();
-    }
-    public void Die()
-    { 
-        TankyBrain.Die();
+        _tankyBrain.EndActivating();
     }
 }

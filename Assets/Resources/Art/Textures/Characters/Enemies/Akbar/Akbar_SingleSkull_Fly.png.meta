@@ -1,37 +1,31 @@
 fileFormatVersion: 2
-guid: 333670492a787154e93a3dd3f2956ada
+guid: 711e7a3687098e244af170961d47210f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4495769266712716395
-    second: Bones_SingleSkull_Death_0
+      213: 4058254702925930087
+    second: Bones_SingleSkull_Fly_0
   - first:
-      213: -5524293445746938104
-    second: Bones_SingleSkull_Death_1
+      213: 1438289987400495239
+    second: Bones_SingleSkull_Fly_1
   - first:
-      213: 6119433655663169082
-    second: Bones_SingleSkull_Death_2
+      213: 4784100166936662140
+    second: Bones_SingleSkull_Fly_2
   - first:
-      213: 6192067363010349240
-    second: Bones_SingleSkull_Death_3
+      213: -2837967834670498393
+    second: Bones_SingleSkull_Fly_3
   - first:
-      213: -9179821171168502004
-    second: Bones_SingleSkull_Death_4
+      213: -8910987609444008887
+    second: Bones_SingleSkull_Fly_4
   - first:
-      213: 7316291155138825776
-    second: Bones_SingleSkull_Death_5
+      213: -2093020775249833328
+    second: Bones_SingleSkull_Fly_5
   - first:
-      213: 8742100491152021075
-    second: Bones_SingleSkull_Death_6
+      213: -5234458825987850488
+    second: Bones_SingleSkull_Fly_6
   - first:
-      213: 3783595870547217743
-    second: Bones_SingleSkull_Death_7
-  - first:
-      213: 1173024372038152049
-    second: Bones_SingleSkull_Death_8
-  - first:
-      213: 7946627785263191905
-    second: Bones_SingleSkull_Death_9
+      213: -4807177847907190495
+    second: Bones_SingleSkull_Fly_7
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -78,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 12
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -179,91 +173,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bones_SingleSkull_Death_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b64a786145e246e30800000000000000
-      internalID: 4495769266712716395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bones_SingleSkull_Death_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80f2c3b4164c553b0800000000000000
-      internalID: -5524293445746938104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bones_SingleSkull_Death_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3e8f58dc789ce450800000000000000
-      internalID: 6119433655663169082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bones_SingleSkull_Death_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b8858da574aee550800000000000000
-      internalID: 6192067363010349240
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bones_SingleSkull_Death_4
+      name: Bones_SingleSkull_Fly_0
       rect:
         serializedVersion: 2
         x: 0
@@ -277,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0f14e61849ba9080800000000000000
-      internalID: -9179821171168502004
+      spriteID: 76e55f79621d15830800000000000000
+      internalID: 4058254702925930087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bones_SingleSkull_Death_5
+      name: Bones_SingleSkull_Fly_1
       rect:
         serializedVersion: 2
         x: 64
@@ -298,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03ec16fca00b88560800000000000000
-      internalID: 7316291155138825776
+      spriteID: 780f1078f15d5f310800000000000000
+      internalID: 1438289987400495239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bones_SingleSkull_Death_6
+      name: Bones_SingleSkull_Fly_2
       rect:
         serializedVersion: 2
         x: 128
@@ -319,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35652ed341e225970800000000000000
-      internalID: 8742100491152021075
+      spriteID: c70952c21c9846240800000000000000
+      internalID: 4784100166936662140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bones_SingleSkull_Death_7
+      name: Bones_SingleSkull_Fly_3
       rect:
         serializedVersion: 2
         x: 192
@@ -340,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4d0a9dd568028430800000000000000
-      internalID: 3783595870547217743
+      spriteID: 7adfa726a438d98d0800000000000000
+      internalID: -2837967834670498393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bones_SingleSkull_Death_8
+      name: Bones_SingleSkull_Fly_4
       rect:
         serializedVersion: 2
         x: 0
@@ -361,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17fa530937b674010800000000000000
-      internalID: 1173024372038152049
+      spriteID: 94cbe2d4bffc55480800000000000000
+      internalID: -8910987609444008887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bones_SingleSkull_Death_9
+      name: Bones_SingleSkull_Fly_5
       rect:
         serializedVersion: 2
         x: 64
@@ -382,8 +292,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1679cde1ed7184e60800000000000000
-      internalID: 7946627785263191905
+      spriteID: 09298b7b1b814f2e0800000000000000
+      internalID: -2093020775249833328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bones_SingleSkull_Fly_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ff59d5e677b57b0800000000000000
+      internalID: -5234458825987850488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bones_SingleSkull_Fly_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1297d538739794db0800000000000000
+      internalID: -4807177847907190495
       vertices: []
       indices: 
       edges: []
@@ -399,16 +351,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bones_SingleSkull_Death_0: 4495769266712716395
-      Bones_SingleSkull_Death_1: -5524293445746938104
-      Bones_SingleSkull_Death_2: 6119433655663169082
-      Bones_SingleSkull_Death_3: 6192067363010349240
-      Bones_SingleSkull_Death_4: -9179821171168502004
-      Bones_SingleSkull_Death_5: 7316291155138825776
-      Bones_SingleSkull_Death_6: 8742100491152021075
-      Bones_SingleSkull_Death_7: 3783595870547217743
-      Bones_SingleSkull_Death_8: 1173024372038152049
-      Bones_SingleSkull_Death_9: 7946627785263191905
+      Bones_SingleSkull_Fly_0: 4058254702925930087
+      Bones_SingleSkull_Fly_1: 1438289987400495239
+      Bones_SingleSkull_Fly_2: 4784100166936662140
+      Bones_SingleSkull_Fly_3: -2837967834670498393
+      Bones_SingleSkull_Fly_4: -8910987609444008887
+      Bones_SingleSkull_Fly_5: -2093020775249833328
+      Bones_SingleSkull_Fly_6: -5234458825987850488
+      Bones_SingleSkull_Fly_7: -4807177847907190495
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

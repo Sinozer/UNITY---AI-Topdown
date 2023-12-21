@@ -1,0 +1,675 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8977549025667015755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12018455e133c7e41bf514726df0b482, type: 3}
+  m_Name: AttackPlayerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: c10b7845d6d4a15468dfcf643ed978d9
+  Position: {x: -180.9999, y: 785.00006}
+  Blackboard: {fileID: 0}
+--- !u!114 &-7415059327291037406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e800d53ee779c094db9028931aaccab9, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: aa056a22156cca648b9d8f90dfb37058
+  Position: {x: 446, y: 290}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: 8038415138250045678}
+  - {fileID: -1330113945047387531}
+  - {fileID: 7852692166951507168}
+  executeAllEachFrame: 0
+--- !u!114 &-7234896003632139922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bb3586f198a244ca26cdd85035a56b, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 647ab08c53ee9db49853451335c5f749
+  Position: {x: 444, y: 821}
+  Blackboard: {fileID: 0}
+  _duration: AttackSpeed
+--- !u!114 &-7011485699955421079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d81306971e1d948969edfde25d3fe9, type: 3}
+  m_Name: PatrollingNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 57967f8f185872c48bbe955a4ac7c269
+  Position: {x: 1423.9132, y: 615.9999}
+  Blackboard: {fileID: 0}
+--- !u!114 &-6640378195101659053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
+  m_Name: ConditionNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 6ed8e79c842ef5a4b9a234aaad73e3d6
+  Position: {x: 427.99997, y: 652}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _conditionName: SeePlayer
+  _not: 0
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
+--- !u!114 &-5296518685063950475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb81fc8e98b1ccc4296be285fdc0cd7d, type: 3}
+  m_Name: FollowPlayerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: f96abe77427860948b5c67c9d3d6b0be
+  Position: {x: 768.9642, y: 652.00006}
+  Blackboard: {fileID: 0}
+--- !u!114 &-4660252231281067831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 9060a4014738da64f97bd657d97fb1ae
+  Position: {x: 185.99994, y: 628}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: -8977549025667015755}
+  - {fileID: 4373240363534352852}
+  - {fileID: 6188034936772204326}
+  - {fileID: 6907995792305002099}
+  - {fileID: -7234896003632139922}
+  executeAllEachFrame: 0
+--- !u!114 &-4357289321079846350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: d415ca228702cb847940fe68f670c417
+  Position: {x: 1196.5, y: 687.9999}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _animatorCondition: 1
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 1
+--- !u!114 &-4090105311848525082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd51032bae40cc4eb9e67f0b742f264, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 1
+  Guid: 70ceb1320e5decb48812ed6a5dc1349a
+  Position: {x: 422.39996, y: -2.9920044}
+  Blackboard: {fileID: 0}
+  Child: {fileID: 4096845785200190805}
+--- !u!114 &-2301573941855121565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ce1fea9899533408399bf165445049, type: 3}
+  m_Name: Blackboard
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _floatData
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Single,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AttackRate
+    - Name: $v
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _intData
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _boolData
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Boolean,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: SeePlayer
+    - Name: $v
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: CanAttack
+    - Name: $v
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _vector2Data
+      Entry: 7
+      Data: 4|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.Vector2,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _vector3Data
+      Entry: 7
+      Data: 5|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.Vector3,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _transformData
+      Entry: 7
+      Data: 6|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.Transform,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _gameObjectData
+      Entry: 7
+      Data: 7|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _stringData
+      Entry: 7
+      Data: 8|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _objectData
+      Entry: 7
+      Data: 9|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: PlayerPosition
+    - Name: $v
+      Entry: 7
+      Data: 10|UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: -2.33045864
+    - Name: 
+      Entry: 4
+      Data: -9.799145
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: SeePlayer
+    - Name: $v
+      Entry: 7
+      Data: 11|System.Boolean, mscorlib
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &-1330113945047387531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 5daf5b0d7b297924d9dbf6dc886c8940
+  Position: {x: 563, y: 486.00006}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: -6640378195101659053}
+  - {fileID: -573824711371807523}
+  - {fileID: -5296518685063950475}
+  executeAllEachFrame: 1
+--- !u!114 &-573824711371807523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 085ccea264c97094caf64be1f1189308
+  Position: {x: 591.99994, y: 651.9999}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _animatorCondition: 1
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f82a8a26f169c4ba4852e783c93690, type: 3}
+  m_Name: BTHitter
+  m_EditorClassIdentifier: 
+  Blackboard: {fileID: -2301573941855121565}
+  RootNode: {fileID: -4090105311848525082}
+  TreeState: 0
+  Nodes:
+  - {fileID: -4090105311848525082}
+  - {fileID: 4096845785200190805}
+  - {fileID: -4660252231281067831}
+  - {fileID: -1330113945047387531}
+  - {fileID: 5292352449062967114}
+  - {fileID: -8977549025667015755}
+  - {fileID: -5296518685063950475}
+  - {fileID: -6640378195101659053}
+  - {fileID: -7415059327291037406}
+  - {fileID: -7011485699955421079}
+  - {fileID: 7852692166951507168}
+  - {fileID: 4682740223576711025}
+  - {fileID: -7234896003632139922}
+  - {fileID: 6907995792305002099}
+  - {fileID: 8038415138250045678}
+  - {fileID: -573824711371807523}
+  - {fileID: 6188034936772204326}
+  - {fileID: 4373240363534352852}
+  - {fileID: -4357289321079846350}
+--- !u!114 &4096845785200190805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26bd35f499bae7741b18dde675774165, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 9ac83ea492a8df84195f4f0e6060fea2
+  Position: {x: 429.59998, y: 130.40002}
+  Blackboard: {fileID: 0}
+  Child: {fileID: -7415059327291037406}
+--- !u!114 &4373240363534352852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 871f6399af331aa43b5edde4b1a05359
+  Position: {x: -105.000084, y: 882}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _animatorCondition: 1
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 0
+--- !u!114 &4682740223576711025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
+  m_Name: ConditionNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: b235400d2c5ab4a4597e90fc5fbf314b
+  Position: {x: 1016.00006, y: 659.99994}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _conditionName: SeePlayer
+  _not: 1
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
+--- !u!114 &5292352449062967114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
+  m_Name: ConditionNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 04f0fdd675bb6314aaca0066adff5144
+  Position: {x: -79.0001, y: 636}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _conditionName: CanAttack
+  _not: 0
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
+--- !u!114 &6188034936772204326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: addc2ee282d68cc45a45261d1e0efec9
+  Position: {x: 85.00007, y: 917.99994}
+  Blackboard: {fileID: 0}
+  _type: 3
+  _animatorCondition: 2
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 0
+--- !u!114 &6907995792305002099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c61b8d40bc6e604896ba18932c237cb, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: d1ceda11b0b2cfa4fa37456e3ea5dc96
+  Position: {x: 279.99997, y: 909}
+  Blackboard: {fileID: 0}
+  Message: PAF
+--- !u!114 &7852692166951507168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 5b3d750a8c90dbe4ea09f144adf4df1e
+  Position: {x: 1119.0001, y: 437.99997}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: 4682740223576711025}
+  - {fileID: -4357289321079846350}
+  - {fileID: -7011485699955421079}
+  executeAllEachFrame: 1
+--- !u!114 &8038415138250045678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 439ebe6b9cd659742ae2d1575c5f1560
+  Position: {x: 178, y: 468}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: 5292352449062967114}
+  - {fileID: -4660252231281067831}
+  executeAllEachFrame: 1

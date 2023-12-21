@@ -22,14 +22,13 @@ public class TankyBrain : EnemyBrain
         _stateManager = new TankyStateManager(this);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         _stateManager.Update();
 
         if (_entity.IsDead)
             return;
-
-        _enemy.DistFromPlayer = _enemy.CalculateDistFromPlayer();
 
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
