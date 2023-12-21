@@ -10,19 +10,19 @@ using UnityEngine;
 
 public class LaserSweep : MonoBehaviour
 {
-    public float sweepSpeed;
-    public float minValue = -60;
-    public float maxValue = 60;  
+    public float SweepSpeed;
+    public float MinValue = -60;
+    public float MaxValue = 60;  
+    public float Damage = 30;
     
-    float range => maxValue - minValue;
-    float midPoint => (maxValue + minValue) / 2;
+    float range => MaxValue - MinValue;
+    float midPoint => (MaxValue + MinValue) / 2;
     
     void Update()
     {
-        float angle = midPoint + (Mathf.PingPong(Time.time * sweepSpeed, range) - range / 2);
+        float angle = midPoint + (Mathf.PingPong(Time.time * SweepSpeed, range) - range / 2);
         transform.eulerAngles = new Vector3(0, 0, angle);
     }
-    
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -32,7 +32,7 @@ public class LaserSweep : MonoBehaviour
         if (!other.transform.parent.gameObject.TryGetComponent<Player>(out var player))
             return;
         
-        player?.TakeDamage(30);
+        player?.TakeDamage(Damage);
         
     }
 }
