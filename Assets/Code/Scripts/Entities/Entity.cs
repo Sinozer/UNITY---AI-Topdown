@@ -40,6 +40,7 @@ public abstract class Entity : MonoBehaviour
     #region Events
     public event Action<float> OnHealthChanged;
     public event Action OnDeath;
+    public event Action OnHit;
     #endregion Events
 
     public virtual void Heal(float healAmount)
@@ -52,8 +53,9 @@ public abstract class Entity : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
-
+        
         OnHealthChanged?.Invoke(Health);
+        OnHit?.Invoke();
     }
 
     public virtual void Die()

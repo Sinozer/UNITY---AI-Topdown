@@ -22,6 +22,8 @@ public class EnemyBrain : MonoBehaviour
     
     public bool IsDead => _entity.IsDead;
     public Action Die => _entity.Die;
+    
+    
     public bool SeePlayer => _seePlayer;
     public bool CanShootAtPlayer => _canShootAtPlayer;
     public Animator Animator => _animator;

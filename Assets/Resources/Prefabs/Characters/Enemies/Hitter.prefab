@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 2559203377800609940}
   - component: {fileID: 299328909422532744}
   - component: {fileID: 2759214054865029997}
+  - component: {fileID: 4088109973074090647}
   m_Layer: 31
   m_Name: Render
   m_TagString: Untagged
@@ -235,6 +236,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d8ab888a7f8454b90208db03918ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4088109973074090647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367106740148608715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd90fd6b0105fb48a8392bb591ac0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyBrain: {fileID: 3325428967905620700}
 --- !u!1 &6431008912309849791
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +380,6 @@ MonoBehaviour:
   _customPatrol: {fileID: 4126449638645797488}
   _customDestinationSetter: {fileID: 7259832254941533447}
   _runner: {fileID: 9022942392556322074}
-  _collider2D: {fileID: 0}
 --- !u!1 &7048234183470225861
 GameObject:
   m_ObjectHideFlags: 0
