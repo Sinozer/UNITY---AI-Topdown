@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -49,6 +50,12 @@ public class EntityShooting : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        GetTarget();
+        _direction = (_targetPosition - (Vector2)transform.position).normalized;
+    }
+
     private void GetTarget()
     {
         Player player = GameManager.Instance.Player;
@@ -83,7 +90,7 @@ public class EntityShooting : MonoBehaviour
 
             projectile.transform.position = transform.position;
 
-            _direction = (_targetPosition - (Vector2)transform.position).normalized;
+            //_direction = (_targetPosition - (Vector2)transform.position).normalized;
             projectile.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg);
 
             projectile.GetComponent<Animator>().runtimeAnimatorController = _projectileData.Controller;

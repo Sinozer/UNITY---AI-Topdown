@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ec3dd5efb496941a4a0504c972884c, type: 3}
-  m_Name: Zach Scuderi
+  m_Script: {fileID: 11500000, guid: 2f1840a8687565e4386f5fd4653270e1, type: 3}
+  m_Name: ZachPatrol
   m_EditorClassIdentifier: 
-  _maxHealth: 60
-  _damage: 3
-  _movementSpeed: 1.4
-  _attackSpeed: 1.4
-  _attackRange: 2
-  _visionRange: 4
+  Waypoints:
+  - {x: -1.1811094, y: -14.616229, z: 0}
+  - {x: 5.167355, y: -7.923277, z: 0}
+  - {x: 5.118143, y: -14.567019, z: 0}
+  Delay: 1
