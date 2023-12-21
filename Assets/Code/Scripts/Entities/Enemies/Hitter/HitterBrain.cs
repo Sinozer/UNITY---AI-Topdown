@@ -24,6 +24,12 @@ public class HitterBrain : EnemyBrain
     {
         base.Update();
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
+
+        if (_enemy.IsDead)
+        {
+            _runner.GetBlackboard().SetValue("IsDead", true);
+            return;
+        }
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
 
         Player player = GameManager.Instance.Player;
