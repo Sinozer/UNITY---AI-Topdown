@@ -25,13 +25,8 @@ public class TankyBrain : EnemyBrain
     protected override void Update()
     {
         base.Update();
+
         _stateManager.Update();
-
-        if (_entity.IsDead)
-            return;
-
-        _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
-        _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
     }
 
     public void EndActivating()

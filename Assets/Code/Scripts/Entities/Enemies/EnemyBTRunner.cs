@@ -14,5 +14,8 @@ public class EnemyBTRunner : BehaviorTreeRunner
     void Start()
     {
         Tree.Blackboard.SetValue("EnemyBrain", _enemyBrain);
+
+        if ( _enemyBrain == null )
+            _enemyBrain = gameObject.GetComponentInChildren<EnemyBrain>();
     }
 }

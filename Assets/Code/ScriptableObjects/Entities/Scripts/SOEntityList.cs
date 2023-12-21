@@ -27,11 +27,11 @@ public class SOEntityList : SerializedScriptableObject
         }
     }
 
-    [Button("Add Entity")]
+    [Button("Add New Entity Data")]
     public void AddEntity()
     {
         var newEntity = CreateInstance<SOEntity>();
-        newEntity.name = "NewEntity";
+        newEntity.name = "NewEntityData";
 
         var path = $"Assets/Code/ScriptableObjects/Entities/List/{newEntity.name}.asset";
         var i = 1;

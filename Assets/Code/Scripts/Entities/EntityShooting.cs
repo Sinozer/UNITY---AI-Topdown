@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -12,10 +13,11 @@ using UnityEngine;
 public class EntityShooting : MonoBehaviour
 {
     [SerializeField] private Entity _entity;
+    [SerializeField] private AudioSource _shootSound;
 
     private void Awake()
     {
-        _entity = GetComponentInParent<Entity>();
+        _entity = transform.root.GetComponentInChildren<Entity>();
 
         if (_projectileData == null)
         {
@@ -29,7 +31,6 @@ public class EntityShooting : MonoBehaviour
     }
 
     [SerializeField] private SOProjectile _projectileData;
-    [SerializeField] private float _fireRate;
 
     public float LookX => _direction.x;
 
@@ -48,6 +49,12 @@ public class EntityShooting : MonoBehaviour
 
             // TODO: If NULL, get the default projectile from the GameManager list
         }
+    }
+
+    private void Update()
+    {
+        GetTarget();
+        _direction = (_targetPosition - (Vector2)transform.position).normalized;
     }
 
     private void GetTarget()
@@ -84,7 +91,7 @@ public class EntityShooting : MonoBehaviour
 
             projectile.transform.position = transform.position;
 
-            _direction = (_targetPosition - (Vector2)transform.position).normalized;
+            //_direction = (_targetPosition - (Vector2)transform.position).normalized;
             projectile.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg);
 
             projectile.GetComponent<Animator>().runtimeAnimatorController = _projectileData.Controller;
@@ -99,21 +106,30 @@ public class EntityShooting : MonoBehaviour
 
             projectile.GetComponent<Projectile>().Damage = _projectileData.Damage;
 
+            if (_shootSound != null)
+                _shootSound.Play();
+
             Destroy(projectile, _projectileData.LifeTime);
 
-            yield return new WaitForSeconds(_fireRate);
+            yield return new WaitForSeconds(1 / _entity.AttackSpeed);
         }
     }
 
-    public void StartShooting(float fireRate)
+    public void StartShooting()
     {
-        _fireRate = fireRate;
+        if (_shootCoroutine != null)
+            return;
+
         _shootCoroutine = StartCoroutine(Shoot());
     }
 
     public void StopShooting()
     {
+        if (_shootCoroutine == null)
+            return;
+
         StopCoroutine(_shootCoroutine);
+        _shootCoroutine = null;
     }
 
     public void SetAnimationSpeed(Animator animator)

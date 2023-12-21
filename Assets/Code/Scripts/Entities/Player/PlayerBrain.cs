@@ -8,10 +8,15 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
-public class PlayerBrain : Entity
+public class PlayerBrain : MonoBehaviour
 {
+    [SerializeField] private Entity _entity;
+
+    [SerializeField] private int _sceneToLoadOnDeath = 0;
+
+    public Player Player => _entity as Player;
+
     private enum AnimatorCondition
     {
         IsIdle,
@@ -21,9 +26,6 @@ public class PlayerBrain : Entity
         IsShoot,
         IsDead
     }
-
-    [SerializeField] private float _fireRate;
-    public float FireRate => 1 / _fireRate;
     
     
     [Header("Inputs")] 
@@ -42,14 +44,15 @@ public class PlayerBrain : Entity
 
     private bool _shoot;
 
-    private Movement _movementAction;
+    private EntityMovement _movementAction;
     private EntityShooting _shootingAction;
 
     private string[] _animatorConditionNames;
 
     private void Awake()
     {
-        _movementAction = _actions.GetComponent<Movement>();
+        _entity = transform.root.GetComponentInChildren<Entity>();
+        _movementAction = _actions.GetComponent<EntityMovement>();
         _shootingAction = _actions.GetComponent<EntityShooting>();
         _animator = _render.GetComponent<Animator>();
 
@@ -65,10 +68,9 @@ public class PlayerBrain : Entity
         _reloadInput.action.performed += OnReloadPerformed;
         _minimapInput.action.performed += OnMinimapPerformed;
         _minimapInput.action.canceled += OnMinimapCanceled;
-    }
-    
 
-    
+        _entity.OnDeath += OnDeath;
+    }
 
     private void OnDisable()
     {
@@ -79,6 +81,13 @@ public class PlayerBrain : Entity
         _reloadInput.action.performed -= OnReloadPerformed;
         _minimapInput.action.performed -= OnMinimapPerformed;
         _minimapInput.action.canceled -= OnMinimapCanceled;
+
+        _entity.OnDeath -= OnDeath;
+    }
+
+    private void OnDeath()
+    {
+        SceneManager.Instance.LoadScene(_sceneToLoadOnDeath);
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
@@ -96,7 +105,7 @@ public class PlayerBrain : Entity
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
         _shoot = context.ReadValue<float>() > 0;
-        _shootingAction.StartShooting(FireRate);
+        _shootingAction.StartShooting();
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
@@ -124,7 +133,7 @@ public class PlayerBrain : Entity
     
     void Update()
     {
-        if (IsDead)
+        if (_entity.IsDead)
         {
             SetAnimatorCondition(AnimatorCondition.IsDead);
             return;
@@ -148,24 +157,14 @@ public class PlayerBrain : Entity
         {
             SetAnimatorCondition(AnimatorCondition.IsRun);
             _movementAction.SetAnimationSpeed(_animator);
-            _movementAction.Move(_movementSpeed);
+            _movementAction.Move();
         }
 
-        _render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
-        
+        // Flip the game object based on the direction of the mouse
+        var aimPosition = Player.Aim.transform.position;
+        var direction = aimPosition - transform.position;
 
-        if (_movementAction.MoveInput == Vector2.zero)
-        {
-            _movementAction.ResetAnimationSpeed(_animator);
-        }
-        else
-        {
-            SetAnimatorCondition(AnimatorCondition.IsRun);
-            _movementAction.SetAnimationSpeed(_animator);
-            _movementAction.Move(_movementSpeed);
-        }
-
-        _render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
+        transform.root.localScale = new Vector3(direction.x > 0 ? 1 : -1, 1, 1);
     }
 
     public void StopReloading()
