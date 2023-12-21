@@ -164,7 +164,7 @@ public class PlayerBrain : MonoBehaviour
         var aimPosition = Player.Aim.transform.position;
         var direction = aimPosition - transform.position;
 
-        transform.root.localScale = new Vector3(direction.x > 0 ? 1 : -1, 1, 1);
+        transform.root.rotation = Quaternion.Euler(0, direction.x > 0 ? 0 : 180, 0);
     }
 
     public void StopReloading()
