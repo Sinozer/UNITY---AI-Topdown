@@ -57,8 +57,11 @@ public class EnemyBrain : MonoBehaviour
 
     protected virtual void Update()
     {
-        //if (_entity.IsDead)
-        //    return;
+        if (_entity.IsDead)
+        {
+            _enemy.Rigidbody.simulated = false;
+            return;
+        }
         _spriteRenderer.flipX = _aiPath.targetDirection.x < 0;
     }
 

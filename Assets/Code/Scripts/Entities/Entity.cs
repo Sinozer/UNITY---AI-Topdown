@@ -34,7 +34,7 @@ public abstract class Entity : MonoBehaviour
     public float VisionRange => _visionRange;
     [SerializeField] protected float _visionRange;
 
-    [SerializeField] protected GameObject _fxHit;
+    [SerializeField] protected ParticleSystem _fxHit;
 
     public bool IsAlive => _health > 0;
     public bool IsDead => _health <= 0;
@@ -43,7 +43,6 @@ public abstract class Entity : MonoBehaviour
     #region Events
     public event Action<float> OnHealthChanged;
     public event Action OnDeath;
-    public event Action OnHit;
     #endregion Events
 
     public virtual void Heal(float healAmount)
@@ -59,7 +58,6 @@ public abstract class Entity : MonoBehaviour
         _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
         
         OnHealthChanged?.Invoke(Health);
-        OnHit?.Invoke();
     }
 
     public virtual void Die()
@@ -75,11 +73,8 @@ public abstract class Entity : MonoBehaviour
 
     public void OnHit()
     {
-        if (IsAlive && _fxHit != null)
-        {
-            GameObject go = Instantiate(_fxHit, transform.position, Quaternion.identity);
-            // decrease fx siez because they are too big
-            go.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-        }
+        if (!IsAlive || _fxHit == null) return;
+        GameObject go = Instantiate(_fxHit.gameObject, transform.position, Quaternion.identity, transform);
+        go.SetActive(true);
     }
 }
