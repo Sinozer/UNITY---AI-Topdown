@@ -85,6 +85,7 @@ MonoBehaviour:
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
+  _fxHit: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
   _baseData: {fileID: 11400000, guid: ff63ba2190dc8d541a8229bb85580cd7, type: 2}
 --- !u!114 &173811963108677713
 MonoBehaviour:
@@ -244,7 +245,6 @@ GameObject:
   - component: {fileID: 9067308646145663940}
   - component: {fileID: 6253735827035942176}
   - component: {fileID: 8908695298342139744}
-  - component: {fileID: 7922721962150025163}
   m_Layer: 31
   m_Name: Render
   m_TagString: Untagged
@@ -310,7 +310,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_Sprite: {fileID: 499617746, guid: 8b415b8567d69084db824f4efb3a7fea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.96, y: 0.96}
@@ -364,19 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2532e4d41b8034845997a68d28d51541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TankyBrain: {fileID: 3833611419306082487}
---- !u!114 &7922721962150025163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7092188209763420944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5237129e5becce044bfde03df6220fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  EnemyBrain: {fileID: 3833611419306082487}
 --- !u!1001 &4339605240307949958
 PrefabInstance:
   m_ObjectHideFlags: 0
