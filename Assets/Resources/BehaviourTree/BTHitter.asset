@@ -89,7 +89,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 6ed8e79c842ef5a4b9a234aaad73e3d6
-  Position: {x: 415.00018, y: 660}
+  Position: {x: 429.99994, y: 667.99994}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: SeePlayer
@@ -535,7 +535,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 871f6399af331aa43b5edde4b1a05359
-  Position: {x: -105.000084, y: 882}
+  Position: {x: -91.49999, y: 880.9998}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 1
@@ -605,7 +605,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: addc2ee282d68cc45a45261d1e0efec9
-  Position: {x: 99.500015, y: 925.00006}
+  Position: {x: 99.50002, y: 932.99994}
   Blackboard: {fileID: 0}
   _type: 3
   _animatorCondition: 2

@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6570660989234714381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
+  m_Name: ConditionNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 461445c365f637744a4290b01d791f10
+  Position: {x: -880, y: 270}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _conditionName: SeePlayer
+  _not: 1
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
 --- !u!114 &-5685805149340585773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +39,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 28402540d999f2b439aee26ee4daeacb
-  Position: {x: 326.45502, y: 480.0001}
+  Position: {x: 357.9999, y: 503.99997}
   Blackboard: {fileID: 0}
   _type: 0
-  _animatorCondition: 0
+  _animatorCondition: 2
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
@@ -37,7 +61,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 318ec21556c01454e8736fee1fe58820
-  Position: {x: -638.21106, y: 329.00003}
+  Position: {x: -493, y: 278}
   Blackboard: {fileID: 0}
 --- !u!114 &-2788459580523054953
 MonoBehaviour:
@@ -57,6 +81,28 @@ MonoBehaviour:
   Position: {x: -81.99994, y: -255.75703}
   Blackboard: {fileID: 0}
   Child: {fileID: -678441852874877233}
+--- !u!114 &-2097893441931255794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 5f2b32751e80c194fa8f5f95646a9004
+  Position: {x: -423, y: 488}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _animatorCondition: 1
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 0
 --- !u!114 &-1992261969056277023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,8 +120,8 @@ MonoBehaviour:
   Guid: 248a570feeb405c48a8fa48656d9187d
   Position: {x: -239.00005, y: 480.99994}
   Blackboard: {fileID: 0}
-  _type: 0
-  _animatorCondition: 1
+  _type: 3
+  _animatorCondition: 2
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
@@ -94,10 +140,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 6f83f15c2688794429062b4a9753e6e1
-  Position: {x: -414.00006, y: 480}
+  Position: {x: -587, y: 488}
   Blackboard: {fileID: 0}
   _type: 0
-  _conditionName: 
+  _conditionName: SeePlayer
   _not: 0
   CalcOperator: 0
   IntCondition: 0
@@ -118,10 +164,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: bc40f06b5c47fc348bbd9bc98711cfb1
-  Position: {x: -75.999985, y: 32.065014}
+  Position: {x: -73.99998, y: 17.262894}
   Blackboard: {fileID: 0}
   Children:
-  - {fileID: -3061550750698163480}
+  - {fileID: 871202982230794830}
   - {fileID: 1602215083361962095}
   - {fileID: 848776904533420252}
   executeAllEachFrame: 0
@@ -188,6 +234,10 @@ MonoBehaviour:
   - {fileID: -1992261969056277023}
   - {fileID: -5685805149340585773}
   - {fileID: 4617370977907709667}
+  - {fileID: -2097893441931255794}
+  - {fileID: 871202982230794830}
+  - {fileID: -6570660989234714381}
+  - {fileID: 3202014264243533739}
 --- !u!114 &848776904533420252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +260,28 @@ MonoBehaviour:
   - {fileID: -5685805149340585773}
   - {fileID: 4617370977907709667}
   executeAllEachFrame: 0
+--- !u!114 &871202982230794830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 473b9183bba7c4040bda8cab3b303406
+  Position: {x: -657, y: 137}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: -6570660989234714381}
+  - {fileID: 3202014264243533739}
+  - {fileID: -3061550750698163480}
+  executeAllEachFrame: 0
 --- !u!114 &1274348464155391477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +297,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 9bd61cffff6038a48bc8328e8fe0b397
-  Position: {x: 162.45502, y: 480.0001}
+  Position: {x: 193.99983, y: 495.99994}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: CanAttack
@@ -253,9 +325,32 @@ MonoBehaviour:
   Blackboard: {fileID: 0}
   Children:
   - {fileID: -1793383679326076135}
+  - {fileID: -2097893441931255794}
   - {fileID: -1992261969056277023}
   - {fileID: -110411000026916340}
   executeAllEachFrame: 0
+--- !u!114 &3202014264243533739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 120fa71b3e0d1db4985d4b3c3674cd52
+  Position: {x: -697, y: 262}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _animatorCondition: 1
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 0
 --- !u!114 &4617370977907709667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +366,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: f56369d00c3a13f4c93f4e27bebfe6ef
-  Position: {x: 507.45493, y: 477.0001}
+  Position: {x: 546.482, y: 496.00006}
   Blackboard: {fileID: 0}
 --- !u!114 &6241023734487491337
 MonoBehaviour:
@@ -339,13 +434,25 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
       Data: CanAttack
+    - Name: $v
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: SeePlayer
     - Name: $v
       Entry: 5
       Data: false

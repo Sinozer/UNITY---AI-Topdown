@@ -336,7 +336,7 @@ MonoBehaviour:
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
-  _baseData: {fileID: 0}
+  _baseData: {fileID: 11400000, guid: e8b7b9c57814bbc4bb8e4735488402a4, type: 2}
 --- !u!114 &3004115849309751593
 MonoBehaviour:
   m_ObjectHideFlags: 0

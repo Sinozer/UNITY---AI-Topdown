@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class InvisiblePatrol : ActionNode
 {
-    private GameObject _parent;
+    private GameObject _self;
     private SpriteRenderer _sprite;
     private ZachBrain _brain;
     private float _elapsedTime;
@@ -23,27 +23,28 @@ public class InvisiblePatrol : ActionNode
         if (!Blackboard.TryFind("EnemyBrain", out EnemyBrain _brain))
             return;
         
-        _parent = _self.transform.parent.gameObject;
-        _sprite = _parent.GetComponentInChildren<SpriteRenderer>();
+        _sprite = _self.GetComponentInChildren<SpriteRenderer>();
         
         _brain.Patrolling(true);
         _brain.AIPath(true);
-        
-        FadeOut();
     }
 
     public override void OnStop()
     {
         FadeIn();
-        _brain.FollowingPlayer(true);
     }
 
     public override State OnUpdate()
     {
-        if (_parent == null)
+        if (_self == null)
             return State.Failure;
+        Blackboard.TryFind("SeePlayer", out bool _seePlayer);
+        if (_seePlayer)
+        {
+            return State.Success;
+        }
         
-
+        FadeOut();
         
         return State.Running;
     }
