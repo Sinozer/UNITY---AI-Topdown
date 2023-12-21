@@ -351,7 +351,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: cf87c6a315425174c9d31b98224a6371
-  Position: {x: -619, y: 303.00006}
+  Position: {x: -611, y: 311}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: TriggerExplosion

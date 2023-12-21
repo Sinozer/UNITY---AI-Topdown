@@ -22,11 +22,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _enemies:
+  - _entity: {fileID: 6773139260745474400, guid: 5edcb5fed329c32478d92772020feea9, type: 3}
+    _numberOfEnemies: 100
+  - _entity: {fileID: 6442645273211949174, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
+    _numberOfEnemies: 0
   - _entity: {fileID: 5766436915664568087, guid: bbec08fce6b02c54a90605c3ed3aec44, type: 3}
-    _numberOfEnemies: 2
-  - _entity: {fileID: 5766436915664568087, guid: bbec08fce6b02c54a90605c3ed3aec44, type: 3}
-    _numberOfEnemies: 3
-  - _entity: {fileID: 5766436915664568087, guid: bbec08fce6b02c54a90605c3ed3aec44, type: 3}
-    _numberOfEnemies: 5
-  _timeBetweenSpawns: 5
-  _timeBetweenEnemyTypes: 5
+    _numberOfEnemies: 0
+  _timeBetweenSpawns: 0.1
+  _timeBetweenEnemyTypes: 0

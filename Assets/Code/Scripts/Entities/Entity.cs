@@ -35,6 +35,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected float _visionRange;
 
     [SerializeField] protected ParticleSystem _fxHit;
+    [SerializeField] protected AudioSource _dyingSound;
 
     public bool IsAlive => _health > 0;
     public bool IsDead => _health <= 0;
@@ -54,10 +55,9 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-        OnHit();
         _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
-        
         OnHealthChanged?.Invoke(Health);
+        OnHit();
     }
 
     public virtual void Die()
@@ -73,8 +73,12 @@ public abstract class Entity : MonoBehaviour
 
     public void OnHit()
     {
-        if (!IsAlive || _fxHit == null) return;
-        GameObject go = Instantiate(_fxHit.gameObject, transform.position, Quaternion.identity, transform);
-        go.SetActive(true);
+        if (IsAlive && _fxHit != null)
+        {
+            GameObject go = Instantiate(_fxHit.gameObject, transform.position, Quaternion.identity, transform);
+            go.SetActive(true);
+        }
+        if (IsDead && _dyingSound != null)
+            _dyingSound.Play();
     }
 }

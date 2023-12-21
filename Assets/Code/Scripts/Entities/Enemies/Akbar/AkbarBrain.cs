@@ -12,6 +12,7 @@ public class AkbarBrain : EnemyBrain
 {
     [SerializeField] private EnemyBTRunner _runner;
     [SerializeField] private UnityEvent _fxExplosion;
+    [SerializeField] private AudioSource _explosionSound;
 
     private Player player;
     private float _explosionRange = 3;
@@ -56,5 +57,6 @@ public class AkbarBrain : EnemyBrain
         _enemy.TakeDamage(_enemy.MaxHealth);
         _runner.GetBlackboard().SetValue("TriggerExplosion", true);
         _fxExplosion.Invoke();
+        _explosionSound.Play();
     }
 }
