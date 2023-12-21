@@ -9,6 +9,13 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public bool AlreadyHit
+    {
+        get => _alreadyHit;
+        set => _alreadyHit = value;
+    }
+    [SerializeField] private bool _alreadyHit = false;
+
     public float Damage
     {
         get => _damage;
