@@ -15,7 +15,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: c10b7845d6d4a15468dfcf643ed978d9
-  Position: {x: 183.0001, y: 1088}
+  Position: {x: 75, y: 1304.8}
   Blackboard: {fileID: 0}
 --- !u!114 &-7415059327291037406
 MonoBehaviour:
@@ -54,7 +54,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 647ab08c53ee9db49853451335c5f749
-  Position: {x: 736.99994, y: 1117}
+  Position: {x: 629, y: 1333.8}
   Blackboard: {fileID: 0}
   _duration: AttackSpeed
 --- !u!114 &-7011485699955421079
@@ -147,7 +147,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 9060a4014738da64f97bd657d97fb1ae
-  Position: {x: 524.0001, y: 960.0001}
+  Position: {x: 395, y: 1122}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: -8977549025667015755}
@@ -638,7 +638,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 871f6399af331aa43b5edde4b1a05359
-  Position: {x: 250.00009, y: 1205}
+  Position: {x: 142, y: 1421.8}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 1
@@ -684,7 +684,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 04f0fdd675bb6314aaca0066adff5144
-  Position: {x: 259.00006, y: 968.0001}
+  Position: {x: 251, y: 960}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: CanAttack
@@ -708,7 +708,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: addc2ee282d68cc45a45261d1e0efec9
-  Position: {x: 438.00012, y: 1222}
+  Position: {x: 330, y: 1438.8}
   Blackboard: {fileID: 0}
   _type: 3
   _animatorCondition: 2
@@ -730,7 +730,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: d1ceda11b0b2cfa4fa37456e3ea5dc96
-  Position: {x: 619.0001, y: 1205}
+  Position: {x: 511, y: 1421.8}
   Blackboard: {fileID: 0}
   Message: PAF
 --- !u!114 &7105931485008068810
@@ -861,7 +861,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 439ebe6b9cd659742ae2d1575c5f1560
-  Position: {x: 516.0001, y: 800.00006}
+  Position: {x: 433, y: 774}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: 5292352449062967114}
