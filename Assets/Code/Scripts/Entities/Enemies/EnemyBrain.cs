@@ -22,6 +22,8 @@ public class EnemyBrain : MonoBehaviour
     
     public bool IsDead => _entity.IsDead;
     public Action Die => _entity.Die;
+    
+    
     public bool SeePlayer => _seePlayer;
     public bool CanShootAtPlayer => _canShootAtPlayer;
     public Animator Animator => _animator;
@@ -55,7 +57,10 @@ public class EnemyBrain : MonoBehaviour
     protected virtual void Update()
     {
         if (_entity.IsDead)
+        {
+            _enemy.Rigidbody.simulated = false;
             return;
+        }
 
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
