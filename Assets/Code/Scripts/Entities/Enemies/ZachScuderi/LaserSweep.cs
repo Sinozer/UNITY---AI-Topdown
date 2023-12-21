@@ -11,9 +11,9 @@ using UnityEngine;
 public class LaserSweep : MonoBehaviour
 {
     public float sweepSpeed;
+    public float minValue = -60;
+    public float maxValue = 60;  
     
-    float minValue = -60;
-    float maxValue = 60;  
     float range => maxValue - minValue;
     float midPoint => (maxValue + minValue) / 2;
     
