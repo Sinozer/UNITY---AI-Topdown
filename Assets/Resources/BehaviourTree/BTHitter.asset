@@ -130,7 +130,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: f96abe77427860948b5c67c9d3d6b0be
-  Position: {x: 1137.1399, y: 1021.0001}
+  Position: {x: 1155, y: 1005}
   Blackboard: {fileID: 0}
 --- !u!114 &-4660252231281067831
 MonoBehaviour:

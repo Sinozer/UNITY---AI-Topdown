@@ -401,23 +401,6 @@ MonoBehaviour:
   - {fileID: -9156597377740959090}
   - {fileID: -3324752054577491200}
   executeAllEachFrame: 0
---- !u!114 &-2317196182189166655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325286e42b1a98149a4ef284b45c9c65, type: 3}
-  m_Name: IdleNode
-  m_EditorClassIdentifier: 
-  CurrentState: 0
-  Started: 0
-  Guid: 96764c65619552a4191e0c54e452188d
-  Position: {x: 1443.4474, y: 646}
-  Blackboard: {fileID: 0}
 --- !u!114 &-1927487130330390127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,7 +491,6 @@ MonoBehaviour:
   - {fileID: -81894535704961400}
   - {fileID: -4611962800862691208}
   - {fileID: 3097079483157414261}
-  - {fileID: -2317196182189166655}
   - {fileID: -2837984969023207527}
   - {fileID: -9148636400486955426}
   - {fileID: -9156597377740959090}
@@ -523,6 +505,9 @@ MonoBehaviour:
   - {fileID: 7288784664573858034}
   - {fileID: -3637979460747378648}
   - {fileID: -3324752054577491200}
+  - {fileID: 8850229212453870672}
+  - {fileID: 5025148656657348030}
+  - {fileID: 6641816766727977582}
 --- !u!114 &2194561782779688276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,6 +542,23 @@ MonoBehaviour:
   Started: 0
   Guid: 2622ac5a32b35674b8e29a75974403a6
   Position: {x: 1121.395, y: 800.2275}
+  Blackboard: {fileID: 0}
+--- !u!114 &5025148656657348030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d81306971e1d948969edfde25d3fe9, type: 3}
+  m_Name: PatrollingNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 45eea22d9aba2f9418b8d6bcd83e15ac
+  Position: {x: 1820, y: 852}
   Blackboard: {fileID: 0}
 --- !u!114 &5524372873139211742
 MonoBehaviour:
@@ -602,6 +604,28 @@ MonoBehaviour:
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
+--- !u!114 &6641816766727977582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: e83744dd51e5e494d97447bca3d15453
+  Position: {x: 1525, y: 873}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _animatorCondition: 1
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 1
 --- !u!114 &6910826750843897907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +646,7 @@ MonoBehaviour:
   Children:
   - {fileID: -2837984969023207527}
   - {fileID: -9148636400486955426}
-  - {fileID: -2317196182189166655}
+  - {fileID: 8850229212453870672}
   executeAllEachFrame: 0
 --- !u!114 &7240270749785591623
 MonoBehaviour:
@@ -680,3 +704,24 @@ MonoBehaviour:
   - {fileID: -1927487130330390127}
   - {fileID: -4795532479705445244}
   executeAllEachFrame: 1
+--- !u!114 &8850229212453870672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 2e319dbf2bbb94040ba0e0317d17ac1e
+  Position: {x: 1517, y: 646}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: 6641816766727977582}
+  - {fileID: 5025148656657348030}
+  executeAllEachFrame: 0
