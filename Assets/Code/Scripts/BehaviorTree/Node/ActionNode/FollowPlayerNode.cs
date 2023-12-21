@@ -24,8 +24,8 @@ public class FollowPlayerNode : ActionNode
     public override void OnStop()
     {
         Debug.Log("Follow stop");
-        _brain.FollowingPlayer(false);
-        _brain.AIPath(false);
+        _brain?.FollowingPlayer(false);
+        _brain?.AIPath(false);
     }
 
     public override State OnUpdate()

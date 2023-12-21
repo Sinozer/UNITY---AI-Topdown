@@ -29,6 +29,7 @@ public class SequencerNode : CompositeNode
 
                 child.OnStop();
                 child.Started = false;
+                child.CurrentState = State.None;
             }
         }
     }

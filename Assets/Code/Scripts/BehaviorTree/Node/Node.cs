@@ -11,12 +11,13 @@ public abstract class Node : ScriptableObject
 {
     public enum State
     {
+        None,
         Running,
         Success,
         Failure
     }
 
-    [HideInInspector] public State CurrentState = State.Running;
+    [HideInInspector] public State CurrentState = State.None;
     [HideInInspector] public bool Started = false;
 
     [HideInInspector] public string Guid;
