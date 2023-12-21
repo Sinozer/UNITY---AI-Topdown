@@ -29,8 +29,6 @@ public class TankyBrain : EnemyBrain
         if (_entity.IsDead)
             return;
 
-        _enemy.DistFromPlayer = _enemy.CalculateDistFromPlayer();
-
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
     }

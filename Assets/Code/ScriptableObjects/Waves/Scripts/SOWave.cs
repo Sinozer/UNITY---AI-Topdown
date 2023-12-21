@@ -64,7 +64,6 @@ public class SOWave : SerializedScriptableObject
         // Pending
         while (totalOfEnemies > 0)
         {
-            //Debug.Log(totalOfEnemies);
             yield return null;
         }
 
