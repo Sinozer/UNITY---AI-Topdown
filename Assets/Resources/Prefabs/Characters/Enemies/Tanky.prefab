@@ -85,7 +85,7 @@ MonoBehaviour:
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
-  _fxHit: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+  _fxHit: {fileID: 4021103657954561960, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
   _baseData: {fileID: 11400000, guid: ff63ba2190dc8d541a8229bb85580cd7, type: 2}
 --- !u!114 &173811963108677713
 MonoBehaviour:

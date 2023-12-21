@@ -12,6 +12,8 @@ public class ZachBrain : EnemyBrain
 {
     [SerializeField] EnemyBTRunner _runner;
     
+    private float _elapsedTime;
+    private float _fadeTime = 0.2f;
     protected override void Start()
     {
         base.Start();
@@ -36,8 +38,10 @@ public class ZachBrain : EnemyBrain
             _runner.GetBlackboard().SetValue("PlayerPosition", (Vector2)GameManager.Instance.Player.transform.position);
         else
             _runner.GetBlackboard().SetValue("PlayerPosition", Vector2.zero);
-
         
+        _elapsedTime += Time.deltaTime;
+        
+        _runner.GetBlackboard().SetValue("ElapsedTime", _elapsedTime);
         _runner.GetBlackboard().SetValue("SeePlayer", _seePlayer);
         _runner.GetBlackboard().SetValue("CanAttack", _canShootAtPlayer);
     }
