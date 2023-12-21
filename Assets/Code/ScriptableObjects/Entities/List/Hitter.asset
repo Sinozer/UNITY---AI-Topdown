@@ -15,6 +15,6 @@ MonoBehaviour:
   _maxHealth: 110
   _damage: 10
   _movementSpeed: 1.1
-  _attackSpeed: 10
+  _attackSpeed: 0.9
   _attackRange: 0.5
   _visionRange: 5

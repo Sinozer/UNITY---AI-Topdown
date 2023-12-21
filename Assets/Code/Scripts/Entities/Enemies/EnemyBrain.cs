@@ -11,12 +11,13 @@ using UnityEngine;
 
 public class EnemyBrain : MonoBehaviour
 {
-    private enum AnimatorCondition
+    public enum AnimatorCondition
     {
-        IsIdle,
-        IsRun,
-        IsAttack,
-        IsDead
+        Idle,
+        Run,
+        Attack,
+        Hit,
+        Dead
     }
     
     public bool IsDead => _entity.IsDead;
@@ -36,6 +37,7 @@ public class EnemyBrain : MonoBehaviour
     protected bool _seePlayer = false;
     protected bool _canShootAtPlayer = false;
     protected Animator _animator;
+    protected SpriteRenderer _spriteRenderer;
     protected virtual void Awake()
     {
         _entity = GetComponentInParent<Entity>();
@@ -48,6 +50,15 @@ public class EnemyBrain : MonoBehaviour
     protected virtual void Start()
     {
         _aiPath.maxSpeed = _entity.MovementSpeed;
+        _spriteRenderer = _render.GetComponent<SpriteRenderer>();
+        
+    }
+
+    protected virtual void Update()
+    {
+        if (_entity.IsDead)
+            return;
+        _spriteRenderer.flipX = _aiPath.targetDirection.x < 0;
     }
 
     public void FollowingPlayer(bool enable)
