@@ -289,6 +289,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 76757570066315266, guid: 37018ed238f14564a83a43f87be754bb, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76757570073085126, guid: 37018ed238f14564a83a43f87be754bb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76757570073085178, guid: 37018ed238f14564a83a43f87be754bb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5915696364368590517, guid: 37018ed238f14564a83a43f87be754bb, type: 3}
       propertyPath: m_Name
       value: Ranger
@@ -339,7 +351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7806551549951229063, guid: 37018ed238f14564a83a43f87be754bb, type: 3}
       propertyPath: m_BodyType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

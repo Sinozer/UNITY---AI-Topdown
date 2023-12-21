@@ -33,7 +33,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 8e9d90a4b1fcac0409aee9e4d5bac1db
-  Position: {x: 84, y: 1273}
+  Position: {x: 36, y: 1269}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: CanShoot
@@ -188,7 +188,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 852f6f652ee7c5948b70f03ef0cc1692
-  Position: {x: 816, y: 1712}
+  Position: {x: 801, y: 1703}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: SeePlayer
@@ -441,7 +441,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: c01a2c9520d731c42b114e003c535cac
-  Position: {x: 1081, y: 1237}
+  Position: {x: 1192.155, y: 1237}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: 2909792872087356525}
@@ -484,7 +484,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 3682242291b14964187ad15be4b6f2e6
-  Position: {x: 1129, y: 1704}
+  Position: {x: 1157, y: 1703}
   Blackboard: {fileID: 0}
 --- !u!114 &-2547125991077522635
 MonoBehaviour:
@@ -504,6 +504,7 @@ MonoBehaviour:
   Position: {x: 1499, y: 1467}
   Blackboard: {fileID: 0}
   Children:
+  - {fileID: 2763064629292033291}
   - {fileID: -1892163652435153545}
   - {fileID: 6608841486560143292}
   executeAllEachFrame: 1
@@ -546,13 +547,30 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 2dcaeac4afe3f824a818569dc6a21f45
-  Position: {x: 1442, y: 1665}
+  Position: {x: 1616, y: 1719}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 1
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 1
+--- !u!114 &-1670674565677598691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325286e42b1a98149a4ef284b45c9c65, type: 3}
+  m_Name: IdleNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 15da1a9904db26e40b72884c2e58f3d0
+  Position: {x: 0, y: 0}
+  Blackboard: {fileID: 0}
 --- !u!114 &-1401755334888834829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,6 +633,8 @@ MonoBehaviour:
   - {fileID: 5052652871509066164}
   - {fileID: -6750866865921696581}
   - {fileID: -3621103208430574526}
+  - {fileID: 2763064629292033291}
+  - {fileID: -1670674565677598691}
 --- !u!114 &965204195817289210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,8 +650,32 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 97d50bd194d4af34b9c8ee11e3c850e2
-  Position: {x: 397, y: 1266}
+  Position: {x: 482.99997, y: 1270}
   Blackboard: {fileID: 0}
+--- !u!114 &2763064629292033291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
+  m_Name: ConditionNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: a8361ce212dfac34a8b317d5986e31ae
+  Position: {x: 1429, y: 1701}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _conditionName: SeePlayer
+  _not: 1
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
 --- !u!114 &2828545336600127806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,7 +740,7 @@ MonoBehaviour:
   Children:
   - {fileID: -5620293967323769522}
   - {fileID: 5052652871509066164}
-  executeAllEachFrame: 0
+  executeAllEachFrame: 1
 --- !u!114 &5052652871509066164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,7 +761,7 @@ MonoBehaviour:
   Children:
   - {fileID: -6750866865921696581}
   - {fileID: -3621103208430574526}
-  executeAllEachFrame: 0
+  executeAllEachFrame: 1
 --- !u!114 &5426732606985589253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,7 +799,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 4d3c3f78f12f4384293e8e2c3d341b45
-  Position: {x: 1682, y: 1665}
+  Position: {x: 1815, y: 1693}
   Blackboard: {fileID: 0}
 --- !u!114 &6881371110833149097
 MonoBehaviour:
@@ -772,7 +816,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 34eea8ecd50ce8c479487de5205be082
-  Position: {x: 232, y: 1354}
+  Position: {x: 184, y: 1350}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 2
