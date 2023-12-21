@@ -17,6 +17,7 @@ public class IdleNode : ActionNode
         Blackboard.TryFind("Self", out _self);
         Blackboard.TryFind("EnemyBrain", out _brain);
         _brain.AIPath(false);
+        
     }
 
     public override void OnStop()

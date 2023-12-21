@@ -1,18 +1,28 @@
 // --------------------------------------- //
 // --------------------------------------- //
-//  Creation Date: 18/12/23
+//  Creation Date: 20/12/23
 //  Description: AI - Topdown
 // --------------------------------------- //
 // --------------------------------------- //
 
 using UnityEngine;
 
-public class AkbarBrain : EnemyBrain
+public class HitterBrain : EnemyBrain
 {
     [SerializeField] EnemyBTRunner _runner;
 
-    private void Update()
+
+    protected override void Start()
     {
+        base.Start();
+        
+        _runner.GetBlackboard().SetValue("AttackSpeed", _entity.AttackSpeed);
+
+    }
+
+    protected override void Update()
+    {
+        base.Update();
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
 
@@ -23,6 +33,8 @@ public class AkbarBrain : EnemyBrain
             _runner.GetBlackboard().SetValue("PlayerPosition", Vector2.zero);
 
         _runner.GetBlackboard().SetValue("SeePlayer", _seePlayer);
-        _runner.GetBlackboard().SetValue("CanShoot", _canShootAtPlayer);
+        _runner.GetBlackboard().SetValue("CanAttack", _canShootAtPlayer);
+
     }
+    
 }
