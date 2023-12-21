@@ -34,8 +34,9 @@ public abstract class Entity : MonoBehaviour
     public float VisionRange => _visionRange;
     [SerializeField] protected float _visionRange;
 
-    [SerializeField] protected ParticleSystem _fxHit;
-    [SerializeField] protected AudioSource _dyingSound;
+    [SerializeField] protected ParticleSystem _vfxHit;
+    [SerializeField] protected AudioSource _sfxDying;
+    [SerializeField] protected AudioSource _sfxHit;
 
     public bool IsAlive => _health > 0;
     public bool IsDead => _health <= 0;
@@ -73,12 +74,22 @@ public abstract class Entity : MonoBehaviour
 
     public void OnHit()
     {
-        if (IsAlive && _fxHit != null)
+        // hit sound
+        if (_sfxHit != null)
         {
-            GameObject go = Instantiate(_fxHit.gameObject, transform.position, Quaternion.identity, transform);
-            go.SetActive(true);
+            _sfxHit.Play();
         }
-        if (IsDead && _dyingSound != null)
-            _dyingSound.Play();
+
+        if (IsAlive)
+        {
+            // hit particles
+            if(_vfxHit != null)
+            {
+                GameObject go = Instantiate(_vfxHit.gameObject, transform.position, Quaternion.identity, transform);
+                go.SetActive(true);
+            }
+        }
+        else if(_sfxDying != null)
+            _sfxDying.Play();
     }
 }

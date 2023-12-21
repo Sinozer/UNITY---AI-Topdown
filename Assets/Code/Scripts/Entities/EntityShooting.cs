@@ -100,7 +100,8 @@ public class EntityShooting : MonoBehaviour
 
             projectile.GetComponent<Projectile>().Damage = _projectileData.Damage;
 
-            _shootSound?.Play();
+            if (_shootSound != null)
+                _shootSound.Play();
 
             Destroy(projectile, _projectileData.LifeTime);
 
