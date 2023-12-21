@@ -16,15 +16,13 @@ public class PatrollingNode : ActionNode
     {
         Blackboard.TryFind("Self", out _self);
         Blackboard.TryFind("EnemyBrain", out _brain);
-        _brain.FollowingPlayer(false);
         _brain.Patrolling(true);
         _brain.AIPath(true);
     }
 
     public override void OnStop()
     {
-        _brain.Patrolling(false);
-        _brain.AIPath(false);
+        _brain?.Patrolling(false);
     }
 
     public override State OnUpdate()
@@ -33,12 +31,8 @@ public class PatrollingNode : ActionNode
         if (_self == null)
             return State.Failure;
 
-        if (!_brain.CanShootAtPlayer)
-        {
-            _brain?.Patrolling(true);
-            _brain?.AIPath(true);
+        if (!_brain.SeePlayer)
             return State.Running;
-        }
 
         Debug.Log("");
         return State.Success;
