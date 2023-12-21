@@ -15,4 +15,6 @@ public class AnimationEventBridgeEnemy : MonoBehaviour
     {
         EnemyBrain.Die();
     }
+
+    
 }
