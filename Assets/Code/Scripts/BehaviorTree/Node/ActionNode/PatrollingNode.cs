@@ -14,7 +14,7 @@ public class PatrollingNode : ActionNode
 
     public override void OnStart()
     {
-        Debug.Log("Follow start");
+        Debug.Log("Patrol start");
         Blackboard.TryFind("Self", out _self);
         Blackboard.TryFind("EnemyBrain", out _brain);
         _brain.FollowingPlayer(false);
@@ -35,8 +35,13 @@ public class PatrollingNode : ActionNode
         if (_self == null)
             return State.Failure;
 
-        if (!_brain.CanShootAtPlayer) return State.Running;
-        
+        if (!_brain.CanShootAtPlayer)
+        {
+            _brain?.Patrolling(true);
+            _brain?.AIPath(true);
+            return State.Running;
+        }
+
         Debug.Log("");
         return State.Success;
 

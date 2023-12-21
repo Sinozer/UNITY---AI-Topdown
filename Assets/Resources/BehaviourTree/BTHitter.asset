@@ -211,7 +211,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 38cba21b7e19d3e4e93226ef83f2277c
-  Position: {x: 13.627548, y: 567}
+  Position: {x: 13, y: 583}
   Blackboard: {fileID: 0}
   _type: 3
   _animatorCondition: 4
@@ -638,7 +638,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 871f6399af331aa43b5edde4b1a05359
-  Position: {x: 250.00009, y: 1205}
+  Position: {x: 240.49994, y: 1186}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 1
@@ -748,7 +748,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: a0476516db34b634fa5434013ec77408
-  Position: {x: -170.37253, y: 570}
+  Position: {x: -191, y: 583}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 1
@@ -837,7 +837,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: a8a96a33a4cfc044085181d32c18c7d6
-  Position: {x: -334.3725, y: 542}
+  Position: {x: -355, y: 539}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: IsDead

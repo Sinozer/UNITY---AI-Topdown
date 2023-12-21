@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ec3dd5efb496941a4a0504c972884c, type: 3}
-  m_Name: Ranger
+  m_Script: {fileID: 11500000, guid: d20be3e4e5963fd4da82b9ea07ab4bb3, type: 3}
+  m_Name: RangerProjectile
   m_EditorClassIdentifier: 
-  _maxHealth: 35
-  _damage: 7
-  _movementSpeed: 0.9
-  _attackSpeed: 0.8
-  _attackRange: 6
-  _visionRange: 10
+  _controller: {fileID: 9100000, guid: 37c0cf9376ddaaf45bf1ac1733cbcdbb, type: 2}
+  _speed: 14
+  _damage: 8
+  _lifeTime: 4

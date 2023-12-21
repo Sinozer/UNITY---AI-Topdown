@@ -21,8 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _enemies:
-  - _entity: {fileID: 5766436915664568087, guid: bbec08fce6b02c54a90605c3ed3aec44, type: 3}
-    _numberOfEnemies: 10
-  _timeBetweenSpawns: 0
-  _timeBetweenEnemyTypes: 0
+  _enemies: []
+  _timeBetweenSpawns: 6
+  _timeBetweenEnemyTypes: 2
