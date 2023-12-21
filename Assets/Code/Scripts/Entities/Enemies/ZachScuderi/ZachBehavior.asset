@@ -130,7 +130,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 6849fdfce0feb4d4b9ab7bb34200df3e
-  Position: {x: 129, y: 398.00003}
+  Position: {x: 163, y: 405}
   Blackboard: {fileID: 0}
 --- !u!114 &848776904533420252
 MonoBehaviour:
@@ -171,8 +171,13 @@ MonoBehaviour:
   Guid: 9bd61cffff6038a48bc8328e8fe0b397
   Position: {x: -74.00001, y: 406}
   Blackboard: {fileID: 0}
+  _type: 0
   _conditionName: CanAttack
   _not: 0
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
 --- !u!114 &6241023734487491337
 MonoBehaviour:
   m_ObjectHideFlags: 0
