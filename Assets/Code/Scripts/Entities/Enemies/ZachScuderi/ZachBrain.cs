@@ -20,7 +20,14 @@ public class ZachBrain : EnemyBrain
 
     protected override void Update()
     {
+        if (_entity.IsDead)
+        {
+            _runner.GetBlackboard().SetValue("IsDead", true);
+            return;
+        }
+        
         base.Update();
+        
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
 
@@ -30,6 +37,7 @@ public class ZachBrain : EnemyBrain
         else
             _runner.GetBlackboard().SetValue("PlayerPosition", Vector2.zero);
 
+        
         _runner.GetBlackboard().SetValue("SeePlayer", _seePlayer);
         _runner.GetBlackboard().SetValue("CanAttack", _canShootAtPlayer);
     }

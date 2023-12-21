@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 6911678311760679765}
   - component: {fileID: 1022957764160296384}
   - component: {fileID: 5282714665573219095}
+  - component: {fileID: 5521335657411567162}
   m_Layer: 0
   m_Name: Render
   m_TagString: Untagged
@@ -250,6 +251,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5237129e5becce044bfde03df6220fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5521335657411567162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6699824516727120118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd90fd6b0105fb48a8392bb591ac0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyBrain: {fileID: 6050319034097792352}
 --- !u!1 &8952492399295809874
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +277,7 @@ GameObject:
   - component: {fileID: 5006468203164486030}
   - component: {fileID: 3004115849309751593}
   - component: {fileID: 6339041280624246180}
+  - component: {fileID: 89903803119930769}
   m_Layer: 0
   m_Name: Zach Scuderi
   m_TagString: Untagged
@@ -336,6 +351,7 @@ MonoBehaviour:
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
+  _fxHit: {fileID: 0}
   _baseData: {fileID: 11400000, guid: e8b7b9c57814bbc4bb8e4735488402a4, type: 2}
 --- !u!114 &3004115849309751593
 MonoBehaviour:
@@ -351,7 +367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entity: {fileID: 5006468203164486030}
   _projectileData: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
-  _fireRate: 1
+  _fireRate: 1.4
 --- !u!114 &6339041280624246180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +382,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tree: {fileID: 11400000, guid: 22d100d959823df4ab1107a8a626acba, type: 2}
   _enemyBrain: {fileID: 6050319034097792352}
+--- !u!114 &89903803119930769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8952492399295809874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd90fd6b0105fb48a8392bb591ac0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyBrain: {fileID: 6050319034097792352}
 --- !u!1001 &7222398313051451346
 PrefabInstance:
   m_ObjectHideFlags: 0

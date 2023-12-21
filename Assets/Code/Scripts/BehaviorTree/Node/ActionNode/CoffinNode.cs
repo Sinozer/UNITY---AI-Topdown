@@ -1,26 +1,31 @@
 // --------------------------------------- //
 // --------------------------------------- //
-//  Creation Date: 20/12/23
+//  Creation Date: 21/12/23
 //  Description: AI - Topdown
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System.Security.Cryptography;
 using UnityEngine;
 
-public class BiuBiuBiu : ActionNode
+public class CoffinNode : ActionNode
 {
+    private bool _isDead;
+    
     public override void OnStart()
     {
-        throw new System.NotImplementedException();
+        if (!Blackboard.TryFind("IsDead", out _isDead)) return;
     }
 
     public override void OnStop()
     {
-        throw new System.NotImplementedException();
+       
     }
 
     public override State OnUpdate()
     {
-        throw new System.NotImplementedException();
+            Blackboard.TryFind("Self", out GameObject _self);
+            Destroy(_self);
+            return State.Success;
     }
 }
