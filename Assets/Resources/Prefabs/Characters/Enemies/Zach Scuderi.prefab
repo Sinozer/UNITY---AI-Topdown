@@ -74,8 +74,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3155353739443150063}
-  - component: {fileID: 1984327115700183458}
   - component: {fileID: 3194687488182911879}
+  - component: {fileID: 1984327115700183458}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -91,28 +91,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909003980661131369}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.5296232, w: 0.84823304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 429569028648988914}
   m_Father: {fileID: 747200072819939965}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -63.96}
---- !u!114 &1984327115700183458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909003980661131369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5420d993ea120214a84a67ad1f422ef7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sweepSpeed: 3
-  maxRotation: 180
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &3194687488182911879
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -148,6 +134,19 @@ CapsuleCollider2D:
   m_Offset: {x: 1.028271, y: 0.029799705}
   m_Size: {x: 1.4874125, y: 0.16571341}
   m_Direction: 1
+--- !u!114 &1984327115700183458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909003980661131369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5420d993ea120214a84a67ad1f422ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sweepSpeed: 100
 --- !u!1 &2921091252996235609
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,8 +469,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 747200072819939965}
   - {fileID: 189233464504881019}
+  - {fileID: 747200072819939965}
   - {fileID: 6345995327772610048}
   - {fileID: 9175431187490501191}
   m_Father: {fileID: 0}
@@ -632,7 +631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3913698015946000838, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3913698015946000838, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
       propertyPath: PatrolWaypoints
@@ -700,7 +699,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7222398313051451346}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46273c9b654b73249b9b0eee4e256335, type: 3}
   m_Name: 

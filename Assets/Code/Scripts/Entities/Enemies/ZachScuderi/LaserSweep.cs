@@ -5,25 +5,34 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
 using UnityEngine;
 
 public class LaserSweep : MonoBehaviour
 {
     public float sweepSpeed;
-    public float maxRotation; 
-
+    
+    float minValue = -60;
+    float maxValue = 60;  
+    float range => maxValue - minValue;
+    float midPoint => (maxValue + minValue) / 2;
+    
     void Update()
     {
-        float angle = maxRotation * Mathf.PingPong(Time.time * sweepSpeed, 1);
+        float angle = midPoint + (Mathf.PingPong(Time.time * sweepSpeed, range) - range / 2);
         transform.eulerAngles = new Vector3(0, 0, angle);
     }
     
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (!other.transform.parent.gameObject.TryGetComponent<Player>(out var player))
-    //         return;
-    //     
-    //     player?.TakeDamage(30);
-    //     
-    // }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.gameObject.CompareTag("Player"))
+            return;
+        
+        if (!other.transform.parent.gameObject.TryGetComponent<Player>(out var player))
+            return;
+        
+        player?.TakeDamage(30);
+        
+    }
 }

@@ -12,18 +12,30 @@ public class InvisiblePatrol : ActionNode
 {
     private GameObject _parent;
     private SpriteRenderer _sprite;
+    private ZachBrain _brain;
     private float _elapsedTime;
     private float _fadeDurationScale => 0.5f;
+    
     public override void OnStart()
     {
-        Blackboard.TryFind("Self", out GameObject _self);
+        if (!Blackboard.TryFind("Self", out GameObject _self))
+            return;
+        if (!Blackboard.TryFind("EnemyBrain", out EnemyBrain _brain))
+            return;
+        
         _parent = _self.transform.parent.gameObject;
         _sprite = _parent.GetComponentInChildren<SpriteRenderer>();
+        
+        _brain.Patrolling(true);
+        _brain.AIPath(true);
+        
+        FadeOut();
     }
 
     public override void OnStop()
     {
         FadeIn();
+        _brain.FollowingPlayer(true);
     }
 
     public override State OnUpdate()
@@ -31,7 +43,8 @@ public class InvisiblePatrol : ActionNode
         if (_parent == null)
             return State.Failure;
         
-        //FadeOut();
+
+        
         return State.Running;
     }
 
