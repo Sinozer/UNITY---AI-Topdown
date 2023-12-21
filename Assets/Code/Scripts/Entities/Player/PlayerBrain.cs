@@ -8,6 +8,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerBrain : Entity
 {
@@ -29,11 +30,13 @@ public class PlayerBrain : Entity
     [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _shootInput;
     [SerializeField] private InputActionReference _reloadInput;
+    [SerializeField] private InputActionReference _minimapInput;
 
-
+    
     [Header("References")] 
-    [SerializeField] private GameObject Actions;
-    [SerializeField] private GameObject Render;
+    [SerializeField] private GameObject _actions;
+    [SerializeField] private GameObject _render;
+    [SerializeField] private GameObject _minimap;
 
     private Animator _animator;
 
@@ -46,9 +49,9 @@ public class PlayerBrain : Entity
 
     private void Awake()
     {
-        _movementAction = Actions.GetComponent<Movement>();
-        _shootingAction = Actions.GetComponent<EntityShooting>();
-        _animator = Render.GetComponent<Animator>();
+        _movementAction = _actions.GetComponent<Movement>();
+        _shootingAction = _actions.GetComponent<EntityShooting>();
+        _animator = _render.GetComponent<Animator>();
 
         _animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
     }
@@ -60,7 +63,12 @@ public class PlayerBrain : Entity
         _shootInput.action.performed += OnShootPerformed;
         _shootInput.action.canceled += OnShootCanceled;
         _reloadInput.action.performed += OnReloadPerformed;
+        _minimapInput.action.performed += OnMinimapPerformed;
+        _minimapInput.action.canceled += OnMinimapCanceled;
     }
+    
+
+    
 
     private void OnDisable()
     {
@@ -69,6 +77,8 @@ public class PlayerBrain : Entity
         _shootInput.action.performed -= OnShootPerformed;
         _shootInput.action.canceled -= OnShootCanceled;
         _reloadInput.action.performed -= OnReloadPerformed;
+        _minimapInput.action.performed -= OnMinimapPerformed;
+        _minimapInput.action.canceled -= OnMinimapCanceled;
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
@@ -103,6 +113,15 @@ public class PlayerBrain : Entity
         SetAnimatorCondition(AnimatorCondition.IsReload);
     }
 
+    private void OnMinimapPerformed(InputAction.CallbackContext obj)
+    {
+        _minimap.SetActive(true);
+    }
+    private void OnMinimapCanceled(InputAction.CallbackContext obj)
+    {
+        _minimap.SetActive(false);
+    }
+    
     void Update()
     {
         if (IsDead)
@@ -132,7 +151,7 @@ public class PlayerBrain : Entity
             _movementAction.Move(_movementSpeed);
         }
 
-        Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
+        _render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
         
 
         if (_movementAction.MoveInput == Vector2.zero)
@@ -146,7 +165,7 @@ public class PlayerBrain : Entity
             _movementAction.Move(_movementSpeed);
         }
 
-        Render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
+        _render.GetComponent<SpriteRenderer>().flipX = !(_shootingAction.LookX > 0);
     }
 
     public void StopReloading()

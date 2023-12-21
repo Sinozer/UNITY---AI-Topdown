@@ -203,30 +203,34 @@ public class BehaviourTreeView : GraphView
 
         {
             TypeCache.TypeCollection types = TypeCache.GetTypesDerivedFrom<ActionNode>();
-            foreach (Type type in types)
-            {
-                evt.menu.AppendAction($"Add Node/{type.BaseType.Name}/{type.Name}",
-                    a => CreateNode(type, localMousePosition));
-                
-            }
+            AddContextMenuItem(evt, types, localMousePosition);
         }
 
         {
             TypeCache.TypeCollection types = TypeCache.GetTypesDerivedFrom<CompositeNode>();
-            foreach (var type in types)
-            {
-                evt.menu.AppendAction($"Add Node/{type.BaseType.Name}/{type.Name}",
-                    a => CreateNode(type, localMousePosition));
-            }
+            AddContextMenuItem(evt, types, localMousePosition);
         }
 
         {
             TypeCache.TypeCollection types = TypeCache.GetTypesDerivedFrom<DecoratorNode>();
-            foreach (var type in types)
-            {
-                evt.menu.AppendAction($"Add Node/{type.BaseType.Name}/{type.Name}",
-                    a => CreateNode(type,localMousePosition));
-            }
+            AddContextMenuItem(evt, types, localMousePosition);
+        }
+    }
+
+    private void AddContextMenuItem(ContextualMenuPopulateEvent evt, TypeCache.TypeCollection types, Vector2 localMousePosition)
+    {
+        List<(string, Action<DropdownMenuAction>)> menuItems = types.Select(
+            type => ((string, Action<DropdownMenuAction>))($"Add Node/{type.BaseType.Name}/{type.Name}",
+                a => CreateNode(type, localMousePosition))).ToList();
+
+        // Sort the list of menu items in alphabetical order
+        menuItems.Sort((item1,
+            item2) => string.Compare(item1.Item1, item2.Item1, StringComparison.Ordinal));
+
+        // Append the sorted items to the menu
+        foreach (var (item, action) in menuItems)
+        {
+            evt.menu.AppendAction(item, action);
         }
     }
 
