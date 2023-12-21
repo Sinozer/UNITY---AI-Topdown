@@ -25,12 +25,10 @@ public class AkbarBrain : EnemyBrain
     protected override void Update()
     {
         base.Update();
-        _runner.GetBlackboard().SetValue("IsDead", _enemy.IsDead);
+
         if (_enemy.IsDead)
-        {
-            Explode();
             return;
-        }
+
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
 
@@ -46,6 +44,8 @@ public class AkbarBrain : EnemyBrain
 
     public void Explode()
     {
+        _enemy.TakeDamage(_enemy.MaxHealth);
+        _runner.GetBlackboard().SetValue("TriggerExplosion", true);
         _fxExplosion.Invoke();
     }
 }

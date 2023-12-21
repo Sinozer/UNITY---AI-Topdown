@@ -15,7 +15,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 042febffa96f643468db2f8dc35e4cb6
-  Position: {x: -52.702896, y: 916.0608}
+  Position: {x: -327, y: 1049}
   Blackboard: {fileID: 0}
   _duration: AttackSpeed
 --- !u!114 &-9148636400486955426
@@ -40,30 +40,6 @@ MonoBehaviour:
   - {fileID: -4416548959837702038}
   - {fileID: 3097079483157414261}
   executeAllEachFrame: 1
---- !u!114 &-8970942956832278010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
-  m_Name: ConditionNode
-  m_EditorClassIdentifier: 
-  CurrentState: 0
-  Started: 0
-  Guid: e9aef80ba1768794487ec21d33e43810
-  Position: {x: -638.8975, y: 331}
-  Blackboard: {fileID: 0}
-  _type: 0
-  _conditionName: IsDead
-  _not: 0
-  CalcOperator: 0
-  IntCondition: 0
-  FloatCondition: 0
-  StringCondition: 
 --- !u!114 &-7117730499327498931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +106,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -149,6 +125,18 @@ MonoBehaviour:
     - Name: $k
       Entry: 1
       Data: CanShoot
+    - Name: $v
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: TriggerExplosion
     - Name: $v
       Entry: 5
       Data: false
@@ -272,10 +260,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 1e0acf298b2182042bf6e0393744a59e
-  Position: {x: 130.29716, y: 271.06085}
+  Position: {x: 145, y: 287}
   Blackboard: {fileID: 0}
   _type: 0
-  _conditionName: IsDead
+  _conditionName: TriggerExplosion
   _not: 1
   CalcOperator: 0
   IntCondition: 0
@@ -348,6 +336,47 @@ MonoBehaviour:
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 1
+--- !u!114 &-3637979460747378648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
+  m_Name: ConditionNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: cf87c6a315425174c9d31b98224a6371
+  Position: {x: -753, y: 355}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _conditionName: TriggerExplosion
+  _not: 0
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
+--- !u!114 &-3324752054577491200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5599bc9d23eb5b244be4dd7452ad6823, type: 3}
+  m_Name: AkbarTriggerExplosionNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 20a80adad219c374a9221c8bbc2706b0
+  Position: {x: -136, y: 997}
+  Blackboard: {fileID: 0}
 --- !u!114 &-2837984969023207527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,14 +392,15 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: f1efbbf3b54a30c4eb8b83e38049a964
-  Position: {x: -234.70285, y: 666.0609}
+  Position: {x: -377, y: 682}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: -81894535704961400}
   - {fileID: -610856176179622096}
   - {fileID: 5524372873139211742}
   - {fileID: -9156597377740959090}
-  - {fileID: 1123389652221261619}
+  - {fileID: -3324752054577491200}
+  - {fileID: 3091130067184583665}
   executeAllEachFrame: 0
 --- !u!114 &-2317196182189166655
 MonoBehaviour:
@@ -404,10 +434,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: e4e3da8ac11e24d41b682bb80465d3e5
-  Position: {x: -430.70288, y: 131.06079}
+  Position: {x: -504, y: 135}
   Blackboard: {fileID: 0}
   Children:
-  - {fileID: -8970942956832278010}
+  - {fileID: -3637979460747378648}
   - {fileID: 5533544706979266579}
   - {fileID: 7288784664573858034}
   executeAllEachFrame: 0
@@ -426,7 +456,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 0cdb30aa7242c994eaaa3777622945dd
-  Position: {x: -455.70294, y: 929.0609}
+  Position: {x: -745, y: 997}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 1
@@ -448,7 +478,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: d211ae61e2167354a976344e63e5100f
-  Position: {x: -580.70294, y: 804.0609}
+  Position: {x: -923, y: 927}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: CanShoot
@@ -479,7 +509,6 @@ MonoBehaviour:
   - {fileID: -81894535704961400}
   - {fileID: -4611962800862691208}
   - {fileID: 3097079483157414261}
-  - {fileID: 1123389652221261619}
   - {fileID: -2317196182189166655}
   - {fileID: -2837984969023207527}
   - {fileID: -9148636400486955426}
@@ -488,29 +517,14 @@ MonoBehaviour:
   - {fileID: -4416548959837702038}
   - {fileID: -610856176179622096}
   - {fileID: -1927487130330390127}
-  - {fileID: -8970942956832278010}
   - {fileID: 5533544706979266579}
   - {fileID: -4795532479705445244}
   - {fileID: -6506290879115604573}
   - {fileID: 6910826750843897907}
   - {fileID: 7288784664573858034}
---- !u!114 &1123389652221261619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12018455e133c7e41bf514726df0b482, type: 3}
-  m_Name: AttackPlayerNode
-  m_EditorClassIdentifier: 
-  CurrentState: 0
-  Started: 0
-  Guid: 0a00b03940e3a8047b9dc09b2103643c
-  Position: {x: 58.29721, y: 812.0609}
-  Blackboard: {fileID: 0}
+  - {fileID: -3637979460747378648}
+  - {fileID: -3324752054577491200}
+  - {fileID: 3091130067184583665}
 --- !u!114 &2194561782779688276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,6 +543,23 @@ MonoBehaviour:
   Position: {x: -5.2036266, y: -381.96216}
   Blackboard: {fileID: 0}
   Child: {fileID: 8487933479558255646}
+--- !u!114 &3091130067184583665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12018455e133c7e41bf514726df0b482, type: 3}
+  m_Name: AttackPlayerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 6dcf1801c04ddec4a8c4f3606426a069
+  Position: {x: 108, y: 901}
+  Blackboard: {fileID: 0}
 --- !u!114 &3097079483157414261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,7 +575,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 2622ac5a32b35674b8e29a75974403a6
-  Position: {x: 715.2972, y: 864.0608}
+  Position: {x: 714.2552, y: 820}
   Blackboard: {fileID: 0}
 --- !u!114 &5524372873139211742
 MonoBehaviour:
@@ -561,7 +592,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 7e678394076c2d64ba9add817cd41ad0
-  Position: {x: -253.70288, y: 945.0609}
+  Position: {x: -558, y: 1055}
   Blackboard: {fileID: 0}
   _type: 3
   _animatorCondition: 2
@@ -583,7 +614,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 1e81e9d41d77a5c4f9d6db4daf407327
-  Position: {x: -440.00003, y: 382.99997}
+  Position: {x: -566, y: 422}
   Blackboard: {fileID: 0}
   _type: 3
   _animatorCondition: 4
@@ -645,7 +676,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: e2d3fd50dacf6594bb2957b888a78d16
-  Position: {x: -246, y: 323.00003}
+  Position: {x: -358, y: 422}
   Blackboard: {fileID: 0}
 --- !u!114 &8487933479558255646
 MonoBehaviour:

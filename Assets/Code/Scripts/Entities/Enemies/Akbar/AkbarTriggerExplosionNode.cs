@@ -9,14 +9,13 @@ using UnityEngine;
 
 public class AkbarTriggerExplosionNode : ActionNode
 {
-    GameObject _self;
-    EnemyBrain _brain;
+    AkbarBrain _brain;
 
     public override void OnStart()
     {
-        Blackboard.TryFind("Self", out _self);
         Blackboard.TryFind("EnemyBrain", out _brain);
-        _runner.GetBlackboard().SetValue("IsDead", _enemy.IsDead);
+        Blackboard.SetValue("TriggerExplosion", true);
+        _brain.Explode();
     }
 
     public override void OnStop()
@@ -26,6 +25,6 @@ public class AkbarTriggerExplosionNode : ActionNode
 
     public override State OnUpdate()
     {
-
+        return State.Success;
     }
 }
