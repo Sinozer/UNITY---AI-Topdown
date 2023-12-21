@@ -87,8 +87,9 @@ MonoBehaviour:
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
-  _fxHit: {fileID: 7746783208139777159}
-  _dyingSound: {fileID: 0}
+  _vfxHit: {fileID: 7746783208139777159}
+  _sfxDying: {fileID: 0}
+  _sfxHit: {fileID: 0}
   _baseData: {fileID: 11400000, guid: 189e1f8095bb719429bd456fc77830de, type: 2}
 --- !u!114 &4788285572007626977
 MonoBehaviour:
@@ -105,7 +106,6 @@ MonoBehaviour:
   _entity: {fileID: 5766436915664568087}
   _shootSound: {fileID: 0}
   _projectileData: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
-  _fireRate: 2
 --- !u!114 &9022942392556322074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5aa53c162e02504081475bc1670f6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _multiplier: 1
 --- !u!1 &6959901535677557712
 GameObject:
   m_ObjectHideFlags: 0
