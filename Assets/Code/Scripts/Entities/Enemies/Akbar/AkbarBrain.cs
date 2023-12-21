@@ -14,6 +14,8 @@ public class AkbarBrain : EnemyBrain
     [SerializeField] private UnityEvent _fxExplosion;
 
     private Player player;
+    private float _explosionRange = 3;
+
 
     protected override void Start()
     {
@@ -26,10 +28,14 @@ public class AkbarBrain : EnemyBrain
     {
         base.Update();
 
-        if (_enemy.IsDead)
-            return;
-
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
+
+        if (_enemy.IsDead)
+        {
+            _runner.GetBlackboard().SetValue("TriggerExplosion", true);
+            return;
+        }
+
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
 
         player = GameManager.Instance.Player;
@@ -44,6 +50,9 @@ public class AkbarBrain : EnemyBrain
 
     public void Explode()
     {
+        if (_enemy.DistFromPlayer < _explosionRange)
+            _enemy.Attack(player);
+
         _enemy.TakeDamage(_enemy.MaxHealth);
         _runner.GetBlackboard().SetValue("TriggerExplosion", true);
         _fxExplosion.Invoke();

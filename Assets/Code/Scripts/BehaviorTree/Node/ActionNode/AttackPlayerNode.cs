@@ -27,7 +27,6 @@ public class AttackPlayerNode : ActionNode
 
     public override State OnUpdate()
     {
-        
         if (_self == null)
             return State.Failure;
         
