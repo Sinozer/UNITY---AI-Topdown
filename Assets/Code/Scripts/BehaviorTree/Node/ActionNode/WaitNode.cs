@@ -15,13 +15,12 @@ public class WaitNode : ActionNode
     
     public override void OnStart()
     {
-        Debug.Log("Wait start");
         _startTime = Time.time;
     }
 
     public override void OnStop()
     {
-        Debug.Log("Wait stop");
+
     }
 
     public override State OnUpdate()

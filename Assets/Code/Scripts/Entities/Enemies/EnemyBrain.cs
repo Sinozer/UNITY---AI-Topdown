@@ -89,4 +89,9 @@ public class EnemyBrain : MonoBehaviour
     {
         _entity.Attack(GameManager.Instance.Player);
     }
+
+    public void OnHit()
+    {
+        _enemy.OnHit();
+    }
 }
