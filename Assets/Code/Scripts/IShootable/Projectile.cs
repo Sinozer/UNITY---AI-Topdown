@@ -18,6 +18,12 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        GetComponent<Rigidbody2D>().simulated = false;
+        GetComponent<Animator>().SetTrigger("Hit");
+    }
+    
+    public void DestroyProjectile()
+    {
         Destroy(gameObject);
     }
 }
