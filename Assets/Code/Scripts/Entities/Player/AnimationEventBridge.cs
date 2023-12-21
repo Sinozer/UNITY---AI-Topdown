@@ -11,4 +11,9 @@ public class AnimationEventBridge : MonoBehaviour
     {
         PlayerBrain.StopReloading();
     }
+
+    public void PlayStepSound()
+    {
+        PlayerBrain.PlayStepSound();
+    }
 }
