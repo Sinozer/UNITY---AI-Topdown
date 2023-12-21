@@ -7,7 +7,6 @@
 
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public abstract class Entity : MonoBehaviour
 {
@@ -58,11 +57,14 @@ public abstract class Entity : MonoBehaviour
         _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
         
         OnHealthChanged?.Invoke(Health);
+
+        if (_health <= 0)
+            OnDeath?.Invoke();
     }
 
     public virtual void Die()
     {
-        OnDeath?.Invoke();
+        //OnDeath?.Invoke();
         Destroy(gameObject);
     }
 

@@ -85,7 +85,7 @@ public class EnemyBrain : MonoBehaviour
 
     public void StartShooting()
     {
-        _entityShooting.StartShooting(_entity.AttackSpeed);
+        _entityShooting.StartShooting();
     }
 
     public void StopShooting()

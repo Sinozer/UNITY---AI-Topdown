@@ -24,9 +24,5 @@ MonoBehaviour:
   _enemies:
   - _entity: {fileID: 5766436915664568087, guid: bbec08fce6b02c54a90605c3ed3aec44, type: 3}
     _numberOfEnemies: 2
-  - _entity: {fileID: 5766436915664568087, guid: bbec08fce6b02c54a90605c3ed3aec44, type: 3}
-    _numberOfEnemies: 3
-  - _entity: {fileID: 5766436915664568087, guid: bbec08fce6b02c54a90605c3ed3aec44, type: 3}
-    _numberOfEnemies: 5
-  _timeBetweenSpawns: 5
-  _timeBetweenEnemyTypes: 5
+  _timeBetweenSpawns: 0.5
+  _timeBetweenEnemyTypes: 2

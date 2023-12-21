@@ -12,18 +12,20 @@ public class PhaseStateManager : BaseStateManager<PhaseStateManager, PhaseStateM
     public enum EPhaseState
     {
         Locked,         // The phase is locked
-        Unlocked,       // The phase is unlocked
-        Setup,          // The phase is being setup
-        Playing,        // The phase is playing
+        Idle,           // The phase is idle
+        Patrol,         // The phase is patrolling, moving from one point to another            | NOT USED FOR NOW
+        Move,           // The phase is moving, moving to a specific point (Player, etc.)
+        Attack,         // The phase is attacking, attacking a specific target (Player, etc.)
         Ended           // The phase has ended
     }
 
     private static readonly BaseState<PhaseStateManager, EPhaseState, Phase>[] _states =
     {
         new PhaseLockedState(),
-        new PhaseUnlockedState(),
-        new PhaseSetupState(),
-        new PhasePlayingState(),
+        new PhaseIdleState(),
+        new PhasePatrolState(),
+        new PhaseMoveState(),
+        new PhaseAttackState(),
         new PhaseEndedState()
     };
 
@@ -56,11 +58,13 @@ public class PhaseLockedState : BaseState<PhaseStateManager, PhaseStateManager.E
         if (manager.Owner.IsUnlocked == false)
             return;
 
-        manager.ChangeState(PhaseStateManager.EPhaseState.Unlocked);
+        manager.ChangeState(PhaseStateManager.EPhaseState.Idle);
     }
 
     public override void OnEnter(PhaseStateManager manager)
     {
+        Debug.Log("Phase is locked");
+
     }
 
     public override void OnExit(PhaseStateManager manager)
@@ -74,67 +78,10 @@ public class PhaseLockedState : BaseState<PhaseStateManager, PhaseStateManager.E
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-/// PhaseUnlockedState /////////////////////////////////////////////////////////
+/// PhaseIdleState /////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-public class PhaseUnlockedState : BaseState<PhaseStateManager, PhaseStateManager.EPhaseState, Phase>
-{
-    private void CheckSetup(PhaseStateManager manager)
-    {
-        // For now, we'll just assume that the phase is always ready to be setup
-
-        manager.ChangeState(PhaseStateManager.EPhaseState.Setup);
-    }
-
-    public override void OnEnter(PhaseStateManager manager)
-    {
-        manager.Owner.InvokeOnPhaseUnlockedStarting();
-    }
-
-    public override void OnExit(PhaseStateManager manager)
-    {
-    }
-
-    public override void OnUpdate(PhaseStateManager manager)
-    {
-        CheckSetup(manager);
-    }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-/// PhaseSetupState ////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
-public class PhaseSetupState : BaseState<PhaseStateManager, PhaseStateManager.EPhaseState, Phase>
-{
-    private void CheckPlaying(PhaseStateManager manager)
-    {
-        if (manager.Owner.HasBeenSetup == false)
-            return;
-
-        manager.ChangeState(PhaseStateManager.EPhaseState.Playing);
-    }
-
-    public override void OnEnter(PhaseStateManager manager)
-    {
-        manager.Owner.InvokeOnPhaseSetupStarting();
-    }
-
-    public override void OnExit(PhaseStateManager manager)
-    {
-    }
-
-    public override void OnUpdate(PhaseStateManager manager)
-    {
-        CheckPlaying(manager);
-    }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-/// PhasePlayingState //////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
-public class PhasePlayingState : BaseState<PhaseStateManager, PhaseStateManager.EPhaseState, Phase>
+public class PhaseIdleState : BaseState<PhaseStateManager, PhaseStateManager.EPhaseState, Phase>
 {
     private void CheckEnded(PhaseStateManager manager)
     {
@@ -146,20 +93,195 @@ public class PhasePlayingState : BaseState<PhaseStateManager, PhaseStateManager.
 
     public override void OnEnter(PhaseStateManager manager)
     {
-        manager.Owner.IsPlaying = true;
-        manager.Owner.InvokeOnPhasePlayingStarting();
+        Debug.Log("Phase is idle");
+
     }
 
     public override void OnExit(PhaseStateManager manager)
     {
-        manager.Owner.IsPlaying = false;
     }
 
     public override void OnUpdate(PhaseStateManager manager)
     {
         CheckEnded(manager);
 
-        // Phase logic here
+        if (manager.Owner.BossBrain.CanShootAtPlayer)
+        {
+            manager.ChangeState(PhaseStateManager.EPhaseState.Attack);
+            return;
+        }
+
+        if (manager.Owner.BossBrain.SeePlayer)
+        {
+            manager.ChangeState(PhaseStateManager.EPhaseState.Move);
+            return;
+        }
+
+
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+/// PhasePatrolState ///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+public class PhasePatrolState : BaseState<PhaseStateManager, PhaseStateManager.EPhaseState, Phase>
+{
+    private void CheckEnded(PhaseStateManager manager)
+    {
+        if (manager.Owner.IsEnded == false)
+            return;
+
+        manager.ChangeState(PhaseStateManager.EPhaseState.Ended);
+    }
+
+    public override void OnEnter(PhaseStateManager manager)
+    {
+        Debug.Log("Phase is patrolling");
+
+    }
+
+    public override void OnExit(PhaseStateManager manager)
+    {
+    }
+
+    public override void OnUpdate(PhaseStateManager manager)
+    {
+        CheckEnded(manager);
+
+        if (manager.Owner.BossBrain.CanShootAtPlayer)
+        {
+            manager.ChangeState(PhaseStateManager.EPhaseState.Attack);
+            return;
+        }
+
+        if (manager.Owner.BossBrain.SeePlayer)
+        {
+            manager.ChangeState(PhaseStateManager.EPhaseState.Move);
+            return;
+        }
+
+        manager.ChangeState(PhaseStateManager.EPhaseState.Idle);
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+/// PhaseMoveState /////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+public class PhaseMoveState : BaseState<PhaseStateManager, PhaseStateManager.EPhaseState, Phase>
+{
+    private void CheckEnded(PhaseStateManager manager)
+    {
+        if (manager.Owner.IsEnded == false)
+            return;
+
+        manager.ChangeState(PhaseStateManager.EPhaseState.Ended);
+    }
+
+    public override void OnEnter(PhaseStateManager manager)
+    {
+        Debug.Log("Phase is moving");
+
+        manager.Owner.BossBrain.AIPath(true);
+        manager.Owner.BossBrain.FollowingPlayer(true);
+        // Do things for the animation
+    }
+
+    public override void OnExit(PhaseStateManager manager)
+    {
+        manager.Owner.BossBrain.AIPath(false);
+        manager.Owner.BossBrain.FollowingPlayer(false);
+        // Do things for the animation
+    }
+
+    public override void OnUpdate(PhaseStateManager manager)
+    {
+        CheckEnded(manager);
+
+        switch (((SOPhase)manager.Owner.BaseData).Enraged)
+        {
+            case true:
+                break;
+            case false:
+                break;
+        }
+
+        if (manager.Owner.BossBrain.CanShootAtPlayer)
+        {
+            manager.ChangeState(PhaseStateManager.EPhaseState.Attack);
+            return;
+        }
+
+        if (manager.Owner.BossBrain.SeePlayer)
+            return;
+
+        manager.ChangeState(PhaseStateManager.EPhaseState.Idle);
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+/// PhaseAttackState ///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+public class PhaseAttackState : BaseState<PhaseStateManager, PhaseStateManager.EPhaseState, Phase>
+{
+    private void CheckEnded(PhaseStateManager manager)
+    {
+        if (manager.Owner.IsEnded == false)
+            return;
+
+        manager.ChangeState(PhaseStateManager.EPhaseState.Ended);
+    }
+
+    public override void OnEnter(PhaseStateManager manager)
+    {
+        Debug.Log("Phase is attacking");
+
+        manager.Owner.BossBrain.StartShooting();
+        // Do things for the animation
+    }
+
+    public override void OnExit(PhaseStateManager manager)
+    {
+        manager.Owner.BossBrain.StopShooting();
+        // Do things for the animation
+    }
+
+    public override void OnUpdate(PhaseStateManager manager)
+    {
+        CheckEnded(manager);
+
+        switch (((SOPhase)manager.Owner.BaseData).Enraged)
+        {
+            case true:
+
+                // Can shoot rockets
+
+                // Can spawn Akbar
+
+                // Can spawn firezones
+
+                break;
+            case false:
+
+                // Can shoot rockets
+
+                // Can spawn Akbar
+
+                break;
+        }
+
+        if (manager.Owner.BossBrain.CanShootAtPlayer)
+            return;
+
+        if (manager.Owner.BossBrain.SeePlayer)
+        {
+            manager.ChangeState(PhaseStateManager.EPhaseState.Move);
+            return;
+        }
+
+        manager.ChangeState(PhaseStateManager.EPhaseState.Idle);
     }
 }
 
@@ -171,7 +293,8 @@ public class PhaseEndedState : BaseState<PhaseStateManager, PhaseStateManager.EP
 {
     public override void OnEnter(PhaseStateManager manager)
     {
-        manager.Owner.InvokeOnPhaseEndedStarting();
+        Debug.Log("Phase is ended");
+
     }
 
     public override void OnExit(PhaseStateManager manager)

@@ -15,7 +15,7 @@ public class EntityShooting : MonoBehaviour
 
     private void Awake()
     {
-        _entity = GetComponentInParent<Entity>();
+        _entity = transform.root.GetComponentInChildren<Entity>();
 
         if (_projectileData == null)
         {
@@ -29,7 +29,6 @@ public class EntityShooting : MonoBehaviour
     }
 
     [SerializeField] private SOProjectile _projectileData;
-    [SerializeField] private float _fireRate;
 
     public float LookX => _direction.x;
 
@@ -101,19 +100,25 @@ public class EntityShooting : MonoBehaviour
 
             Destroy(projectile, _projectileData.LifeTime);
 
-            yield return new WaitForSeconds(_fireRate);
+            yield return new WaitForSeconds(1 / _entity.AttackSpeed);
         }
     }
 
-    public void StartShooting(float fireRate)
+    public void StartShooting()
     {
-        _fireRate = fireRate;
+        if (_shootCoroutine != null)
+            return;
+
         _shootCoroutine = StartCoroutine(Shoot());
     }
 
     public void StopShooting()
     {
+        if (_shootCoroutine == null)
+            return;
+
         StopCoroutine(_shootCoroutine);
+        _shootCoroutine = null;
     }
 
     public void SetAnimationSpeed(Animator animator)

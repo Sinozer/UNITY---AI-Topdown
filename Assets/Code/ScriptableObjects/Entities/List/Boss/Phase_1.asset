@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ec3dd5efb496941a4a0504c972884c, type: 3}
+  m_Script: {fileID: 11500000, guid: a7acfd351fa356e4c847c0ca67aaa5c0, type: 3}
   m_Name: Phase_1
   m_EditorClassIdentifier: 
   _maxHealth: 666
-  _damage: 13
-  _movementSpeed: 1.2
-  _attackSpeed: 1.4
+  _damage: 130
+  _movementSpeed: 4
+  _attackSpeed: 13
   _attackRange: 7
   _visionRange: 666
+  _enraged: 1

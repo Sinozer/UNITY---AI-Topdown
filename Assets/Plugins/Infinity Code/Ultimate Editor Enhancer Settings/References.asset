@@ -18,6 +18,10 @@ MonoBehaviour:
     type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     target: {fileID: 1061051873336289640, guid: d13e9851b9590764e8ad9f8abe1d6028, type: 3}
+  - title: Akbar
+    type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 7061661399083870510, guid: 5edcb5fed329c32478d92772020feea9, type: 3}
   - title: Tanky
     type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -474,16 +478,20 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
-  - name: Main - THEO
-    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
-  - name: Main
-    path: Assets/Level/Scenes/Main.unity
+  - name: Main_Level_1
+    path: Assets/Level/Scenes/Main_Level_1.unity
   - name: MainMenu
     path: Assets/Level/Scenes/MainMenu.unity
-  - name: Level - YOANN
-    path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
+  - name: Main_Level_2
+    path: Assets/Level/Scenes/Main_Level_2.unity
   - name: Level2 - YOANN
     path: Assets/Level/Scenes/Yoann/Level2 - YOANN.unity
+  - name: Main
+    path: Assets/Level/Scenes/Main.unity
+  - name: Level - YOANN
+    path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
+  - name: Main - THEO
+    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   - name: Main - MATTHIEU
     path: Assets/Level/Scenes/Matthieu/Main - MATTHIEU.unity
   - name: TestScene
