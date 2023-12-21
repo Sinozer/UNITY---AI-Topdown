@@ -50,14 +50,13 @@ public class EnemyBrain : MonoBehaviour
     protected virtual void Start()
     {
         _aiPath.maxSpeed = _entity.MovementSpeed;
-        _spriteRenderer = _render.GetComponent<SpriteRenderer>();
-        
+        _spriteRenderer = _render.GetComponent<SpriteRenderer>();        
     }
 
     protected virtual void Update()
     {
-        if (_entity.IsDead)
-            return;
+        //if (_entity.IsDead)
+        //    return;
         _spriteRenderer.flipX = _aiPath.targetDirection.x < 0;
     }
 
