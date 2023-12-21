@@ -13,6 +13,7 @@ using UnityEngine;
 public class EntityShooting : MonoBehaviour
 {
     [SerializeField] private Entity _entity;
+    [SerializeField] private AudioSource _shootSound;
 
     private void Awake()
     {
@@ -104,6 +105,9 @@ public class EntityShooting : MonoBehaviour
             collider.offset = new Vector2(0.08f, 0);
 
             projectile.GetComponent<Projectile>().Damage = _projectileData.Damage;
+
+            if (_shootSound != null)
+                _shootSound.Play();
 
             Destroy(projectile, _projectileData.LifeTime);
 

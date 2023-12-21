@@ -289,7 +289,7 @@ MonoBehaviour:
   Children:
   - {fileID: -6506290879115604573}
   - {fileID: 6910826750843897907}
-  executeAllEachFrame: 0
+  executeAllEachFrame: 1
 --- !u!114 &-4611962800862691208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: cf87c6a315425174c9d31b98224a6371
-  Position: {x: -619, y: 303.00006}
+  Position: {x: -611, y: 311}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: TriggerExplosion
@@ -674,7 +674,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 97da1170e14b00d4c8204ebaf9a7e6a2
-  Position: {x: -2, y: -228}
+  Position: {x: -2.9999027, y: -219.57591}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: -1927487130330390127}
