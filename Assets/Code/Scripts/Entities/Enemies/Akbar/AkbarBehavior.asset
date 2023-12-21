@@ -1,5 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9156597377740959090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bb3586f198a244ca26cdd85035a56b, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 042febffa96f643468db2f8dc35e4cb6
+  Position: {x: -327, y: 1049}
+  Blackboard: {fileID: 0}
+  _duration: AttackSpeed
+--- !u!114 &-9148636400486955426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 188fae94c1542bf449fa19ca4715194b
+  Position: {x: 505.2971, y: 658.0608}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: -4611962800862691208}
+  - {fileID: -4416548959837702038}
+  - {fileID: 3097079483157414261}
+  executeAllEachFrame: 1
 --- !u!114 &-7117730499327498931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +106,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -85,6 +125,18 @@ MonoBehaviour:
     - Name: $k
       Entry: 1
       Data: CanShoot
+    - Name: $v
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: TriggerExplosion
     - Name: $v
       Entry: 5
       Data: false
@@ -193,7 +245,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!114 &-5177035499927926758
+--- !u!114 &-6506290879115604573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,18 +254,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e800d53ee779c094db9028931aaccab9, type: 3}
-  m_Name: SelectorNode
+  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
+  m_Name: ConditionNode
   m_EditorClassIdentifier: 
   CurrentState: 0
   Started: 0
-  Guid: e392d1bb9a829a64fb404ee6590b34cc
-  Position: {x: -355.17133, y: 123.34591}
+  Guid: 1e0acf298b2182042bf6e0393744a59e
+  Position: {x: 145, y: 287}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _conditionName: TriggerExplosion
+  _not: 1
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
+--- !u!114 &-4795532479705445244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 97fdb3c7065021b4dbdc8b375ec502d6
+  Position: {x: 254.29723, y: 103.060814}
   Blackboard: {fileID: 0}
   Children:
-  - {fileID: 6912294868924030243}
-  - {fileID: -3644781557440461698}
-  executeAllEachFrame: 1
+  - {fileID: -6506290879115604573}
+  - {fileID: 6910826750843897907}
+  executeAllEachFrame: 0
 --- !u!114 &-4611962800862691208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,12 +305,38 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 3acc89dea9235a945a1634bddb6a1b1a
-  Position: {x: 185.52985, y: -48.9045}
+  Position: {x: 352.2971, y: 812.0609}
   Blackboard: {fileID: 0}
-  Child: {fileID: -2317196182189166655}
+  _type: 0
   _conditionName: SeePlayer
-  _not: 1
---- !u!114 &-3644781557440461698
+  _not: 0
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
+--- !u!114 &-4416548959837702038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: a2e8ca7f5b4bd5143ab0af6a4bb3c2a8
+  Position: {x: 516.2971, y: 885.0608}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _animatorCondition: 1
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 1
+--- !u!114 &-3637979460747378648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,12 +350,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: 0
   Started: 0
-  Guid: ed96bb8e5c574764aa5fabe9ae2f228c
-  Position: {x: -227.17126, y: 319.34592}
+  Guid: cf87c6a315425174c9d31b98224a6371
+  Position: {x: -753, y: 355}
   Blackboard: {fileID: 0}
-  Child: {fileID: 3097079483157414261}
-  _conditionName: CanShoot
-  _not: 1
+  _type: 0
+  _conditionName: TriggerExplosion
+  _not: 0
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
+--- !u!114 &-3324752054577491200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5599bc9d23eb5b244be4dd7452ad6823, type: 3}
+  m_Name: AkbarTriggerExplosionNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 20a80adad219c374a9221c8bbc2706b0
+  Position: {x: -136, y: 997}
+  Blackboard: {fileID: 0}
+--- !u!114 &-2837984969023207527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: f1efbbf3b54a30c4eb8b83e38049a964
+  Position: {x: -377, y: 682}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: -81894535704961400}
+  - {fileID: -610856176179622096}
+  - {fileID: 5524372873139211742}
+  - {fileID: -9156597377740959090}
+  - {fileID: -3324752054577491200}
+  - {fileID: 3091130067184583665}
+  executeAllEachFrame: 0
 --- !u!114 &-2317196182189166655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,8 +417,52 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 96764c65619552a4191e0c54e452188d
-  Position: {x: 185.16203, y: 114.762024}
+  Position: {x: 961.29706, y: 674.0609}
   Blackboard: {fileID: 0}
+--- !u!114 &-1927487130330390127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: e4e3da8ac11e24d41b682bb80465d3e5
+  Position: {x: -504, y: 135}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: -3637979460747378648}
+  - {fileID: 5533544706979266579}
+  - {fileID: 7288784664573858034}
+  executeAllEachFrame: 0
+--- !u!114 &-610856176179622096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 0cdb30aa7242c994eaaa3777622945dd
+  Position: {x: -745, y: 997}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _animatorCondition: 1
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 0
 --- !u!114 &-81894535704961400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,11 +478,15 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: d211ae61e2167354a976344e63e5100f
-  Position: {x: -197.60004, y: -50.57182}
+  Position: {x: -923, y: 927}
   Blackboard: {fileID: 0}
-  Child: {fileID: -5177035499927926758}
-  _conditionName: SeePlayer
+  _type: 0
+  _conditionName: CanShoot
   _not: 0
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,29 +508,23 @@ MonoBehaviour:
   - {fileID: 8487933479558255646}
   - {fileID: -81894535704961400}
   - {fileID: -4611962800862691208}
-  - {fileID: -5177035499927926758}
-  - {fileID: 6912294868924030243}
-  - {fileID: -3644781557440461698}
   - {fileID: 3097079483157414261}
-  - {fileID: 1123389652221261619}
   - {fileID: -2317196182189166655}
---- !u!114 &1123389652221261619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12018455e133c7e41bf514726df0b482, type: 3}
-  m_Name: AttackPlayerNode
-  m_EditorClassIdentifier: 
-  CurrentState: 0
-  Started: 0
-  Guid: 0a00b03940e3a8047b9dc09b2103643c
-  Position: {x: -512.80005, y: 508.80002}
-  Blackboard: {fileID: 0}
+  - {fileID: -2837984969023207527}
+  - {fileID: -9148636400486955426}
+  - {fileID: -9156597377740959090}
+  - {fileID: 5524372873139211742}
+  - {fileID: -4416548959837702038}
+  - {fileID: -610856176179622096}
+  - {fileID: -1927487130330390127}
+  - {fileID: 5533544706979266579}
+  - {fileID: -4795532479705445244}
+  - {fileID: -6506290879115604573}
+  - {fileID: 6910826750843897907}
+  - {fileID: 7288784664573858034}
+  - {fileID: -3637979460747378648}
+  - {fileID: -3324752054577491200}
+  - {fileID: 3091130067184583665}
 --- !u!114 &2194561782779688276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,6 +543,23 @@ MonoBehaviour:
   Position: {x: -5.2036266, y: -381.96216}
   Blackboard: {fileID: 0}
   Child: {fileID: 8487933479558255646}
+--- !u!114 &3091130067184583665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12018455e133c7e41bf514726df0b482, type: 3}
+  m_Name: AttackPlayerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 6dcf1801c04ddec4a8c4f3606426a069
+  Position: {x: 108, y: 901}
+  Blackboard: {fileID: 0}
 --- !u!114 &3097079483157414261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,9 +575,9 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 2622ac5a32b35674b8e29a75974403a6
-  Position: {x: -232, y: 497.6}
+  Position: {x: 714.2552, y: 820}
   Blackboard: {fileID: 0}
---- !u!114 &6912294868924030243
+--- !u!114 &5524372873139211742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -379,17 +586,63 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
-  m_Name: ConditionNode
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
   m_EditorClassIdentifier: 
   CurrentState: 0
   Started: 0
-  Guid: a9767a8d4d15f4340874a6a02cc89cd5
-  Position: {x: -504.08258, y: 316.8032}
+  Guid: 7e678394076c2d64ba9add817cd41ad0
+  Position: {x: -558, y: 1055}
   Blackboard: {fileID: 0}
-  Child: {fileID: 1123389652221261619}
-  _conditionName: CanShoot
-  _not: 0
+  _type: 3
+  _animatorCondition: 2
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 0
+--- !u!114 &5533544706979266579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 1e81e9d41d77a5c4f9d6db4daf407327
+  Position: {x: -566, y: 422}
+  Blackboard: {fileID: 0}
+  _type: 3
+  _animatorCondition: 4
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 0
+--- !u!114 &6910826750843897907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e800d53ee779c094db9028931aaccab9, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 3973c71d9110319438f8771ad15ee5b3
+  Position: {x: 353.29718, y: 279.06085}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: -2837984969023207527}
+  - {fileID: -9148636400486955426}
+  - {fileID: -2317196182189166655}
+  executeAllEachFrame: 0
 --- !u!114 &7240270749785591623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +661,23 @@ MonoBehaviour:
   Position: {x: -6.0035415, y: -501.16223}
   Blackboard: {fileID: 0}
   Child: {fileID: 2194561782779688276}
+--- !u!114 &7288784664573858034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325286e42b1a98149a4ef284b45c9c65, type: 3}
+  m_Name: IdleNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: e2d3fd50dacf6594bb2957b888a78d16
+  Position: {x: -358, y: 422}
+  Blackboard: {fileID: 0}
 --- !u!114 &8487933479558255646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,9 +693,9 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 97da1170e14b00d4c8204ebaf9a7e6a2
-  Position: {x: -5.2036266, y: -242.76215}
+  Position: {x: -2, y: -228}
   Blackboard: {fileID: 0}
   Children:
-  - {fileID: -81894535704961400}
-  - {fileID: -4611962800862691208}
-  executeAllEachFrame: 0
+  - {fileID: -1927487130330390127}
+  - {fileID: -4795532479705445244}
+  executeAllEachFrame: 1
