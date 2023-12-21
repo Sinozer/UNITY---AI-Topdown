@@ -14,7 +14,6 @@ public class AkbarTriggerExplosionNode : ActionNode
     public override void OnStart()
     {
         Blackboard.TryFind("EnemyBrain", out _brain);
-        Blackboard.SetValue("TriggerExplosion", true);
         _brain.Explode();
     }
 
