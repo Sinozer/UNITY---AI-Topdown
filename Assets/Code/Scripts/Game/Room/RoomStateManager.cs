@@ -109,12 +109,6 @@ public class RoomUnlockedState : BaseState<RoomStateManager, RoomStateManager.ER
         if (manager.Owner.RoomType != Room.ERoomType.Join)
             return;
 
-        GameObject.Instantiate(
-            ((JoinRoom)manager.Owner).PlayerPrefab,
-            manager.Owner.transform.position,
-            Quaternion.identity
-        ).name = "Player";
-
         manager.ChangeState(RoomStateManager.ERoomState.Enter);
     }
 
@@ -183,6 +177,11 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
             case Room.ERoomType.Join:
                 // Spawn the player at the right place
                 // Show player inputs instructions / base mechanics
+                GameObject.Instantiate(
+                ((JoinRoom)manager.Owner).PlayerPrefab,
+                    manager.Owner.transform.position,
+                    Quaternion.identity
+                ).name = "Player";
                 break;
             case Room.ERoomType.Idle:
                 // Pretty much nothing to do here
@@ -196,6 +195,19 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
                 break;
             case Room.ERoomType.Boss:
                 // Spawn boss
+                BossRoom bossRoom = (BossRoom)manager.Owner;
+                GameObject bossPrefab = bossRoom.BossPrefab;
+                Vector3 bossSpawnPoint = bossRoom.BossSpawnPoint;
+
+                GameObject go = GameObject.Instantiate(
+                    bossPrefab,
+                    bossSpawnPoint,
+                    Quaternion.identity
+                );
+
+                go.name = bossPrefab.name;
+                go.GetComponentInChildren<BossBrain>().IsUnlocked = true;
+
                 break;
             case Room.ERoomType.End:
                 // Show end level screen
@@ -305,7 +317,7 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
 
         if (nextLevelId == -1)
             return;
-        
+
         SceneManager.Instance.LoadScene(nextLevelId);
     }
 

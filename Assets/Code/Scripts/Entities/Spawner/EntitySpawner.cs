@@ -57,7 +57,6 @@ public class EntitySpawner : MonoBehaviour
             if (!IsValidPosition()) continue;
 
             return value;
-            break;
         }
     }
 

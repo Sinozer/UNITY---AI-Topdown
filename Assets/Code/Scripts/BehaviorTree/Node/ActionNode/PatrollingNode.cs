@@ -14,7 +14,6 @@ public class PatrollingNode : ActionNode
 
     public override void OnStart()
     {
-        Debug.Log("Patrol start");
         Blackboard.TryFind("Self", out _self);
         Blackboard.TryFind("EnemyBrain", out _brain);
         _brain.FollowingPlayer(false);
@@ -24,7 +23,6 @@ public class PatrollingNode : ActionNode
 
     public override void OnStop()
     {
-        Debug.Log("Follow stop");
         _brain.Patrolling(false);
         _brain.AIPath(false);
     }

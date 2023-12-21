@@ -18,7 +18,13 @@ public class Enemy : Entity
     public Rigidbody2D Rigidbody => _rigidbody;
     protected virtual void Awake()
     {
+        SetValuesFromBaseData();
 
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    public void SetValuesFromBaseData()
+    {
         if (_baseData == null)
         {
             // NOT TESTED
@@ -35,11 +41,8 @@ public class Enemy : Entity
         _attackSpeed = _baseData.AttackSpeed;
         _attackRange = _baseData.AttackRange;
         _visionRange = _baseData.VisionRange;
-        
-        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    
     public Vector3 GetPlayerPos()
     {
         Vector3 returnValue = Vector3.zero;

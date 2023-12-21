@@ -9,14 +9,20 @@ using UnityEngine;
 
 public class EntityDamageable : MonoBehaviour
 {
+    [SerializeField] private float _multiplier = 1f;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.TryGetComponent<Projectile>(out var projectile))
             return;
 
-        if (!transform.parent.TryGetComponent<Entity>(out var entity))
+        if (!transform.root.TryGetComponent<Entity>(out var entity))
             return;
 
-        entity.TakeDamage(projectile.Damage);
+        if (projectile.AlreadyHit)
+            return;
+
+        projectile.AlreadyHit = true;
+        entity.TakeDamage(projectile.Damage * _multiplier);
     }
 }

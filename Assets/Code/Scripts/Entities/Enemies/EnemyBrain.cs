@@ -39,7 +39,7 @@ public class EnemyBrain : MonoBehaviour
     protected bool _seePlayer = false;
     protected bool _canShootAtPlayer = false;
     protected Animator _animator;
-    protected SpriteRenderer _spriteRenderer;
+
     protected virtual void Awake()
     {
         _entity = GetComponentInParent<Entity>();
@@ -52,7 +52,6 @@ public class EnemyBrain : MonoBehaviour
     protected virtual void Start()
     {
         _aiPath.maxSpeed = _entity.MovementSpeed;
-        _spriteRenderer = _render.GetComponent<SpriteRenderer>();        
     }
 
     protected virtual void Update()
@@ -62,7 +61,11 @@ public class EnemyBrain : MonoBehaviour
             _enemy.Rigidbody.simulated = false;
             return;
         }
-        _spriteRenderer.flipX = _aiPath.targetDirection.x < 0;
+
+        _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
+        _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
+
+        gameObject.transform.root.localScale = new Vector3(_aiPath.desiredVelocity.x < 0 ? 1 : -1, 1, 1);
     }
 
     public void FollowingPlayer(bool enable)
@@ -82,7 +85,7 @@ public class EnemyBrain : MonoBehaviour
 
     public void StartShooting()
     {
-        _entityShooting.StartShooting(_entity.AttackSpeed);
+        _entityShooting.StartShooting();
     }
 
     public void StopShooting()
