@@ -72,7 +72,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 57967f8f185872c48bbe955a4ac7c269
-  Position: {x: 1423.9132, y: 615.9999}
+  Position: {x: 1432, y: 660}
   Blackboard: {fileID: 0}
 --- !u!114 &-6640378195101659053
 MonoBehaviour:
@@ -89,7 +89,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 6ed8e79c842ef5a4b9a234aaad73e3d6
-  Position: {x: 427.99997, y: 652}
+  Position: {x: 415.00018, y: 660}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: SeePlayer
@@ -113,7 +113,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: f96abe77427860948b5c67c9d3d6b0be
-  Position: {x: 768.9642, y: 652.00006}
+  Position: {x: 794.992, y: 644}
   Blackboard: {fileID: 0}
 --- !u!114 &-4660252231281067831
 MonoBehaviour:
@@ -154,7 +154,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: d415ca228702cb847940fe68f670c417
-  Position: {x: 1196.5, y: 687.9999}
+  Position: {x: 1222.2509, y: 667.99994}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 1
@@ -581,7 +581,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 04f0fdd675bb6314aaca0066adff5144
-  Position: {x: -79.0001, y: 636}
+  Position: {x: -62.999935, y: 636}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: CanAttack
@@ -605,7 +605,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: addc2ee282d68cc45a45261d1e0efec9
-  Position: {x: 85.00007, y: 917.99994}
+  Position: {x: 99.500015, y: 925.00006}
   Blackboard: {fileID: 0}
   _type: 3
   _animatorCondition: 2
@@ -627,7 +627,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: d1ceda11b0b2cfa4fa37456e3ea5dc96
-  Position: {x: 279.99997, y: 909}
+  Position: {x: 281.9999, y: 916.99994}
   Blackboard: {fileID: 0}
   Message: PAF
 --- !u!114 &7852692166951507168
