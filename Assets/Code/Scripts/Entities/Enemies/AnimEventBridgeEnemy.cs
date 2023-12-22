@@ -16,5 +16,8 @@ public class AnimationEventBridgeEnemy : MonoBehaviour
         EnemyBrain.Die();
     }
 
-    
+    public void DieSfx()
+    {
+        EnemyBrain.PlayDeathSfx();
+    }
 }
