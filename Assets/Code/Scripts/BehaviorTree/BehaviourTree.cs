@@ -26,6 +26,54 @@ public class BehaviourTree : ScriptableObject
         }
         return TreeState;
     }
+   
+    public List<Node> GetChildren(Node parent)
+    {
+        List<Node> children = new List<Node>();
+       
+        DecoratorNode decoratorNode = parent as DecoratorNode;
+        if(decoratorNode && decoratorNode.Child != null)
+        {
+            children.Add(decoratorNode.Child);
+        }
+       
+        RootNode rootNode = parent as RootNode;
+        if(rootNode && rootNode.Child != null)
+        {
+            children.Add(rootNode.Child);
+        }
+         
+        CompositeNode compositeNode = parent as CompositeNode;
+        return compositeNode ? compositeNode.Children : children;
+    }
+   
+    public BehaviourTree Clone()
+    {
+        BehaviourTree tree = Instantiate(this);
+        tree.RootNode = RootNode.Clone();
+        tree.Blackboard = Blackboard.Clone();
+        tree.Nodes = new List<Node>();
+        TraverseTree(tree.RootNode, node =>
+        {
+            tree.Nodes.Add(node);
+        });
+
+        tree.Nodes.ForEach(node =>
+        {
+            node.Blackboard = tree.Blackboard;
+        });
+
+        return tree;
+    }
+
+    private void TraverseTree(Node node, Action<Node> nodeVisitor)
+    {
+        if (node == null) return;
+        nodeVisitor.Invoke(node);
+        GetChildren(node).ForEach(n => TraverseTree(n, nodeVisitor));
+    }
+    
+    #if UNITY_EDITOR
 
     public void CreateBlackboard()
     {
@@ -102,50 +150,6 @@ public class BehaviourTree : ScriptableObject
         
         }
     }
-   
-    public List<Node> GetChildren(Node parent)
-    {
-        List<Node> children = new List<Node>();
-       
-        DecoratorNode decoratorNode = parent as DecoratorNode;
-        if(decoratorNode && decoratorNode.Child != null)
-        {
-            children.Add(decoratorNode.Child);
-        }
-       
-        RootNode rootNode = parent as RootNode;
-        if(rootNode && rootNode.Child != null)
-        {
-            children.Add(rootNode.Child);
-        }
-         
-        CompositeNode compositeNode = parent as CompositeNode;
-        return compositeNode ? compositeNode.Children : children;
-    }
-   
-    public BehaviourTree Clone()
-    {
-        BehaviourTree tree = Instantiate(this);
-        tree.RootNode = RootNode.Clone();
-        tree.Blackboard = Blackboard.Clone();
-        tree.Nodes = new List<Node>();
-        TraverseTree(tree.RootNode, node =>
-        {
-            tree.Nodes.Add(node);
-        });
-
-        tree.Nodes.ForEach(node =>
-        {
-            node.Blackboard = tree.Blackboard;
-        });
-
-        return tree;
-    }
-
-    private void TraverseTree(Node node, Action<Node> nodeVisitor)
-    {
-        if (node == null) return;
-        nodeVisitor.Invoke(node);
-        GetChildren(node).ForEach(n => TraverseTree(n, nodeVisitor));
-    }
+#endif
+ 
 }
