@@ -303,7 +303,7 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
 
     public override void OnEnter(RoomStateManager manager)
     {
-
+        manager.Owner.PlayEndRoomSound();
         foreach (var gate in manager.Owner.Gates)
         {
             gate.SetActive(false);
