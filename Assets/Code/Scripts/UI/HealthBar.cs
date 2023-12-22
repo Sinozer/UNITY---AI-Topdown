@@ -9,10 +9,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : EntityChild
 {
-    [SerializeField] private Entity _entity;
-
     public Slider Slider;
     public Slider ChangedHealth;
     public Image Fill;
@@ -20,22 +18,17 @@ public class HealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        _entity.OnHealthChanged += SetHealth;
+        Entity.OnHealthChanged += SetHealth;
     }
 
     private void OnDisable()
     {
-        _entity.OnHealthChanged -= SetHealth;
-    }
-
-    private void Awake()
-    {
-        _entity = GetComponentInParent<Entity>();
+        Entity.OnHealthChanged -= SetHealth;
     }
 
     private void Start()
     {
-        SetMaxHealth(_entity.MaxHealth);
+        SetMaxHealth(Entity.MaxHealth);
     }
 
     public void SetMaxHealth(float maxHealth) 
