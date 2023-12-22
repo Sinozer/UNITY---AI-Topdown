@@ -91,7 +91,10 @@ public abstract class Entity : MonoBehaviour
                 go.SetActive(true);
             }
         }
-        else if(_sfxDying != null)
-            _sfxDying.Play();
+    }
+
+    public void PlayDeathSfx()
+    {
+        _sfxDying?.Play();
     }
 }

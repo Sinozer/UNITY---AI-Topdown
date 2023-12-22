@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class RangerShoot : ActionNode
 {
-    private RangerBrain _brain;
+    private EnemyBrain _brain;
     private bool _activated = false;
     private bool _shooting = false;
 
@@ -17,11 +17,10 @@ public class RangerShoot : ActionNode
     {
         if (!_activated)
         {
-            _activated = Blackboard.TryFind<RangerBrain>("EnemyBrain", out _brain);
+            _activated = Blackboard.TryFind("EnemyBrain", out _brain);
             return;
         }
         _shooting = true;
-        _brain.Animator.SetBool("IsShooting", true);
         _brain.StartShooting();
     }
 
@@ -29,12 +28,11 @@ public class RangerShoot : ActionNode
     {
         if (!_activated)
         {
-            _activated = Blackboard.TryFind<RangerBrain>("EnemyBrain", out _brain);
+            _activated = Blackboard.TryFind("EnemyBrain", out _brain);
             return;
         }
         if (!_shooting) return;
         _brain.StopShooting();
-        _brain.Animator.SetBool("IsShooting", false);
         _shooting = false;
     }
 
