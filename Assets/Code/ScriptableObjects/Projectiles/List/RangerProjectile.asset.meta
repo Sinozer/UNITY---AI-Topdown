@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Tilemap/Tiles/Props/Animated/BottomCloneTube 1.asset.meta
+guid: e87b4c2c233f4c54e959981de5d8984c
+========
 guid: 00aa8adf343e693498e9ae655fbdf0b1
+>>>>>>>> main:Assets/Code/ScriptableObjects/Projectiles/List/RangerProjectile.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Tilemap/Palettes/Props Palette.prefab.meta
+guid: 204b13e9439fe924e94c01db8ebbd659
+PrefabImporter:
+========
 guid: 645ee92d2cea24c4897fca5475979bbd
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> main:Assets/Code/Scripts/Entities/Enemies/Ranger.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

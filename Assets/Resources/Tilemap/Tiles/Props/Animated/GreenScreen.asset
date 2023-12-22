@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: GreenScreen
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -2004636010, guid: 8e2bfb248e049ec488a0a26dd33d1bc1, type: 3}
-  - {fileID: 806038810, guid: 8e2bfb248e049ec488a0a26dd33d1bc1, type: 3}
-  - {fileID: 96235389, guid: 8e2bfb248e049ec488a0a26dd33d1bc1, type: 3}
-  - {fileID: -534414947, guid: 8e2bfb248e049ec488a0a26dd33d1bc1, type: 3}
+  - {fileID: -1177791827, guid: 270dd5f9635fa9b44a96a66619fad61a, type: 3}
+  - {fileID: 87600485, guid: 270dd5f9635fa9b44a96a66619fad61a, type: 3}
+  - {fileID: -38820429, guid: 270dd5f9635fa9b44a96a66619fad61a, type: 3}
   m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_MaxSpeed: 3
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0
