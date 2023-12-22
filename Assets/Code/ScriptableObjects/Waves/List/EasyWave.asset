@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _enemies:
-  - _entity: {fileID: 5766436915664568087, guid: bbec08fce6b02c54a90605c3ed3aec44, type: 3}
-    _numberOfEnemies: 2
-  _timeBetweenSpawns: 0.5
+  - _entity: {fileID: 6773139260745474400, guid: 5edcb5fed329c32478d92772020feea9, type: 3}
+    _numberOfEnemies: 5
+  _timeBetweenSpawns: 6
   _timeBetweenEnemyTypes: 2

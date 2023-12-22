@@ -28,20 +28,19 @@ public class PlayerBrain : MonoBehaviour
         IsDead
     }
     
-    
     [Header("Inputs")] 
     [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _shootInput;
     [SerializeField] private InputActionReference _reloadInput;
     [SerializeField] private InputActionReference _minimapInput;
-
     
     [Header("References")] 
     [SerializeField] private GameObject _actions;
     [SerializeField] private GameObject _render;
     [SerializeField] private GameObject _minimap;
-    [FormerlySerializedAs("_Light")] [SerializeField] private GameObject _light;
+    [SerializeField] private GameObject _light;
     
+    [SerializeField] private AudioSource _sfxStep;
 
     private Animator _animator;
 
@@ -71,7 +70,6 @@ public class PlayerBrain : MonoBehaviour
         _reloadInput.action.performed += OnReloadPerformed;
         _minimapInput.action.performed += OnMinimapPerformed;
         _minimapInput.action.canceled += OnMinimapCanceled;
-
         _entity.OnDeath += OnDeath;
     }
 
@@ -84,7 +82,6 @@ public class PlayerBrain : MonoBehaviour
         _reloadInput.action.performed -= OnReloadPerformed;
         _minimapInput.action.performed -= OnMinimapPerformed;
         _minimapInput.action.canceled -= OnMinimapCanceled;
-
         _entity.OnDeath -= OnDeath;
     }
 
@@ -184,5 +181,11 @@ public class PlayerBrain : MonoBehaviour
         {
             _animator.SetBool(conditionName, conditionName == trueConditionName);
         }
+    }
+
+    public void PlayStepSound()
+    {
+        if(_sfxStep != null)
+            _sfxStep.Play();
     }
 }
