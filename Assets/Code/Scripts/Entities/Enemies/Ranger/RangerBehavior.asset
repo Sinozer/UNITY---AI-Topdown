@@ -33,7 +33,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 8e9d90a4b1fcac0409aee9e4d5bac1db
-  Position: {x: 36, y: 1269}
+  Position: {x: -3.999878, y: 1278.0001}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: CanShoot
@@ -149,6 +149,7 @@ MonoBehaviour:
   Children:
   - {fileID: -8359690291925679130}
   - {fileID: 6881371110833149097}
+  - {fileID: -1670674565677598691}
   - {fileID: 965204195817289210}
   executeAllEachFrame: 1
 --- !u!114 &-5294923828153631136
@@ -569,7 +570,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 15da1a9904db26e40b72884c2e58f3d0
-  Position: {x: 0, y: 0}
+  Position: {x: 335, y: 1323.0004}
   Blackboard: {fileID: 0}
 --- !u!114 &-1401755334888834829
 MonoBehaviour:
@@ -650,7 +651,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 97d50bd194d4af34b9c8ee11e3c850e2
-  Position: {x: 482.99997, y: 1270}
+  Position: {x: 499.00003, y: 1279.0004}
   Blackboard: {fileID: 0}
 --- !u!114 &2763064629292033291
 MonoBehaviour:
@@ -816,7 +817,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 34eea8ecd50ce8c479487de5205be082
-  Position: {x: 184, y: 1350}
+  Position: {x: 144.00017, y: 1359}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 2

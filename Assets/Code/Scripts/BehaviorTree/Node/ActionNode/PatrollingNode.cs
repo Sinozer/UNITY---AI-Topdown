@@ -32,11 +32,7 @@ public class PatrollingNode : ActionNode
             return State.Failure;
 
         if (!_brain.SeePlayer)
-        {
-            _brain?.Patrolling(true);
-            _brain?.AIPath(true);
             return State.Running;
-        }
 
         Debug.Log("");
         return State.Success;
