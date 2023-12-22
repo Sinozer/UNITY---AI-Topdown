@@ -12,8 +12,16 @@ using UnityEngine;
 
 public class EntityShooting : MonoBehaviour
 {
+    public float LookX => _direction.x;
+
     [SerializeField] private Entity _entity;
     [SerializeField] private AudioSource _shootSound;
+    [SerializeField] private SOProjectile _projectileData;
+
+    private Vector2 _direction;
+    private GameObject _target;
+    private Vector2 _targetPosition;
+    private Coroutine _shootCoroutine;
 
     private void Awake()
     {
@@ -29,15 +37,6 @@ public class EntityShooting : MonoBehaviour
                 _projectileData = list.First().Value;
         }
     }
-
-    [SerializeField] private SOProjectile _projectileData;
-
-    public float LookX => _direction.x;
-
-    private Vector2 _direction;
-    private GameObject _target;
-    private Vector2 _targetPosition;
-    private Coroutine _shootCoroutine;
 
     private void Start()
     {

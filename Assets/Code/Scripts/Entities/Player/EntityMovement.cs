@@ -15,11 +15,6 @@ public class EntityMovement : MonoBehaviour
     public Vector2 MoveInput { get; set; }
     private Rigidbody2D _rb;
 
-    private void Awake()
-    {
-        _entity = transform.root.GetComponentInChildren<Entity>();
-    }
-
     private void Start()
     {
         _rb = transform.root.GetComponentInChildren<Rigidbody2D>();
