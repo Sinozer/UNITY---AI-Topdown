@@ -41,7 +41,7 @@ public class EnemyBrain : Brain
 
     protected virtual void Awake()
     {
-        _animator = Render.GetComponent<Animator>();
+        _animator = Render.GetComponentInChildren<Animator>();
         _customPatrol.enabled = false;
         _customDestinationSetter.enabled = false;
         _aiPath.enabled = true;
