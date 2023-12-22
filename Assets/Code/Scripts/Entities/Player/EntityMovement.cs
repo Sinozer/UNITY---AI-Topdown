@@ -34,7 +34,8 @@ public class EntityMovement : MonoBehaviour
 
     public void Move()
     {
-        _rb.MovePosition(_rb.position + MoveInput * _entity.MovementSpeed * Time.fixedDeltaTime);
+        //_rb.MovePosition(_rb.position + MoveInput * _entity.MovementSpeed * Time.fixedDeltaTime);
+        _rb.AddForce(_entity.MovementSpeed * 1000 * Time.fixedDeltaTime * MoveInput);
     }
 
     public void SetAnimationSpeed(Animator animator)
