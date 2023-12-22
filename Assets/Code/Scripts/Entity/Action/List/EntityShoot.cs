@@ -9,11 +9,10 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class EntityShoot : MonoBehaviour
+public class EntityShoot : EntityChild, IEntityAction
 {
     public float LookX => _direction.x;
 
-    [SerializeField] private Entity _entity;
     [SerializeField] private AudioSource _shootSound;
     [SerializeField] private SOProjectile _projectileData;
 
@@ -24,12 +23,10 @@ public class EntityShoot : MonoBehaviour
 
     private void Awake()
     {
-        _entity = transform.root.GetComponentInChildren<Entity>();
-
         if (_projectileData == null)
         {
             var list = GameManager.Instance.ProjectileList.List;
-            // NOT TESTED
+            // TODO : NOT TESTED
             if (list.ContainsKey(name))
                 _projectileData = list[name];
             else
@@ -61,7 +58,7 @@ public class EntityShoot : MonoBehaviour
         if (player == null)
             return;
 
-        if (_entity.IsNpc == true)
+        if (Entity.IsNpc == true)
         {
 
             _target = player.gameObject;
@@ -82,7 +79,7 @@ public class EntityShoot : MonoBehaviour
 
             GameObject projectile = Instantiate(GameManager.Instance.Projectile);
 
-            if (_entity.IsNpc == true)
+            if (Entity.IsNpc == true)
                 projectile.layer = LayerMask.NameToLayer("OtherProjectile");
             else
                 projectile.layer = LayerMask.NameToLayer("PlayerProjectile");
@@ -109,7 +106,7 @@ public class EntityShoot : MonoBehaviour
 
             Destroy(projectile, _projectileData.LifeTime);
 
-            yield return new WaitForSeconds(1 / _entity.AttackSpeed);
+            yield return new WaitForSeconds(1 / Entity.AttackSpeed);
         }
     }
 
@@ -130,14 +127,14 @@ public class EntityShoot : MonoBehaviour
         _shootCoroutine = null;
     }
 
-    public void SetAnimationSpeed(Animator animator)
+    public void SetAnimationSpeed()
     {
-        // Calculate the speed based on fire rate and adjust the speed of the animator
-        animator.speed = 0.5f / 1f;
+        // TODO: Fix this -> Animation and projectile are not sync
+        Animator.speed = Entity.AttackSpeed;
     }
 
-    public void ResetAnimationSpeed(Animator animator)
+    public void ResetAnimationSpeed()
     {
-        animator.speed = 1f;
+        Animator.speed = 1f;
     }
 }

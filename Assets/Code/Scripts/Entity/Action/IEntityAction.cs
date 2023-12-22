@@ -5,7 +5,9 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-public class EntityAction : EntityChild
+public interface IEntityAction
 {
+    abstract public void SetAnimationSpeed();
 
+    abstract public void ResetAnimationSpeed();
 }

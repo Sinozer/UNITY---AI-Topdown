@@ -5,7 +5,6 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using System.Collections;
 using UnityEngine;
 
 public class ZachBrain : EnemyBrain
@@ -16,7 +15,7 @@ public class ZachBrain : EnemyBrain
     private float _meleeRange => Entity.AttackRange * 0.5f;
     private float _sprintCoolDown = 3.0f;
     private float _sprintElapsedTime;
-    private bool _canMeleeAttack;
+    public bool CanMeleeAttack => Enemy.DistFromPlayer < _meleeRange;
     private bool _canSprint;
     protected override void Start()
     {
@@ -43,23 +42,18 @@ public class ZachBrain : EnemyBrain
         {
             _canSprint = false; 
         }
+
         _runner.GetBlackboard().SetValue("CanSprint", _canSprint);
         
-        _canShootAtPlayer = _enemy.DistFromPlayer < Entity.AttackRange;
-        _canMeleeAttack = _enemy.DistFromPlayer < _meleeRange;
-        _seePlayer = _enemy.DistFromPlayer < Entity.VisionRange;
-        
         Player player = GameManager.Instance.Player;
-        if (player != null)
-            _runner.GetBlackboard().SetValue("PlayerPosition", (Vector2)GameManager.Instance.Player.transform.position);
-        else
-            _runner.GetBlackboard().SetValue("PlayerPosition", Vector2.zero);
-        
+
+        _runner.GetBlackboard().SetValue("PlayerPosition", player != null ? (Vector2)player.transform.position : Vector2.zero);
+
         _elapsedTime += Time.deltaTime;
         
         _runner.GetBlackboard().SetValue("ElapsedTime", _elapsedTime);
-        _runner.GetBlackboard().SetValue("SeePlayer", _seePlayer);
-        _runner.GetBlackboard().SetValue("CanAttack", _canShootAtPlayer);
-        _runner.GetBlackboard().SetValue("CanMeleeAttack", _canMeleeAttack);
+        _runner.GetBlackboard().SetValue("SeePlayer", SeePlayer);
+        _runner.GetBlackboard().SetValue("CanAttack", CanShootAtPlayer);
+        _runner.GetBlackboard().SetValue("CanMeleeAttack", CanMeleeAttack);
     }
 }

@@ -99,7 +99,7 @@ public abstract class Entity : MonoBehaviour
             }
         }
     }
-
+     
     public void PlayDeathSfx()
     {
         _sfxDying?.Play();

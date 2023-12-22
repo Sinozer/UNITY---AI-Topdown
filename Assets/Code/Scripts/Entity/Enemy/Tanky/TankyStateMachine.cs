@@ -61,7 +61,7 @@ public class IdleState : BaseState<TankyStateManager, TankyStateManager.ETankySt
     {
         //Debug.Log("Update Idle");
 
-        if(manager.Owner.IsDead)
+        if(manager.Owner.Dead)
         {
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
@@ -87,7 +87,7 @@ public class ActivatingState : BaseState<TankyStateManager, TankyStateManager.ET
 
     public override void OnUpdate(TankyStateManager manager)
     {
-        if (manager.Owner.IsDead)
+        if (manager.Owner.Dead)
         {
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
@@ -114,7 +114,7 @@ public class IdleActivatedState : BaseState<TankyStateManager, TankyStateManager
 
     public override void OnUpdate(TankyStateManager manager)
     {
-        if (manager.Owner.IsDead)
+        if (manager.Owner.Dead)
         {
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
@@ -148,7 +148,7 @@ public class FollowingPlayerState : BaseState<TankyStateManager, TankyStateManag
 
     public override void OnUpdate(TankyStateManager manager)
     {
-        if (manager.Owner.IsDead)
+        if (manager.Owner.Dead)
         {
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
@@ -182,7 +182,7 @@ public class PatrollingState : BaseState<TankyStateManager, TankyStateManager.ET
 
     public override void OnUpdate(TankyStateManager manager)
     {
-        if (manager.Owner.IsDead)
+        if (manager.Owner.Dead)
         {
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
@@ -214,7 +214,7 @@ public class AttackingState : BaseState<TankyStateManager, TankyStateManager.ETa
 
     public override void OnUpdate(TankyStateManager manager)
     {
-        if (manager.Owner.IsDead)
+        if (manager.Owner.Dead)
         {
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;

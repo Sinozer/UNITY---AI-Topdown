@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-public class PlayerBrain : Brain
+public class PlayerBrain : EntityBrain
 {
     public Player Player => Entity as Player;
 
@@ -43,16 +43,12 @@ public class PlayerBrain : Brain
     
     [SerializeField] private AudioSource _sfxStep;
 
-    private Animator _animator;
-
     private bool _shoot;
 
     private string[] _animatorConditionNames;
 
     private void Awake()
     {
-        _animator = Render.GetComponent<Animator>();
-
         _animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
     }
 
@@ -96,7 +92,7 @@ public class PlayerBrain : Brain
     {
         _movementAction.MoveInput = Vector2.zero;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
-        _movementAction.ResetAnimationSpeed(_animator);
+        _movementAction.ResetAnimationSpeed();
     }
 
     private void OnShootPerformed(InputAction.CallbackContext context)
@@ -109,7 +105,7 @@ public class PlayerBrain : Brain
     {
         _shoot = false;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
-        _shootingAction.ResetAnimationSpeed(_animator);
+        _shootingAction.ResetAnimationSpeed();
         _shootingAction.StopShooting();
     }
 
@@ -143,22 +139,22 @@ public class PlayerBrain : Brain
 
         if (!_shoot)
         {
-            _shootingAction.ResetAnimationSpeed(_animator);
+            _shootingAction.ResetAnimationSpeed();
         }
         else
         {
             SetAnimatorCondition(AnimatorCondition.IsShoot);
-            _shootingAction.SetAnimationSpeed(_animator);
+            _shootingAction.SetAnimationSpeed();
         }
 
         if (_movementAction.MoveInput == Vector2.zero)
         {
-            _movementAction.ResetAnimationSpeed(_animator);
+            _movementAction.ResetAnimationSpeed();
         }
         else
         {
             SetAnimatorCondition(AnimatorCondition.IsRun);
-            _movementAction.SetAnimationSpeed(_animator);
+            _movementAction.SetAnimationSpeed();
         }
 
         // Flip the game object based on the direction of the mouse
@@ -192,7 +188,7 @@ public class PlayerBrain : Brain
         var trueConditionName = _animatorConditionNames[(int)trueCondition];
         foreach (var conditionName in _animatorConditionNames)
         {
-            _animator.SetBool(conditionName, conditionName == trueConditionName);
+            Animator.SetBool(conditionName, conditionName == trueConditionName);
         }
     }
 

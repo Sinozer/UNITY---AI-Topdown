@@ -28,7 +28,7 @@ public class AkbarBrain : EnemyBrain
     {
         base.Update();
 
-        if (_enemy.IsDead)
+        if (Enemy.IsDead)
         {
             _runner.GetBlackboard().SetValue("TriggerExplosion", true);
             return;
@@ -40,16 +40,16 @@ public class AkbarBrain : EnemyBrain
         else
             _runner.GetBlackboard().SetValue("PlayerPosition", Vector2.zero);
 
-        _runner.GetBlackboard().SetValue("SeePlayer", _seePlayer);
-        _runner.GetBlackboard().SetValue("CanShoot", _canShootAtPlayer);
+        _runner.GetBlackboard().SetValue("SeePlayer", SeePlayer);
+        _runner.GetBlackboard().SetValue("CanShoot", CanShootAtPlayer);
     }
 
     public void Explode()
     {
-        if (_enemy.DistFromPlayer < _explosionRange)
-            _enemy.Attack(player);
+        if (Enemy.DistFromPlayer < _explosionRange)
+            Enemy.Attack(player);
 
-        _enemy.TakeDamage(_enemy.MaxHealth);
+        Enemy.TakeDamage(Enemy.MaxHealth);
         _runner.GetBlackboard().SetValue("TriggerExplosion", true);
         _fxExplosion.Invoke();
         _explosionSound.Play();

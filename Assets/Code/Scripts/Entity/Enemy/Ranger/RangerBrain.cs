@@ -10,8 +10,6 @@ using UnityEngine;
 public class RangerBrain : EnemyBrain
 {
     [SerializeField] private EnemyBTRunner _btRunner;
-    
-    private Player _player;
 
     protected override void Start()
     {
@@ -21,25 +19,17 @@ public class RangerBrain : EnemyBrain
     protected override void Update()
     {
         base.Update();
-
-        if (_enemy.IsDead)
-            return;
-
-        _canShootAtPlayer = _enemy.DistFromPlayer < Entity.AttackRange;
-        _seePlayer = _enemy.DistFromPlayer < Entity.VisionRange;
-
-        _player = GameManager.Instance.Player;
     }
 
     private void FixedUpdate()
     {
-        if (!IsDead)
+        if (Alive)
         {
-                _btRunner?.GetBlackboard().SetValue("SeePlayer", _seePlayer);
-                _btRunner?.GetBlackboard().SetValue("CanShoot", _canShootAtPlayer);
+            _btRunner?.GetBlackboard().SetValue("SeePlayer", SeePlayer);
+            _btRunner?.GetBlackboard().SetValue("CanShoot", CanShootAtPlayer);
         }
 
-        if (IsDead)
+        if (Dead)
         {
             _btRunner?.GetBlackboard().SetValue("IsDead", true);
             _btRunner?.GetBlackboard().SetValue("SeePlayer", false);

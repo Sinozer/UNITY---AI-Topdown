@@ -9,7 +9,7 @@ using Pathfinding;
 using System;
 using UnityEngine;
 
-public class EnemyBrain : Brain
+public class EnemyBrain : EntityBrain
 {
     public enum AnimatorCondition
     {
@@ -20,28 +20,20 @@ public class EnemyBrain : Brain
         Dead
     }
     
-    public bool IsDead => Entity.IsDead;
     public Action Die => Entity.Die;
-    public float DistFromPlayer => _enemy.DistFromPlayer;
+    public bool SeePlayer => Enemy.DistFromPlayer < Entity.VisionRange;
+    public bool CanShootAtPlayer => Enemy.DistFromPlayer < Entity.AttackRange;
     
     
-    public bool SeePlayer => _seePlayer;
-    public bool CanShootAtPlayer => _canShootAtPlayer;
-    public Animator Animator => _animator;
-
     [SerializeField] protected EntityShoot _entityShooting;
     [SerializeField] protected AIPath _aiPath;
     [SerializeField] protected CustomPatrol _customPatrol;
     [SerializeField] protected CustomDestinationSetter _customDestinationSetter;
 
-    protected Enemy _enemy => Entity as Enemy;
-    protected bool _seePlayer = false;
-    protected bool _canShootAtPlayer = false;
-    protected Animator _animator;
+    public Enemy Enemy => Entity as Enemy;
 
     protected virtual void Awake()
     {
-        _animator = Render.GetComponentInChildren<Animator>();
         _customPatrol.enabled = false;
         _customDestinationSetter.enabled = false;
         _aiPath.enabled = true;
@@ -54,14 +46,11 @@ public class EnemyBrain : Brain
 
     protected virtual void Update()
     {
-        if (Entity.IsDead)
+        if (Dead)
         {
-            _enemy.Rigidbody.simulated = false;
+            Enemy.Rigidbody.simulated = false;
             return;
         }
-
-        _canShootAtPlayer = _enemy.DistFromPlayer < Entity.AttackRange;
-        _seePlayer = _enemy.DistFromPlayer < Entity.VisionRange;
 
         float testX = _aiPath.desiredVelocity.x;
         Player player = GameManager.Instance.Player;
@@ -107,11 +96,11 @@ public class EnemyBrain : Brain
 
     public void OnHit()
     {
-        _enemy.OnHit();
+        Enemy.OnHit();
     }
 
     public void PlayDeathSfx()
     {
-        _enemy.PlayDeathSfx();
+        Enemy.PlayDeathSfx();
     }
 }

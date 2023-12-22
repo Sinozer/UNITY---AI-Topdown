@@ -139,7 +139,7 @@ public class BossPlayingState : BaseState<BossStateManager, BossStateManager.EBo
 {
     private void CheckDead(BossStateManager manager)
     {
-        if (manager.Owner.IsDead == false)
+        if (manager.Owner.Dead == false)
             return;
 
         manager.Owner.CurrentPhase.IsEnded = true;

@@ -5,6 +5,6 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-public class Brain : EntityChild
+public class EntityBrain : EntityChild
 {
 }

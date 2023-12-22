@@ -7,7 +7,7 @@
 
 using UnityEngine;
 
-public class EntityDash : EntityAction
+public class EntityDash : EntityChild, IEntityAction
 {
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private AudioSource _sfxDash;
@@ -39,5 +39,15 @@ public class EntityDash : EntityAction
         _dashDirection = (_targetPosition - (Vector2)Entity.transform.position).normalized;
         _rb.velocity += 5 * _dashDirection * _dashPower;
         //_rb.AddForce(_dashDirection * _dashPower * 500, ForceMode2D.Impulse);
+    }
+
+    public void SetAnimationSpeed()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ResetAnimationSpeed()
+    {
+        throw new System.NotImplementedException();
     }
 }

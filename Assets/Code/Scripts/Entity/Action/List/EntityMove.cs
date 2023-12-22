@@ -8,7 +8,7 @@
 using Pathfinding;
 using UnityEngine;
 
-public class EntityMove : EntityAction
+public class EntityMove : EntityChild, IEntityAction
 {
     public Vector2 MoveInput { get; set; }
 
@@ -30,13 +30,13 @@ public class EntityMove : EntityAction
         Rigidbody.AddForce(Entity.MovementSpeed * 1000 * Time.fixedDeltaTime * MoveInput);
     }
 
-    public void SetAnimationSpeed(Animator animator)
+    public void SetAnimationSpeed()
     {
         // Calculate the speed based on fire rate and adjust the speed of the animator
-        animator.speed = Entity.MovementSpeed / 500f;
+        Animator.speed = Entity.MovementSpeed / 400f;
     }
-    public void ResetAnimationSpeed(Animator animator)
+    public void ResetAnimationSpeed()
     {
-        animator.speed = 1;
+        Animator.speed = 1;
     }
 }
