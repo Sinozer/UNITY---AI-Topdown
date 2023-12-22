@@ -22,6 +22,7 @@ public class EnemyBrain : MonoBehaviour
     
     public bool IsDead => _entity.IsDead;
     public Action Die => _entity.Die;
+    public float DistFromPlayer => _enemy.DistFromPlayer;
     
     
     public bool SeePlayer => _seePlayer;
@@ -101,5 +102,10 @@ public class EnemyBrain : MonoBehaviour
     public void OnHit()
     {
         _enemy.OnHit();
+    }
+
+    public void PlayDeathSfx()
+    {
+        _enemy.PlayDeathSfx();
     }
 }

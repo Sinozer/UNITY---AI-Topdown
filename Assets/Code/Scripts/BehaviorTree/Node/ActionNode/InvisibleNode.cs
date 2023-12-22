@@ -6,12 +6,14 @@
 // --------------------------------------- //
 
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InvisibleNode : ActionNode
 {
     private GameObject _self;
     private SpriteRenderer _sprite;
+    private EnemyBrain _brain;
 
     public override void OnStart()
     {
@@ -19,6 +21,7 @@ public class InvisibleNode : ActionNode
             return;
         
         _sprite = _self.GetComponentInChildren<SpriteRenderer>();
+        Blackboard.TryFind("EnemyBrain", out _brain);
     }
 
     public override void OnStop()
@@ -38,7 +41,7 @@ public class InvisibleNode : ActionNode
     {
         Color color = _sprite.color;
         Blackboard.TryFind("ElapsedTime", out float _elapsedTime);
-        color.a = Mathf.Lerp(1, 0, _elapsedTime);
+        color.a = Mathf.Lerp(1, 0, _brain.DistFromPlayer - 5);
         _sprite.color = color;
     }
     
