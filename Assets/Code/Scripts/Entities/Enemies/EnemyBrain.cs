@@ -52,7 +52,7 @@ public class EnemyBrain : MonoBehaviour
 
     protected virtual void Start()
     {
-        _aiPath.maxSpeed = _entity.MovementSpeed;
+        _aiPath.maxSpeed = _entity.MovementSpeed / 50f;
     }
 
     protected virtual void Update()

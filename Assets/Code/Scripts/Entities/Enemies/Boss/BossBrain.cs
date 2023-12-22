@@ -63,7 +63,7 @@ public class BossBrain : EnemyBrain
         {
             _phase = value;
             _boss.BaseData = _boss.PhaseBaseData[_phase];
-            _aiPath.maxSpeed = _entity.MovementSpeed;
+            _aiPath.maxSpeed = _entity.MovementSpeed / 50f;
         }
     }
     [SerializeField] protected int _phase = 0;
