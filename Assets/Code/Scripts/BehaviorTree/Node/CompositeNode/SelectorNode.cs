@@ -19,7 +19,7 @@ public class SelectorNode : CompositeNode
 
     public override void OnStop()
     {
-        if (CurrentState == State.Success)
+        if (CurrentState != State.Failure)
         {
             foreach (var child in Children)
             {

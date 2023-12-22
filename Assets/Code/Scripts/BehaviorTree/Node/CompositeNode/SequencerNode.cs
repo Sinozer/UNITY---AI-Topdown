@@ -20,7 +20,7 @@ public class SequencerNode : CompositeNode
 
     public override void OnStop()
     {
-        if (CurrentState == State.Failure)
+        if (CurrentState != State.Success)
         {
             foreach (var child in Children)
             {
