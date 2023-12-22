@@ -47,4 +47,5 @@ MonoBehaviour:
   _player: {fileID: 0}
   _entityList: {fileID: 11400000, guid: 7b9640df1ec6a2e47aa7822a27b8f9a7, type: 2}
   _projectileList: {fileID: 11400000, guid: e6c2862f316f4c6429b46214c3eefc9f, type: 2}
+  _firstAid: {fileID: 2978170396976826805, guid: 7214ab13ee790584c84cac5e370c652c, type: 3}
   _projectile: {fileID: 648940981784709971, guid: 31ea23026cb4e0e438d5dff3da0780c4, type: 3}
