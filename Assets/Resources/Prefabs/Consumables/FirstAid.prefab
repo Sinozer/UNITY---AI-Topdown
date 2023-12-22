@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d2198b2abd2344aba6b1ae69737991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _yOffset: 0.005
+  _yOffset: 0.1
   HealthAmount: 10
 --- !u!1 &2978170396976826805
 GameObject:

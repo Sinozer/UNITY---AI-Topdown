@@ -21,6 +21,6 @@ public class FirstAidController : MonoBehaviour
 
     private void Update()
     {
-        transform.parent.position += Vector3.up * Mathf.Sin(Time.time * 2) * _yOffset;
+        transform.parent.position += _yOffset * Mathf.Sin(Time.time * 2) * Time.deltaTime * Vector3.up;
     }
 }
