@@ -8,6 +8,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerBrain : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class PlayerBrain : MonoBehaviour
     [SerializeField] private GameObject _actions;
     [SerializeField] private GameObject _render;
     [SerializeField] private GameObject _minimap;
+    [SerializeField] private GameObject _light;
+    
     [SerializeField] private AudioSource _sfxStep;
 
     private Animator _animator;
@@ -162,6 +165,8 @@ public class PlayerBrain : MonoBehaviour
         var direction = aimPosition - transform.position;
 
         transform.root.rotation = Quaternion.Euler(0, direction.x > 0 ? 0 : 180, 0);
+        if(_light != null)
+            _light.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
     }
 
     public void StopReloading()

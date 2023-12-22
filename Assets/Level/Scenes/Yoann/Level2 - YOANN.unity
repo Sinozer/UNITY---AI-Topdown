@@ -609,7 +609,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -41900,7 +41900,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerRef: {fileID: 0}
-  PlayerOffset: 10
+  _playerOffset: 10
+  _zoom: 0
 --- !u!114 &612905900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42740,7 +42741,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -45111,6 +45112,8 @@ MonoBehaviour:
   _nextRoom: {fileID: 0}
   _gates:
   - {fileID: 985277127}
+  _bossPrefab: {fileID: 0}
+  _bossSpawnPoint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

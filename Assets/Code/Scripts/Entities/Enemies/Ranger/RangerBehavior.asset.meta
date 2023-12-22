@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Tilemap/Tiles/Props/Animated/BottomEmptyTube 2.asset.meta
+guid: 4189be4d600fe624986885c46fe9f3b3
+========
 guid: daa87bab8ecb82f488cf9597a04d10fe
+>>>>>>>> main:Assets/Code/Scripts/Entities/Enemies/Ranger/RangerBehavior.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
