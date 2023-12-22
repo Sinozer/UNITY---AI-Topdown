@@ -29,7 +29,7 @@ public class EntityMovement : MonoBehaviour
         if (_entity.IsNpc == false)
             return;
 
-        transform.root.GetComponentInChildren<AIPath>().maxSpeed = _entity.MovementSpeed;
+        transform.root.GetComponentInChildren<AIPath>().maxSpeed = _entity.MovementSpeed / 50f;
     }
 
     public void Move()
