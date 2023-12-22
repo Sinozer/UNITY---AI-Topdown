@@ -17,7 +17,6 @@ public class AkbarBrain : EnemyBrain
     private Player player;
     private float _explosionRange = 3;
 
-
     protected override void Start()
     {
         base.Start();
@@ -29,15 +28,11 @@ public class AkbarBrain : EnemyBrain
     {
         base.Update();
 
-        _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
-
         if (_enemy.IsDead)
         {
             _runner.GetBlackboard().SetValue("TriggerExplosion", true);
             return;
         }
-
-        _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
 
         player = GameManager.Instance.Player;
         if (player != null)
