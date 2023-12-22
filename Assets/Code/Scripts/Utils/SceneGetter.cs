@@ -9,8 +9,6 @@ using UnityEngine;
 
 public class SceneGetter : MonoBehaviour
 {
-    
-
     public void LoadScene(int sceneIndex)
     {
         SceneManager.Instance.LoadScene(sceneIndex);
