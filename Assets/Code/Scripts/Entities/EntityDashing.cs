@@ -13,6 +13,7 @@ public class EntityDashing : MonoBehaviour
 {
     [SerializeField] private Entity _entity;
     [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private AudioSource _sfxDash;
     [SerializeField] private float _dashCooldown;
     [SerializeField] private float _dashPower;
 
@@ -35,6 +36,8 @@ public class EntityDashing : MonoBehaviour
 
     private void Dash()
     {
+        if(_sfxDash != null)
+            _sfxDash.Play();
         Vector2 _targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _dashDirection = (_targetPosition - (Vector2)_entity.transform.position).normalized;
         //_rb.velocity = _dashDirection * _dashPower;
