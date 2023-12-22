@@ -1566,6 +1566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4cac628a2f10754d8e99c7106d62f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sfxEndRoom: {fileID: 0}
   _isLocked: 1
   _isPlayerInside: 0
   _roomType: 0
@@ -1711,8 +1712,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.25724995, y: 2.95155, z: 0}
-    m_Extent: {x: 2.68005, y: 1.4660501, z: 0}
+    m_Center: {x: -0.25744998, y: 2.9520998, z: 0}
+    m_Extent: {x: 2.67935, y: 1.4669999, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -36353,8 +36354,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.69149995, y: 1.63475, z: 0}
-    m_Extent: {x: 1.7238, y: 2.09635, z: 0}
+    m_Center: {x: -0.69165, y: 1.63465, z: 0}
+    m_Extent: {x: 1.72335, y: 2.09625, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -36558,8 +36559,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.18300003, y: 1.6367, z: 0}
-    m_Extent: {x: 1.7214999, y: 2.0931, z: 0}
+    m_Center: {x: 0.18440002, y: 1.63685, z: 0}
+    m_Extent: {x: 1.7217, y: 2.09425, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -37221,8 +37222,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.016149998, y: -1.5122999, z: 0}
-    m_Extent: {x: 4.77235, y: 4.6073, z: 0}
+    m_Center: {x: -0.016449928, y: -1.5109501, z: 0}
+    m_Extent: {x: 4.77325, y: 4.60715, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -37549,8 +37550,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.69025004, y: -0.30830002, z: 0}
-    m_Extent: {x: 1.72695, y: 2.0953, z: 0}
+    m_Center: {x: -0.6905999, y: -0.30900007, z: 0}
+    m_Extent: {x: 1.7268, y: 2.0954, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -37722,6 +37723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8859224651eef34c9f9d771d68beef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sfxEndRoom: {fileID: 0}
   _isLocked: 1
   _isPlayerInside: 0
   _roomType: 2
@@ -39396,8 +39398,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.03174998, y: 0.08595002, z: 0}
-    m_Extent: {x: 0.49035, y: 0.62965, z: 0}
+    m_Center: {x: -0.03205, y: 0.08500001, z: 0}
+    m_Extent: {x: 0.49165, y: 0.62890005, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -39572,8 +39574,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.01670003, y: -1.51135, z: 0}
-    m_Extent: {x: 4.7721996, y: 4.60695, z: 0}
+    m_Center: {x: -0.015650034, y: -1.51225, z: 0}
+    m_Extent: {x: 4.77275, y: 4.60705, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -39654,8 +39656,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.021899998, y: 0.016750008, z: 0}
-    m_Extent: {x: 0.3042, y: 0.63584995, z: 0}
+    m_Center: {x: 0.021750003, y: 0.017049998, z: 0}
+    m_Extent: {x: 0.30405, y: 0.63535, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -43346,8 +43348,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.2578497, y: 2.08505, z: 0}
-    m_Extent: {x: 8.46035, y: 6.00765, z: 0}
+    m_Center: {x: -0.25785017, y: 2.0851998, z: 0}
+    m_Extent: {x: 8.460449, y: 6.0075, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -44275,8 +44277,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.016249895, y: -1.5110999, z: 0}
-    m_Extent: {x: 4.77335, y: 4.6071, z: 0}
+    m_Center: {x: -0.016649961, y: -1.51165, z: 0}
+    m_Extent: {x: 4.77225, y: 4.60665, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -44357,8 +44359,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.068700075, y: -0.12249994, z: 0}
-    m_Extent: {x: 5.5603, y: 9.063499, z: 0}
+    m_Center: {x: 0.068449974, y: -0.12200022, z: 0}
+    m_Extent: {x: 5.56025, y: 9.0637, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -44722,6 +44724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8859224651eef34c9f9d771d68beef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sfxEndRoom: {fileID: 0}
   _isLocked: 1
   _isPlayerInside: 0
   _roomType: 2
@@ -45036,8 +45039,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.23500001, y: -0.03555, z: 0}
-    m_Extent: {x: 0.3445, y: 0.54785, z: 0}
+    m_Center: {x: -0.23475, y: -0.035349995, z: 0}
+    m_Extent: {x: 0.34435, y: 0.54744995, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -45282,8 +45285,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.016449928, y: -1.51105, z: 0}
-    m_Extent: {x: 4.77275, y: 4.6075497, z: 0}
+    m_Center: {x: -0.016600132, y: -1.5116, z: 0}
+    m_Extent: {x: 4.7721, y: 4.6074, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -45364,8 +45367,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.1817, y: -0.31375, z: 0}
-    m_Extent: {x: 0.5213, y: 0.88825, z: 0}
+    m_Center: {x: 0.18219998, y: -0.3121, z: 0}
+    m_Extent: {x: 0.52129996, y: 0.8883, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -46772,6 +46775,134 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &2052943135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052943137}
+  - component: {fileID: 2052943136}
+  m_Layer: 0
+  m_Name: Game music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2052943136
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052943135}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 255c8f333387f3240ad9a25522b5cfa1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2052943137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052943135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.13449958, y: -8.205083, z: -0.3235035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2057251408
 GameObject:
   m_ObjectHideFlags: 0
@@ -53993,8 +54124,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.25529993, y: 0.6644, z: 0}
-    m_Extent: {x: 2.2571, y: 2.9543, z: 0}
+    m_Center: {x: -0.25529993, y: 0.66355, z: 0}
+    m_Extent: {x: 2.2578, y: 2.9541502, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -54235,6 +54366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6cefe2fc8157a44a0d78618d5e9b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sfxEndRoom: {fileID: 0}
   _isLocked: 1
   _isPlayerInside: 0
   _roomType: 4
@@ -54250,6 +54382,7 @@ SceneRoots:
   - {fileID: 1651929383}
   - {fileID: 2058399559}
   - {fileID: 779887637}
+  - {fileID: 2052943137}
   - {fileID: 761638386}
   - {fileID: 472807332}
   - {fileID: 122230002}

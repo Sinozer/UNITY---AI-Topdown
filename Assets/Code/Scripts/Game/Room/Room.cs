@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    [SerializeField] protected AudioSource _sfxEndRoom;
     private RoomStateManager _stateManager;
 
     [SerializeField] protected bool _isLocked = true;
@@ -104,5 +105,11 @@ public class Room : MonoBehaviour
             return;
 
         _isPlayerInside = false;
+    }
+
+    public void PlayEndRoomSound()
+    {
+        if(_sfxEndRoom != null)
+            _sfxEndRoom.Play();
     }
 }
