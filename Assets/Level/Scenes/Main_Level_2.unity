@@ -661,6 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4cac628a2f10754d8e99c7106d62f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLocked: 1
   _isPlayerInside: 0
   _roomType: 0
   _nextRoom: {fileID: 859354425}
@@ -42456,6 +42457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8859224651eef34c9f9d771d68beef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLocked: 1
   _isPlayerInside: 0
   _roomType: 2
   _nextRoom: {fileID: 1690753638}
@@ -44332,6 +44334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8859224651eef34c9f9d771d68beef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLocked: 1
   _isPlayerInside: 0
   _roomType: 2
   _nextRoom: {fileID: 2123362493}
@@ -44699,8 +44702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc43089df8d29c04ea29a322ba929160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waves:
-  - {fileID: 11400000, guid: 939682aa6022b704b97bfd20a6dce3b1, type: 2}
+  _waves: []
 --- !u!1 &1902172063
 GameObject:
   m_ObjectHideFlags: 0
@@ -45599,6 +45601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6cefe2fc8157a44a0d78618d5e9b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLocked: 1
   _isPlayerInside: 0
   _roomType: 4
   _nextRoom: {fileID: 0}
