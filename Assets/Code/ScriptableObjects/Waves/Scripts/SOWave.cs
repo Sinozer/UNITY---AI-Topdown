@@ -41,8 +41,17 @@ public class SOWave : SerializedScriptableObject
             for (int i = 0; i < enemy.NumberOfEnemies; i++)
             {
                 // Spawn enemy
-                Enemy instance = Instantiate(enemy.Entity, Vector3.zero, Quaternion.identity);
-                instance.transform.position = spawner.GetRandomPositionInRoom();
+                Enemy instance = Instantiate(enemy.Entity, spawner.GetRandomPositionInRoom(), Quaternion.identity);
+
+                foreach (var area in spawner.PatrolAreas)
+                {
+                    // Get a random point in the patrol area which is a capsule collider 2D
+                    var bounds = area.bounds;
+                    var x = UnityEngine.Random.Range(bounds.min.x, bounds.max.x);
+                    var y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
+                    var value = new Vector3(x, y, 9);
+                    instance.GetComponentInChildren<CustomPatrol>().Waypoints.Add(value);
+                }
 
                 totalOfEnemies++;
 

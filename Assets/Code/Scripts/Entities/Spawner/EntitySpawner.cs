@@ -5,11 +5,9 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using System;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -17,6 +15,9 @@ public class EntitySpawner : MonoBehaviour
 {
     private BoxCollider2D _roomCollider;
     private Tilemap _floorTilemap;
+
+    public List<CapsuleCollider2D> PatrolAreas => _patrolAreas;
+    private List<CapsuleCollider2D> _patrolAreas;
 
     private void Awake()
     {
@@ -27,6 +28,8 @@ public class EntitySpawner : MonoBehaviour
             _roomCollider = GetComponentInParent<BoxCollider2D>();
         if (_floorTilemap == null)
             _floorTilemap = GameObject.Find("Floor").GetComponent<Tilemap>();
+        if (_patrolAreas == null)
+            _patrolAreas = new List<CapsuleCollider2D>(transform.parent.GetComponentsInChildren<CapsuleCollider2D>());
     }
 
     public Vector3 GetRandomPositionInRoom()
@@ -34,11 +37,10 @@ public class EntitySpawner : MonoBehaviour
         while (true)
         {
             var roomBounds = _roomCollider.bounds;
-            var floorBounds = _floorTilemap.localBounds;
-            var x = UnityEngine.Random.Range(roomBounds.min.x, roomBounds.max.x);
-            var y = UnityEngine.Random.Range(roomBounds.min.y, roomBounds.max.y);
+            var x = Random.Range(roomBounds.min.x, roomBounds.max.x);
+            var y = Random.Range(roomBounds.min.y, roomBounds.max.y);
 
-            Vector3 value = new Vector3(x, y, 0);
+            Vector3 value = new Vector3(x, y, 9);
 
             bool IsValidPosition()
             {
