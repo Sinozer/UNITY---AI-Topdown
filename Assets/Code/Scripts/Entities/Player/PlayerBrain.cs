@@ -6,17 +6,17 @@
 // --------------------------------------- //
 
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class PlayerBrain : MonoBehaviour
 {
-    [SerializeField] private Entity _entity;
-
-    [SerializeField] private int _sceneToLoadOnDeath = 0;
-
     public Player Player => _entity as Player;
+
+    [SerializeField] private Entity _entity;
+    [SerializeField] private int _sceneToLoadOnDeath = 0;
 
     private enum AnimatorCondition
     {
@@ -33,9 +33,12 @@ public class PlayerBrain : MonoBehaviour
     [SerializeField] private InputActionReference _shootInput;
     [SerializeField] private InputActionReference _reloadInput;
     [SerializeField] private InputActionReference _minimapInput;
-    
+    [SerializeField] private InputActionReference _dashInput;
+
     [Header("References")] 
-    [SerializeField] private GameObject _actions;
+    [SerializeField] private EntityMovement _movementAction;
+    [SerializeField] private EntityShooting _shootingAction;
+    [SerializeField] private EntityDashing _dashingAction;
     [SerializeField] private GameObject _render;
     [SerializeField] private GameObject _minimap;
     [SerializeField] private GameObject _light;
@@ -46,16 +49,11 @@ public class PlayerBrain : MonoBehaviour
 
     private bool _shoot;
 
-    private EntityMovement _movementAction;
-    private EntityShooting _shootingAction;
-
     private string[] _animatorConditionNames;
 
     private void Awake()
     {
         _entity = transform.root.GetComponentInChildren<Entity>();
-        _movementAction = _actions.GetComponent<EntityMovement>();
-        _shootingAction = _actions.GetComponent<EntityShooting>();
         _animator = _render.GetComponent<Animator>();
 
         _animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
@@ -70,6 +68,7 @@ public class PlayerBrain : MonoBehaviour
         _reloadInput.action.performed += OnReloadPerformed;
         _minimapInput.action.performed += OnMinimapPerformed;
         _minimapInput.action.canceled += OnMinimapCanceled;
+        _dashInput.action.started += OnDashStarted;
         _entity.OnDeath += OnDeath;
     }
 
@@ -82,6 +81,7 @@ public class PlayerBrain : MonoBehaviour
         _reloadInput.action.performed -= OnReloadPerformed;
         _minimapInput.action.performed -= OnMinimapPerformed;
         _minimapInput.action.canceled -= OnMinimapCanceled;
+        _dashInput.action.started -= OnDashStarted;
         _entity.OnDeath -= OnDeath;
     }
 
@@ -114,7 +114,6 @@ public class PlayerBrain : MonoBehaviour
         SetAnimatorCondition(AnimatorCondition.IsIdle);
         _shootingAction.ResetAnimationSpeed(_animator);
         _shootingAction.StopShooting();
-
     }
 
     private void OnReloadPerformed(InputAction.CallbackContext context)
@@ -126,11 +125,17 @@ public class PlayerBrain : MonoBehaviour
     {
         _minimap.SetActive(true);
     }
+
     private void OnMinimapCanceled(InputAction.CallbackContext obj)
     {
         _minimap.SetActive(false);
     }
-    
+
+    private void OnDashStarted(InputAction.CallbackContext obj)
+    {
+        _dashingAction.TryDash();
+    }
+
     void Update()
     {
         if (_entity.IsDead)
