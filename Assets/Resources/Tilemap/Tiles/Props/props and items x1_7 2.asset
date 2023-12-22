@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: props and items x1_12
+  m_Name: props and items x1_7 2
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1457437532, guid: 270dd5f9635fa9b44a96a66619fad61a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 1649034248, guid: 270dd5f9635fa9b44a96a66619fad61a, type: 3}
+  m_Color: {r: 0.45662403, g: 1, b: 0, a: 1}
   m_Transform:
     e00: 1
     e01: 0
