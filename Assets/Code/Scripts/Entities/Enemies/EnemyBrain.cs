@@ -65,7 +65,12 @@ public class EnemyBrain : MonoBehaviour
         _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
 
-        transform.root.rotation = Quaternion.Euler(0, _aiPath.desiredVelocity.x > 0 ? 180 : 0, 0);
+        float testX = _aiPath.desiredVelocity.x;
+
+        if (testX == 0)
+            testX = GameManager.Instance.Player.transform.position.x - transform.position.x;
+
+        transform.root.rotation = Quaternion.Euler(0, testX > 0 ? 180 : 0, 0);
     }
 
     public void FollowingPlayer(bool enable)

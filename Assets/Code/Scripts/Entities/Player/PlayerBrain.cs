@@ -161,7 +161,7 @@ public class PlayerBrain : MonoBehaviour
         var aimPosition = Player.Aim.transform.position;
         var direction = aimPosition - transform.position;
 
-        transform.root.rotation = Quaternion.Euler(0, direction.x > 0 ? 0 : 180, 0);
+        transform.root.localRotation = Quaternion.Euler(0, direction.x > 0 ? 0 : 180, 0);
     }
 
     public void StopReloading()

@@ -186,6 +186,7 @@ public class PhaseMoveState : BaseState<PhaseStateManager, PhaseStateManager.EPh
         manager.Owner.BossBrain.AIPath(true);
         manager.Owner.BossBrain.FollowingPlayer(true);
         // Do things for the animation
+        manager.Owner.BossBrain.Animator.SetBool("Run", true);
     }
 
     public override void OnExit(PhaseStateManager manager)
@@ -193,6 +194,7 @@ public class PhaseMoveState : BaseState<PhaseStateManager, PhaseStateManager.EPh
         manager.Owner.BossBrain.AIPath(false);
         manager.Owner.BossBrain.FollowingPlayer(false);
         // Do things for the animation
+        manager.Owner.BossBrain.Animator.SetBool("Run", false);
     }
 
     public override void OnUpdate(PhaseStateManager manager)
@@ -240,12 +242,14 @@ public class PhaseAttackState : BaseState<PhaseStateManager, PhaseStateManager.E
 
         manager.Owner.BossBrain.StartShooting();
         // Do things for the animation
+        manager.Owner.BossBrain.Animator.SetBool("Attack_Gun", true);
     }
 
     public override void OnExit(PhaseStateManager manager)
     {
         manager.Owner.BossBrain.StopShooting();
         // Do things for the animation
+        manager.Owner.BossBrain.Animator.SetBool("Attack_Gun", false);
     }
 
     public override void OnUpdate(PhaseStateManager manager)

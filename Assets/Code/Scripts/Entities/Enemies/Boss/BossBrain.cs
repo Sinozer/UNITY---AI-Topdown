@@ -34,6 +34,8 @@ public class BossBrain : EnemyBrain
     public Boss Boss => _boss;
     private Boss _boss => _entity as Boss;
 
+    [SerializeField] private GameObject _legs;
+
     private BossStateManager _stateManager;
 
     public bool IsUnlocked
@@ -61,6 +63,7 @@ public class BossBrain : EnemyBrain
         {
             _phase = value;
             _boss.BaseData = _boss.PhaseBaseData[_phase];
+            _aiPath.maxSpeed = _entity.MovementSpeed;
         }
     }
     [SerializeField] protected int _phase = 0;
@@ -82,11 +85,21 @@ public class BossBrain : EnemyBrain
         }
 
         _boss.BaseData = _boss.PhaseBaseData[_phase];
+
+        if (_legs != null)
+            return;
+
+        _legs = transform.root.Find("Render").Find("Skin").Find("Legs").gameObject;
     }
 
     protected override void Update()
     {
         base.Update();
         _stateManager.Update();
+    }
+
+    public void ShowLegs(bool show)
+    {
+        _legs.SetActive(show);
     }
 }
