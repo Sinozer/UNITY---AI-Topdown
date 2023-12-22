@@ -252,8 +252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_LightType: 1
-  m_BlendStyleIndex: 2
-  m_FalloffIntensity: 0.5
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.357
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 0.33
@@ -272,8 +272,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 2.2398999, y: 0.15339994, z: 0}
-    m_Extent: {x: 3.7235, y: 1.9531, z: 0}
+    m_Center: {x: 2.2407, y: 0.1539501, z: 0}
+    m_Extent: {x: 4.1844, y: 2.41195, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 1.54
+  m_ShapeLightFalloffSize: 2
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: 0.055748522, y: 0.031197757, z: 0}
