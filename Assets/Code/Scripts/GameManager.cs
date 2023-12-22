@@ -23,6 +23,9 @@ public class GameManager : Singleton<GameManager>
     public SOProjectileList ProjectileList => _projectileList;
     [SerializeField] private SOProjectileList _projectileList;
 
+    [SerializeField] private GameObject _firstAid;
+    public GameObject FirstAid => _firstAid;
+
     public GameObject Projectile => _projectile;
     [SerializeField] private GameObject _projectile;
     #endregion Fields
