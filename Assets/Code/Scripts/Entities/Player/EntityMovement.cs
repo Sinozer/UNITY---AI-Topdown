@@ -40,7 +40,7 @@ public class EntityMovement : MonoBehaviour
     public void SetAnimationSpeed(Animator animator)
     {
         // Calculate the speed based on fire rate and adjust the speed of the animator
-        animator.speed = _entity.MovementSpeed / 5f;
+        animator.speed = 1;
     }
     public void ResetAnimationSpeed(Animator animator)
     {
