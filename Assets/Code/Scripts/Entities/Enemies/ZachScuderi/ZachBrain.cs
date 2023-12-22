@@ -13,7 +13,6 @@ public class ZachBrain : EnemyBrain
     [SerializeField] EnemyBTRunner _runner;
     
     private float _elapsedTime;
-    private float _fadeTime = 0.2f;
     private float _meleeRange => _entity.AttackRange * 0.5f;
     private float _sprintCoolDown = 3.0f;
     private float _sprintElapsedTime;
