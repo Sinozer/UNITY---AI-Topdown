@@ -67,9 +67,10 @@ public class EnemyBrain : MonoBehaviour
         _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
 
         float testX = _aiPath.desiredVelocity.x;
+        Player player = GameManager.Instance.Player;
 
-        if (testX == 0)
-            testX = GameManager.Instance.Player.transform.position.x - transform.position.x;
+        if (testX == 0 && player)
+            testX = player.transform.position.x - transform.position.x;
 
         transform.root.rotation = Quaternion.Euler(0, testX > 0 ? 180 : 0, 0);
     }
