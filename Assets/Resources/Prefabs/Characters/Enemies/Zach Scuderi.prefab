@@ -944,6 +944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyHealthBarCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1036629461408412831, guid: f5ad0c7ed0caa9e4397956ee9e5873bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2725144043687420797, guid: f5ad0c7ed0caa9e4397956ee9e5873bd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1050,19 +1054,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7777945134679792641, guid: f5ad0c7ed0caa9e4397956ee9e5873bd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7777945134679792641, guid: f5ad0c7ed0caa9e4397956ee9e5873bd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812187955738900387, guid: f5ad0c7ed0caa9e4397956ee9e5873bd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812187955738900387, guid: f5ad0c7ed0caa9e4397956ee9e5873bd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812187955738900387, guid: f5ad0c7ed0caa9e4397956ee9e5873bd, type: 3}
       propertyPath: m_SizeDelta.y
