@@ -5,12 +5,11 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class EntityShooting : MonoBehaviour
+public class EntityShoot : MonoBehaviour
 {
     public float LookX => _direction.x;
 

@@ -5,13 +5,10 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class EntityDashing : MonoBehaviour
+public class EntityDash : EntityAction
 {
-    [SerializeField] private Entity _entity;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private AudioSource _sfxDash;
     [SerializeField] private float _dashCooldown;
@@ -39,7 +36,7 @@ public class EntityDashing : MonoBehaviour
         if(_sfxDash != null)
             _sfxDash.Play();
         Vector2 _targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _dashDirection = (_targetPosition - (Vector2)_entity.transform.position).normalized;
+        _dashDirection = (_targetPosition - (Vector2)Entity.transform.position).normalized;
         _rb.velocity += 5 * _dashDirection * _dashPower;
         //_rb.AddForce(_dashDirection * _dashPower * 500, ForceMode2D.Impulse);
     }

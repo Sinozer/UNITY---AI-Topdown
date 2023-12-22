@@ -7,7 +7,7 @@
 
 using UnityEngine;
 
-public class EntityDamageable : MonoBehaviour
+public class EntityDamageControl : MonoBehaviour
 {
     [SerializeField] private float _multiplier = 1f;
 

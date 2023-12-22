@@ -1,11 +1,11 @@
 // --------------------------------------- //
 // --------------------------------------- //
-//  Creation Date: 14/12/23
+//  Creation Date: 22/12/23
 //  Description: AI - Topdown
 // --------------------------------------- //
 // --------------------------------------- //
 
-public class LevelManager : Singleton<LevelManager>
+public class EntityAction : EntityChild
 {
 
 }

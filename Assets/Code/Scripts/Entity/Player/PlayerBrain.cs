@@ -35,9 +35,9 @@ public class PlayerBrain : Brain
     [SerializeField] private InputActionReference _dashInput;
 
     [Header("References")] 
-    [SerializeField] private EntityMovement _movementAction;
-    [SerializeField] private EntityShooting _shootingAction;
-    [SerializeField] private EntityDashing _dashingAction;
+    [SerializeField] private EntityMove _movementAction;
+    [SerializeField] private EntityShoot _shootingAction;
+    [SerializeField] private EntityDash _dashingAction;
     [SerializeField] private GameObject _minimap;
     [SerializeField] private GameObject _light;
     

@@ -7,7 +7,7 @@
 
 using UnityEngine;
 
-public class EntityChild : MonoBehaviour
+abstract public class EntityChild : MonoBehaviour
 {
     public Entity Entity
     {
@@ -56,4 +56,37 @@ public class EntityChild : MonoBehaviour
         }
     }
     private GameObject _actions;
+
+    #region Components
+    public Rigidbody2D Rigidbody
+    {
+        get
+        {
+            if (_rigidbody == null)
+                _rigidbody = transform.root.GetComponentInChildren<Rigidbody2D>();
+
+            return _rigidbody;
+        }
+    }
+    private Rigidbody2D _rigidbody;
+
+    public Animator Animator
+    {
+        get
+        {
+            if (_animator == null)
+                _animator = transform.root.GetComponentInChildren<Animator>();
+
+            return _animator;
+        }
+    }
+    private Animator _animator;
+    #endregion Components
+
+    #region Checks
+    public bool NPC => Entity.IsNpc;
+    public bool NotNPC => !Entity.IsNpc;
+    public bool Alive => Entity.IsAlive;
+    public bool Dead => Entity.IsDead;
+    #endregion Checks
 }

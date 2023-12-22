@@ -29,7 +29,7 @@ public class EnemyBrain : Brain
     public bool CanShootAtPlayer => _canShootAtPlayer;
     public Animator Animator => _animator;
 
-    [SerializeField] protected EntityShooting _entityShooting;
+    [SerializeField] protected EntityShoot _entityShooting;
     [SerializeField] protected AIPath _aiPath;
     [SerializeField] protected CustomPatrol _customPatrol;
     [SerializeField] protected CustomDestinationSetter _customDestinationSetter;
