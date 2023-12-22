@@ -34,8 +34,6 @@ public class PatrollingNode : ActionNode
         if (!_brain.SeePlayer)
             return State.Running;
 
-        Debug.Log("");
         return State.Success;
-
     }
 }
