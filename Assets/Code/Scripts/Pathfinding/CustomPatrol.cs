@@ -22,6 +22,11 @@ public class CustomPatrol : MonoBehaviour
     /// <summary>Time in seconds to wait at each target</summary>
 
     /// <summary>Current target index</summary>
+    public int Index
+    {
+        get => _index;
+        set => _index = value;
+    }
     private int _index;
 
     private IAstarAI _agent;

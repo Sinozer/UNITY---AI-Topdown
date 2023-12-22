@@ -52,7 +52,6 @@ public class EntitySpawner : MonoBehaviour
             
                 var distance = Vector3.Distance(player.transform.position, value);
                 
-                
                 return tile != null && distance > 2;
             }
 
