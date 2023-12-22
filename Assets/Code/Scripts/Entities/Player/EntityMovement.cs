@@ -32,7 +32,7 @@ public class EntityMovement : MonoBehaviour
         transform.root.GetComponentInChildren<AIPath>().maxSpeed = _entity.MovementSpeed / 50f;
     }
 
-    public void Move()
+    public void FixedMove()
     {
         //_rb.MovePosition(_rb.position + MoveInput * _entity.MovementSpeed * Time.fixedDeltaTime);
         _rb.AddForce(_entity.MovementSpeed * 1000 * Time.fixedDeltaTime * MoveInput);
