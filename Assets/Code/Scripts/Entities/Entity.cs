@@ -66,6 +66,13 @@ public abstract class Entity : MonoBehaviour
     public virtual void Die()
     {
         //OnDeath?.Invoke();
+        if (IsNpc)
+        {
+            System.Random random = new System.Random();
+            int randomInt = random.Next(0, 100);
+            if (randomInt < 10)
+                Instantiate(GameManager.Instance.FirstAid, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 
@@ -91,7 +98,10 @@ public abstract class Entity : MonoBehaviour
                 go.SetActive(true);
             }
         }
-        else if(_sfxDying != null)
-            _sfxDying.Play();
+    }
+
+    public void PlayDeathSfx()
+    {
+        _sfxDying?.Play();
     }
 }

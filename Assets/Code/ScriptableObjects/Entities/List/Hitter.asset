@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ec3dd5efb496941a4a0504c972884c, type: 3}
   m_Name: Hitter
   m_EditorClassIdentifier: 
-  _maxHealth: 110
-  _damage: 10
+  _maxHealth: 50
+  _damage: 4
   _movementSpeed: 1.1
   _attackSpeed: 0.9
   _attackRange: 0.5
