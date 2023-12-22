@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: props and items x1_12
+  m_Name: props and items x1_33
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1457437532, guid: 270dd5f9635fa9b44a96a66619fad61a, type: 3}
+  m_Sprite: {fileID: -2013841509, guid: 270dd5f9635fa9b44a96a66619fad61a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -33,4 +33,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 0
+  m_ColliderType: 1
