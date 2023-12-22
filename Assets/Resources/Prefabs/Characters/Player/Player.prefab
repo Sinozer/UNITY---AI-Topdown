@@ -171,7 +171,7 @@ MonoBehaviour:
   _health: 100
   _maxHealth: 100
   _damage: 0
-  _movementSpeed: 15
+  _movementSpeed: 100
   _attackSpeed: 3
   _attackRange: 0
   _visionRange: 0
@@ -272,8 +272,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 2.2407, y: 0.15314996, z: 0}
-    m_Extent: {x: 4.1843, y: 2.41225, z: 0}
+    m_Center: {x: 2.2395499, y: 0.15359998, z: 0}
+    m_Extent: {x: 4.18445, y: 2.4128, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

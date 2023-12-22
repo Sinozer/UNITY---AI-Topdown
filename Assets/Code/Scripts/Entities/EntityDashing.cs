@@ -40,7 +40,7 @@ public class EntityDashing : MonoBehaviour
             _sfxDash.Play();
         Vector2 _targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _dashDirection = (_targetPosition - (Vector2)_entity.transform.position).normalized;
-        //_rb.velocity = _dashDirection * _dashPower;
-        _rb.AddForce(_dashDirection * _dashPower * 500, ForceMode2D.Impulse);
+        _rb.velocity += 5 * _dashDirection * _dashPower;
+        //_rb.AddForce(_dashDirection * _dashPower * 500, ForceMode2D.Impulse);
     }
 }

@@ -199,6 +199,8 @@ public class BossDeadState : BaseState<BossStateManager, BossStateManager.EBossS
     {
         manager.Owner.AIPath(false);
         manager.Owner.StopShooting();
+
+        manager.Owner.Animator.SetTrigger("Death");
     }
 
     public override void OnExit(BossStateManager manager)
