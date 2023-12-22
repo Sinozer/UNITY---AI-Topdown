@@ -168,10 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isNpc: 1
-  _health: 100
-  _maxHealth: 100
+  _health: 150
+  _maxHealth: 150
   _damage: 0
-  _movementSpeed: 100
+  _movementSpeed: 250
   _attackSpeed: 3
   _attackRange: 0
   _visionRange: 0

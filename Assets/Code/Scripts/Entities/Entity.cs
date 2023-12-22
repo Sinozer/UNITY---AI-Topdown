@@ -70,7 +70,7 @@ public abstract class Entity : MonoBehaviour
         {
             System.Random random = new System.Random();
             int randomInt = random.Next(0, 100);
-            if (randomInt < 10)
+            if (randomInt < 20)
                 Instantiate(GameManager.Instance.FirstAid, transform.position, Quaternion.identity);
         }
         Destroy(gameObject);

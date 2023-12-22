@@ -22,7 +22,7 @@ public class IdleNode : ActionNode
 
     public override void OnStop()
     {
-
+        _brain?.AIPath(true);
     }
 
     public override State OnUpdate()
