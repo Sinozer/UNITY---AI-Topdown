@@ -272,8 +272,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 2.23965, y: 0.15339994, z: 0}
-    m_Extent: {x: 4.18375, y: 2.4122, z: 0}
+    m_Center: {x: 2.23985, y: 0.15359998, z: 0}
+    m_Extent: {x: 4.18385, y: 2.4117, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1344,7 +1344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78fbd771d54b43b62cd3bf3b90b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 98392681913919484}
 --- !u!114 &6333655552870947972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1357,7 +1356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 98392681913919484}
   _shootSound: {fileID: 7722960399131322240}
   _projectileData: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
 --- !u!114 &8787512683175754043
@@ -1372,11 +1370,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3bc4ddbee257a429215da2c10ac23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 98392681913919484}
-  _rb: {fileID: 2079754400785509942}
   _sfxDash: {fileID: 7111836281043055651}
   _dashCooldown: 4
-  _dashPower: 8
+  _dashPower: 40
 --- !u!1 &8412596675136926958
 GameObject:
   m_ObjectHideFlags: 0

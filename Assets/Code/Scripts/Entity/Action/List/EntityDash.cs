@@ -5,40 +5,37 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System.Collections;
 using UnityEngine;
 
 public class EntityDash : EntityChild, IEntityAction
 {
-    [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private AudioSource _sfxDash;
+
+    private bool _canDash = true;
     [SerializeField] private float _dashCooldown;
     [SerializeField] private float _dashPower;
 
-    private float _timer;
-    private Vector2 _dashDirection;
-
-    private void Awake()
-    {
-        _timer = Time.time - _dashCooldown;
-    }
-
     public void TryDash()
     {
-        if (_timer + _dashCooldown < Time.time)
-        {
-            _timer = Time.time;
-            Dash();
-        }
+        if (_canDash == false)
+            return;
+
+        StartCoroutine(Dash());
     }
 
-    private void Dash()
+    private IEnumerator Dash()
     {
-        if(_sfxDash != null)
+        _canDash = false;
+
+        if (_sfxDash != null)
             _sfxDash.Play();
         Vector2 _targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _dashDirection = (_targetPosition - (Vector2)Entity.transform.position).normalized;
-        _rb.velocity += 5 * _dashDirection * _dashPower;
-        //_rb.AddForce(_dashDirection * _dashPower * 500, ForceMode2D.Impulse);
+        Vector2 dashDirection = (_targetPosition - (Vector2)Entity.transform.position).normalized;
+        Rigidbody.velocity += _dashPower * dashDirection;
+
+        yield return new WaitForSeconds(_dashCooldown);
+        _canDash = true;
     }
 
     public void SetAnimationSpeed()

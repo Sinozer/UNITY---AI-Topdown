@@ -165,20 +165,6 @@ public class BossPlayingState : BaseState<BossStateManager, BossStateManager.EBo
     public override void OnUpdate(BossStateManager manager)
     {
         CheckDead(manager);
-
-        //if (manager.Owner.CanShootAtPlayer)
-        //{
-        //    manager.Owner.CurrentPhase.CanAttack = true;
-        //    manager.Owner.AIPath(false);
-        //    manager.Owner.StartShooting();
-        //}
-
-        //if (manager.Owner.SeePlayer)
-        //{
-        //    manager.Owner.CurrentPhase.SeePlayer = true;
-        //    manager.Owner.AIPath(true);
-
-        //}
     }
 }
 
@@ -221,7 +207,6 @@ public class BossEndedState : BaseState<BossStateManager, BossStateManager.EBoss
 {
     public override void OnEnter(BossStateManager manager)
     {
-        Debug.LogWarning("Boss has ended");
     }
 
     public override void OnExit(BossStateManager manager)
