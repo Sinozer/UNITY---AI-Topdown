@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Code/Scripts/BehaviorTree/Node/ActionNode/PatrollingNode.cs.meta
+guid: 55d1d2884193dde42993328834c42ee0
+========
+guid: 50a9c3d422c4a8e48802ecc8e191ac79
+>>>>>>>> Stashed changes:Assets/Resources/BehaviourTree/RangerShoot.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
