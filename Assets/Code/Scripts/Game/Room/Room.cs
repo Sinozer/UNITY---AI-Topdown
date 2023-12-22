@@ -12,7 +12,7 @@ public class Room : MonoBehaviour
 {
     private RoomStateManager _stateManager;
 
-    protected bool _isLocked = true;
+    [SerializeField] protected bool _isLocked = true;
     public bool IsLocked
     {
         get => _isLocked;

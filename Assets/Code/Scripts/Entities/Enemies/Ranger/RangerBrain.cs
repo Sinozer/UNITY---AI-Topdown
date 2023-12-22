@@ -35,15 +35,15 @@ public class RangerBrain : EnemyBrain
     {
         if (!IsDead)
         {
-            _btRunner.GetBlackboard().SetValue("SeePlayer", _seePlayer);
-            _btRunner.GetBlackboard().SetValue("CanShoot", _canShootAtPlayer);
+                _btRunner?.GetBlackboard().SetValue("SeePlayer", _seePlayer);
+                _btRunner?.GetBlackboard().SetValue("CanShoot", _canShootAtPlayer);
         }
 
         if (IsDead)
         {
-            _btRunner.GetBlackboard().SetValue("IsDead", true);
-            _btRunner.GetBlackboard().SetValue("SeePlayer", false);
-            _btRunner.GetBlackboard().SetValue("CanShoot", false);
+            _btRunner?.GetBlackboard().SetValue("IsDead", true);
+            _btRunner?.GetBlackboard().SetValue("SeePlayer", false);
+            _btRunner?.GetBlackboard().SetValue("CanShoot", false);
         }
     }
 

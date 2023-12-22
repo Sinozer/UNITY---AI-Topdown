@@ -15,6 +15,12 @@ public class EntityMovement : MonoBehaviour
     public Vector2 MoveInput { get; set; }
     private Rigidbody2D _rb;
 
+    private void Awake()
+    {
+        if (_entity == null)
+            _entity = transform.root.GetComponentInChildren<Entity>();
+    }
+
     private void Start()
     {
         _rb = transform.root.GetComponentInChildren<Rigidbody2D>();
@@ -34,7 +40,7 @@ public class EntityMovement : MonoBehaviour
     public void SetAnimationSpeed(Animator animator)
     {
         // Calculate the speed based on fire rate and adjust the speed of the animator
-        animator.speed = _entity.MovementSpeed / 5f;
+        animator.speed = 1;
     }
     public void ResetAnimationSpeed(Animator animator)
     {
