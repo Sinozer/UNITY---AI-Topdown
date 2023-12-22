@@ -5,8 +5,6 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class InvisibleNode : ActionNode
@@ -41,7 +39,7 @@ public class InvisibleNode : ActionNode
     {
         Color color = _sprite.color;
         Blackboard.TryFind("ElapsedTime", out float _elapsedTime);
-        color.a = Mathf.Lerp(1, 0, _brain.DistFromPlayer - 5);
+        color.a = Mathf.Lerp(1, 0, _brain.Enemy.DistFromPlayer - 5);
         _sprite.color = color;
     }
     
