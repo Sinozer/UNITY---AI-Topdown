@@ -171,7 +171,7 @@ MonoBehaviour:
   _health: 100
   _maxHealth: 100
   _damage: 0
-  _movementSpeed: 5
+  _movementSpeed: 15
   _attackSpeed: 3
   _attackRange: 0
   _visionRange: 0
@@ -272,8 +272,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 2.2407, y: 0.1539501, z: 0}
-    m_Extent: {x: 4.1844, y: 2.41195, z: 0}
+    m_Center: {x: 2.2406, y: 0.15335, z: 0}
+    m_Extent: {x: 4.1846, y: 2.4124498, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1159,18 +1159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entity: {fileID: 0}
   _sceneToLoadOnDeath: 0
-  _isNpc: 1
-  _health: 100
-  _maxHealth: 0
-  _damage: 10
-  _movementSpeed: 15
-  _attackSpeed: 0
-  _attackRange: 0
-  _visionRange: 0
-  _vfxHit: {fileID: 3585540291469414469}
-  _sfxDying: {fileID: 0}
-  _sfxHit: {fileID: 7589934450195447570}
-  _fireRate: 0
   _moveInput: {fileID: 3292558435713424574, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
   _shootInput: {fileID: -3436438092290266539, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
   _reloadInput: {fileID: -6401934985596150359, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
