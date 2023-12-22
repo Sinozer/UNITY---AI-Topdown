@@ -162,7 +162,6 @@ public class PlayerBrain : MonoBehaviour
         {
             SetAnimatorCondition(AnimatorCondition.IsRun);
             _movementAction.SetAnimationSpeed(_animator);
-            _movementAction.Move();
         }
 
         // Flip the game object based on the direction of the mouse
@@ -172,6 +171,14 @@ public class PlayerBrain : MonoBehaviour
         transform.root.rotation = Quaternion.Euler(0, direction.x > 0 ? 0 : 180, 0);
         if(_light != null)
             _light.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+    }
+
+    public void FixedUpdate()
+    {
+        if (_movementAction.MoveInput != Vector2.zero)
+        {
+            _movementAction.FixedMove();
+        }
     }
 
     public void StopReloading()
