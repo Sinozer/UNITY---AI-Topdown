@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ec3dd5efb496941a4a0504c972884c, type: 3}
   m_Name: Zach Scuderi
   m_EditorClassIdentifier: 
-  _maxHealth: 60
+  _maxHealth: 50
   _damage: 3
   _movementSpeed: 70
   _attackSpeed: 1.4

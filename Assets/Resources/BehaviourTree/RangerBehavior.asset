@@ -502,7 +502,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 9e2ac7c6bf1411945ad00303bdeab985
-  Position: {x: 1499, y: 1467}
+  Position: {x: 1549, y: 1461.0078}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: 2763064629292033291}
@@ -548,7 +548,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 2dcaeac4afe3f824a818569dc6a21f45
-  Position: {x: 1616, y: 1719}
+  Position: {x: 1571.5297, y: 1729}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 1
@@ -668,7 +668,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: a8361ce212dfac34a8b317d5986e31ae
-  Position: {x: 1429, y: 1701}
+  Position: {x: 1384.5298, y: 1711}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: SeePlayer
@@ -800,7 +800,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 4d3c3f78f12f4384293e8e2c3d341b45
-  Position: {x: 1815, y: 1693}
+  Position: {x: 1770.5297, y: 1703}
   Blackboard: {fileID: 0}
 --- !u!114 &6881371110833149097
 MonoBehaviour:
