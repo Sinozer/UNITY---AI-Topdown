@@ -69,7 +69,10 @@ public class EnemyBrain : Brain
         if (testX == 0 && player)
             testX = player.transform.position.x - transform.position.x;
 
-        transform.root.rotation = Quaternion.Euler(0, testX > 0 ? 180 : 0, 0);
+        int degree = testX > 0 ? 0 : 180;
+
+        Render.transform.rotation = Quaternion.Euler(0, degree, 0);
+        Physics.transform.rotation = Quaternion.Euler(0, degree, 0);
     }
 
     public void FollowingPlayer(bool enable)
