@@ -13,7 +13,7 @@ public class ZachBrain : EnemyBrain
     [SerializeField] EnemyBTRunner _runner;
     
     private float _elapsedTime;
-    private float _meleeRange => _entity.AttackRange * 0.5f;
+    private float _meleeRange => Entity.AttackRange * 0.5f;
     private float _sprintCoolDown = 3.0f;
     private float _sprintElapsedTime;
     private bool _canMeleeAttack;
@@ -21,12 +21,12 @@ public class ZachBrain : EnemyBrain
     protected override void Start()
     {
         base.Start();
-        _runner.GetBlackboard().SetValue("AttackSpeed", _entity.AttackSpeed);
+        _runner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
     }
 
     protected override void Update()
     {
-        if (_entity.IsDead)
+        if (Entity.IsDead)
         {
             _runner.GetBlackboard().SetValue("IsDead", true);
             return;
@@ -45,9 +45,9 @@ public class ZachBrain : EnemyBrain
         }
         _runner.GetBlackboard().SetValue("CanSprint", _canSprint);
         
-        _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
+        _canShootAtPlayer = _enemy.DistFromPlayer < Entity.AttackRange;
         _canMeleeAttack = _enemy.DistFromPlayer < _meleeRange;
-        _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
+        _seePlayer = _enemy.DistFromPlayer < Entity.VisionRange;
         
         Player player = GameManager.Instance.Player;
         if (player != null)

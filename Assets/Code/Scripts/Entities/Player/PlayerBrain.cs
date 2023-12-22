@@ -11,11 +11,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-public class PlayerBrain : MonoBehaviour
+public class PlayerBrain : Brain
 {
-    public Player Player => _entity as Player;
+    public Player Player => Entity as Player;
 
-    [SerializeField] private Entity _entity;
     [SerializeField] private int _sceneToLoadOnDeath = 0;
 
     private enum AnimatorCondition
@@ -39,7 +38,6 @@ public class PlayerBrain : MonoBehaviour
     [SerializeField] private EntityMovement _movementAction;
     [SerializeField] private EntityShooting _shootingAction;
     [SerializeField] private EntityDashing _dashingAction;
-    [SerializeField] private GameObject _render;
     [SerializeField] private GameObject _minimap;
     [SerializeField] private GameObject _light;
     
@@ -53,8 +51,7 @@ public class PlayerBrain : MonoBehaviour
 
     private void Awake()
     {
-        _entity = transform.root.GetComponentInChildren<Entity>();
-        _animator = _render.GetComponent<Animator>();
+        _animator = Render.GetComponent<Animator>();
 
         _animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
     }
@@ -69,7 +66,7 @@ public class PlayerBrain : MonoBehaviour
         _minimapInput.action.performed += OnMinimapPerformed;
         _minimapInput.action.canceled += OnMinimapCanceled;
         _dashInput.action.started += OnDashStarted;
-        _entity.OnDeath += OnDeath;
+        Entity.OnDeath += OnDeath;
     }
 
     private void OnDisable()
@@ -82,7 +79,7 @@ public class PlayerBrain : MonoBehaviour
         _minimapInput.action.performed -= OnMinimapPerformed;
         _minimapInput.action.canceled -= OnMinimapCanceled;
         _dashInput.action.started -= OnDashStarted;
-        _entity.OnDeath -= OnDeath;
+        Entity.OnDeath -= OnDeath;
     }
 
     private void OnDeath()
@@ -138,7 +135,7 @@ public class PlayerBrain : MonoBehaviour
 
     void Update()
     {
-        if (_entity.IsDead)
+        if (Entity.IsDead)
         {
             SetAnimatorCondition(AnimatorCondition.IsDead);
             return;
@@ -168,8 +165,12 @@ public class PlayerBrain : MonoBehaviour
         var aimPosition = Player.Aim.transform.position;
         var direction = aimPosition - transform.position;
 
-        transform.root.rotation = Quaternion.Euler(0, direction.x > 0 ? 0 : 180, 0);
-        if(_light != null)
+        int degree = direction.x > 0 ? 0 : 180;
+
+        Render.transform.rotation = Quaternion.Euler(0, degree, 0);
+        Physics.transform.rotation = Quaternion.Euler(0, degree, 0);
+
+        if (_light != null)
             _light.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
     }
 

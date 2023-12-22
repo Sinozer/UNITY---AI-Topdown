@@ -9,7 +9,7 @@ using Pathfinding;
 using System;
 using UnityEngine;
 
-public class EnemyBrain : MonoBehaviour
+public class EnemyBrain : Brain
 {
     public enum AnimatorCondition
     {
@@ -20,8 +20,8 @@ public class EnemyBrain : MonoBehaviour
         Dead
     }
     
-    public bool IsDead => _entity.IsDead;
-    public Action Die => _entity.Die;
+    public bool IsDead => Entity.IsDead;
+    public Action Die => Entity.Die;
     public float DistFromPlayer => _enemy.DistFromPlayer;
     
     
@@ -29,22 +29,19 @@ public class EnemyBrain : MonoBehaviour
     public bool CanShootAtPlayer => _canShootAtPlayer;
     public Animator Animator => _animator;
 
-    [SerializeField] protected Entity _entity;
     [SerializeField] protected EntityShooting _entityShooting;
-    [SerializeField] protected GameObject _render;
     [SerializeField] protected AIPath _aiPath;
     [SerializeField] protected CustomPatrol _customPatrol;
     [SerializeField] protected CustomDestinationSetter _customDestinationSetter;
 
-    protected Enemy _enemy => _entity as Enemy;
+    protected Enemy _enemy => Entity as Enemy;
     protected bool _seePlayer = false;
     protected bool _canShootAtPlayer = false;
     protected Animator _animator;
 
     protected virtual void Awake()
     {
-        _entity = GetComponentInParent<Entity>();
-        _animator = _render.GetComponent<Animator>();
+        _animator = Render.GetComponent<Animator>();
         _customPatrol.enabled = false;
         _customDestinationSetter.enabled = false;
         _aiPath.enabled = true;
@@ -52,19 +49,19 @@ public class EnemyBrain : MonoBehaviour
 
     protected virtual void Start()
     {
-        _aiPath.maxSpeed = _entity.MovementSpeed / 50f;
+        _aiPath.maxSpeed = Entity.MovementSpeed / 50f;
     }
 
     protected virtual void Update()
     {
-        if (_entity.IsDead)
+        if (Entity.IsDead)
         {
             _enemy.Rigidbody.simulated = false;
             return;
         }
 
-        _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
-        _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
+        _canShootAtPlayer = _enemy.DistFromPlayer < Entity.AttackRange;
+        _seePlayer = _enemy.DistFromPlayer < Entity.VisionRange;
 
         float testX = _aiPath.desiredVelocity.x;
         Player player = GameManager.Instance.Player;
@@ -102,7 +99,7 @@ public class EnemyBrain : MonoBehaviour
 
     public void AttackPlayer()
     {
-        _entity.Attack(GameManager.Instance.Player);
+        Entity.Attack(GameManager.Instance.Player);
     }
 
     public void OnHit()

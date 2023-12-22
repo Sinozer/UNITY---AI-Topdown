@@ -32,7 +32,7 @@ public class BossBrain : EnemyBrain
     //#endregion Events
 
     public Boss Boss => _boss;
-    private Boss _boss => _entity as Boss;
+    private Boss _boss => Entity as Boss;
 
     [SerializeField] private GameObject _legs;
 
@@ -63,7 +63,7 @@ public class BossBrain : EnemyBrain
         {
             _phase = value;
             _boss.BaseData = _boss.PhaseBaseData[_phase];
-            _aiPath.maxSpeed = _entity.MovementSpeed / 50f;
+            _aiPath.maxSpeed = Entity.MovementSpeed / 50f;
         }
     }
     [SerializeField] protected int _phase = 0;

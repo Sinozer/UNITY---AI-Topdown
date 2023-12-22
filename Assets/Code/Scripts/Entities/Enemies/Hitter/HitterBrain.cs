@@ -16,21 +16,21 @@ public class HitterBrain : EnemyBrain
     {
         base.Start();
         
-        _runner.GetBlackboard().SetValue("AttackSpeed", _entity.AttackSpeed);
+        _runner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
 
     }
 
     protected override void Update()
     {
         base.Update();
-        _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
+        _canShootAtPlayer = _enemy.DistFromPlayer < Entity.AttackRange;
 
         if (_enemy.IsDead)
         {
             _runner.GetBlackboard().SetValue("IsDead", true);
             return;
         }
-        _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
+        _seePlayer = _enemy.DistFromPlayer < Entity.VisionRange;
 
         Player player = GameManager.Instance.Player;
         if (player != null)

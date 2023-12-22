@@ -25,8 +25,8 @@ public class RangerBrain : EnemyBrain
         if (_enemy.IsDead)
             return;
 
-        _canShootAtPlayer = _enemy.DistFromPlayer < _entity.AttackRange;
-        _seePlayer = _enemy.DistFromPlayer < _entity.VisionRange;
+        _canShootAtPlayer = _enemy.DistFromPlayer < Entity.AttackRange;
+        _seePlayer = _enemy.DistFromPlayer < Entity.VisionRange;
 
         _player = GameManager.Instance.Player;
     }

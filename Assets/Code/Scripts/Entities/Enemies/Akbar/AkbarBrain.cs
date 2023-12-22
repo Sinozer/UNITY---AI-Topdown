@@ -21,7 +21,7 @@ public class AkbarBrain : EnemyBrain
     {
         base.Start();
 
-        _runner.GetBlackboard().SetValue("AttackSpeed", _entity.AttackSpeed);
+        _runner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
     }
 
     protected override void Update()
