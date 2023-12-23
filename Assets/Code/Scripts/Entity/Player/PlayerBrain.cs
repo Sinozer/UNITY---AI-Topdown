@@ -17,7 +17,7 @@ public class PlayerBrain : EntityBrain
 
     [SerializeField] private int _sceneToLoadOnDeath = 0;
 
-    private enum AnimatorCondition
+    private new enum AnimatorCondition
     {
         IsIdle,
         IsRun,

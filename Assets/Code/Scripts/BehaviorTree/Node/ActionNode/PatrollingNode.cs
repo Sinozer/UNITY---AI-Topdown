@@ -27,7 +27,6 @@ public class PatrollingNode : ActionNode
 
     public override State OnUpdate()
     {
-        //Debug.Log("Follow update");
         if (_self == null)
             return State.Failure;
 

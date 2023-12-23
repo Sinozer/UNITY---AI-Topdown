@@ -9,33 +9,29 @@ using UnityEngine;
 
 public class ZachBrain : EnemyBrain
 {
-    [SerializeField] EnemyBTRunner _runner;
-    
     private float _elapsedTime;
-    private float _meleeRange => Entity.AttackRange * 0.5f;
-    private float _sprintCoolDown = 3.0f;
-    private float _sprintElapsedTime;
-    public bool CanMeleeAttack => Enemy.DistFromPlayer < _meleeRange;
+    private float MeleeRange => Entity.AttackRange * 0.5f;
+    private readonly float _sprintCoolDown = 3.0f;
+    public bool CanMeleeAttack => Enemy.DistFromPlayer < MeleeRange;
     private bool _canSprint;
     protected override void Start()
     {
         base.Start();
-        _runner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
+        _btRunner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
     }
 
     protected override void Update()
     {
         if (Entity.IsDead)
         {
-            _runner.GetBlackboard().SetValue("IsDead", true);
+            _btRunner.GetBlackboard().SetValue("IsDead", true);
             return;
         }
         
         base.Update();
 
-        _sprintElapsedTime += Time.deltaTime;
         if (_elapsedTime >= _sprintCoolDown)
-        {    _sprintElapsedTime = 0;
+        {    
             _canSprint = true;
         }
         else
@@ -43,17 +39,17 @@ public class ZachBrain : EnemyBrain
             _canSprint = false; 
         }
 
-        _runner.GetBlackboard().SetValue("CanSprint", _canSprint);
+        _btRunner.GetBlackboard().SetValue("CanSprint", _canSprint);
         
         Player player = GameManager.Instance.Player;
 
-        _runner.GetBlackboard().SetValue("PlayerPosition", player != null ? (Vector2)player.transform.position : Vector2.zero);
+        _btRunner.GetBlackboard().SetValue("PlayerPosition", player != null ? (Vector2)player.transform.position : Vector2.zero);
 
         _elapsedTime += Time.deltaTime;
         
-        _runner.GetBlackboard().SetValue("ElapsedTime", _elapsedTime);
-        _runner.GetBlackboard().SetValue("SeePlayer", SeePlayer);
-        _runner.GetBlackboard().SetValue("CanAttack", CanShootAtPlayer);
-        _runner.GetBlackboard().SetValue("CanMeleeAttack", CanMeleeAttack);
+        _btRunner.GetBlackboard().SetValue("ElapsedTime", _elapsedTime);
+        _btRunner.GetBlackboard().SetValue("SeePlayer", SeePlayer);
+        _btRunner.GetBlackboard().SetValue("CanAttack", CanShootAtPlayer);
+        _btRunner.GetBlackboard().SetValue("CanMeleeAttack", CanMeleeAttack);
     }
 }

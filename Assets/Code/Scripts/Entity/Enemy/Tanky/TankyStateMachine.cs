@@ -49,18 +49,14 @@ public class IdleState : BaseState<TankyStateManager, TankyStateManager.ETankySt
 {
     public override void OnEnter(TankyStateManager manager)
     {
-        //Debug.Log("Enter Idle");      
     }
 
     public override void OnExit(TankyStateManager manager)
     {
-        //Debug.Log("Exit Idle");
     }
 
     public override void OnUpdate(TankyStateManager manager)
     {
-        //Debug.Log("Update Idle");
-
         if(manager.Owner.Dead)
         {
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
@@ -77,12 +73,14 @@ public class ActivatingState : BaseState<TankyStateManager, TankyStateManager.ET
 {
     public override void OnEnter(TankyStateManager manager)
     {
-        manager.Owner.Animator.SetBool(ETankyState.Activating.ToString(), true);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.Activating, true);
+        //manager.Owner.Animator.SetBool(ETankyState.Activating.ToString(), true);
     }
 
     public override void OnExit(TankyStateManager manager)
     {
-        manager.Owner.Animator.SetBool(ETankyState.Activating.ToString(), false);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.Activating, false);
+        //manager.Owner.Animator.SetBool(ETankyState.Activating.ToString(), false);
     }
 
     public override void OnUpdate(TankyStateManager manager)
@@ -104,12 +102,14 @@ public class IdleActivatedState : BaseState<TankyStateManager, TankyStateManager
 {
     public override void OnEnter(TankyStateManager manager)
     {
-        manager.Owner.Animator.SetBool(ETankyState.IdleActivated.ToString(), true);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.IdleActivated, true);
+        //manager.Owner.Animator.SetBool(ETankyState.IdleActivated.ToString(), true);
     }
 
     public override void OnExit(TankyStateManager manager)
     {
-        manager.Owner.Animator.SetBool(ETankyState.IdleActivated.ToString(), false);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.IdleActivated, false);
+        //manager.Owner.Animator.SetBool(ETankyState.IdleActivated.ToString(), false);
     }
 
     public override void OnUpdate(TankyStateManager manager)
@@ -137,13 +137,15 @@ public class FollowingPlayerState : BaseState<TankyStateManager, TankyStateManag
     public override void OnEnter(TankyStateManager manager)
     {
         manager.Owner.FollowingPlayer(true);
-        manager.Owner.Animator.SetBool(ETankyState.FollowingPlayer.ToString(), true);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.Run, true);
+        //manager.Owner.Animator.SetBool(ETankyState.FollowingPlayer.ToString(), true);
     }
 
     public override void OnExit(TankyStateManager manager)
     {
         manager.Owner.FollowingPlayer(false);
-        manager.Owner.Animator.SetBool(ETankyState.FollowingPlayer.ToString(), false);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.Run, false);
+        //manager.Owner.Animator.SetBool(ETankyState.FollowingPlayer.ToString(), false);
     }
 
     public override void OnUpdate(TankyStateManager manager)
@@ -158,7 +160,7 @@ public class FollowingPlayerState : BaseState<TankyStateManager, TankyStateManag
             manager.ChangeState(TankyStateManager.ETankyState.Attacking);
             return;
         }
-        if (!manager.Owner.SeePlayer)
+        if (manager.Owner.SeePlayer == false)
         {
             manager.ChangeState(TankyStateManager.ETankyState.Patrolling);
             return;
@@ -171,13 +173,15 @@ public class PatrollingState : BaseState<TankyStateManager, TankyStateManager.ET
     public override void OnEnter(TankyStateManager manager)
     {
         manager.Owner.Patrolling(true);
-        manager.Owner.Animator.SetBool(ETankyState.Patrolling.ToString(), true);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.Run, true);
+        //manager.Owner.Animator.SetBool(ETankyState.Patrolling.ToString(), true);
     }
 
     public override void OnExit(TankyStateManager manager)
     {
         manager.Owner.Patrolling(false);
-        manager.Owner.Animator.SetBool(ETankyState.Patrolling.ToString(), false);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.Run, false);
+        //manager.Owner.Animator.SetBool(ETankyState.Patrolling.ToString(), false);
     }
 
     public override void OnUpdate(TankyStateManager manager)
@@ -190,7 +194,6 @@ public class PatrollingState : BaseState<TankyStateManager, TankyStateManager.ET
         if (manager.Owner.SeePlayer)
         {
             manager.ChangeState(TankyStateManager.ETankyState.FollowingPlayer);
-            manager.Owner.Animator.SetBool(ETankyState.FollowingPlayer.ToString(), true);
             return;
         }
     }
@@ -202,14 +205,14 @@ public class AttackingState : BaseState<TankyStateManager, TankyStateManager.ETa
     {
         manager.Owner.AIPath(false);
         manager.Owner.StartShooting();
-        manager.Owner.Animator.SetBool(ETankyState.Attacking.ToString(), true);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.Attack, true);
     }
 
     public override void OnExit(TankyStateManager manager)
     {
         manager.Owner.AIPath(true);
         manager.Owner.StopShooting();
-        manager.Owner.Animator.SetBool(ETankyState.Attacking.ToString(), false);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.Attack, false);
     }
 
     public override void OnUpdate(TankyStateManager manager)
@@ -219,12 +222,12 @@ public class AttackingState : BaseState<TankyStateManager, TankyStateManager.ETa
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
         }
-        if (!manager.Owner.SeePlayer)
+        if (manager.Owner.SeePlayer == false)
         {
             manager.ChangeState(TankyStateManager.ETankyState.Patrolling);
             return;
         }
-        if (!manager.Owner.CanShootAtPlayer)
+        if (manager.Owner.CanShootAtPlayer == false)
         {
             manager.ChangeState(TankyStateManager.ETankyState.FollowingPlayer);
             return;
@@ -237,13 +240,15 @@ public class IsDeadState : BaseState<TankyStateManager, TankyStateManager.ETanky
     public override void OnEnter(TankyStateManager manager)
     {
         manager.Owner.AIPath(false);
-        manager.Owner.Animator.SetBool(ETankyState.IsDead.ToString(), true);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.Dead, true);
+        //manager.Owner.Animator.SetBool(ETankyState.IsDead.ToString(), true);
         manager.Owner.transform.parent.GetComponentInChildren<Collider2D>().enabled = false;
     }
 
     public override void OnExit(TankyStateManager manager)
     {
-        manager.Owner.Animator.SetBool(ETankyState.IsDead.ToString(), false);
+        manager.Owner.SetAnimatorCondition(EntityBrain.AnimatorCondition.Dead);
+        //manager.Owner.Animator.SetBool(ETankyState.IsDead.ToString(), false);
     }
 
     public override void OnUpdate(TankyStateManager manager)

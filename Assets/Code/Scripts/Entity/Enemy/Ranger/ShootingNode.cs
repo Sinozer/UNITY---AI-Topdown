@@ -5,8 +5,6 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using UnityEngine;
-
 public class ShootingNode : ActionNode
 {
     EnemyBrain _brain;
@@ -22,7 +20,11 @@ public class ShootingNode : ActionNode
 
     public override void OnStop()
     {
-        _brain?.StopShooting();
+        Blackboard.TryFind("EnemyBrain", out _brain);
+        if (_brain == null)
+            return;
+
+        _brain.StopShooting();
     }
 
     public override State OnUpdate()
@@ -30,8 +32,8 @@ public class ShootingNode : ActionNode
         if (_brain == null)
             return State.Failure;
 
-        if (_brain.CanShootAtPlayer)
-            return State.Running;
+        //if (_brain.CanShootAtPlayer)
+        //    return State.Running;
 
         return State.Success;
     }

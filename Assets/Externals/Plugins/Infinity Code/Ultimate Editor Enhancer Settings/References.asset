@@ -309,6 +309,14 @@ MonoBehaviour:
     textColor: {r: 1, g: 1, b: 1, a: 1}
     textAlign: 1
     textStyle: 1
+  - enabled: 1
+    condition: 2
+    value: Player
+    trimChars: 
+    backgroundColor: {r: 0.754717, g: 0, b: 0.55961466, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textAlign: 0
+    textStyle: 1
   _quickAccessItems:
   - tooltip: Open Scene
     expanded: 0
@@ -682,10 +690,12 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
-  - name: Main_Level_1
-    path: Assets/Level/Scenes/Main_Level_1.unity
   - name: MainMenu
     path: Assets/Level/Scenes/MainMenu.unity
+  - name: Main_Level_1
+    path: Assets/Level/Scenes/Main_Level_1.unity
+  - name: Main - THEO
+    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   - name: Main_Level_2
     path: Assets/Level/Scenes/Main_Level_2.unity
   - name: Level2 - YOANN
@@ -694,8 +704,6 @@ MonoBehaviour:
     path: Assets/Level/Scenes/Main.unity
   - name: Level - YOANN
     path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
-  - name: Main - THEO
-    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   - name: Main - MATTHIEU
     path: Assets/Level/Scenes/Matthieu/Main - MATTHIEU.unity
   - name: TestScene

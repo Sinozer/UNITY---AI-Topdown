@@ -51,8 +51,8 @@ MonoBehaviour:
   Guid: 28402540d999f2b439aee26ee4daeacb
   Position: {x: -898.2506, y: 519}
   Blackboard: {fileID: 0}
-  _type: 0
-  _animatorCondition: 2
+  _type: 3
+  _animatorCondition: 4
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   Position: {x: -1339, y: 49.999985}
   Blackboard: {fileID: 0}
   _type: 3
-  _animatorCondition: 4
+  _animatorCondition: 6
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   Position: {x: 377.97006, y: 704}
   Blackboard: {fileID: 0}
   _type: 0
-  _animatorCondition: 1
+  _animatorCondition: 3
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   _animatorCondition: 0
   IntCondition: 0
   FloatCondition: 0
-  BoolCondition: 0
+  BoolCondition: 1
 --- !u!114 &-678441852874877233
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,14 +9,11 @@ using UnityEngine;
 
 public class HitterBrain : EnemyBrain
 {
-    [SerializeField] EnemyBTRunner _runner;
-
-
     protected override void Start()
     {
         base.Start();
         
-        _runner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
+        _btRunner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
 
     }
 
@@ -26,16 +23,15 @@ public class HitterBrain : EnemyBrain
 
         if (Enemy.IsDead)
         {
-            _runner.GetBlackboard().SetValue("IsDead", true);
+            _btRunner.GetBlackboard().SetValue("IsDead", true);
             return;
         }
 
         Player player = GameManager.Instance.Player;
 
-        _runner.GetBlackboard().SetValue("PlayerPosition", player != null ? (Vector2)player.transform.position : Vector2.zero);
-        _runner.GetBlackboard().SetValue("SeePlayer", SeePlayer);
-        _runner.GetBlackboard().SetValue("CanAttack", CanShootAtPlayer);
-
+        _btRunner.GetBlackboard().SetValue("PlayerPosition", player != null ? (Vector2)player.transform.position : Vector2.zero);
+        _btRunner.GetBlackboard().SetValue("SeePlayer", SeePlayer);
+        _btRunner.GetBlackboard().SetValue("CanAttack", CanShootAtPlayer);
     }
     
 }

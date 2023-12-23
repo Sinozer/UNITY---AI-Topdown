@@ -36,75 +36,75 @@ public class SetAnimatorParam : ActionNode
     private string[] _animatorConditionNames;
 
     public override void OnStart()
-{
-    if (!Blackboard.TryFind("EnemyBrain", out _brain))
     {
-        return;
+        if (!Blackboard.TryFind("EnemyBrain", out _brain))
+        {
+            return;
+        }
+        _animator = _brain.Animator;
+        _animatorConditionNames = Enum.GetNames(typeof(EnemyBrain.AnimatorCondition));
     }
-    _animator = _brain.Animator;
-    _animatorConditionNames = Enum.GetNames(typeof(EnemyBrain.AnimatorCondition));
-}
 
     public override void OnStop()
     {
-        
+
     }
 
     public override State OnUpdate()
-{
-    if (_animator == null || _brain == null)
-        return State.Failure;
-
-    SetAnimatorCondition(_animatorCondition);
-
-    return State.Success;
-}
-
-private void SetAnimatorCondition(EnemyBrain.AnimatorCondition trueCondition)
-{
-    var trueConditionName = _animatorConditionNames[(int)trueCondition];
-
-    AnimatorControllerParameter parameter = _animator.parameters.FirstOrDefault(p => p.name == trueConditionName);
-    if (parameter == null)
     {
-        Debug.LogError($"Animator does not have a parameter named {trueConditionName}");
-        return;
+        if (_animator == null || _brain == null)
+            return State.Failure;
+
+        SetAnimatorCondition(_animatorCondition);
+
+        return State.Success;
     }
 
-    switch (_type)
+    private void SetAnimatorCondition(EnemyBrain.AnimatorCondition trueCondition)
     {
-        case Type.BOOL:
-            if (parameter.type != AnimatorControllerParameterType.Bool)
-            {
-                Debug.LogError($"Animator parameter {trueConditionName} is not of type Bool");
-                return;
-            }
-            _animator.SetBool(trueConditionName, BoolCondition);
-            break;
-        case Type.INT:
-            if (parameter.type != AnimatorControllerParameterType.Int)
-            {
-                Debug.LogError($"Animator parameter {trueConditionName} is not of type Int");
-                return;
-            }
-            _animator.SetInteger(trueConditionName, IntCondition);
-            break;
-        case Type.FLOAT:
-            if (parameter.type != AnimatorControllerParameterType.Float)
-            {
-                Debug.LogError($"Animator parameter {trueConditionName} is not of type Float");
-                return;
-            }
-            _animator.SetFloat(trueConditionName, FloatCondition);
-            break;
-        case Type.TRIGGER:
-            if (parameter.type != AnimatorControllerParameterType.Trigger)
-            {
-                Debug.LogError($"Animator parameter {trueConditionName} is not of type Trigger");
-                return;
-            }
-            _animator.SetTrigger(trueConditionName);
-            break;
+        var trueConditionName = _animatorConditionNames[(int)trueCondition];
+
+        AnimatorControllerParameter parameter = _animator.parameters.FirstOrDefault(p => p.name == trueConditionName);
+        if (parameter == null)
+        {
+            Debug.LogError($"Animator does not have a parameter named {trueConditionName}");
+            return;
+        }
+
+        switch (_type)
+        {
+            case Type.BOOL:
+                if (parameter.type != AnimatorControllerParameterType.Bool)
+                {
+                    Debug.LogError($"Animator parameter {trueConditionName} is not of type Bool");
+                    return;
+                }
+                _animator.SetBool(trueConditionName, BoolCondition);
+                break;
+            case Type.INT:
+                if (parameter.type != AnimatorControllerParameterType.Int)
+                {
+                    Debug.LogError($"Animator parameter {trueConditionName} is not of type Int");
+                    return;
+                }
+                _animator.SetInteger(trueConditionName, IntCondition);
+                break;
+            case Type.FLOAT:
+                if (parameter.type != AnimatorControllerParameterType.Float)
+                {
+                    Debug.LogError($"Animator parameter {trueConditionName} is not of type Float");
+                    return;
+                }
+                _animator.SetFloat(trueConditionName, FloatCondition);
+                break;
+            case Type.TRIGGER:
+                if (parameter.type != AnimatorControllerParameterType.Trigger)
+                {
+                    Debug.LogError($"Animator parameter {trueConditionName} is not of type Trigger");
+                    return;
+                }
+                _animator.SetTrigger(trueConditionName);
+                break;
+        }
     }
-}
 }

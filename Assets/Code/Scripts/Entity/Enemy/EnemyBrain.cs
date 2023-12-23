@@ -11,20 +11,13 @@ using UnityEngine;
 
 public class EnemyBrain : EntityBrain
 {
-    public enum AnimatorCondition
-    {
-        Idle,
-        Run,
-        Attack,
-        Hit,
-        Dead
-    }
-    
     public Action Die => Entity.Die;
     public bool SeePlayer => Enemy.DistFromPlayer < Entity.VisionRange;
     public bool CanShootAtPlayer => Enemy.DistFromPlayer < Entity.AttackRange;
-    
-    
+
+
+    [SerializeField] protected EnemyBTRunner _btRunner;
+
     [SerializeField] protected EntityShoot _entityShooting;
     [SerializeField] protected AIPath _aiPath;
     [SerializeField] protected CustomPatrol _customPatrol;
@@ -34,6 +27,21 @@ public class EnemyBrain : EntityBrain
 
     protected virtual void Awake()
     {
+        if (_btRunner == null)
+            _btRunner = transform.root.GetComponentInChildren<EnemyBTRunner>();
+
+        if (_entityShooting == null)
+            _entityShooting = transform.root.GetComponentInChildren<EntityShoot>();
+
+        if (_aiPath == null)
+            _aiPath = transform.root.GetComponentInChildren<AIPath>();
+
+        if (_customPatrol == null)
+            _customPatrol = transform.root.GetComponentInChildren<CustomPatrol>();
+
+        if (_customDestinationSetter == null)
+            _customDestinationSetter = transform.root.GetComponentInChildren<CustomDestinationSetter>();
+
         _customPatrol.enabled = false;
         _customDestinationSetter.enabled = false;
         _aiPath.enabled = true;

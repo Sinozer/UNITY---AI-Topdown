@@ -5,10 +5,6 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using Pathfinding;
-using System;
-using UnityEngine;
-
 public class TankyBrain : EnemyBrain
 {
     public bool EndActivatingAnim => _endActivating;

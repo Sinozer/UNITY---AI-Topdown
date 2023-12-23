@@ -5,12 +5,8 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using UnityEngine;
-
 public class RangerBrain : EnemyBrain
 {
-    [SerializeField] private EnemyBTRunner _btRunner;
-
     protected override void Start()
     {
         base.Start();
@@ -25,15 +21,15 @@ public class RangerBrain : EnemyBrain
     {
         if (Alive)
         {
-            _btRunner?.GetBlackboard().SetValue("SeePlayer", SeePlayer);
-            _btRunner?.GetBlackboard().SetValue("CanShoot", CanShootAtPlayer);
+            _btRunner.GetBlackboard().SetValue("SeePlayer", SeePlayer);
+            _btRunner.GetBlackboard().SetValue("CanShoot", CanShootAtPlayer);
         }
 
         if (Dead)
         {
-            _btRunner?.GetBlackboard().SetValue("IsDead", true);
-            _btRunner?.GetBlackboard().SetValue("SeePlayer", false);
-            _btRunner?.GetBlackboard().SetValue("CanShoot", false);
+            _btRunner.GetBlackboard().SetValue("IsDead", true);
+            _btRunner.GetBlackboard().SetValue("SeePlayer", false);
+            _btRunner.GetBlackboard().SetValue("CanShoot", false);
         }
     }
 

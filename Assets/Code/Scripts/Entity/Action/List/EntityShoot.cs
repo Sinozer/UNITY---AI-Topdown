@@ -16,6 +16,9 @@ public class EntityShoot : EntityChild, IEntityAction
     [SerializeField] private AudioSource _shootSound;
     [SerializeField] private SOProjectile _projectileData;
 
+    public float LastTimeShot => _lastTimeShot;
+    private float _lastTimeShot;
+
     private Vector2 _direction;
     private GameObject _target;
     private Vector2 _targetPosition;
@@ -88,14 +91,19 @@ public class EntityShoot : EntityChild, IEntityAction
 
             Destroy(projectile, _projectileData.LifeTime);
 
+            // Store the last time the entity shot
+            _lastTimeShot = Time.time;
+
             yield return new WaitForSeconds(1 / Entity.AttackSpeed);
         }
     }
 
     public void StartShooting()
     {
-        if (_shootCoroutine != null)
+        if (_shootCoroutine != null || _lastTimeShot + 1 / Entity.AttackSpeed > Time.time)
             return;
+
+        Debug.Log("Last time shot: " + _lastTimeShot + " Time: " + Time.time);
 
         _shootCoroutine = StartCoroutine(Shoot());
     }

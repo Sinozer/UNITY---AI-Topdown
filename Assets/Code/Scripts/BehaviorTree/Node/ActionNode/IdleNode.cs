@@ -22,12 +22,12 @@ public class IdleNode : ActionNode
 
     public override void OnStop()
     {
-        _brain?.AIPath(true);
+        Blackboard.TryFind("EnemyBrain", out _brain);
+        _brain.AIPath(true);
     }
 
     public override State OnUpdate()
     {
-        //Debug.Log("Idle update");
         if (_self == null)
             return State.Failure;
 

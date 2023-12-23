@@ -15,7 +15,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: c10b7845d6d4a15468dfcf643ed978d9
-  Position: {x: 75, y: 1304.8}
+  Position: {x: 548.5449, y: 909.1301}
   Blackboard: {fileID: 0}
 --- !u!114 &-7415059327291037406
 MonoBehaviour:
@@ -32,7 +32,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: aa056a22156cca648b9d8f90dfb37058
-  Position: {x: 830, y: 594}
+  Position: {x: 1072.0825, y: 517.36}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: 8038415138250045678}
@@ -54,7 +54,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 647ab08c53ee9db49853451335c5f749
-  Position: {x: 629, y: 1333.8}
+  Position: {x: 1126, y: 908}
   Blackboard: {fileID: 0}
   _duration: AttackSpeed
 --- !u!114 &-7011485699955421079
@@ -72,7 +72,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 57967f8f185872c48bbe955a4ac7c269
-  Position: {x: 1802, y: 1138}
+  Position: {x: 2319.818, y: 779.16504}
   Blackboard: {fileID: 0}
 --- !u!114 &-6640378195101659053
 MonoBehaviour:
@@ -89,7 +89,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 6ed8e79c842ef5a4b9a234aaad73e3d6
-  Position: {x: 766.00024, y: 984.00006}
+  Position: {x: 1346.005, y: 777.3875}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: SeePlayer
@@ -113,7 +113,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: e36c70ae8427ff3428b664b23aa51be5
-  Position: {x: 163.32254, y: 531.0001}
+  Position: {x: 152.29001, y: 521.9675}
   Blackboard: {fileID: 0}
 --- !u!114 &-5296518685063950475
 MonoBehaviour:
@@ -130,7 +130,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: f96abe77427860948b5c67c9d3d6b0be
-  Position: {x: 1155, y: 1005}
+  Position: {x: 1694.005, y: 777.3875}
   Blackboard: {fileID: 0}
 --- !u!114 &-4660252231281067831
 MonoBehaviour:
@@ -147,13 +147,12 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 9060a4014738da64f97bd657d97fb1ae
-  Position: {x: 395, y: 1122}
+  Position: {x: 835.43994, y: 777.92004}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: -8977549025667015755}
   - {fileID: 4373240363534352852}
   - {fileID: 6188034936772204326}
-  - {fileID: 6907995792305002099}
   - {fileID: -7234896003632139922}
   executeAllEachFrame: 0
 --- !u!114 &-4357289321079846350
@@ -171,10 +170,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: d415ca228702cb847940fe68f670c417
-  Position: {x: 1621, y: 1202}
+  Position: {x: 2137.4954, y: 778.36255}
   Blackboard: {fileID: 0}
   _type: 0
-  _animatorCondition: 1
+  _animatorCondition: 3
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 1
@@ -193,7 +192,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 1
   Guid: 70ceb1320e5decb48812ed6a5dc1349a
-  Position: {x: 422.39996, y: -2.9920044}
+  Position: {x: 438, y: 28}
   Blackboard: {fileID: 0}
   Child: {fileID: 4096845785200190805}
 --- !u!114 &-3651149654743280346
@@ -211,10 +210,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 38cba21b7e19d3e4e93226ef83f2277c
-  Position: {x: 13, y: 583}
+  Position: {x: -34.709995, y: 521.9675}
   Blackboard: {fileID: 0}
   _type: 3
-  _animatorCondition: 4
+  _animatorCondition: 6
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
@@ -233,7 +232,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: e4756cfec49a6504e8bc2677a6da9f9e
-  Position: {x: 642, y: 418.00003}
+  Position: {x: 793.8075, y: 389.0325}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: 7219361104164137290}
@@ -254,7 +253,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: e7f8706ecc7319444bd4a4bc0cf274e6
-  Position: {x: -56.372528, y: 378}
+  Position: {x: -42.710052, y: 389.9675}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: 7876838680062826820}
@@ -533,7 +532,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 5daf5b0d7b297924d9dbf6dc886c8940
-  Position: {x: 885.0001, y: 766.00006}
+  Position: {x: 1481.005, y: 648.3876}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: -6640378195101659053}
@@ -555,10 +554,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 085ccea264c97094caf64be1f1189308
-  Position: {x: 960.1398, y: 1021.0001}
+  Position: {x: 1509.0051, y: 778.38763}
   Blackboard: {fileID: 0}
   _type: 0
-  _animatorCondition: 1
+  _animatorCondition: 3
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 1
@@ -591,7 +590,6 @@ MonoBehaviour:
   - {fileID: 7852692166951507168}
   - {fileID: 4682740223576711025}
   - {fileID: -7234896003632139922}
-  - {fileID: 6907995792305002099}
   - {fileID: 8038415138250045678}
   - {fileID: -573824711371807523}
   - {fileID: 6188034936772204326}
@@ -620,7 +618,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 9ac83ea492a8df84195f4f0e6060fea2
-  Position: {x: 429.59998, y: 130.40002}
+  Position: {x: 438, y: 132}
   Blackboard: {fileID: 0}
   Child: {fileID: 7528733780344594038}
 --- !u!114 &4373240363534352852
@@ -638,10 +636,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 871f6399af331aa43b5edde4b1a05359
-  Position: {x: 240.49994, y: 1186}
+  Position: {x: 733.4174, y: 907.64764}
   Blackboard: {fileID: 0}
   _type: 0
-  _animatorCondition: 1
+  _animatorCondition: 3
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
@@ -660,7 +658,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: b235400d2c5ab4a4597e90fc5fbf314b
-  Position: {x: 1440, y: 1174}
+  Position: {x: 1968.3976, y: 776.81256}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: SeePlayer
@@ -684,7 +682,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 04f0fdd675bb6314aaca0066adff5144
-  Position: {x: 251, y: 960}
+  Position: {x: 483.80753, y: 777.2651}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: CanAttack
@@ -708,31 +706,13 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: addc2ee282d68cc45a45261d1e0efec9
-  Position: {x: 330, y: 1438.8}
+  Position: {x: 938.51746, y: 908.065}
   Blackboard: {fileID: 0}
   _type: 3
-  _animatorCondition: 2
+  _animatorCondition: 4
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
---- !u!114 &6907995792305002099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c61b8d40bc6e604896ba18932c237cb, type: 3}
-  m_Name: DebugLogNode
-  m_EditorClassIdentifier: 
-  CurrentState: 0
-  Started: 0
-  Guid: d1ceda11b0b2cfa4fa37456e3ea5dc96
-  Position: {x: 511, y: 1421.8}
-  Blackboard: {fileID: 0}
-  Message: PAF
 --- !u!114 &7105931485008068810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,10 +728,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: a0476516db34b634fa5434013ec77408
-  Position: {x: -191, y: 583}
+  Position: {x: -215.70999, y: 520.9675}
   Blackboard: {fileID: 0}
   _type: 0
-  _animatorCondition: 1
+  _animatorCondition: 3
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 1
@@ -770,7 +750,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: fbba50c442aeddf439e7a5225245c84e
-  Position: {x: 465.32248, y: 597}
+  Position: {x: 588.05756, y: 519.0375}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: IsDead
@@ -815,7 +795,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 5b3d750a8c90dbe4ea09f144adf4df1e
-  Position: {x: 1543, y: 952}
+  Position: {x: 2084.6226, y: 647.3875}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: 4682740223576711025}
@@ -837,7 +817,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: a8a96a33a4cfc044085181d32c18c7d6
-  Position: {x: -355, y: 539}
+  Position: {x: -386.71005, y: 521.9675}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: IsDead
@@ -861,7 +841,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 439ebe6b9cd659742ae2d1575c5f1560
-  Position: {x: 433, y: 774}
+  Position: {x: 706.80505, y: 648.1325}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: 5292352449062967114}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c055b6e2f699f594584054c50da2b836, type: 3}
-  m_Name: NormalWave
+  m_Name: '#Test'
   m_EditorClassIdentifier: Assembly-CSharp::SOWave
   serializationData:
     SerializedFormat: 2
@@ -23,6 +23,6 @@ MonoBehaviour:
     SerializationNodes: []
   _enemies:
   - _entity: {fileID: 6442645273211949174, guid: 3c6d9094b12850a4f9d9eb44e3f370e2, type: 3}
-    _numberOfEnemies: 6
-  _timeBetweenSpawns: 1
-  _timeBetweenEnemyTypes: 0
+    _numberOfEnemies: 2
+  _timeBetweenSpawns: 2
+  _timeBetweenEnemyTypes: 2
