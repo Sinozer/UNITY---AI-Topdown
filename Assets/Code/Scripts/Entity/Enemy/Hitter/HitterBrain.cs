@@ -30,8 +30,8 @@ public class HitterBrain : EnemyBrain
         Player player = GameManager.Instance.Player;
 
         _btRunner.GetBlackboard().SetValue("PlayerPosition", player != null ? (Vector2)player.transform.position : Vector2.zero);
-        _btRunner.GetBlackboard().SetValue("SeePlayer", SeePlayer);
-        _btRunner.GetBlackboard().SetValue("CanAttack", CanShootAtPlayer);
+        _btRunner.GetBlackboard().SetValue("SeePlayer", IsInVisionRange);
+        _btRunner.GetBlackboard().SetValue("CanAttack", IsInShootRange);
     }
     
 }

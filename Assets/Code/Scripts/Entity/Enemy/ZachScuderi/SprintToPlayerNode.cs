@@ -30,7 +30,7 @@ public class SprintToPlayerNode : ActionNode
         if (_self == null)
             return State.Failure;
 
-        if (_brain.CanShootAtPlayer)
+        if (_brain.IsInShootRange)
             return State.Success;
         
        

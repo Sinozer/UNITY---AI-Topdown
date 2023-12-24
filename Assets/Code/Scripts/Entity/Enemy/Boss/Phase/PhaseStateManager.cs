@@ -105,13 +105,13 @@ public class PhaseIdleState : BaseState<PhaseStateManager, PhaseStateManager.EPh
     {
         CheckEnded(manager);
 
-        if (manager.Owner.BossBrain.CanShootAtPlayer)
+        if (manager.Owner.BossBrain.IsInShootRange)
         {
             manager.ChangeState(PhaseStateManager.EPhaseState.Attack);
             return;
         }
 
-        if (manager.Owner.BossBrain.SeePlayer)
+        if (manager.Owner.BossBrain.IsInVisionRange)
         {
             manager.ChangeState(PhaseStateManager.EPhaseState.Move);
             return;
@@ -149,13 +149,13 @@ public class PhasePatrolState : BaseState<PhaseStateManager, PhaseStateManager.E
     {
         CheckEnded(manager);
 
-        if (manager.Owner.BossBrain.CanShootAtPlayer)
+        if (manager.Owner.BossBrain.IsInShootRange)
         {
             manager.ChangeState(PhaseStateManager.EPhaseState.Attack);
             return;
         }
 
-        if (manager.Owner.BossBrain.SeePlayer)
+        if (manager.Owner.BossBrain.IsInVisionRange)
         {
             manager.ChangeState(PhaseStateManager.EPhaseState.Move);
             return;
@@ -209,13 +209,13 @@ public class PhaseMoveState : BaseState<PhaseStateManager, PhaseStateManager.EPh
                 break;
         }
 
-        if (manager.Owner.BossBrain.CanShootAtPlayer)
+        if (manager.Owner.BossBrain.IsInShootRange)
         {
             manager.ChangeState(PhaseStateManager.EPhaseState.Attack);
             return;
         }
 
-        if (manager.Owner.BossBrain.SeePlayer)
+        if (manager.Owner.BossBrain.IsInVisionRange)
             return;
 
         manager.ChangeState(PhaseStateManager.EPhaseState.Idle);
@@ -276,10 +276,10 @@ public class PhaseAttackState : BaseState<PhaseStateManager, PhaseStateManager.E
                 break;
         }
 
-        if (manager.Owner.BossBrain.CanShootAtPlayer)
+        if (manager.Owner.BossBrain.IsInShootRange)
             return;
 
-        if (manager.Owner.BossBrain.SeePlayer)
+        if (manager.Owner.BossBrain.IsInVisionRange)
         {
             manager.ChangeState(PhaseStateManager.EPhaseState.Move);
             return;

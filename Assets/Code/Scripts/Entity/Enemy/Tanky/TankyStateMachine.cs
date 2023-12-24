@@ -62,7 +62,7 @@ public class IdleState : BaseState<TankyStateManager, TankyStateManager.ETankySt
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
         }
-        if (manager.Owner.SeePlayer)
+        if (manager.Owner.IsInVisionRange)
         {
             manager.ChangeState(TankyStateManager.ETankyState.Activating);
             return;
@@ -119,12 +119,12 @@ public class IdleActivatedState : BaseState<TankyStateManager, TankyStateManager
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
         }
-        if (manager.Owner.CanShootAtPlayer)
+        if (manager.Owner.IsInShootRange)
         {
             manager.ChangeState(TankyStateManager.ETankyState.Attacking);
             return;
         }
-        if (manager.Owner.SeePlayer)
+        if (manager.Owner.IsInVisionRange)
         {
             manager.ChangeState(TankyStateManager.ETankyState.FollowingPlayer);
             return;
@@ -155,12 +155,12 @@ public class FollowingPlayerState : BaseState<TankyStateManager, TankyStateManag
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
         }
-        if (manager.Owner.CanShootAtPlayer)
+        if (manager.Owner.IsInShootRange)
         {
             manager.ChangeState(TankyStateManager.ETankyState.Attacking);
             return;
         }
-        if (manager.Owner.SeePlayer == false)
+        if (manager.Owner.IsInVisionRange == false)
         {
             manager.ChangeState(TankyStateManager.ETankyState.Patrolling);
             return;
@@ -191,7 +191,7 @@ public class PatrollingState : BaseState<TankyStateManager, TankyStateManager.ET
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
         }
-        if (manager.Owner.SeePlayer)
+        if (manager.Owner.IsInVisionRange)
         {
             manager.ChangeState(TankyStateManager.ETankyState.FollowingPlayer);
             return;
@@ -222,12 +222,12 @@ public class AttackingState : BaseState<TankyStateManager, TankyStateManager.ETa
             manager.ChangeState(TankyStateManager.ETankyState.IsDead);
             return;
         }
-        if (manager.Owner.SeePlayer == false)
+        if (manager.Owner.IsInVisionRange == false)
         {
             manager.ChangeState(TankyStateManager.ETankyState.Patrolling);
             return;
         }
-        if (manager.Owner.CanShootAtPlayer == false)
+        if (manager.Owner.IsInShootRange == false)
         {
             manager.ChangeState(TankyStateManager.ETankyState.FollowingPlayer);
             return;

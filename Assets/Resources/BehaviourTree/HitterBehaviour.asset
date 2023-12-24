@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8f82a8a26f169c4ba4852e783c93690, type: 3}
-  m_Name: BTHitter
+  m_Name: HitterBehaviour
   m_EditorClassIdentifier: 
   Blackboard: {fileID: -2301573941855121565}
   RootNode: {fileID: -4090105311848525082}

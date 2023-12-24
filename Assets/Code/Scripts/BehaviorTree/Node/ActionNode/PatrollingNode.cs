@@ -30,7 +30,7 @@ public class PatrollingNode : ActionNode
         if (_self == null)
             return State.Failure;
 
-        if (!_brain.SeePlayer)
+        if (!_brain.IsInVisionRange)
             return State.Running;
 
         return State.Success;

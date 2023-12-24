@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360a6a1554d8ac643934a3e91d9f0d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _btRunner: {fileID: 0}
   _entityShooting: {fileID: 3004115849309751593}
   _aiPath: {fileID: 8246023904421043574}
   _customPatrol: {fileID: 5938879445708514836}
   _customDestinationSetter: {fileID: 1721160554523819356}
-  _runner: {fileID: 6339041280624246180}
 --- !u!1 &2921091252996235609
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +336,6 @@ GameObject:
   - component: {fileID: 189233464504881019}
   - component: {fileID: 6911678311760679765}
   - component: {fileID: 1022957764160296384}
-  - component: {fileID: 5282714665573219095}
   - component: {fileID: 5521335657411567162}
   m_Layer: 31
   m_Name: Render
@@ -433,18 +432,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5282714665573219095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6699824516727120118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5237129e5becce044bfde03df6220fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5521335657411567162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,7 +807,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 5006468203164486030}
   _shootSound: {fileID: 7100564394936597754}
   _projectileData: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
 --- !u!114 &6339041280624246180

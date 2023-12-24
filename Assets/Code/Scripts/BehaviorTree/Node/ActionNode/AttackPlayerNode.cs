@@ -30,7 +30,7 @@ public class AttackPlayerNode : ActionNode
         if (_self == null)
             return State.Failure;
         
-        if (!_brain.CanShootAtPlayer) return State.Failure;
+        if (!_brain.IsInShootRange) return State.Failure;
         
         _brain.AttackPlayer();
 

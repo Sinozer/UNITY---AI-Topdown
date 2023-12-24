@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9132122001924413861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: aee2efaf02c4337418ceb7eb956da1a9
+  Position: {x: 108.19514, y: 124.065}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: 6481380490406220249}
+  - {fileID: -8245438647649587141}
+  - {fileID: -4459084633035952700}
+  executeAllEachFrame: 1
+--- !u!114 &-8689569051509917416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
+  m_Name: ConditionNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 88a16160e586b4149ac2f69fda20202c
+  Position: {x: 561.5176, y: 512.935}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _conditionName: IsInShootRange
+  _not: 1
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
 --- !u!114 &-8245438647649587141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +61,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 913b3a5da79c58b42b92df7f53097f29
-  Position: {x: -0.030040741, y: 406.99997}
+  Position: {x: 194.93762, y: 253.06502}
   Blackboard: {fileID: 0}
 --- !u!114 &-7328310860414098997
 MonoBehaviour:
@@ -32,7 +78,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 404d7a3dd802ac14a9aca5d517f2d089
-  Position: {x: -1125.0002, y: 26.000008}
+  Position: {x: -155, y: 254}
   Blackboard: {fileID: 0}
 --- !u!114 &-5685805149340585773
 MonoBehaviour:
@@ -49,10 +95,32 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 28402540d999f2b439aee26ee4daeacb
-  Position: {x: -898.2506, y: 519}
+  Position: {x: -4.034977, y: 512.8775}
   Blackboard: {fileID: 0}
-  _type: 3
+  _type: 0
   _animatorCondition: 4
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 1
+--- !u!114 &-5616943711450295898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: a37c0cf1958478f4dbef9e622e5047f2
+  Position: {x: 647.51746, y: 771.935}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _animatorCondition: 3
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
@@ -71,13 +139,13 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 1b5dcd5138d15254a96a36060cfb1de4
-  Position: {x: -1211.0002, y: -159.99997}
+  Position: {x: -339, y: 124}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: 8835218176138607440}
   - {fileID: -3270951710524819760}
   - {fileID: -7328310860414098997}
-  executeAllEachFrame: 0
+  executeAllEachFrame: 1
 --- !u!114 &-5056357439327436899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,13 +161,56 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: f6e39880df6871249b8b1966c74d62f3
-  Position: {x: 639.6622, y: -152.00005}
+  Position: {x: 1099.5175, y: 641.935}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: -2557512782557046826}
   - {fileID: -1135388636058136092}
   - {fileID: -2090101260818490045}
-  executeAllEachFrame: 0
+  - {fileID: -3006472947372961820}
+  executeAllEachFrame: 1
+--- !u!114 &-4459084633035952700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e800d53ee779c094db9028931aaccab9, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: ddfdd2078362fb54491adb3ee49c1c56
+  Position: {x: 351.745, y: 253.06502}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: 848776904533420252}
+  - {fileID: -3622518143657063175}
+  executeAllEachFrame: 1
+--- !u!114 &-3622518143657063175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 4cd329659418b7e4f90aed3cc135f42e
+  Position: {x: 644.5176, y: 382.93503}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: -8689569051509917416}
+  - {fileID: 4844214218976129616}
+  executeAllEachFrame: 1
 --- !u!114 &-3270951710524819760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,10 +226,32 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 29ef784b7027ddf439f0ed667e031f79
-  Position: {x: -1339, y: 49.999985}
+  Position: {x: -327, y: 254}
   Blackboard: {fileID: 0}
   _type: 3
   _animatorCondition: 6
+  IntCondition: 0
+  FloatCondition: 0
+  BoolCondition: 0
+--- !u!114 &-3006472947372961820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce566d0dbbf21046ac4f52f1c8ef3eb, type: 3}
+  m_Name: SetAnimatorParam
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 903dadd3eb4ffc745a2a6034a36e35d7
+  Position: {x: 1354.5175, y: 771.935}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _animatorCondition: 3
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 0
@@ -155,10 +288,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: e4b65e22ee84d8242807df6345ff5f35
-  Position: {x: 511.66223, y: 62.999954}
+  Position: {x: 860.5176, y: 771.935}
   Blackboard: {fileID: 0}
   _type: 0
-  _conditionName: SeePlayer
+  _conditionName: IsInVisionRange
   _not: 1
   CalcOperator: 0
   IntCondition: 0
@@ -179,7 +312,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 5f2b32751e80c194fa8f5f95646a9004
-  Position: {x: 377.97006, y: 704}
+  Position: {x: 304.5175, y: 771.935}
   Blackboard: {fileID: 0}
   _type: 0
   _animatorCondition: 3
@@ -201,7 +334,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 71e9ae24f0b715c4da681d37f9c2b3da
-  Position: {x: 868.00006, y: 50.00006}
+  Position: {x: 1197.5176, y: 771.935}
   Blackboard: {fileID: 0}
 --- !u!114 &-1793383679326076135
 MonoBehaviour:
@@ -218,10 +351,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 6f83f15c2688794429062b4a9753e6e1
-  Position: {x: 130.96994, y: 704}
+  Position: {x: 147.51752, y: 771.935}
   Blackboard: {fileID: 0}
   _type: 0
-  _conditionName: SeePlayer
+  _conditionName: IsInVisionRange
   _not: 0
   CalcOperator: 0
   IntCondition: 0
@@ -242,10 +375,10 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 02b7421247403e74885eff7682d89d4c
-  Position: {x: 686.6621, y: 81.999985}
+  Position: {x: 1019.5175, y: 771.935}
   Blackboard: {fileID: 0}
   _type: 0
-  _animatorCondition: 0
+  _animatorCondition: 3
   IntCondition: 0
   FloatCondition: 0
   BoolCondition: 1
@@ -282,7 +415,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 0f6e677963dea0348957f202330c56e7
-  Position: {x: 623.9701, y: 712}
+  Position: {x: 477.51752, y: 771.935}
   Blackboard: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -294,7 +427,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8f82a8a26f169c4ba4852e783c93690, type: 3}
-  m_Name: ZachBehavior
+  m_Name: ZachBehaviour
   m_EditorClassIdentifier: 
   Blackboard: {fileID: 6241023734487491337}
   RootNode: {fileID: -2788459580523054953}
@@ -314,14 +447,22 @@ MonoBehaviour:
   - {fileID: 8835218176138607440}
   - {fileID: -3270951710524819760}
   - {fileID: -7328310860414098997}
-  - {fileID: 6323026702781951687}
   - {fileID: 6754064017184938064}
   - {fileID: -8245438647649587141}
   - {fileID: -5056357439327436899}
   - {fileID: -2557512782557046826}
   - {fileID: -1135388636058136092}
   - {fileID: -2090101260818490045}
-  - {fileID: 6797548675108784695}
+  - {fileID: 9180643590260132586}
+  - {fileID: -3006472947372961820}
+  - {fileID: -5616943711450295898}
+  - {fileID: 8217315283515317773}
+  - {fileID: -4459084633035952700}
+  - {fileID: 6481380490406220249}
+  - {fileID: -9132122001924413861}
+  - {fileID: -3622518143657063175}
+  - {fileID: -8689569051509917416}
+  - {fileID: 4844214218976129616}
 --- !u!114 &848776904533420252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,13 +478,14 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: fd8e0b92f26c06a4a847b4df9dc18be3
-  Position: {x: -660.00006, y: 255.13005}
+  Position: {x: -14.035011, y: 383.8775}
   Blackboard: {fileID: 0}
   Children:
+  - {fileID: 8217315283515317773}
   - {fileID: 1274348464155391477}
   - {fileID: -5685805149340585773}
   - {fileID: 6754064017184938064}
-  - {fileID: 6797548675108784695}
+  - {fileID: 9180643590260132586}
   executeAllEachFrame: 1
 --- !u!114 &1274348464155391477
 MonoBehaviour:
@@ -360,11 +502,11 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 9bd61cffff6038a48bc8328e8fe0b397
-  Position: {x: -1082.2506, y: 482.99997}
+  Position: {x: -160.035, y: 512.8775}
   Blackboard: {fileID: 0}
   _type: 0
-  _conditionName: CanAttack
-  _not: 0
+  _conditionName: IsInShootCooldown
+  _not: 1
   CalcOperator: 0
   IntCondition: 0
   FloatCondition: 0
@@ -384,12 +526,34 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 0dc0233fae7a6c345ab35b0b99d84884
-  Position: {x: 285.96994, y: 398.99997}
+  Position: {x: 398.51752, y: 641.935}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: -1793383679326076135}
   - {fileID: -2097893441931255794}
   - {fileID: -110411000026916340}
+  - {fileID: -5616943711450295898}
+  executeAllEachFrame: 1
+--- !u!114 &4844214218976129616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e800d53ee779c094db9028931aaccab9, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: a7925b1cfa173604d9441e54ed4afe70
+  Position: {x: 735.51746, y: 512.935}
+  Blackboard: {fileID: 0}
+  Children:
+  - {fileID: 1602215083361962095}
+  - {fileID: -5056357439327436899}
   executeAllEachFrame: 1
 --- !u!114 &6241023734487491337
 MonoBehaviour:
@@ -481,13 +645,13 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: CanAttack
+      Data: IsInShootCooldown
     - Name: $v
       Entry: 5
       Data: false
@@ -499,7 +663,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: SeePlayer
+      Data: IsInVisionRange
     - Name: $v
       Entry: 5
       Data: false
@@ -512,6 +676,18 @@ MonoBehaviour:
     - Name: $k
       Entry: 1
       Data: IsDead
+    - Name: $v
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: IsInShootRange
     - Name: $v
       Entry: 5
       Data: false
@@ -656,7 +832,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!114 &6323026702781951687
+--- !u!114 &6481380490406220249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -665,18 +841,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9425c4c91471cba4093447201af16fef, type: 3}
-  m_Name: SequencerNode
+  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
+  m_Name: ConditionNode
   m_EditorClassIdentifier: 
   CurrentState: 0
   Started: 0
-  Guid: 4c86b7bcf1638af42b254c7f212e1ad8
-  Position: {x: 121.96994, y: 207}
+  Guid: d8a0e23c36c2a0a4187a200e432c8985
+  Position: {x: 35.19514, y: 253.06502}
   Blackboard: {fileID: 0}
-  Children:
-  - {fileID: -8245438647649587141}
-  - {fileID: 1602215083361962095}
-  executeAllEachFrame: 1
+  _type: 0
+  _conditionName: IsDead
+  _not: 1
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
 --- !u!114 &6754064017184938064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,24 +871,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: b5963fcf75375004abeb07beb2687bf4
-  Position: {x: -700.2506, y: 527}
-  Blackboard: {fileID: 0}
---- !u!114 &6797548675108784695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d1d2884193dde42993328834c42ee0, type: 3}
-  m_Name: RangerShoot
-  m_EditorClassIdentifier: 
-  CurrentState: 0
-  Started: 0
-  Guid: b67cf3da4f208d04c904de4d84124bbd
-  Position: {x: -473.20328, y: 490.99997}
+  Position: {x: 167.96501, y: 512.8775}
   Blackboard: {fileID: 0}
 --- !u!114 &7040020888127370011
 MonoBehaviour:
@@ -726,14 +888,36 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: bf83fe401ed4e3545bb3df8c8f10b1fb
-  Position: {x: -74, y: 18}
+  Position: {x: -82, y: -5}
   Blackboard: {fileID: 0}
   Children:
   - {fileID: -5434654519616186449}
-  - {fileID: 848776904533420252}
-  - {fileID: 6323026702781951687}
-  - {fileID: -5056357439327436899}
+  - {fileID: -9132122001924413861}
   executeAllEachFrame: 1
+--- !u!114 &8217315283515317773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17b437ae81559245bad95b0b84fe10f, type: 3}
+  m_Name: ConditionNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 455d867886a35f84a93111bc2955fd91
+  Position: {x: -320.03497, y: 512.8775}
+  Blackboard: {fileID: 0}
+  _type: 0
+  _conditionName: IsInShootRange
+  _not: 0
+  CalcOperator: 0
+  IntCondition: 0
+  FloatCondition: 0
+  StringCondition: 
 --- !u!114 &8835218176138607440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,7 +933,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 7d8496491595e164f8b2309c657801a8
-  Position: {x: -1502.7728, y: 14.1325}
+  Position: {x: -483, y: 254}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: IsDead
@@ -758,3 +942,20 @@ MonoBehaviour:
   IntCondition: 0
   FloatCondition: 0
   StringCondition: 
+--- !u!114 &9180643590260132586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae1e1d699eb178448cbdec010663ab9, type: 3}
+  m_Name: ShootingNode
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  Started: 0
+  Guid: 3b740312f0fa5e74fad3f54917de8fb6
+  Position: {x: 322.965, y: 512.8775}
+  Blackboard: {fileID: 0}

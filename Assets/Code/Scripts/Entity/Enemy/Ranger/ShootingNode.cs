@@ -7,12 +7,11 @@
 
 public class ShootingNode : ActionNode
 {
-    EnemyBrain _brain;
+    private EnemyBrain _brain;
 
     public override void OnStart()
     {
-        Blackboard.TryFind("EnemyBrain", out _brain);
-        if (_brain == null)
+        if (Blackboard.TryFind("EnemyBrain", out _brain) == false)
             return;
         
         _brain.StartShooting();
@@ -20,8 +19,7 @@ public class ShootingNode : ActionNode
 
     public override void OnStop()
     {
-        Blackboard.TryFind("EnemyBrain", out _brain);
-        if (_brain == null)
+        if (Blackboard.TryFind("EnemyBrain", out _brain) == false)
             return;
 
         _brain.StopShooting();

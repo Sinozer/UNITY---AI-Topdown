@@ -12,8 +12,8 @@ using UnityEngine;
 public class EnemyBrain : EntityBrain
 {
     public Action Die => Entity.Die;
-    public bool SeePlayer => Enemy.DistFromPlayer < Entity.VisionRange;
-    public bool CanShootAtPlayer => Enemy.DistFromPlayer < Entity.AttackRange;
+    public bool IsInVisionRange => Enemy.DistFromPlayer < Entity.VisionRange;
+    public bool IsInShootRange => Enemy.DistFromPlayer < Entity.AttackRange;
 
 
     [SerializeField] protected EnemyBTRunner _btRunner;

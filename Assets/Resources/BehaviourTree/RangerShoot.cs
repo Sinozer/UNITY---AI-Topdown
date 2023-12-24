@@ -5,8 +5,6 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using UnityEngine;
-
 public class RangerShoot : ActionNode
 {
     private EnemyBrain _brain;
@@ -38,7 +36,7 @@ public class RangerShoot : ActionNode
 
     public override State OnUpdate()
     {
-        if (_brain.CanShootAtPlayer)
+        if (_brain.IsInShootRange)
             return State.Running;
         
         return State.Failure;

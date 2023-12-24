@@ -5,6 +5,8 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using UnityEngine;
+
 public class RangerBrain : EnemyBrain
 {
     protected override void Start()
@@ -15,21 +17,20 @@ public class RangerBrain : EnemyBrain
     protected override void Update()
     {
         base.Update();
-    }
 
-    private void FixedUpdate()
-    {
         if (Alive)
         {
-            _btRunner.GetBlackboard().SetValue("SeePlayer", SeePlayer);
-            _btRunner.GetBlackboard().SetValue("CanShoot", CanShootAtPlayer);
+            _btRunner.GetBlackboard().SetValue("IsInVisionRange", IsInVisionRange);
+            _btRunner.GetBlackboard().SetValue("IsInShootRange", IsInShootRange);
+            _btRunner.GetBlackboard().SetValue("IsInShootCooldown", _entityShooting.IsInShootCooldown);
         }
 
         if (Dead)
         {
             _btRunner.GetBlackboard().SetValue("IsDead", true);
-            _btRunner.GetBlackboard().SetValue("SeePlayer", false);
-            _btRunner.GetBlackboard().SetValue("CanShoot", false);
+            _btRunner.GetBlackboard().SetValue("IsInVisionRange", false);
+            _btRunner.GetBlackboard().SetValue("IsInShootRange", false);
+            _btRunner.GetBlackboard().SetValue("IsInShootCooldown", false);
         }
     }
 
