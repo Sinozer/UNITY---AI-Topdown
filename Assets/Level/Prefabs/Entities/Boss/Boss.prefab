@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c323f8431da6a44b1a54d01f68550e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _btRunner: {fileID: 0}
   _entityShooting: {fileID: 1280862449088934414}
   _aiPath: {fileID: 7417869006834462548}
   _customPatrol: {fileID: 5113117067033777206}
@@ -682,7 +683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 0}
   _shootSound: {fileID: 0}
   _projectileData: {fileID: 0}
 --- !u!114 &2719666294395129660
@@ -697,7 +697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78fbd771d54b43b62cd3bf3b90b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 0}
 --- !u!1 &6824436091141629041
 GameObject:
   m_ObjectHideFlags: 0
