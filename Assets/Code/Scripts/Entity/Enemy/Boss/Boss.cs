@@ -57,14 +57,4 @@ public class Boss : Enemy
 
         base.Awake();
     }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 }

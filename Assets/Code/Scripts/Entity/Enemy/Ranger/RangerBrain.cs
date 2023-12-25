@@ -5,13 +5,12 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using UnityEngine;
-
 public class RangerBrain : EnemyBrain
 {
     protected override void Start()
     {
         base.Start();
+        _btRunner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
     }
 
     protected override void Update()
@@ -33,5 +32,4 @@ public class RangerBrain : EnemyBrain
             _btRunner.GetBlackboard().SetValue("IsInShootCooldown", false);
         }
     }
-
 }

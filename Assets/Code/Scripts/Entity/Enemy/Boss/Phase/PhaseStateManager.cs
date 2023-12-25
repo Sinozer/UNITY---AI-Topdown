@@ -63,8 +63,6 @@ public class PhaseLockedState : BaseState<PhaseStateManager, PhaseStateManager.E
 
     public override void OnEnter(PhaseStateManager manager)
     {
-        Debug.Log("Phase is locked");
-
     }
 
     public override void OnExit(PhaseStateManager manager)
@@ -93,8 +91,6 @@ public class PhaseIdleState : BaseState<PhaseStateManager, PhaseStateManager.EPh
 
     public override void OnEnter(PhaseStateManager manager)
     {
-        Debug.Log("Phase is idle");
-
     }
 
     public override void OnExit(PhaseStateManager manager)
@@ -116,8 +112,6 @@ public class PhaseIdleState : BaseState<PhaseStateManager, PhaseStateManager.EPh
             manager.ChangeState(PhaseStateManager.EPhaseState.Move);
             return;
         }
-
-
     }
 }
 
@@ -137,8 +131,6 @@ public class PhasePatrolState : BaseState<PhaseStateManager, PhaseStateManager.E
 
     public override void OnEnter(PhaseStateManager manager)
     {
-        Debug.Log("Phase is patrolling");
-
     }
 
     public override void OnExit(PhaseStateManager manager)
@@ -181,11 +173,8 @@ public class PhaseMoveState : BaseState<PhaseStateManager, PhaseStateManager.EPh
 
     public override void OnEnter(PhaseStateManager manager)
     {
-        Debug.Log("Phase is moving");
-
         manager.Owner.BossBrain.AIPath(true);
         manager.Owner.BossBrain.FollowingPlayer(true);
-        // Do things for the animation
         manager.Owner.BossBrain.Animator.SetBool("Run", true);
     }
 
@@ -193,7 +182,6 @@ public class PhaseMoveState : BaseState<PhaseStateManager, PhaseStateManager.EPh
     {
         manager.Owner.BossBrain.AIPath(false);
         manager.Owner.BossBrain.FollowingPlayer(false);
-        // Do things for the animation
         manager.Owner.BossBrain.Animator.SetBool("Run", false);
     }
 
@@ -238,17 +226,15 @@ public class PhaseAttackState : BaseState<PhaseStateManager, PhaseStateManager.E
 
     public override void OnEnter(PhaseStateManager manager)
     {
-        Debug.Log("Phase is attacking");
-
         manager.Owner.BossBrain.StartShooting();
-        // Do things for the animation
+        manager.Owner.BossBrain.ShowLegs(true);
         manager.Owner.BossBrain.Animator.SetBool("Attack_Gun", true);
     }
 
     public override void OnExit(PhaseStateManager manager)
     {
         manager.Owner.BossBrain.StopShooting();
-        // Do things for the animation
+        manager.Owner.BossBrain.ShowLegs(false);
         manager.Owner.BossBrain.Animator.SetBool("Attack_Gun", false);
     }
 
@@ -297,8 +283,6 @@ public class PhaseEndedState : BaseState<PhaseStateManager, PhaseStateManager.EP
 {
     public override void OnEnter(PhaseStateManager manager)
     {
-        Debug.Log("Phase is ended");
-
     }
 
     public override void OnExit(PhaseStateManager manager)

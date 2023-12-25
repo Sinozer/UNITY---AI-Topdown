@@ -15,7 +15,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 042febffa96f643468db2f8dc35e4cb6
-  Position: {x: -110, y: 300}
+  Position: {x: -239, y: 300}
   Blackboard: {fileID: 0}
   _duration: AttackSpeed
 --- !u!114 &-9148636400486955426
@@ -442,7 +442,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 20a80adad219c374a9221c8bbc2706b0
-  Position: {x: 45, y: 300}
+  Position: {x: -84, y: 300}
   Blackboard: {fileID: 0}
 --- !u!114 &-2837984969023207527
 MonoBehaviour:
@@ -488,7 +488,7 @@ MonoBehaviour:
   - {fileID: -3637979460747378648}
   - {fileID: 5533544706979266579}
   - {fileID: 7288784664573858034}
-  executeAllEachFrame: 0
+  executeAllEachFrame: 1
 --- !u!114 &-81894535704961400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: d211ae61e2167354a976344e63e5100f
-  Position: {x: -777, y: 300}
+  Position: {x: -566, y: 300}
   Blackboard: {fileID: 0}
   _type: 0
   _conditionName: CanShoot
@@ -625,7 +625,7 @@ MonoBehaviour:
   CurrentState: 0
   Started: 0
   Guid: 7e678394076c2d64ba9add817cd41ad0
-  Position: {x: -441, y: 300}
+  Position: {x: -411, y: 300}
   Blackboard: {fileID: 0}
   _type: 3
   _animatorCondition: 4

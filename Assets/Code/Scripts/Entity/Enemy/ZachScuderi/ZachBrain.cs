@@ -5,15 +5,10 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using UnityEngine;
-
 public class ZachBrain : EnemyBrain
 {
-    private float _elapsedTime;
     private float MeleeRange => Entity.AttackRange * 0.5f;
-    private readonly float _sprintCoolDown = 3.0f;
     public bool CanMeleeAttack => Enemy.DistFromPlayer < MeleeRange;
-    public bool CanSprint => _elapsedTime >= _sprintCoolDown;
     protected override void Start()
     {
         base.Start();

@@ -15,6 +15,7 @@ public class EntitySpawner : MonoBehaviour
 {
     private BoxCollider2D _roomCollider;
     private Tilemap _floorTilemap;
+    private Tilemap _waterTilemap;
 
     public List<CapsuleCollider2D> PatrolAreas => _patrolAreas;
     private List<CapsuleCollider2D> _patrolAreas;
@@ -28,8 +29,24 @@ public class EntitySpawner : MonoBehaviour
             _roomCollider = GetComponentInParent<BoxCollider2D>();
         if (_floorTilemap == null)
             _floorTilemap = GameObject.Find("Floor").GetComponent<Tilemap>();
+        if (_waterTilemap == null)
+            _waterTilemap = GameObject.Find("Water").GetComponent<Tilemap>();
         if (_patrolAreas == null)
             _patrolAreas = new List<CapsuleCollider2D>(transform.parent.GetComponentsInChildren<CapsuleCollider2D>());
+    }
+
+    public bool IsWalkingPosition(Vector3 value)
+    {
+        var floor = _floorTilemap.GetTile(_floorTilemap.WorldToCell(value));
+        var water = _waterTilemap.GetTile(_waterTilemap.WorldToCell(value));
+        Player player = GameManager.Instance.Player;
+
+        if (player == null)
+            return floor != null && water == null;
+
+        //var distance = Vector3.Distance(player.transform.position, value);
+
+        return floor != null && water == null/* && distance > 2f*/;
     }
 
     public Vector3 GetRandomPositionInRoom()
@@ -42,20 +59,7 @@ public class EntitySpawner : MonoBehaviour
 
             Vector3 value = new Vector3(x, y, 9);
 
-            bool IsValidPosition()
-            {
-                var tile = _floorTilemap.GetTile(_floorTilemap.WorldToCell(value));
-                Player player = GameManager.Instance.Player;
-                // Check also if the player is not too close
-                if (player == null)
-                    return tile != null;
-            
-                var distance = Vector3.Distance(player.transform.position, value);
-                
-                return tile != null && distance > 2;
-            }
-
-            if (!IsValidPosition()) continue;
+            if (!IsWalkingPosition(value)) continue;
 
             return value;
         }

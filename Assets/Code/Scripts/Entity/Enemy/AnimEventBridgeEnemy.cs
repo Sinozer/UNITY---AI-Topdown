@@ -9,7 +9,13 @@ using UnityEngine;
 
 public class AnimationEventBridgeEnemy : MonoBehaviour
 {
-    [SerializeField] protected EnemyBrain EnemyBrain; // reference to your main script
+    [SerializeField] protected EnemyBrain EnemyBrain;
+
+    private void Start()
+    {
+        if (EnemyBrain == null)
+            EnemyBrain = transform.root.GetComponentInChildren<EnemyBrain>();
+    }
 
     public void Die()
     {

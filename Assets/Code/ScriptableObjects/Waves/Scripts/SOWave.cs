@@ -49,9 +49,18 @@ public class SOWave : SerializedScriptableObject
                 {
                     // Get a random point in the patrol area which is a capsule collider 2D
                     var bounds = spawner.PatrolAreas[j].bounds;
-                    var x = UnityEngine.Random.Range(bounds.min.x, bounds.max.x);
-                    var y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
-                    var value = new Vector3(x, y, 9);
+
+                    var value = Vector3.zero;
+                    while(true)
+                    {
+                        var x = UnityEngine.Random.Range(bounds.min.x, bounds.max.x);
+                        var y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
+                        value = new Vector3(x, y, 9);
+
+                        if (spawner.IsWalkingPosition(value))
+                            break;
+                    }
+                    
                     CustomPatrol patrol = instance.GetComponentInChildren<CustomPatrol>();
                     patrol.Waypoints.Add(value);
 

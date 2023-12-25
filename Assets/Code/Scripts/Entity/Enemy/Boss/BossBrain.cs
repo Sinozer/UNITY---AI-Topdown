@@ -31,8 +31,7 @@ public class BossBrain : EnemyBrain
     //}
     //#endregion Events
 
-    public Boss Boss => _boss;
-    private Boss _boss => Entity as Boss;
+    public Boss Boss => Entity as Boss;
 
     [SerializeField] private GameObject _legs;
 
@@ -62,7 +61,7 @@ public class BossBrain : EnemyBrain
         set
         {
             _phase = value;
-            _boss.BaseData = _boss.PhaseBaseData[_phase];
+            Boss.BaseData = Boss.PhaseBaseData[_phase];
             _aiPath.maxSpeed = Entity.MovementSpeed / 50f;
         }
     }
@@ -76,7 +75,7 @@ public class BossBrain : EnemyBrain
         base.Awake();
         _stateManager = new BossStateManager(this);
 
-        foreach (var phaseData in _boss.PhaseBaseData)
+        foreach (var phaseData in Boss.PhaseBaseData)
         {
             var newPhase = new GameObject(phaseData.name).AddComponent<Phase>();
             newPhase.transform.parent = transform;
@@ -84,7 +83,7 @@ public class BossBrain : EnemyBrain
             _phases.Add(newPhase);
         }
 
-        _boss.BaseData = _boss.PhaseBaseData[_phase];
+        Boss.BaseData = Boss.PhaseBaseData[_phase];
 
         if (_legs != null)
             return;
