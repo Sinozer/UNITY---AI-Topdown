@@ -13,7 +13,6 @@ public class EntityShoot : EntityChild, IEntityAction
 {
     public float LookX => _direction.x;
 
-    [SerializeField] private AudioSource _shootSound;
     [SerializeField] private SOProjectile _projectileData;
 
     public float LastTimeShot => _lastTimeShot;
@@ -91,8 +90,7 @@ public class EntityShoot : EntityChild, IEntityAction
 
             projectile.GetComponent<Projectile>().Damage = _projectileData.Damage;
 
-            if (_shootSound != null)
-                _shootSound.Play();
+            AudioManager.PlaySFX("Shoot");
 
             Destroy(projectile, _projectileData.LifeTime);
 

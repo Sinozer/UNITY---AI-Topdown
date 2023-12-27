@@ -12,6 +12,6 @@ public class AnimationEventBridge : MonoBehaviour
 
     public void PlayStepSound()
     {
-        PlayerBrain.PlayStepSound();
+        PlayerBrain.AudioManager.PlaySFX("Step");
     }
 }

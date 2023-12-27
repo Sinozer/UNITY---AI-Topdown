@@ -24,6 +24,6 @@ public class AnimationEventBridgeEnemy : MonoBehaviour
 
     public void DieSfx()
     {
-        EnemyBrain.PlayDeathSfx();
+        EnemyBrain.AudioManager.PlaySFX("Death");
     }
 }

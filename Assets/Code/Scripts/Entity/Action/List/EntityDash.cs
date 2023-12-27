@@ -10,8 +10,6 @@ using UnityEngine;
 
 public class EntityDash : EntityChild, IEntityAction
 {
-    [SerializeField] private AudioSource _sfxDash;
-
     private bool _canDash = true;
     [SerializeField] private float _dashCooldown;
     [SerializeField] private float _dashPower;
@@ -28,8 +26,7 @@ public class EntityDash : EntityChild, IEntityAction
     {
         _canDash = false;
 
-        if (_sfxDash != null)
-            _sfxDash.Play();
+        AudioManager.PlaySFX("Dash");
         Vector2 _targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dashDirection = (_targetPosition - (Vector2)Entity.transform.position).normalized;
         Rigidbody.velocity += _dashPower * dashDirection;

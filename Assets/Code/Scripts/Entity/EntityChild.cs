@@ -21,12 +21,48 @@ abstract public class EntityChild : MonoBehaviour
     }
     private Entity _entity;
 
+    public AudioManager AudioManager
+    {
+        get
+        {
+            if (_audioManager == null)
+                _audioManager = transform.root.GetComponentInChildren<AudioManager>();
+
+            return _audioManager;
+        }
+    }
+    private AudioManager _audioManager;
+
+    public VFXManager VFXManager
+    {
+        get
+        {
+            if (_vfxManager == null)
+                _vfxManager = transform.root.GetComponentInChildren<VFXManager>();
+
+            return _vfxManager;
+        }
+    }
+    private VFXManager _vfxManager;
+
+    public GameObject Actions
+    {
+        get
+        {
+            if (_actions == null)
+                _actions = _entity.transform.Find("Actions").gameObject;
+
+            return _actions;
+        }
+    }
+    private GameObject _actions;
+
     public GameObject Render
     {
         get
         {
             if (_render == null)
-                _render = transform.root.Find("Render").gameObject;
+                _render = _entity.transform.Find("Render").gameObject;
 
             return _render;
         }
@@ -38,24 +74,24 @@ abstract public class EntityChild : MonoBehaviour
         get
         {
             if (_physics == null)
-                _physics = transform.root.Find("Physics").gameObject;
+                _physics = _entity.transform.Find("Physics").gameObject;
 
             return _physics;
         }
     }
     private GameObject _physics;
 
-    public GameObject Actions
+    public GameObject Externals
     {
         get
         {
-            if (_actions == null)
-                _actions = transform.root.Find("Actions").gameObject;
+            if (_externals == null)
+                _externals = transform.root.Find("Externals").gameObject;
 
-            return _actions;
+            return _externals;
         }
     }
-    private GameObject _actions;
+    private GameObject _externals;
 
     #region Components
     public Rigidbody2D Rigidbody

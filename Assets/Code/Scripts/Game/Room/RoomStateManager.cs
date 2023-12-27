@@ -309,6 +309,9 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
             gate.SetActive(false);
         }
 
+        //if (manager.Owner.RoomType == Room.ERoomType.Combat)
+        //    AudioManager.Instance.PlaySFX("Room_Complete");
+
         if (manager.Owner.RoomType != Room.ERoomType.End)
             return;
 

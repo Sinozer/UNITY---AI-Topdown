@@ -16,6 +16,8 @@ public class HealthBar : EntityChild
     public Image Fill;
     public Gradient Gradient;
 
+    private Coroutine _coroutine;
+
     private void OnEnable()
     {
         Entity.OnHealthChanged += SetHealth;
@@ -45,7 +47,11 @@ public class HealthBar : EntityChild
     public void SetHealth(float value)
     {
         Slider.value = value;
-        StartCoroutine(SetChangedHealth());
+
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
+        _coroutine = StartCoroutine(SetChangedHealth());
 
         Fill.color = Gradient.Evaluate(Slider.normalizedValue);
     }
@@ -54,6 +60,15 @@ public class HealthBar : EntityChild
     {
         yield return new WaitForSeconds(0.5f);
 
-        ChangedHealth.value = Slider.value;
+        float valueToRemove = (ChangedHealth.value - Slider.value) / 10;
+
+        while (ChangedHealth.value > Slider.value)
+        {
+            ChangedHealth.value -= valueToRemove;
+            yield return new WaitForSeconds(0.01f);
+        }
+        //ChangedHealth.value = Slider.value;
+
+        _coroutine = null;
     }
 }

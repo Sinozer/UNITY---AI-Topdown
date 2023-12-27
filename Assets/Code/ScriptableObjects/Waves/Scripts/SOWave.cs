@@ -35,7 +35,6 @@ public class SOWave : SerializedScriptableObject
     {
         int totalOfEnemies = 0;
 
-        // Instantiate
         foreach (var enemy in Enemies)
         {
             for (int i = 0; i < enemy.NumberOfEnemies; i++)

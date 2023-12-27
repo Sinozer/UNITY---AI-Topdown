@@ -106,9 +106,4 @@ public class EnemyBrain : EntityBrain
     {
         Enemy.OnHit();
     }
-
-    public void PlayDeathSfx()
-    {
-        Enemy.PlayDeathSfx();
-    }
 }

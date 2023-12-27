@@ -18,8 +18,10 @@ public class AkbarTriggerExplosionNode : ActionNode
 
         _brain.Enemy.TakeDamage(_brain.Enemy.MaxHealth);
         Blackboard.SetValue("TriggerExplosion", true);
-        _brain.FxExplosion.Invoke();
-        _brain.ExplosionSound.Play();
+        //_brain.FxExplosion.Invoke();
+        //_brain.ExplosionSound.Play();
+        _brain.VFXManager.PlayVFX("Explode");
+        _brain.AudioManager.PlaySFX("Explode");
     }
 
     public override void OnStop()

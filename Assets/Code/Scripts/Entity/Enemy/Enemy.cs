@@ -7,20 +7,15 @@
 
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Enemy : Entity
 {
     [SerializeField] protected SOEntity _baseData;
     public float DistFromPlayer => CalculateDistFromPlayer();
 
-    protected Rigidbody2D _rigidbody;
-    public Rigidbody2D Rigidbody => _rigidbody;
     protected virtual void Awake()
     {
         SetValuesFromBaseData();
-
-        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     public void SetValuesFromBaseData()

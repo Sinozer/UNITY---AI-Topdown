@@ -8,7 +8,7 @@
 using System;
 using UnityEngine;
 
-public abstract class Entity : MonoBehaviour
+public abstract class Entity : EntityChild
 {
     #region Fields
     public bool IsNpc => _isNpc;
@@ -83,25 +83,18 @@ public abstract class Entity : MonoBehaviour
 
     public void OnHit()
     {
-        // hit sound
-        if (_sfxHit != null)
-        {
-            _sfxHit.Play();
-        }
+        AudioManager.PlaySFX("Hit");
 
         if (IsAlive)
         {
             // hit particles
-            if(_vfxHit != null)
-            {
-                GameObject go = Instantiate(_vfxHit.gameObject, transform.position, Quaternion.identity, transform);
-                go.SetActive(true);
-            }
+            //if(_vfxHit != null)
+            //{
+            //    GameObject go = Instantiate(_vfxHit.gameObject, transform.position, Quaternion.identity, transform);
+            //    go.SetActive(true);
+            //}
+
+            VFXManager.PlayVFX("Hit");
         }
-    }
-     
-    public void PlayDeathSfx()
-    {
-        _sfxDying?.Play();
     }
 }

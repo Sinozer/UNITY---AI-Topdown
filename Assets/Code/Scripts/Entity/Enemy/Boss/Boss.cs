@@ -14,7 +14,7 @@ public class Boss : Enemy
     // List of base data for each phase
     // Can't be empty
     public List<SOPhase> PhaseBaseData => _phaseBaseData;
-    [SerializeField, InlineEditor] protected List<SOPhase> _phaseBaseData;
+    [Required, SerializeField, InlineEditor] protected List<SOPhase> _phaseBaseData;
 
 #if UNITY_EDITOR
     [Button("Add New Base Data")]

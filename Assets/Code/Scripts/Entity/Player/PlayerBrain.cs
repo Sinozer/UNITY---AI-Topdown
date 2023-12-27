@@ -17,7 +17,7 @@ public class PlayerBrain : EntityBrain
 
     [SerializeField] private int _sceneToLoadOnDeath = 0;
 
-    private new enum AnimatorCondition
+    public new enum AnimatorCondition
     {
         IsIdle,
         IsRun,
@@ -40,8 +40,6 @@ public class PlayerBrain : EntityBrain
     [SerializeField] private EntityDash _dashingAction;
     [SerializeField] private GameObject _minimap;
     [SerializeField] private GameObject _light;
-    
-    [SerializeField] private AudioSource _sfxStep;
 
     private bool _shoot;
 
@@ -190,11 +188,5 @@ public class PlayerBrain : EntityBrain
         {
             Animator.SetBool(conditionName, conditionName == trueConditionName);
         }
-    }
-
-    public void PlayStepSound()
-    {
-        if(_sfxStep != null)
-            _sfxStep.Play();
     }
 }

@@ -22,13 +22,13 @@ public class Player : Entity
     {
         GameManager.Instance.Player = this;
 
-        // Instantiate new empty gameobject
-        _aim = new GameObject("Aim");
-        _aim.AddComponent<FollowCursor>();
-
         CinemachineTargetGroup vcam = FindFirstObjectByType<CinemachineTargetGroup>();
         if (vcam == null)
             return;
+
+        // Instantiate new empty gameobject
+        _aim = new GameObject("Aim");
+        _aim.AddComponent<FollowCursor>();
 
         vcam.AddMember(_aim.transform, 1, 1);
         vcam.AddMember(transform, 3, 1);
