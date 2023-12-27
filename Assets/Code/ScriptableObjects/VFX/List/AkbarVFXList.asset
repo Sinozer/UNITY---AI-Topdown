@@ -16,8 +16,8 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-    - {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+    - {fileID: 1544220135983647011, guid: eac63580245a920459dba97a77ddf67c, type: 3}
+    - {fileID: 4004203714634818327, guid: 9ceb3d7111667be4282405cb1e7d4c28, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -42,7 +42,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Explosion
+      Data: Explode
     - Name: $v
       Entry: 10
       Data: 0

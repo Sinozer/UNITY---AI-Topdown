@@ -50,9 +50,6 @@ MonoBehaviour:
     type: UnityEditor.MonoScript, UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     target: {fileID: 11500000, guid: 697e0ac0200f0184db6daa9fd4d6f8b9, type: 3}
-  - title: ZachScuderiVFXList
-    type: SOVFXList, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    target: {fileID: 11400000, guid: 5556b49453b163e4fa841250318c5a47, type: 2}
   _emptyInspectorItems:
   - title: Ultimate Editor Enhancer
     enabled: 1
