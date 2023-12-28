@@ -208,6 +208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lootTables:
   - {fileID: 11400000, guid: 6adfd2062936b764fa62f3d15687b5e1, type: 2}
+  - {fileID: 11400000, guid: e396b1a54c8444d4895f9f25e5b9daf0, type: 2}
+  - {fileID: 11400000, guid: 8ca8b52edc4462143b59af4cef7936f3, type: 2}
 --- !u!1 &6699824516727120118
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isNpc: 1
+  _baseData: {fileID: 11400000, guid: e8b7b9c57814bbc4bb8e4735488402a4, type: 2}
   _health: 0
   _maxHealth: 0
   _damage: 0
@@ -420,9 +423,6 @@ MonoBehaviour:
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
-  _sfxDying: {fileID: 0}
-  _sfxHit: {fileID: 0}
-  _baseData: {fileID: 11400000, guid: e8b7b9c57814bbc4bb8e4735488402a4, type: 2}
 --- !u!114 &3004115849309751593
 MonoBehaviour:
   m_ObjectHideFlags: 0

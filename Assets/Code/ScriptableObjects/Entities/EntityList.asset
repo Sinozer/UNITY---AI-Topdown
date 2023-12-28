@@ -17,10 +17,13 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 96cb0b5c2c83483499fd7ea919f903ae, type: 2}
+    - {fileID: 11400000, guid: 51e0a104f775bc64e8be66f3a958880c, type: 2}
+    - {fileID: 11400000, guid: 61b2d7351d681124cba0aacf6f43da0d, type: 2}
     - {fileID: 11400000, guid: 189e1f8095bb719429bd456fc77830de, type: 2}
     - {fileID: 11400000, guid: ba356e5586cdee14da76b96d18745bb5, type: 2}
     - {fileID: 11400000, guid: ff63ba2190dc8d541a8229bb85580cd7, type: 2}
     - {fileID: 11400000, guid: e8b7b9c57814bbc4bb8e4735488402a4, type: 2}
+    - {fileID: 11400000, guid: f2a5894c332f2d24aaf9f9bf319368a8, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -39,7 +42,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 8
     - Name: 
       Entry: 7
       Data: 
@@ -57,7 +60,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Hitter
+      Data: Phase_0
     - Name: $v
       Entry: 10
       Data: 1
@@ -69,7 +72,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Ranger
+      Data: Phase_1
     - Name: $v
       Entry: 10
       Data: 2
@@ -81,7 +84,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Tanky
+      Data: Hitter
     - Name: $v
       Entry: 10
       Data: 3
@@ -93,10 +96,46 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Zach Scuderi
+      Data: Ranger
     - Name: $v
       Entry: 10
       Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Tanky
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Zach Scuderi
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Player
+    - Name: $v
+      Entry: 10
+      Data: 7
     - Name: 
       Entry: 8
       Data: 

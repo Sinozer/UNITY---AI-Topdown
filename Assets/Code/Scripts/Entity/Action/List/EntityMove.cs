@@ -12,6 +12,17 @@ public class EntityMove : EntityChild, IEntityAction
 {
     public Vector2 MoveInput { get; set; }
 
+    private float MovementSpeed
+    {
+        get
+        {
+            if (NPC)
+                return Entity.MovementSpeed;
+            else
+                return ((Player)Entity).MovementSpeed;
+        }
+    }
+
     private void Start()
     {
         Rigidbody2D.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -19,7 +30,7 @@ public class EntityMove : EntityChild, IEntityAction
         if (NotNPC)
             return;
 
-        transform.root.GetComponentInChildren<AIPath>().maxSpeed = Entity.MovementSpeed / 50f;
+        transform.root.GetComponentInChildren<AIPath>().maxSpeed = MovementSpeed / 50f;
     }
 
     public void FixedMove()
@@ -27,13 +38,13 @@ public class EntityMove : EntityChild, IEntityAction
         if (NPC)
             return;
 
-        Rigidbody2D.AddForce(Entity.MovementSpeed * 1000 * Time.fixedDeltaTime * MoveInput);
+        Rigidbody2D.AddForce(MovementSpeed * 1000 * Time.fixedDeltaTime * MoveInput);
     }
 
     public void SetAnimationSpeed()
     {
-        // Calculate the speed based on fire rate and adjust the speed of the animator
-        Animator.speed = Entity.MovementSpeed / 400f;
+        //// Calculate the speed based on fire rate and adjust the speed of the animator
+        Animator.speed = MovementSpeed / 400f;
     }
     public void ResetAnimationSpeed()
     {

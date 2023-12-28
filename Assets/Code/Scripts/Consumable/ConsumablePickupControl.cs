@@ -9,7 +9,6 @@ using UnityEngine;
 
 public class ConsumablePickupControl : ConsumableChild
 {
-    [SerializeField] private ConsumableHeal _controller;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.transform.root.TryGetComponent<Player>(out var player) == false)

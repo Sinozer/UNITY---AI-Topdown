@@ -21,10 +21,15 @@ public class Reference<T> : ScriptableObject, IReferenceHead<T>
 
     public T Acquire() => _value;
 
-    void IReferenceHead<T>.Set(T v)
+    public void Set(T v)
     {
         _value = v;
         OnValueChanged?.Invoke(_value);
     }
-
 }
+
+public class FloatReference : Reference<float> { }
+public class IntReference : Reference<int> { }
+public class BoolReference : Reference<bool> { }
+public class StringReference : Reference<string> { }
+public class DataReference : Reference<SOEntity> { }

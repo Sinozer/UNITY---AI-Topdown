@@ -11,6 +11,17 @@ using UnityEngine;
 
 public class EntityShoot : EntityChild, IEntityAction
 {
+    private float AttackSpeed
+    {
+        get
+        {
+            if (NPC)
+                return Entity.AttackSpeed;
+            else
+                return ((Player)Entity).AttackSpeed;
+        }
+    }
+
     public float LookX => _direction.x;
 
     [SerializeField] private SOProjectile _projectileData;
@@ -62,7 +73,7 @@ public class EntityShoot : EntityChild, IEntityAction
         while (true)
         {
             if (IsInShootCooldown == true)
-                yield return new WaitForSeconds(_lastTimeShot + 1 / Entity.AttackSpeed - Time.time);
+                yield return new WaitForSeconds(_lastTimeShot + 1 / AttackSpeed - Time.time);
 
             GetTarget();
 
@@ -97,7 +108,7 @@ public class EntityShoot : EntityChild, IEntityAction
             // Store the last time the entity shot
             _lastTimeShot = Time.time;
 
-            yield return new WaitForSeconds(1 / Entity.AttackSpeed);
+            yield return new WaitForSeconds(1 / AttackSpeed);
         }
     }
 
@@ -121,7 +132,7 @@ public class EntityShoot : EntityChild, IEntityAction
     public void SetAnimationSpeed()
     {
         // TODO: Fix this -> Animation and projectile are not sync
-        Animator.speed = Entity.AttackSpeed;
+        Animator.speed = AttackSpeed;
     }
 
     public void ResetAnimationSpeed()

@@ -50,6 +50,14 @@ MonoBehaviour:
     type: UnityEditor.MonoScript, UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     target: {fileID: 11500000, guid: 697e0ac0200f0184db6daa9fd4d6f8b9, type: 3}
+  - title: Consumables
+    type: UnityEditor.DefaultAsset, UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 102900000, guid: e171f6e1a7047b64a802165154ee7e27, type: 3}
+  - title: LootTables
+    type: UnityEditor.DefaultAsset, UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 102900000, guid: e2c885c96969c274d80e640201b77849, type: 3}
   _emptyInspectorItems:
   - title: Ultimate Editor Enhancer
     enabled: 1
@@ -694,12 +702,12 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
+  - name: Main_Level_1
+    path: Assets/Level/Scenes/Main_Level_1.unity
   - name: Main - THEO
     path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   - name: CFXRF Demo
     path: Assets/Resources/Externals/JMO Assets/Cartoon FX Remaster/CFXRF Demo.unity
-  - name: Main_Level_1
-    path: Assets/Level/Scenes/Main_Level_1.unity
   - name: Main_Level_2
     path: Assets/Level/Scenes/Main_Level_2.unity
   - name: MainMenu

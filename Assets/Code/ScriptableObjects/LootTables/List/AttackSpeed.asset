@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e48d5b87b2725341b4df6ba7be976df, type: 3}
-  m_Name: Heal
+  m_Name: AttackSpeed
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -22,6 +22,6 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _loots:
-  - _item: {fileID: 2978170396976826805, guid: 7214ab13ee790584c84cac5e370c652c, type: 3}
-    _dropChance: 0.2
+  - _item: {fileID: 6703330938955236109, guid: b6ae4d1b4eae94b4d8dce95c1614f66b, type: 3}
+    _dropChance: 0.1
     _numberOfItems: 1

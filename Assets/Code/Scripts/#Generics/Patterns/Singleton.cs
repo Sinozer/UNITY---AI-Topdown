@@ -10,6 +10,9 @@ using UnityEngine;
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
+
+    [SerializeField, Tooltip("If true, the object will not be destroyed on scene load.")] private bool _dontDestroyOnLoad = true;
+
     public static T Instance
     {
         get
@@ -34,7 +37,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         if (_instance == null)
         {
             _instance = this as T;
-            DontDestroyOnLoad(gameObject);
+            if (_dontDestroyOnLoad)
+                DontDestroyOnLoad(gameObject);
         }
 
         else if (_instance != this)
