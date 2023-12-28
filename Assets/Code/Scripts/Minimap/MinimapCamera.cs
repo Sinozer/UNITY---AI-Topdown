@@ -10,26 +10,11 @@ using UnityEngine.Serialization;
 
 public class MinimapCamera : MonoBehaviour
 {
-    [Header("Minimap Camera")] [SerializeField]
-    private Transform _playerRef;
+    [Header("Minimap Camera")]
+    [SerializeField] private Transform _playerRef;
 
     [SerializeField] private float _playerOffset = 10f;
     [SerializeField] private float _zoom;
-    
-    
-    void Update()
-    {
-        if (_playerRef != null)
-        {
-            var position = _playerRef.position;
-            transform.position = new Vector3(position.x, position.y, _playerOffset);
-        }
-        else
-        {
-            if (GameManager.Instance.Player == null) return;
-            _playerRef = GameManager.Instance.Player.gameObject.transform;
-        }
-    }
     
     public void Zoom(float zoom)
     {

@@ -63,7 +63,7 @@ public class EntityShoot : EntityChild, IEntityAction
         }
         else
         {
-            _target = player.Aim;
+            _target = player.Crosshair.gameObject;
             _targetPosition = _target.transform.position;
         }
     }

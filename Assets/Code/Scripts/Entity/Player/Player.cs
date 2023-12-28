@@ -10,8 +10,8 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    [SerializeField] private GameObject _aim;
-    public GameObject Aim => _aim;
+    [SerializeField] private Crosshair _crosshair;
+    public Crosshair Crosshair => _crosshair;
 
     public PlayerManager PlayerManager
     {
@@ -85,11 +85,14 @@ public class Player : Entity
         if (vcam == null)
             return;
 
-        // Instantiate new empty gameobject
-        _aim = new GameObject("Aim");
-        _aim.AddComponent<FollowCursor>();
+        //// Instantiate new empty gameobject
+        //_aim = new GameObject("Aim");
+        //_aim.AddComponent<FollowCursor>();
 
-        vcam.AddMember(_aim.transform, 1, 1);
+        //vcam.AddMember(_aim.transform, 1, 1);
+        //vcam.AddMember(transform, 3, 1);
+
+        _crosshair = Instantiate(_crosshair);
         vcam.AddMember(transform, 3, 1);
     }
 }

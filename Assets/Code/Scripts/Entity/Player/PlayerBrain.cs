@@ -34,7 +34,17 @@ public class PlayerBrain : EntityBrain
     [SerializeField] private InputActionReference _minimapInput;
     [SerializeField] private InputActionReference _dashInput;
 
-    [SerializeField] private GameObject _minimap;
+    public GameObject Minimap
+    {
+        get
+        {
+            if (_minimap == null)
+                _minimap = GetExternal<Transform>("Minimap").gameObject;
+
+            return _minimap;
+        }
+    }
+    private GameObject _minimap;
     [SerializeField] private GameObject _light;
 
     private bool _shoot;
@@ -110,12 +120,12 @@ public class PlayerBrain : EntityBrain
 
     private void OnMinimapPerformed(InputAction.CallbackContext obj)
     {
-        _minimap.SetActive(true);
+        Minimap.SetActive(true);
     }
 
     private void OnMinimapCanceled(InputAction.CallbackContext obj)
     {
-        _minimap.SetActive(false);
+        Minimap.SetActive(false);
     }
 
     private void OnDashStarted(InputAction.CallbackContext obj)
@@ -152,7 +162,7 @@ public class PlayerBrain : EntityBrain
         }
 
         // Flip the game object based on the direction of the mouse
-        var aimPosition = Player.Aim.transform.position;
+        var aimPosition = Player.Crosshair.transform.position;
         var direction = aimPosition - transform.position;
 
         int degree = direction.x > 0 ? 0 : 180;

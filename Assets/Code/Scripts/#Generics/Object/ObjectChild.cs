@@ -150,14 +150,22 @@ public abstract class ObjectChild<T> : MonoBehaviour where T : MonoBehaviour
     }
     private GameObject _externals;
 
-    public Transform GetExternal(string name)
+    public V GetExternal<V>() where V : Component
     {
-        return Externals.transform.Find(name);
+        return Externals.GetComponentInChildren<V>();
+    }
+    public V GetExternal<V>(string name) where V : Component
+    {
+        return Externals.transform.Find(name).GetComponentInChildren<V>();
     }
 
-    public Transform[] GetExternalChildrens(string name)
+    public V[] GetExternalChildrens<V>() where V : Component
     {
-        return Externals.transform.Find(name).GetComponentsInChildren<Transform>();
+        return Externals.GetComponentsInChildren<V>();
+    }
+    public V[] GetExternalChildrens<V>(string name) where V : Component
+    {
+        return Externals.transform.Find(name).GetComponentsInChildren<V>();
     }
     #endregion Externals
 }

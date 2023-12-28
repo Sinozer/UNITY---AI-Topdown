@@ -58,6 +58,10 @@ MonoBehaviour:
     type: UnityEditor.DefaultAsset, UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     target: {fileID: 102900000, guid: e2c885c96969c274d80e640201b77849, type: 3}
+  - title: Minimap
+    type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 8516374289067863327, guid: 13a3d50c2da7bf94c998eceb8e1755e4, type: 3}
   _emptyInspectorItems:
   - title: Ultimate Editor Enhancer
     enabled: 1
@@ -704,14 +708,14 @@ MonoBehaviour:
   _sceneHistory:
   - name: Main_Level_1
     path: Assets/Level/Scenes/Main_Level_1.unity
-  - name: Main - THEO
-    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
-  - name: CFXRF Demo
-    path: Assets/Resources/Externals/JMO Assets/Cartoon FX Remaster/CFXRF Demo.unity
   - name: Main_Level_2
     path: Assets/Level/Scenes/Main_Level_2.unity
   - name: MainMenu
     path: Assets/Level/Scenes/MainMenu.unity
+  - name: Main - THEO
+    path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
+  - name: CFXRF Demo
+    path: Assets/Resources/Externals/JMO Assets/Cartoon FX Remaster/CFXRF Demo.unity
   - name: Level2 - YOANN
     path: Assets/Level/Scenes/Yoann/Level2 - YOANN.unity
   - name: Main
