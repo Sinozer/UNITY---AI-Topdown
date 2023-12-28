@@ -60,7 +60,7 @@ public class AudioManager : MonoBehaviour
         AudioClip clip = _audioClipList.GetAudioClip(name);
         if (clip == null)
         {
-            Debug.LogError("Audio clip not found: " + name);
+            Debug.LogWarning("Audio clip not found: " + name);
             return;
         }
 

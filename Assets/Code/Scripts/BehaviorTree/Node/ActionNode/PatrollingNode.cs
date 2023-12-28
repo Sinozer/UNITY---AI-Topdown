@@ -9,8 +9,8 @@ using UnityEngine;
 
 public class PatrollingNode : ActionNode
 {
-    GameObject _self;
-    EnemyBrain _brain;
+    private GameObject _self;
+    private EnemyBrain _brain;
 
     public override void OnStart()
     {

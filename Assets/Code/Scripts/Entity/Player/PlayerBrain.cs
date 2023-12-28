@@ -26,18 +26,14 @@ public class PlayerBrain : EntityBrain
         IsShoot,
         IsDead
     }
-    
-    [Header("Inputs")] 
+
+    [Header("Inputs")]
     [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _shootInput;
     [SerializeField] private InputActionReference _reloadInput;
     [SerializeField] private InputActionReference _minimapInput;
     [SerializeField] private InputActionReference _dashInput;
 
-    [Header("References")] 
-    [SerializeField] private EntityMove _movementAction;
-    [SerializeField] private EntityShoot _shootingAction;
-    [SerializeField] private EntityDash _dashingAction;
     [SerializeField] private GameObject _minimap;
     [SerializeField] private GameObject _light;
 
@@ -83,28 +79,28 @@ public class PlayerBrain : EntityBrain
 
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
-        _movementAction.MoveInput = context.ReadValue<Vector2>();
+        MovementAction.MoveInput = context.ReadValue<Vector2>();
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        _movementAction.MoveInput = Vector2.zero;
+        MovementAction.MoveInput = Vector2.zero;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
-        _movementAction.ResetAnimationSpeed();
+        MovementAction.ResetAnimationSpeed();
     }
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
         _shoot = context.ReadValue<float>() > 0;
-        _shootingAction.StartShooting();
+        ShootAction.StartShooting();
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
     {
         _shoot = false;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
-        _shootingAction.ResetAnimationSpeed();
-        _shootingAction.StopShooting();
+        ShootAction.ResetAnimationSpeed();
+        ShootAction.StopShooting();
     }
 
     private void OnReloadPerformed(InputAction.CallbackContext context)
@@ -124,7 +120,7 @@ public class PlayerBrain : EntityBrain
 
     private void OnDashStarted(InputAction.CallbackContext obj)
     {
-        _dashingAction.TryDash();
+        DashingAction.TryDash();
     }
 
     void Update()
@@ -137,22 +133,22 @@ public class PlayerBrain : EntityBrain
 
         if (!_shoot)
         {
-            _shootingAction.ResetAnimationSpeed();
+            ShootAction.ResetAnimationSpeed();
         }
         else
         {
             SetAnimatorCondition(AnimatorCondition.IsShoot);
-            _shootingAction.SetAnimationSpeed();
+            ShootAction.SetAnimationSpeed();
         }
 
-        if (_movementAction.MoveInput == Vector2.zero)
+        if (MovementAction.MoveInput == Vector2.zero)
         {
-            _movementAction.ResetAnimationSpeed();
+            MovementAction.ResetAnimationSpeed();
         }
         else
         {
             SetAnimatorCondition(AnimatorCondition.IsRun);
-            _movementAction.SetAnimationSpeed();
+            MovementAction.SetAnimationSpeed();
         }
 
         // Flip the game object based on the direction of the mouse
@@ -170,9 +166,9 @@ public class PlayerBrain : EntityBrain
 
     public void FixedUpdate()
     {
-        if (_movementAction.MoveInput != Vector2.zero)
+        if (MovementAction.MoveInput != Vector2.zero)
         {
-            _movementAction.FixedMove();
+            MovementAction.FixedMove();
         }
     }
 

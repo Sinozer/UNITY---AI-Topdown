@@ -7,15 +7,9 @@
 
 using UnityEngine;
 
-public class AnimationEventBridgeEnemy : MonoBehaviour
+public class AnimationEventBridgeEnemy : EntityChild
 {
-    [SerializeField] protected EnemyBrain EnemyBrain;
-
-    private void Start()
-    {
-        if (EnemyBrain == null)
-            EnemyBrain = transform.root.GetComponentInChildren<EnemyBrain>();
-    }
+    protected EnemyBrain EnemyBrain => Brain as EnemyBrain;
 
     public void Die()
     {
@@ -24,6 +18,6 @@ public class AnimationEventBridgeEnemy : MonoBehaviour
 
     public void DieSfx()
     {
-        EnemyBrain.AudioManager.PlaySFX("Death");
+        AudioManager.PlaySFX("Death");
     }
 }

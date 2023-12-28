@@ -9,11 +9,11 @@ using UnityEngine;
 
 public class AnimationEventBridgeTanky : AnimationEventBridgeEnemy
 {
-    private TankyBrain _tankyBrain => EnemyBrain as TankyBrain;
+    private TankyBrain TankyBrain => EnemyBrain as TankyBrain;
 
     // Animation event function
     public void OnReloadAnimationComplete()
     {
-        _tankyBrain.EndActivating();
+        TankyBrain.EndActivating();
     }
 }

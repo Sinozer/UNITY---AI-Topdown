@@ -21,7 +21,6 @@ public class EntityBrain : EntityChild
         Dead
     }
 
-    // Take in parameter the value (string, int, float, bool)
     public bool SetAnimatorCondition(AnimatorCondition condition, object value = null)
     {
         AnimatorControllerParameter parameter = Animator.parameters.FirstOrDefault(p => p.name == condition.ToString());
@@ -57,4 +56,39 @@ public class EntityBrain : EntityChild
 
         return true;
     }
+
+    public EntityMove MovementAction
+    {
+        get
+        {
+            if (_movementAction == null)
+                _movementAction = GetAction<EntityMove>();
+            return _movementAction;
+        }
+    }
+    private EntityMove _movementAction;
+
+    public EntityShoot ShootAction
+    {
+        get
+        {
+            if (_shootingAction == null)
+                _shootingAction = GetAction<EntityShoot>();
+
+            return _shootingAction;
+        }
+    }
+    private EntityShoot _shootingAction;
+
+    public EntityDash DashingAction
+    {
+        get
+        {
+            if (_dashingAction == null)
+                _dashingAction = GetAction<EntityDash>();
+
+            return _dashingAction;
+        }
+    }
+    private EntityDash _dashingAction;
 }

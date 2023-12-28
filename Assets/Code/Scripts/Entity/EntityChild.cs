@@ -11,6 +11,18 @@ abstract public class EntityChild : ObjectChild<Entity>
 {
     public Entity Entity => Object;
 
+    public EntityBrain Brain
+    {
+        get
+        {
+            if (_brain == null)
+                _brain = Entity.GetComponentInChildren<EntityBrain>();
+
+            return _brain;
+        }
+    }
+    private EntityBrain _brain;
+
     public Animator Animator
     {
         get

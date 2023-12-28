@@ -9,13 +9,20 @@ using UnityEngine;
 
 public class EnemyBTRunner : BehaviorTreeRunner
 {
-    [SerializeField] private EnemyBrain _enemyBrain;
+    public EnemyBrain EnemyBrain
+    {
+        get
+        {
+            if (_enemyBrain == null)
+                _enemyBrain = transform.root.GetComponentInChildren<EnemyBrain>();
+
+            return _enemyBrain;
+        }
+    }
+    private EnemyBrain _enemyBrain;
 
     void Start()
     {
-        Tree.Blackboard.SetValue("EnemyBrain", _enemyBrain);
-
-        if ( _enemyBrain == null )
-            _enemyBrain = gameObject.GetComponentInChildren<EnemyBrain>();
+        Tree.Blackboard.SetValue("EnemyBrain", EnemyBrain);
     }
 }

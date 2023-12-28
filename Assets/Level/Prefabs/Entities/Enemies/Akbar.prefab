@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd90fd6b0105fb48a8392bb591ac0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyBrain: {fileID: 8549478148808783436}
 --- !u!1 &2088235213344595522
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,26 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _btRunner: {fileID: 0}
-  _entityShooting: {fileID: 7685008893180977911}
-  _aiPath: {fileID: 4195213446074584695}
+  _aiPathfinder: {fileID: 0}
   _customPatrol: {fileID: 1890531114674664725}
   _customDestinationSetter: {fileID: 6896538303090978397}
-  _fxExplosion:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  _explosionSound: {fileID: 0}
 --- !u!1 &3017784250001871594
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +227,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3337303271648143826}
   m_Father: {fileID: 144649184479858842}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6216573745119271008
@@ -345,6 +328,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _multiplier: 1
+--- !u!1 &6827713816006450333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3337303271648143826}
+  - component: {fileID: 1195899542936112998}
+  m_Layer: 0
+  m_Name: Shoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3337303271648143826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827713816006450333}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5102016849421347027}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195899542936112998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827713816006450333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileData: {fileID: 11400000, guid: 7e3453553af54c947960048c91b91b93, type: 2}
 --- !u!1 &7061661399083870510
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +384,6 @@ GameObject:
   - component: {fileID: 144649184479858842}
   - component: {fileID: 6622460835130148161}
   - component: {fileID: 6773139260745474400}
-  - component: {fileID: 7685008893180977911}
   - component: {fileID: 3823734348124932002}
   m_Layer: 31
   m_Name: Akbar
@@ -437,19 +464,6 @@ MonoBehaviour:
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
---- !u!114 &7685008893180977911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7061661399083870510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileData: {fileID: 11400000, guid: 7e3453553af54c947960048c91b91b93, type: 2}
 --- !u!114 &3823734348124932002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +477,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tree: {fileID: 11400000, guid: 75cadf27f7755bb4d85c1d32177d6062, type: 2}
-  _enemyBrain: {fileID: 8549478148808783436}
 --- !u!1001 &1819642645564824116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -550,6 +563,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 144649184479858842}
     m_Modifications:
+    - target: {fileID: 1609157200367497892, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
+      propertyPath: radius
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 2626724350525983646, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
       propertyPath: m_Name
       value: Pathfinder
@@ -625,17 +642,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46273c9b654b73249b9b0eee4e256335, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4195213446074584695 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1609157200367497892, guid: 4482b48f1484e9f4ba63911e21f21547, type: 3}
-  m_PrefabInstance: {fileID: 3201139680986627283}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6896538303090978397 stripped

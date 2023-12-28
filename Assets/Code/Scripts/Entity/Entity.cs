@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using Sirenix.OdinInspector;
 using System.Linq;
 using UnityEngine;
 
@@ -14,31 +15,31 @@ public abstract class Entity : EntityChild
     [SerializeField] protected bool _isNpc = true;
 
     #region Data
-    [SerializeField] protected SOEntity _baseData;
+    [SerializeField, DisableInEditorMode] protected SOEntity _baseData;
 
     public float Health => _health;
-    [SerializeField] protected float _health;
+    [SerializeField, DisableInEditorMode] protected float _health;
 
     public float MaxHealth => _maxHealth;
-    [SerializeField] protected float _maxHealth;
+    [SerializeField, DisableInEditorMode] protected float _maxHealth;
 
     public float Damage => _damage;
-    [SerializeField] protected float _damage;
+    [SerializeField, DisableInEditorMode] protected float _damage;
 
     public float MovementSpeed
     {
         get => _movementSpeed;
         set => _movementSpeed = value;
     }
-    [SerializeField] protected float _movementSpeed;
+    [SerializeField, DisableInEditorMode] protected float _movementSpeed;
 
     public float AttackSpeed => _attackSpeed;
-    [SerializeField] protected float _attackSpeed;
+    [SerializeField, DisableInEditorMode] protected float _attackSpeed;
     public float AttackRange => _attackRange;
-    [SerializeField] protected float _attackRange;
+    [SerializeField, DisableInEditorMode] protected float _attackRange;
 
     public float VisionRange => _visionRange;
-    [SerializeField] protected float _visionRange;
+    [SerializeField, DisableInEditorMode] protected float _visionRange;
 
     public void SetValuesFromBaseData()
     {

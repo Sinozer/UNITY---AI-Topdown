@@ -14,41 +14,66 @@ public class EnemyBrain : EntityBrain
     public bool IsInVisionRange => Enemy.DistFromPlayer < Entity.VisionRange;
     public bool IsInShootRange => Enemy.DistFromPlayer < Entity.AttackRange;
 
+    protected EnemyBTRunner BTRunner
+    {
+        get
+        {
+            if (_btRunner == null)
+                _btRunner = Entity.GetComponentInChildren<EnemyBTRunner>();
 
-    [SerializeField] protected EnemyBTRunner _btRunner;
+            return _btRunner;
+        }
+    }
+    [SerializeField] private EnemyBTRunner _btRunner;
 
-    [SerializeField] protected EntityShoot _entityShooting;
-    [SerializeField] protected AIPath _aiPath;
-    [SerializeField] protected CustomPatrol _customPatrol;
-    [SerializeField] protected CustomDestinationSetter _customDestinationSetter;
+    protected AIPath AIPathfinder
+    {
+        get
+        {
+            if (_aiPathfinder == null)
+                _aiPathfinder = Entity.GetComponentInChildren<AIPath>();
+
+            return _aiPathfinder;
+        }
+    }
+    [SerializeField] private AIPath _aiPathfinder;
+
+    protected CustomPatrol CustomPatrol
+    {
+        get
+        {
+            if (_customPatrol == null)
+                _customPatrol = Entity.GetComponentInChildren<CustomPatrol>();
+
+            return _customPatrol;
+        }
+    }
+    [SerializeField] private CustomPatrol _customPatrol;
+
+    protected CustomDestinationSetter CustomDestinationSetter
+    {
+        get
+        {
+            if (_customDestinationSetter == null)
+                _customDestinationSetter = Entity.GetComponentInChildren<CustomDestinationSetter>();
+
+            return _customDestinationSetter;
+        }
+    }
+    [SerializeField] private CustomDestinationSetter _customDestinationSetter;
 
     public Enemy Enemy => Entity as Enemy;
 
     protected virtual void Awake()
     {
-        if (_btRunner == null)
-            _btRunner = transform.root.GetComponentInChildren<EnemyBTRunner>();
-
-        if (_entityShooting == null)
-            _entityShooting = transform.root.GetComponentInChildren<EntityShoot>();
-
-        if (_aiPath == null)
-            _aiPath = transform.root.GetComponentInChildren<AIPath>();
-
-        if (_customPatrol == null)
-            _customPatrol = transform.root.GetComponentInChildren<CustomPatrol>();
-
-        if (_customDestinationSetter == null)
-            _customDestinationSetter = transform.root.GetComponentInChildren<CustomDestinationSetter>();
-
-        _customPatrol.enabled = false;
-        _customDestinationSetter.enabled = false;
-        _aiPath.enabled = true;
+        CustomPatrol.enabled = false;
+        CustomDestinationSetter.enabled = false;
+        AIPathfinder.enabled = true;
     }
 
     protected virtual void Start()
     {
-        _aiPath.maxSpeed = Entity.MovementSpeed / 50f;
+        AIPathfinder.maxSpeed = Entity.MovementSpeed / 50f;
     }
 
     protected virtual void Update()
@@ -59,7 +84,7 @@ public class EnemyBrain : EntityBrain
             return;
         }
 
-        float testX = _aiPath.desiredVelocity.x;
+        float testX = AIPathfinder.desiredVelocity.x;
         Player player = GameManager.Instance.Player;
 
         if (testX == 0 && player)
@@ -73,27 +98,27 @@ public class EnemyBrain : EntityBrain
 
     public void FollowingPlayer(bool enable)
     {
-        _customDestinationSetter.enabled = enable;
+        CustomDestinationSetter.enabled = enable;
     }
 
     public void Patrolling(bool enable)
     {
-        _customPatrol.enabled = enable;
+        CustomPatrol.enabled = enable;
     }
 
     public void AIPath(bool enable)
     {
-        _aiPath.enabled = enable;
+        AIPathfinder.enabled = enable;
     }
 
     public void StartShooting()
     {
-        _entityShooting.StartShooting();
+        ShootAction.StartShooting();
     }
 
     public void StopShooting()
     {
-        _entityShooting.StopShooting();
+        ShootAction.StopShooting();
     }
 
     public void AttackPlayer()

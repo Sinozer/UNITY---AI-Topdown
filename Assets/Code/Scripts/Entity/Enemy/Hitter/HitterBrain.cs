@@ -12,25 +12,25 @@ public class HitterBrain : EnemyBrain
     protected override void Start()
     {
         base.Start();
-        _btRunner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
-        
+        BTRunner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
     }
 
     protected override void Update()
     {
         base.Update();
 
-        if (Enemy.IsDead)
+        if (Dead)
         {
-            _btRunner.GetBlackboard().SetValue("IsDead", true);
+            BTRunner.GetBlackboard().SetValue("IsDead", true);
             return;
         }
 
-        Player player = GameManager.Instance.Player;
-
-        _btRunner.GetBlackboard().SetValue("PlayerPosition", player != null ? (Vector2)player.transform.position : Vector2.zero);
-        _btRunner.GetBlackboard().SetValue("SeePlayer", IsInVisionRange);
-        _btRunner.GetBlackboard().SetValue("CanAttack", IsInShootRange);
+        if (Alive)
+        {
+            BTRunner.GetBlackboard().SetValue("IsInVisionRange", IsInVisionRange);
+            BTRunner.GetBlackboard().SetValue("IsInShootRange", IsInShootRange);
+            BTRunner.GetBlackboard().SetValue("IsInShootCooldown", ShootAction.IsInShootCooldown);
+        }
     }
     
 }
