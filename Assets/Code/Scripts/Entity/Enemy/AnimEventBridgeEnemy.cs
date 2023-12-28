@@ -26,7 +26,7 @@ public class AnimationEventBridgeEnemy : MonoBehaviour
                 Instantiate(GameManager.Instance.FirstAid, transform.position, Quaternion.identity);
         }
 
-        Destroy(gameObject);
+        Destroy(transform.root.gameObject);
     }
 
     public void DieSfx()
