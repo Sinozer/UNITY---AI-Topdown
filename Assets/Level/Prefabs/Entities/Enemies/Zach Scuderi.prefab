@@ -162,6 +162,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _multiplier: 1
+--- !u!1 &4434164489841303965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3423318130229697841}
+  - component: {fileID: 5046419394851193446}
+  m_Layer: 0
+  m_Name: Actions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3423318130229697841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434164489841303965}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9131213383940304585}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5046419394851193446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434164489841303965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d93cacf5bb7c7e4481737cd3ca34daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lootTables:
+  - {fileID: 11400000, guid: 6adfd2062936b764fa62f3d15687b5e1, type: 2}
 --- !u!1 &6699824516727120118
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +365,7 @@ Transform:
   - {fileID: 7299282347007042575}
   - {fileID: 8265298663783056140}
   - {fileID: 8915453696409851110}
+  - {fileID: 3423318130229697841}
   - {fileID: 9175431187490501191}
   - {fileID: 189233464504881019}
   - {fileID: 747200072819939965}
@@ -373,7 +420,6 @@ MonoBehaviour:
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
-  _vfxHit: {fileID: 0}
   _sfxDying: {fileID: 0}
   _sfxHit: {fileID: 0}
   _baseData: {fileID: 11400000, guid: e8b7b9c57814bbc4bb8e4735488402a4, type: 2}

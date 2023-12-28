@@ -13,12 +13,6 @@ using UnityEngine.Tilemaps;
 
 public class RoomSpawnEntity : RoomChild
 {
-    private void Awake()
-    {
-        if (_waves == null)
-            return;
-    }
-
     public bool IsEnded => _currentWaveIndex > _waves.Count;
 
     public List<SOWave> Waves => _waves;

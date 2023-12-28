@@ -7,14 +7,15 @@
 
 using UnityEngine;
 
-public class IConsume : MonoBehaviour
+public class ConsumablePickupControl : ConsumableChild
 {
-    [SerializeField] private FirstAidController _controller;
+    [SerializeField] private ConsumableHeal _controller;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.transform.root.TryGetComponent<Player>(out var player))
+        if (collision.gameObject.transform.root.TryGetComponent<Player>(out var player) == false)
             return;
 
-        _controller.HealPlayer(player);
+        foreach (var consumable in Actions.GetComponentsInChildren<IConsumable>())
+            consumable.Consume(player);
     }
 }

@@ -19,13 +19,6 @@ public class AnimationEventBridgeEnemy : MonoBehaviour
 
     public void Die()
     {
-        if (EnemyBrain.NPC)
-        {
-            int randomInt = Random.Range(0, 100);
-            if (randomInt < 20)
-                Instantiate(GameManager.Instance.FirstAid, transform.position, Quaternion.identity);
-        }
-
         Destroy(transform.root.gameObject);
     }
 

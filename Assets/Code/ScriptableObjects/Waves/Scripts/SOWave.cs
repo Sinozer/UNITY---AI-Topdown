@@ -42,7 +42,7 @@ public class SOWave : SerializedScriptableObject
             for (int i = 0; i < enemy.NumberOfEnemies; i++)
             {
                 // Spawn enemy
-                Enemy instance = Instantiate(enemy.Entity, spawner.Room.GetRandomValidPositionInRoom(), Quaternion.identity);
+                Enemy instance = Instantiate(enemy.Entity, Vector3.zero, Quaternion.identity);
 
                 int spawnPointIndex = UnityEngine.Random.Range(0, patrolAreas.Length);
 

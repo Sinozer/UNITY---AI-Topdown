@@ -5,22 +5,21 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using System;
 using UnityEngine;
 
-public class FirstAidController : MonoBehaviour
+public class ConsumableHeal : ConsumableChild, IConsumable
 {
     [SerializeField] private float _yOffset = 0.005f;
-    [SerializeField] private int HealthAmount = 10;
+    [SerializeField] private int _healthAmount = 10;
 
-    internal void HealPlayer(Player player)
+    public void Consume(Player player)
     {
-        player.Heal(HealthAmount);
+        player.Heal(_healthAmount);
         Destroy(transform.root.gameObject);
     }
 
     private void Update()
     {
-        transform.parent.position += _yOffset * Mathf.Sin(Time.time * 2) * Time.deltaTime * Vector3.up;
+        Consumable.transform.position += _yOffset * Mathf.Sin(Time.time * 2) * Time.deltaTime * Vector3.up;
     }
 }

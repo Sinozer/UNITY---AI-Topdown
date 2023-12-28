@@ -49,6 +49,52 @@ MonoBehaviour:
   _aiPath: {fileID: 7438323924230567458}
   _customPatrol: {fileID: 5133782914306870592}
   _customDestinationSetter: {fileID: 195683760914978312}
+--- !u!1 &1750799452325161682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6040704873570496288}
+  - component: {fileID: 3324080632007008789}
+  m_Layer: 0
+  m_Name: Actions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6040704873570496288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750799452325161682}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6361653731025884476}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3324080632007008789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750799452325161682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d93cacf5bb7c7e4481737cd3ca34daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lootTables:
+  - {fileID: 11400000, guid: 6adfd2062936b764fa62f3d15687b5e1, type: 2}
 --- !u!1 &4078633301907431039
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +363,7 @@ Transform:
   - {fileID: 4985799913678329399}
   - {fileID: 3523946080539664538}
   - {fileID: 6907903152122535081}
+  - {fileID: 6040704873570496288}
   - {fileID: 8721496261188222692}
   - {fileID: 6759648751059728730}
   - {fileID: 2037124418307558316}
@@ -358,7 +405,6 @@ MonoBehaviour:
   _attackSpeed: 0
   _attackRange: 0
   _visionRange: 0
-  _vfxHit: {fileID: 0}
   _sfxDying: {fileID: 0}
   _sfxHit: {fileID: 0}
   _baseData: {fileID: 11400000, guid: ba356e5586cdee14da76b96d18745bb5, type: 2}
