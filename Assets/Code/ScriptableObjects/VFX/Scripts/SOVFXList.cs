@@ -24,7 +24,6 @@ public class SOVFXList : SerializedScriptableObject
         if (List.TryGetValue(name, out GameObject vfx))
             return Instantiate(vfx);
 
-        Debug.LogError("VFX not found: " + name);
         return null;
     }
 }

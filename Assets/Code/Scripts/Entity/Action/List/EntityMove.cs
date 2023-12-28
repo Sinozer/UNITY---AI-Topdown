@@ -14,7 +14,7 @@ public class EntityMove : EntityChild, IEntityAction
 
     private void Start()
     {
-        Rigidbody.interpolation = RigidbodyInterpolation2D.Interpolate;
+        Rigidbody2D.interpolation = RigidbodyInterpolation2D.Interpolate;
 
         if (NotNPC)
             return;
@@ -27,7 +27,7 @@ public class EntityMove : EntityChild, IEntityAction
         if (NPC)
             return;
 
-        Rigidbody.AddForce(Entity.MovementSpeed * 1000 * Time.fixedDeltaTime * MoveInput);
+        Rigidbody2D.AddForce(Entity.MovementSpeed * 1000 * Time.fixedDeltaTime * MoveInput);
     }
 
     public void SetAnimationSpeed()

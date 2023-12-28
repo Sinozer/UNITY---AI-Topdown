@@ -11,7 +11,6 @@ using UnityEngine;
 
 public class EnemyBrain : EntityBrain
 {
-    public Action Die => Entity.Die;
     public bool IsInVisionRange => Enemy.DistFromPlayer < Entity.VisionRange;
     public bool IsInShootRange => Enemy.DistFromPlayer < Entity.AttackRange;
 
@@ -56,7 +55,7 @@ public class EnemyBrain : EntityBrain
     {
         if (Dead)
         {
-            Enemy.Rigidbody.simulated = false;
+            Enemy.Rigidbody2D.simulated = false;
             return;
         }
 

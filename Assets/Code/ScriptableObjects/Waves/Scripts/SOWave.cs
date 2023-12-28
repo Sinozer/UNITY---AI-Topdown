@@ -31,23 +31,24 @@ public class SOWave : SerializedScriptableObject
 
     [SerializeField] private float _timeBetweenEnemyTypes;
 
-    public IEnumerator RunWave(EntitySpawner spawner)
+    public IEnumerator RunWave(RoomSpawnEntity spawner)
     {
         int totalOfEnemies = 0;
+
+        CapsuleCollider2D[] patrolAreas = spawner.GetColliders2D<CapsuleCollider2D>("Patrol");
 
         foreach (var enemy in Enemies)
         {
             for (int i = 0; i < enemy.NumberOfEnemies; i++)
             {
                 // Spawn enemy
-                Enemy instance = Instantiate(enemy.Entity, spawner.GetRandomPositionInRoom(), Quaternion.identity);
+                Enemy instance = Instantiate(enemy.Entity, spawner.Room.GetRandomValidPositionInRoom(), Quaternion.identity);
 
-                int spawnPointIndex = UnityEngine.Random.Range(0, spawner.PatrolAreas.Count);
+                int spawnPointIndex = UnityEngine.Random.Range(0, patrolAreas.Length);
 
-                for (int j = 0; j < spawner.PatrolAreas.Count; j++)
+                for (int j = 0; j < patrolAreas.Length; j++)
                 {
-                    // Get a random point in the patrol area which is a capsule collider 2D
-                    var bounds = spawner.PatrolAreas[j].bounds;
+                    var bounds = patrolAreas[j].bounds;
 
                     var value = Vector3.zero;
                     while(true)
@@ -56,7 +57,7 @@ public class SOWave : SerializedScriptableObject
                         var y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
                         value = new Vector3(x, y, 9);
 
-                        if (spawner.IsWalkingPosition(value))
+                        if (spawner.Room.IsValidPosition(value))
                             break;
                     }
                     

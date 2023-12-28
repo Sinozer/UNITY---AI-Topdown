@@ -118,7 +118,7 @@ public class BossSetupState : BaseState<BossStateManager, BossStateManager.EBoss
     public override void OnEnter(BossStateManager manager)
     {
         manager.Owner.CurrentPhase.IsUnlocked = true;
-        manager.Owner.Boss.Rigidbody.simulated = true;
+        manager.Owner.Boss.Rigidbody2D.simulated = true;
     }
 
     public override void OnExit(BossStateManager manager)

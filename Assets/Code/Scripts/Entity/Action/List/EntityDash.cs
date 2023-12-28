@@ -29,7 +29,7 @@ public class EntityDash : EntityChild, IEntityAction
         AudioManager.PlaySFX("Dash");
         Vector2 _targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dashDirection = (_targetPosition - (Vector2)Entity.transform.position).normalized;
-        Rigidbody.velocity += _dashPower * dashDirection;
+        Rigidbody2D.velocity += _dashPower * dashDirection;
 
         yield return new WaitForSeconds(_dashCooldown);
         _canDash = true;

@@ -17,7 +17,7 @@ public class VFXManager : EntityChild
         GameObject vfx = _vfxList.GetVFX(name);
         if (vfx == null)
         {
-            Debug.LogError("VFX not found: " + name);
+            Debug.LogWarning("VFX not found: " + name);
             return null;
         }
 

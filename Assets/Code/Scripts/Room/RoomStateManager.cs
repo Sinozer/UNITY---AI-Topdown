@@ -69,7 +69,7 @@ public class RoomLockedState : BaseState<RoomStateManager, RoomStateManager.ERoo
 
         foreach (var gate in manager.Owner.Gates)
         {
-            gate.SetActive(true);
+            gate.gameObject.SetActive(true);
         }
     }
 
@@ -103,7 +103,7 @@ public class RoomUnlockedState : BaseState<RoomStateManager, RoomStateManager.ER
 
         foreach (var gate in manager.Owner.Gates)
         {
-            gate.SetActive(false);
+            gate.gameObject.SetActive(false);
         }
 
         if (manager.Owner.RoomType != Room.ERoomType.Join)
@@ -135,7 +135,7 @@ public class RoomEnterState : BaseState<RoomStateManager, RoomStateManager.ERoom
 
         foreach (var gate in manager.Owner.Gates)
         {
-            gate.SetActive(true);
+            gate.gameObject.SetActive(true);
         }
     }
 
@@ -177,18 +177,16 @@ public class RoomSetupState : BaseState<RoomStateManager, RoomStateManager.ERoom
             case Room.ERoomType.Join:
                 // Spawn the player at the right place
                 // Show player inputs instructions / base mechanics
-                GameObject.Instantiate(
-                ((JoinRoom)manager.Owner).PlayerPrefab,
-                    manager.Owner.transform.position,
-                    Quaternion.identity
-                ).name = "Player";
+                GameObject player = GameObject.Instantiate(((JoinRoom)manager.Owner).PlayerPrefab);
+                player.name = "Player";
+                player.transform.position = manager.Owner.GetRandomValidPositionInRoom();
                 break;
             case Room.ERoomType.Idle:
                 // Pretty much nothing to do here
                 break;
             case Room.ERoomType.Combat:
                 // Spawn enemies
-                ((CombatRoom)manager.Owner).EntitySpawner.SpawnWave();
+                manager.Owner.GetAction<RoomSpawnEntity>().SpawnWave();
                 break;
             case Room.ERoomType.Treasure:
                 // Spawn treasures
@@ -245,7 +243,7 @@ public class RoomPlayState : BaseState<RoomStateManager, RoomStateManager.ERoomS
                 break;
             case Room.ERoomType.Combat:
                 // Wait for all enemies to be dead
-                EntitySpawner spawner = ((CombatRoom)manager.Owner).EntitySpawner;
+                RoomSpawnEntity spawner = manager.Owner.GetAction<RoomSpawnEntity>();
                 if (spawner.IsInFight == true)
                     return;
 
@@ -303,10 +301,11 @@ public class RoomEndState : BaseState<RoomStateManager, RoomStateManager.ERoomSt
 
     public override void OnEnter(RoomStateManager manager)
     {
-        manager.Owner.PlayEndRoomSound();
+        manager.Owner.AudioManager?.PlaySFX("Room_Complete");
+
         foreach (var gate in manager.Owner.Gates)
         {
-            gate.SetActive(false);
+            gate.gameObject.SetActive(false);
         }
 
         //if (manager.Owner.RoomType == Room.ERoomType.Combat)

@@ -88,7 +88,7 @@ public class BossBrain : EnemyBrain
         if (_legs != null)
             return;
 
-        _legs = transform.root.Find("Render").Find("Skin").Find("Legs").gameObject;
+        _legs = GetRender("Legs").gameObject;
     }
 
     protected override void Update()

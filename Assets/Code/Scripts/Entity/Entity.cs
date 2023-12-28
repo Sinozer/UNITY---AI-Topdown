@@ -5,7 +5,6 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
-using System;
 using UnityEngine;
 
 public abstract class Entity : EntityChild
@@ -33,7 +32,6 @@ public abstract class Entity : EntityChild
     public float VisionRange => _visionRange;
     [SerializeField] protected float _visionRange;
 
-    [SerializeField] protected ParticleSystem _vfxHit;
     [SerializeField] protected AudioSource _sfxDying;
     [SerializeField] protected AudioSource _sfxHit;
 
@@ -42,8 +40,8 @@ public abstract class Entity : EntityChild
     #endregion Fields
 
     #region Events
-    public event Action<float> OnHealthChanged;
-    public event Action OnDeath;
+    public event System.Action<float> OnHealthChanged;
+    public event System.Action OnDeath;
     #endregion Events
 
     public virtual void Heal(float healAmount)
@@ -63,19 +61,6 @@ public abstract class Entity : EntityChild
             OnDeath?.Invoke();
     }
 
-    public virtual void Die()
-    {
-        //OnDeath?.Invoke();
-        if (IsNpc)
-        {
-            System.Random random = new System.Random();
-            int randomInt = random.Next(0, 100);
-            if (randomInt < 20)
-                Instantiate(GameManager.Instance.FirstAid, transform.position, Quaternion.identity);
-        }
-        Destroy(gameObject);
-    }
-
     public virtual void Attack(Entity target)
     {
         target.TakeDamage(_damage);
@@ -84,17 +69,6 @@ public abstract class Entity : EntityChild
     public void OnHit()
     {
         AudioManager.PlaySFX("Hit");
-
-        if (IsAlive)
-        {
-            // hit particles
-            //if(_vfxHit != null)
-            //{
-            //    GameObject go = Instantiate(_vfxHit.gameObject, transform.position, Quaternion.identity, transform);
-            //    go.SetActive(true);
-            //}
-
-            VFXManager.PlayVFX("Hit");
-        }
+        VFXManager.PlayVFX("Hit");
     }
 }
