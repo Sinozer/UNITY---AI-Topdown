@@ -5,6 +5,8 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
+
 public class SceneManager : Singleton<SceneManager>
 {
     public void LoadScene(string sceneName)

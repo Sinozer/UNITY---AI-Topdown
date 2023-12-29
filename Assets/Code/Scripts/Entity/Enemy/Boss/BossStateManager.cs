@@ -207,6 +207,8 @@ public class BossEndedState : BaseState<BossStateManager, BossStateManager.EBoss
 {
     public override void OnEnter(BossStateManager manager)
     {
+        PlayerManager.Instance.Stopwatch.StopTime();
+        SceneManager.Instance.LoadScene(5);
     }
 
     public override void OnExit(BossStateManager manager)

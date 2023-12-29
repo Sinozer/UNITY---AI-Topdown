@@ -85,13 +85,6 @@ public class Player : Entity
         if (vcam == null)
             return;
 
-        //// Instantiate new empty gameobject
-        //_aim = new GameObject("Aim");
-        //_aim.AddComponent<FollowCursor>();
-
-        //vcam.AddMember(_aim.transform, 1, 1);
-        //vcam.AddMember(transform, 3, 1);
-
         _crosshair = Instantiate(_crosshair);
         vcam.AddMember(transform, 3, 1);
     }

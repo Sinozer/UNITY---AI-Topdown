@@ -84,6 +84,7 @@ public class PlayerBrain : EntityBrain
 
     private void OnDeath()
     {
+        PlayerManager.Instance.Stopwatch.StopTime();
         SceneManager.Instance.LoadScene(_sceneToLoadOnDeath);
     }
 

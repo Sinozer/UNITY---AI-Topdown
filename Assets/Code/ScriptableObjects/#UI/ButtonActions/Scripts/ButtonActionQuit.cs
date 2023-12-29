@@ -1,22 +1,17 @@
 // --------------------------------------- //
 // --------------------------------------- //
-//  Creation Date: 22/12/23
+//  Creation Date: 29/12/23
 //  Description: AI - Topdown
 // --------------------------------------- //
 // --------------------------------------- //
 
 using UnityEngine;
 
-public class SceneGetter : MonoBehaviour
+[CreateAssetMenu(fileName = "ButtonActionQuit", menuName = "ButtonAction/Quit")]
+public class ButtonActionQuit : ButtonAction
 {
-    public void LoadScene(int sceneIndex)
-    {
-        SceneManager.Instance.LoadScene(sceneIndex);
-    }
-
-    public void Quit()
+    public override void Execute(ButtonActionData data = default)
     {
         Application.Quit();
     }
-
 }

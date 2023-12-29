@@ -59,4 +59,18 @@ public class GameManager : Singleton<GameManager>
     {
         Application.Quit();
     }
+
+    public void Play()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+
+        PlayerManager.Instance.Stopwatch.StartTime();
+    }
+
+    public void OnApplicationQuit()
+    {
+        // Make things before quitting
+        
+        Application.Quit();
+    }
 }

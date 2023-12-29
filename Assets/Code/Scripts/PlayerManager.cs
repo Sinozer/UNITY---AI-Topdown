@@ -10,6 +10,9 @@ using UnityEngine;
 
 public class PlayerManager : Singleton<PlayerManager>
 {
+    public Stopwatch Stopwatch => _stopwatch;
+    private Stopwatch _stopwatch;
+
     public Reference<SOEntity> Data => _data;
     private Reference<SOEntity> _data;
 
@@ -20,6 +23,7 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         base.Awake();
 
+        _stopwatch = gameObject.AddComponent<Stopwatch>();
         _data = ScriptableObject.CreateInstance<DataReference>();
         _health = ScriptableObject.CreateInstance<FloatReference>();
     }
@@ -28,6 +32,8 @@ public class PlayerManager : Singleton<PlayerManager>
     [Button]
     private void DebugLog()
     {
+        Debug.Log($"Time: {_stopwatch.TimeSpan.TotalMilliseconds}");
+
         Debug.Log($"Health: {_health.Acquire()}");
 
         Debug.Log($"MaxHealth: {_data.Acquire().MaxHealth}");

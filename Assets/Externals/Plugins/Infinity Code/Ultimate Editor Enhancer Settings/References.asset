@@ -62,6 +62,18 @@ MonoBehaviour:
     type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     target: {fileID: 8516374289067863327, guid: 13a3d50c2da7bf94c998eceb8e1755e4, type: 3}
+  - title: '#UI'
+    type: UnityEditor.DefaultAsset, UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 102900000, guid: d196a654e79dd6e458e903bc57fd7dde, type: 3}
+  - title: PlayerManager
+    type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 2823263045533408317, guid: 131c9e7e2f257bc4d90b05d209c72fd1, type: 3}
+  - title: SceneManager
+    type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    target: {fileID: 8974582660774562318, guid: acdd97ad9b852c94c8c9f34496ba91c6, type: 3}
   _emptyInspectorItems:
   - title: Ultimate Editor Enhancer
     enabled: 1
@@ -706,16 +718,24 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
-  - name: Main - JUN
-    path: Assets/Level/Scenes/Jun/Main - JUN.unity
-  - name: Level - YOANN
-    path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
+  - name: End_Lose
+    path: Assets/Level/Scenes/End_Lose.unity
+  - name: End_Win
+    path: Assets/Level/Scenes/End_Win.unity
+  - name: End
+    path: Assets/Level/Scenes/End.unity
+  - name: Settings
+    path: Assets/Level/Scenes/Settings.unity
   - name: Main_Level_2
     path: Assets/Level/Scenes/Main_Level_2.unity
   - name: Main_Level_1
     path: Assets/Level/Scenes/Main_Level_1.unity
   - name: MainMenu
     path: Assets/Level/Scenes/MainMenu.unity
+  - name: Main - JUN
+    path: Assets/Level/Scenes/Jun/Main - JUN.unity
+  - name: Level - YOANN
+    path: Assets/Level/Scenes/Yoann/Level - YOANN.unity
   - name: Main - THEO
     path: "Assets/Level/Scenes/Th\xE9o/Main - THEO.unity"
   - name: CFXRF Demo

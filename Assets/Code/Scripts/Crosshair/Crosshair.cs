@@ -17,7 +17,7 @@ public class Crosshair : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
 #endif
         CinemachineTargetGroup vcam = FindFirstObjectByType<CinemachineTargetGroup>();
-        if (vcam == null)
+        if (vcam == null || GameManager.Instance.Player == null)
             return;
 
         vcam.AddMember(transform, 1, 1);
