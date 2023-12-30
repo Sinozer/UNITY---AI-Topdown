@@ -50,7 +50,7 @@ public class GameManager : Singleton<GameManager>
         get
         {
             if (_player == null)
-                FindPlayer();
+                _player = FindObjectOfType<Player>();
 
             return _player;
         }
@@ -67,35 +67,6 @@ public class GameManager : Singleton<GameManager>
     public GameObject Projectile => _projectile;
     [SerializeField] private GameObject _projectile;
     #endregion Fields
-    private void Start()
-    {
-        FindPlayer();
-    }
-
-    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
-    {
-        FindPlayer();
-    }
-
-    private void OnEnable()
-    {
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void FindPlayer()
-    {
-        GameObject go = GameObject.FindGameObjectWithTag("Player");
-
-        if (go == null)
-            return;
-
-        _player = go.GetComponent<Player>();
-    }
 
     public void Play()
     {
@@ -112,9 +83,13 @@ public class GameManager : Singleton<GameManager>
         CurrentGameState = GameState.Pause;
         OnGamePause?.Invoke();
 
+        Debug.Log("Pause");
+
         SceneManager.Instance.LoadSceneAdditive(_pauseSceneIndex);
 
+        Debug.Log("Before");
         Player.Brain.enabled = false;
+        Debug.Log("After");
         PlayerManager.Instance.Stopwatch.StopTime();
     }
 
@@ -123,9 +98,13 @@ public class GameManager : Singleton<GameManager>
         CurrentGameState = GameState.Game;
         OnGameResume?.Invoke();
 
+        Debug.Log("Resume");
+
         SceneManager.Instance.UnloadScene(_pauseSceneIndex);
 
+        Debug.Log("Before");
         Player.Brain.enabled = true;
+        Debug.Log("After");
         PlayerManager.Instance.Stopwatch.StartTime();
     }
 

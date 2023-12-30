@@ -16,7 +16,7 @@ abstract public class EntityChild : ObjectChild<Entity>
         get
         {
             if (_brain == null)
-                _brain = Entity.GetComponentInChildren<EntityBrain>();
+                _brain = Entity.GetComponentInChildren<EntityBrain>(true);
 
             return _brain;
         }

@@ -101,9 +101,6 @@ public class PlayerBrain : EntityBrain
 
     private void OnPauseStarted(InputAction.CallbackContext context)
     {
-#if UNITY_WEBGL
-        Debug.Log("Pause is not available on WebGL");
-#else
         if (GameManager.Instance.CurrentGameState == GameManager.GameState.Game)
         {
             GameManager.Instance.Pause();
@@ -112,7 +109,6 @@ public class PlayerBrain : EntityBrain
         {
             GameManager.Instance.Resume();
         }
-#endif
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
