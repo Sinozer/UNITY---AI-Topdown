@@ -47,7 +47,13 @@ public class GameManager : Singleton<GameManager>
     #region Fields
     public Player Player
     {
-        get => _player;
+        get
+        {
+            if (_player == null)
+                FindPlayer();
+
+            return _player;
+        }
         set => _player = value;
     }
     [SerializeField] private Player _player;
@@ -130,7 +136,7 @@ public class GameManager : Singleton<GameManager>
 
         SceneManager.Instance.LoadScene(_mainMenuSceneIndex);
     }
-    
+
     public void Quit()
     {
         // Make things before closing the game
