@@ -73,7 +73,7 @@ public class GameManager : Singleton<GameManager>
         CurrentGameState = GameState.Game;
         OnGameStart?.Invoke();
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene(_gameSceneIndex);
+        SceneManager.Instance.LoadScene(_gameSceneIndex);
 
         PlayerManager.Instance.Stopwatch.StartTime();
     }
@@ -83,13 +83,10 @@ public class GameManager : Singleton<GameManager>
         CurrentGameState = GameState.Pause;
         OnGamePause?.Invoke();
 
-        Debug.Log("Pause");
 
         SceneManager.Instance.LoadSceneAdditive(_pauseSceneIndex);
 
-        Debug.Log("Before");
         Player.Brain.enabled = false;
-        Debug.Log("After");
         PlayerManager.Instance.Stopwatch.StopTime();
     }
 
@@ -98,13 +95,10 @@ public class GameManager : Singleton<GameManager>
         CurrentGameState = GameState.Game;
         OnGameResume?.Invoke();
 
-        Debug.Log("Resume");
 
         SceneManager.Instance.UnloadScene(_pauseSceneIndex);
 
-        Debug.Log("Before");
         Player.Brain.enabled = true;
-        Debug.Log("After");
         PlayerManager.Instance.Stopwatch.StartTime();
     }
 
