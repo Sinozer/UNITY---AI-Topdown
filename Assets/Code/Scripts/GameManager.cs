@@ -5,10 +5,45 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private int _mainMenuSceneIndex = 0;
+    [SerializeField] private int _gameSceneIndex = 1;
+    [SerializeField] private int _pauseSceneIndex = 2;
+
+    #region Events
+    public event Action OnGameStart;
+    public event Action OnGamePause;
+    public event Action OnGameResume;
+    public event Action OnGameEnd;
+
+    public event Action OnGameStateChange;
+    #endregion Events
+
+    #region GameState
+    public enum GameState
+    {
+        MainMenu,
+        Game,
+        Pause,
+        End
+    }
+    public GameState CurrentGameState
+    {
+        get => _currentGameState;
+        private set
+        {
+            _currentGameState = value;
+
+            OnGameStateChange?.Invoke();
+        }
+    }
+    [SerializeField] private GameState _currentGameState = GameState.MainMenu;
+    #endregion GameState
+
     #region Fields
     public Player Player
     {
@@ -55,22 +90,51 @@ public class GameManager : Singleton<GameManager>
 
         _player = go.GetComponent<Player>();
     }
-    public void Quit()
-    {
-        Application.Quit();
-    }
 
     public void Play()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        CurrentGameState = GameState.Game;
+        OnGameStart?.Invoke();
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(_gameSceneIndex);
 
         PlayerManager.Instance.Stopwatch.StartTime();
     }
 
-    public void OnApplicationQuit()
+    public void Pause()
     {
-        // Make things before quitting
-        
+        CurrentGameState = GameState.Pause;
+        OnGamePause?.Invoke();
+
+        SceneManager.Instance.LoadSceneAdditive(_pauseSceneIndex);
+
+        Player.Brain.enabled = false;
+        PlayerManager.Instance.Stopwatch.StopTime();
+    }
+
+    public void Resume()
+    {
+        CurrentGameState = GameState.Game;
+        OnGameResume?.Invoke();
+
+        SceneManager.Instance.UnloadScene(_pauseSceneIndex);
+
+        Player.Brain.enabled = true;
+        PlayerManager.Instance.Stopwatch.StartTime();
+    }
+
+    public void End()
+    {
+        CurrentGameState = GameState.MainMenu;
+        OnGameEnd?.Invoke();
+
+        SceneManager.Instance.LoadScene(_mainMenuSceneIndex);
+    }
+    
+    public void Quit()
+    {
+        // Make things before closing the game
+
         Application.Quit();
     }
 }

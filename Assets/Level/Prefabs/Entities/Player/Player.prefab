@@ -373,8 +373,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5006001, y: -0.00029993057, z: 0}
-    m_Extent: {x: 3.5002, y: 2.4998, z: 0}
+    m_Center: {x: 1.50035, y: -0.00014996529, z: 0}
+    m_Extent: {x: 3.5002499, y: 2.49915, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -799,6 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneToLoadOnDeath: 4
+  _pauseInput: {fileID: -988805464858900511, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
   _moveInput: {fileID: 3292558435713424574, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
   _shootInput: {fileID: -3436438092290266539, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
   _reloadInput: {fileID: -6401934985596150359, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}

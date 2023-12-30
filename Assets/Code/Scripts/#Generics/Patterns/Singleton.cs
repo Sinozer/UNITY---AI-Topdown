@@ -11,7 +11,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
 
-    [SerializeField, Tooltip("If true, the object will not be destroyed on scene load.")] private bool _dontDestroyOnLoad = true;
+    [SerializeField, Tooltip("If true, the object will not be destroyed on scene load.")] private bool _dontDestroyOnLoad = false;
     [SerializeField, Tooltip("If true, the object will replace the previous one if it exists.")] private bool _replacePrevious = false;
 
     public static T Instance
@@ -38,6 +38,16 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         if (_instance == null)
         {
             _instance = this as T;
+            if (_dontDestroyOnLoad)
+                DontDestroyOnLoad(gameObject);
+
+            return;
+        }
+
+        if (_replacePrevious == true)
+        {
+            Destroy(_instance.gameObject);
+            _instance = this as T;
 
             if (_dontDestroyOnLoad)
                 DontDestroyOnLoad(gameObject);
@@ -45,20 +55,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             return;
         }
 
-        if (_replacePrevious == false)
-        {
-            if (_instance == this)
-                return;
-
-            Destroy(gameObject);
-            return;
-        }
-
-        Destroy(_instance.gameObject);
-        _instance = this as T;
-
-        if (_dontDestroyOnLoad)
-            DontDestroyOnLoad(gameObject);
+        Destroy(gameObject);
     }
 
     protected virtual void OnDestroy()

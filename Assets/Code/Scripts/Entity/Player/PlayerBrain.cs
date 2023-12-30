@@ -28,6 +28,7 @@ public class PlayerBrain : EntityBrain
     }
 
     [Header("Inputs")]
+    [SerializeField] private InputActionReference _pauseInput;
     [SerializeField] private InputActionReference _moveInput;
     [SerializeField] private InputActionReference _shootInput;
     [SerializeField] private InputActionReference _reloadInput;
@@ -58,6 +59,8 @@ public class PlayerBrain : EntityBrain
 
     private void OnEnable()
     {
+        _pauseInput.action.started += OnPauseStarted;
+
         _moveInput.action.performed += OnMovePerformed;
         _moveInput.action.canceled += OnMoveCanceled;
         _shootInput.action.performed += OnShootPerformed;
@@ -66,11 +69,14 @@ public class PlayerBrain : EntityBrain
         _minimapInput.action.performed += OnMinimapPerformed;
         _minimapInput.action.canceled += OnMinimapCanceled;
         _dashInput.action.started += OnDashStarted;
+
         Entity.OnDeath += OnDeath;
     }
 
     private void OnDisable()
     {
+        _pauseInput.action.started -= OnPauseStarted;
+
         _moveInput.action.performed -= OnMovePerformed;
         _moveInput.action.canceled -= OnMoveCanceled;
         _shootInput.action.performed -= OnShootPerformed;
@@ -79,13 +85,32 @@ public class PlayerBrain : EntityBrain
         _minimapInput.action.performed -= OnMinimapPerformed;
         _minimapInput.action.canceled -= OnMinimapCanceled;
         _dashInput.action.started -= OnDashStarted;
+
         Entity.OnDeath -= OnDeath;
+
+        CancelMove();
+        CancelShoot();
+        CancelMinimap();
     }
 
     private void OnDeath()
     {
         PlayerManager.Instance.Stopwatch.StopTime();
         SceneManager.Instance.LoadScene(_sceneToLoadOnDeath);
+    }
+
+    private void OnPauseStarted(InputAction.CallbackContext context)
+    {
+        if (GameManager.Instance.CurrentGameState == GameManager.GameState.Game)
+        {
+            GameManager.Instance.Pause();
+        }
+        else if (GameManager.Instance.CurrentGameState == GameManager.GameState.Pause)
+        {
+            GameManager.Instance.Resume();
+        }
+
+        enabled = false;
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
@@ -95,6 +120,10 @@ public class PlayerBrain : EntityBrain
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
+        CancelMove();
+    }
+    private void CancelMove()
+    {
         MovementAction.MoveInput = Vector2.zero;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
         MovementAction.ResetAnimationSpeed();
@@ -103,17 +132,21 @@ public class PlayerBrain : EntityBrain
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
         _shoot = context.ReadValue<float>() > 0;
+
         ShootAction.StartShooting();
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
+    {
+        CancelShoot();
+    }
+    private void CancelShoot()
     {
         _shoot = false;
         SetAnimatorCondition(AnimatorCondition.IsIdle);
         ShootAction.ResetAnimationSpeed();
         ShootAction.StopShooting();
     }
-
     private void OnReloadPerformed(InputAction.CallbackContext context)
     {
         SetAnimatorCondition(AnimatorCondition.IsReload);
@@ -125,6 +158,10 @@ public class PlayerBrain : EntityBrain
     }
 
     private void OnMinimapCanceled(InputAction.CallbackContext obj)
+    {
+        CancelMinimap();
+    }
+    private void CancelMinimap()
     {
         Minimap.SetActive(false);
     }
