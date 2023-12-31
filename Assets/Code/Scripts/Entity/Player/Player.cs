@@ -79,7 +79,7 @@ public class Player : Entity
 
     private void Start()
     {
-        GameManager.Instance.Player = this;
+        GameManager.Instance.Blackboard.SetValue<Player>("Player", this);
 
         CinemachineTargetGroup vcam = FindFirstObjectByType<CinemachineTargetGroup>();
         if (vcam == null)
@@ -87,5 +87,17 @@ public class Player : Entity
 
         _crosshair = Instantiate(_crosshair);
         vcam.AddMember(transform, 3, 1);
+    }
+
+    private void OnDestroy()
+    {
+        if (GameManager.IsInitialized == false)
+            return;
+
+        if (GameManager.Instance.Blackboard.TryFind<Player>("Player", out Player player))
+        {
+            if (player == this)
+                GameManager.Instance.Blackboard.SetValue<Player>("Player", null);
+        }
     }
 }

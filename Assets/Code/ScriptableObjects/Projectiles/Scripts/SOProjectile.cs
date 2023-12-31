@@ -10,9 +10,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Projectile", menuName = "ScriptableObjects/Projectile")]
 public class SOProjectile : ScriptableObject
 {
-    //[SerializeField]
-    //private ProjectileBehavior 
-
     [SerializeField]
     private RuntimeAnimatorController _controller;
     public RuntimeAnimatorController Controller => _controller;

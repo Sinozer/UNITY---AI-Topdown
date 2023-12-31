@@ -61,7 +61,7 @@ public class SOWave : SerializedScriptableObject
                             break;
                     }
                     
-                    CustomPatrol patrol = instance.GetComponentInChildren<CustomPatrol>();
+                    EntityPatrol patrol = instance.GetComponentInChildren<EntityPatrol>();
                     patrol.Waypoints.Add(value);
 
                     if (j != spawnPointIndex)

@@ -57,8 +57,10 @@ public class PlayerBrain : EntityBrain
         _animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         _pauseInput.action.started += OnPauseStarted;
 
         _moveInput.action.performed += OnMovePerformed;
@@ -73,8 +75,10 @@ public class PlayerBrain : EntityBrain
         Entity.OnDeath += OnDeath;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
+
         _pauseInput.action.started -= OnPauseStarted;
 
         _moveInput.action.performed -= OnMovePerformed;
@@ -198,16 +202,16 @@ public class PlayerBrain : EntityBrain
         }
 
         // Flip the game object based on the direction of the mouse
-        var aimPosition = Player.Crosshair.transform.position;
-        var direction = aimPosition - transform.position;
+        //var aimPosition = Player.Crosshair.transform.position;
+        //var direction = aimPosition - transform.position;
 
-        int degree = direction.x > 0 ? 0 : 180;
+        //int degree = direction.x > 0 ? 0 : 180;
 
-        Render.transform.rotation = Quaternion.Euler(0, degree, 0);
-        Physics.transform.rotation = Quaternion.Euler(0, degree, 0);
+        //Render.transform.rotation = Quaternion.Euler(0, degree, 0);
+        //Physics.transform.rotation = Quaternion.Euler(0, degree, 0);
 
-        if (_light != null)
-            _light.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+        //if (_light != null)
+        //    _light.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
     }
 
     public void FixedUpdate()

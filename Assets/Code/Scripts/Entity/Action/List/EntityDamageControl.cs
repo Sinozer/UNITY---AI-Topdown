@@ -7,9 +7,14 @@
 
 using UnityEngine;
 
-public class EntityDamageControl : EntityChild
+public class EntityDamageControl : EntityChild, IDamageable
 {
     [SerializeField] private float _multiplier = 1f;
+
+    public void TakeDamage(float damage)
+    {
+        Entity.TakeDamage(damage * _multiplier);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,4 +30,9 @@ public class EntityDamageControl : EntityChild
         projectile.AlreadyHit = true;
         entity.TakeDamage(projectile.Damage * _multiplier);
     }
+}
+
+public interface IDamageable
+{
+    void TakeDamage(float damage);
 }

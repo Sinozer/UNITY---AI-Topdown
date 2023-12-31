@@ -9,8 +9,33 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Simple shoot behavior.
+/// This will instantiate a projectile and set its velocity towards the <see cref="Target"/> object.
+/// </summary>
 public class EntityShoot : EntityChild, IEntityAction
 {
+    /// <summary>
+    /// Target to shoot at
+    /// </summary>
+    //public Transform Target { get; set; }
+    public GameObject Target { get; set; }
+
+    public GameObject Projectile
+    {
+        get
+        {
+            if (_projectile == null)
+                GameManager.Instance.Blackboard.TryFind("Projectile", out _projectile);
+
+            if (_projectile == null)
+                throw new System.Exception("Projectile not found in the blackboard");
+
+            return _projectile;
+        }
+    }
+    private GameObject _projectile;
+
     private float AttackSpeed
     {
         get
@@ -32,7 +57,6 @@ public class EntityShoot : EntityChild, IEntityAction
     public bool IsInShootCooldown => _lastTimeShot + 1 / Entity.AttackSpeed > Time.time;
 
     private Vector2 _direction;
-    private GameObject _target;
     private Vector2 _targetPosition;
     private Coroutine _shootCoroutine;
 
@@ -57,14 +81,13 @@ public class EntityShoot : EntityChild, IEntityAction
 
         if (Entity.IsNpc == true)
         {
-
-            _target = player.gameObject;
-            _targetPosition = _target.transform.position;
+            Target = player.gameObject;
+            _targetPosition = Target.transform.position;
         }
         else
         {
-            _target = player.Crosshair.gameObject;
-            _targetPosition = _target.transform.position;
+            Target = player.Crosshair.gameObject;
+            _targetPosition = Target.transform.position;
         }
     }
 
@@ -77,7 +100,7 @@ public class EntityShoot : EntityChild, IEntityAction
 
             GetTarget();
 
-            GameObject projectile = Instantiate(GameManager.Instance.Projectile);
+            GameObject projectile = Instantiate(Projectile);
 
             if (Entity.IsNpc == true)
                 projectile.layer = LayerMask.NameToLayer("OtherProjectile");

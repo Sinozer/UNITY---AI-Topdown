@@ -18,7 +18,7 @@ public abstract class Entity : EntityChild
     [SerializeField, DisableInEditorMode] protected SOEntity _baseData;
 
     public float Health => _health;
-    [SerializeField, DisableInEditorMode] protected float _health;
+    [SerializeField, DisableInEditorMode, ProgressBar(0, "@_maxHealth", ColorGetter = "@Color.Lerp(Color.red, Color.green, Mathf.Pow(_health / _maxHealth, 2))")] protected float _health;
 
     public float MaxHealth => _maxHealth;
     [SerializeField, DisableInEditorMode] protected float _maxHealth;

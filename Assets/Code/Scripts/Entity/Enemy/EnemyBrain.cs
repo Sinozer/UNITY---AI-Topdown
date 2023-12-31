@@ -38,42 +38,59 @@ public class EnemyBrain : EntityBrain
     }
     [SerializeField] private AIPath _aiPathfinder;
 
-    protected CustomPatrol CustomPatrol
+    protected EntityPatrol ActionPatrol
     {
         get
         {
-            if (_customPatrol == null)
-                _customPatrol = Entity.GetComponentInChildren<CustomPatrol>();
+            if (_actionPatrol == null)
+                _actionPatrol = Entity.GetComponentInChildren<EntityPatrol>();
 
-            return _customPatrol;
+            return _actionPatrol;
         }
     }
-    [SerializeField] private CustomPatrol _customPatrol;
+    [SerializeField] private EntityPatrol _actionPatrol;
 
-    protected CustomDestinationSetter CustomDestinationSetter
+    protected EntityFollowTarget ActionFollowTarget
     {
         get
         {
-            if (_customDestinationSetter == null)
-                _customDestinationSetter = Entity.GetComponentInChildren<CustomDestinationSetter>();
+            if (_actionFollowTarget == null)
+                _actionFollowTarget = GetAction<EntityFollowTarget>();
 
-            return _customDestinationSetter;
+            return _actionFollowTarget;
         }
     }
-    [SerializeField] private CustomDestinationSetter _customDestinationSetter;
+    [SerializeField] private EntityFollowTarget _actionFollowTarget;
 
     public Enemy Enemy => Entity as Enemy;
 
+    public Player Player
+    {
+        get
+        {
+            if (_player == null)
+                _player = GameManager.Instance.Player;
+
+            return _player;
+        }
+    }
+    private Player _player;
+
     protected virtual void Awake()
     {
-        CustomPatrol.enabled = false;
-        CustomDestinationSetter.enabled = false;
+        ActionPatrol.enabled = false;
+        ActionFollowTarget.enabled = false;
         AIPathfinder.enabled = true;
     }
 
     protected virtual void Start()
     {
         AIPathfinder.maxSpeed = Entity.MovementSpeed / 50f;
+
+        EntityLookAt lookAtAction = GetAction<EntityLookAt>();
+
+        if (lookAtAction)
+            lookAtAction.Target = GameManager.Instance.Player?.transform;
     }
 
     protected virtual void Update()
@@ -84,26 +101,27 @@ public class EnemyBrain : EntityBrain
             return;
         }
 
-        float testX = AIPathfinder.desiredVelocity.x;
-        Player player = GameManager.Instance.Player;
+        //float testX = AIPathfinder.desiredVelocity.x;
+        //Player player = GameManager.Instance.Player;
 
-        if (testX == 0 && player)
-            testX = player.transform.position.x - transform.position.x;
+        //if (testX == 0 && player)
+        //    testX = player.transform.position.x - transform.position.x;
 
-        int degree = testX > 0 ? 0 : 180;
+        //int degree = testX > 0 ? 0 : 180;
 
-        Render.transform.rotation = Quaternion.Euler(0, degree, 0);
-        Physics.transform.rotation = Quaternion.Euler(0, degree, 0);
+        //Render.transform.rotation = Quaternion.Euler(0, degree, 0);
+        //Physics.transform.rotation = Quaternion.Euler(0, degree, 0);
     }
 
     public void FollowingPlayer(bool enable)
     {
-        CustomDestinationSetter.enabled = enable;
+        ActionFollowTarget.Target = GameManager.Instance.Player.transform;
+        ActionFollowTarget.enabled = enable;
     }
 
     public void Patrolling(bool enable)
     {
-        CustomPatrol.enabled = enable;
+        ActionPatrol.enabled = enable;
     }
 
     public void AIPath(bool enable)
@@ -123,7 +141,7 @@ public class EnemyBrain : EntityBrain
 
     public void AttackPlayer()
     {
-        Entity.Attack(GameManager.Instance.Player);
+        Entity.Attack(Player);
     }
 
     public void OnHit()

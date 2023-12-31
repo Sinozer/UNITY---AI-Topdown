@@ -9,12 +9,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(CustomPatrol)), CanEditMultipleObjects]
+[CustomEditor(typeof(EntityPatrol)), CanEditMultipleObjects]
 public class CustomPatrolEditor : Editor
 {
     private void OnSceneGUI()
     {
-        CustomPatrol patrol = target as CustomPatrol;
+        EntityPatrol patrol = target as EntityPatrol;
         if (patrol == null || patrol.enabled == false)
             return;
         List<Vector3> patrolTargets = patrol.Waypoints;

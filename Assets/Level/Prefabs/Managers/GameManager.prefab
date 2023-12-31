@@ -46,9 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dontDestroyOnLoad: 1
   _replacePrevious: 0
-  _mainMenuSceneIndex: 0
-  _gameSceneIndex: 1
-  _pauseSceneIndex: 6
+  _blackboard: {fileID: 11400000, guid: 47abeab473c820742956c494e9916f87, type: 2}
   _currentGameState: 0
   _player: {fileID: 0}
   _entityList: {fileID: 11400000, guid: 7b9640df1ec6a2e47aa7822a27b8f9a7, type: 2}

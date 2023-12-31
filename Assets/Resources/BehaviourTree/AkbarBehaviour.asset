@@ -129,13 +129,13 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: SeePlayer
+      Data: IsInVisionRange
     - Name: $v
       Entry: 5
       Data: false
@@ -147,7 +147,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: CanShoot
+      Data: IsInShootRange
     - Name: $v
       Entry: 5
       Data: false
@@ -160,6 +160,18 @@ MonoBehaviour:
     - Name: $k
       Entry: 1
       Data: TriggerExplosion
+    - Name: $v
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: IsDead
     - Name: $v
       Entry: 5
       Data: false
@@ -286,7 +298,7 @@ MonoBehaviour:
   Position: {x: 187, y: 41}
   Blackboard: {fileID: 0}
   _type: 0
-  _conditionName: TriggerExplosion
+  _conditionName: IsDead
   _not: 1
   CalcOperator: 0
   IntCondition: 0
@@ -375,7 +387,7 @@ MonoBehaviour:
   Position: {x: 342, y: 301}
   Blackboard: {fileID: 0}
   _type: 0
-  _conditionName: SeePlayer
+  _conditionName: IsInVisionRange
   _not: 0
   CalcOperator: 0
   IntCondition: 0
@@ -421,7 +433,7 @@ MonoBehaviour:
   Position: {x: -421, y: 41}
   Blackboard: {fileID: 0}
   _type: 0
-  _conditionName: TriggerExplosion
+  _conditionName: IsDead
   _not: 0
   CalcOperator: 0
   IntCondition: 0
@@ -507,7 +519,7 @@ MonoBehaviour:
   Position: {x: -566, y: 300}
   Blackboard: {fileID: 0}
   _type: 0
-  _conditionName: CanShoot
+  _conditionName: IsInShootRange
   _not: 0
   CalcOperator: 0
   IntCondition: 0

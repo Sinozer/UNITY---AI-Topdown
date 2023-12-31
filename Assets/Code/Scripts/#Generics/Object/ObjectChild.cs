@@ -14,19 +14,20 @@ public abstract class ObjectChild<T> : MonoBehaviour where T : MonoBehaviour
         get
         {
             if (_object == null)
-                _object = GetComponentInParent<T>();
+                _object = GetComponentInParent<T>(true);
 
             return _object;
         }
     }
     private T _object;
 
+    #region Managers
     public AudioManager AudioManager
     {
         get
         {
             if (_audioManager == null)
-                _audioManager = transform.root.GetComponentInChildren<AudioManager>();
+                _audioManager = transform.root.GetComponentInChildren<AudioManager>(true);
 
             return _audioManager;
         }
@@ -38,12 +39,13 @@ public abstract class ObjectChild<T> : MonoBehaviour where T : MonoBehaviour
         get
         {
             if (_vfxManager == null)
-                _vfxManager = transform.root.GetComponentInChildren<VFXManager>();
+                _vfxManager = transform.root.GetComponentInChildren<VFXManager>(true);
 
             return _vfxManager;
         }
     }
     private VFXManager _vfxManager;
+    #endregion Managers
 
     #region Actions
     public GameObject Actions
@@ -59,7 +61,7 @@ public abstract class ObjectChild<T> : MonoBehaviour where T : MonoBehaviour
     private GameObject _actions;
     public TAction GetAction<TAction>() where TAction : MonoBehaviour
     {
-        return Actions.GetComponentInChildren<TAction>();
+        return Actions.GetComponentInChildren<TAction>(true);
     }
     #endregion Actions
 
@@ -99,7 +101,7 @@ public abstract class ObjectChild<T> : MonoBehaviour where T : MonoBehaviour
         get
         {
             if (_rigidbody2D == null)
-                _rigidbody2D = Object.GetComponentInChildren<Rigidbody2D>();
+                _rigidbody2D = Object.GetComponentInChildren<Rigidbody2D>(true);
 
             return _rigidbody2D;
         }
@@ -120,22 +122,41 @@ public abstract class ObjectChild<T> : MonoBehaviour where T : MonoBehaviour
 
     public TPhysics GetCollider2D<TPhysics>() where TPhysics : Collider2D
     {
-        return Physics.GetComponentInChildren<TPhysics>();
+        return Physics.GetComponentInChildren<TPhysics>(true);
     }
     public TPhysics GetCollider2D<TPhysics>(string name) where TPhysics : Collider2D
     {
-        return Physics.transform.Find(name).GetComponentInChildren<TPhysics>();
+        return Physics.transform.Find(name).GetComponentInChildren<TPhysics>(true);
     }
 
     public TPhysics[] GetColliders2D<TPhysics>() where TPhysics : Collider2D
     {
-        return Physics.GetComponentsInChildren<TPhysics>();
+        return Physics.GetComponentsInChildren<TPhysics>(true);
     }
     public TPhysics[] GetColliders2D<TPhysics>(string name) where TPhysics : Collider2D
     {
-        return Physics.transform.Find(name).GetComponentsInChildren<TPhysics>();
+        return Physics.transform.Find(name).GetComponentsInChildren<TPhysics>(true);
     }
     #endregion Physics
+
+    #region VFX
+    public GameObject VFX
+    {
+        get
+        {
+            if (_vfx == null)
+                _vfx = Object.transform.Find("VFX")?.gameObject;
+
+            return _vfx;
+        }
+    }
+    private GameObject _vfx;
+
+    public V GetVFX<V>() where V : MonoBehaviour
+    {
+        return VFX.GetComponentInChildren<V>(true);
+    }
+    #endregion VFX
 
     #region Externals
     public GameObject Externals
@@ -152,20 +173,20 @@ public abstract class ObjectChild<T> : MonoBehaviour where T : MonoBehaviour
 
     public V GetExternal<V>() where V : Component
     {
-        return Externals.GetComponentInChildren<V>();
+        return Externals.GetComponentInChildren<V>(true);
     }
     public V GetExternal<V>(string name) where V : Component
     {
-        return Externals.transform.Find(name).GetComponentInChildren<V>();
+        return Externals.transform.Find(name).GetComponentInChildren<V>(true);
     }
 
     public V[] GetExternalChildrens<V>() where V : Component
     {
-        return Externals.GetComponentsInChildren<V>();
+        return Externals.GetComponentsInChildren<V>(true);
     }
     public V[] GetExternalChildrens<V>(string name) where V : Component
     {
-        return Externals.transform.Find(name).GetComponentsInChildren<V>();
+        return Externals.transform.Find(name).GetComponentsInChildren<V>(true);
     }
     #endregion Externals
 }

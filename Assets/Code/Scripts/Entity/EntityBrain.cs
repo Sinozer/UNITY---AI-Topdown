@@ -91,4 +91,13 @@ public class EntityBrain : EntityChild
         }
     }
     private EntityDash _dashingAction;
+
+    protected virtual void OnEnable()
+    {
+        Actions.SetActive(true);
+    }
+    protected virtual void OnDisable()
+    {
+        Actions.SetActive(false);
+    }
 }

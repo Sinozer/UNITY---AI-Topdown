@@ -31,13 +31,5 @@ public class ZachBrain : EnemyBrain
             BTRunner.GetBlackboard().SetValue("IsInShootRange", IsInShootRange);
             BTRunner.GetBlackboard().SetValue("IsInShootCooldown", ShootAction.IsInShootCooldown);
         }
-
-        //if (Dead)
-        //{
-        //    BTRunner.GetBlackboard().SetValue("IsDead", true);
-        //    BTRunner.GetBlackboard().SetValue("IsInVisionRange", false);
-        //    BTRunner.GetBlackboard().SetValue("IsInShootRange", false);
-        //    BTRunner.GetBlackboard().SetValue("IsInShootCooldown", false);
-        //}
     }
 }
