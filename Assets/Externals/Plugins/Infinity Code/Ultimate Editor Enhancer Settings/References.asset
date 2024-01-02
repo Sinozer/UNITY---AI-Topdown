@@ -718,12 +718,16 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
+  - name: MenuScene
+    path: Assets/Level/Scenes/MenuScene.unity
+  - name: Settings
+    path: Assets/Level/Scenes/Settings.unity
+  - name: MainMenu
+    path: Assets/Level/Scenes/MainMenu.unity
   - name: Main_Level_1
     path: Assets/Level/Scenes/Main_Level_1.unity
   - name: PauseMenu
     path: Assets/Level/Scenes/PauseMenu.unity
-  - name: Settings
-    path: Assets/Level/Scenes/Settings.unity
   - name: End_Win
     path: Assets/Level/Scenes/End_Win.unity
   - name: End_Lose
@@ -732,8 +736,6 @@ MonoBehaviour:
     path: Assets/Level/Scenes/End.unity
   - name: Main_Level_2
     path: Assets/Level/Scenes/Main_Level_2.unity
-  - name: MainMenu
-    path: Assets/Level/Scenes/MainMenu.unity
   - name: Main - JUN
     path: Assets/Level/Scenes/Jun/Main - JUN.unity
   - name: Level - YOANN
@@ -754,8 +756,6 @@ MonoBehaviour:
     path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
   - name: Main - GUILLAUME
     path: Assets/Level/Scenes/Guillaume/Main - GUILLAUME.unity
-  - name: Template
-    path: Assets/Level/Scenes/Template.unity
   _notes:
   - text: Add a collider
     gid: GlobalObjectId_V1-2-8fefc074875e334488625891faf09629-1044354429-0

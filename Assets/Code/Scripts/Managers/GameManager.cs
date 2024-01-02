@@ -141,11 +141,9 @@ public class GameManager : Singleton<GameManager>
         CurrentGameState = GameState.Pause;
         OnGamePause?.Invoke();
 
-
-        SceneManager.Instance.LoadSceneAdditive(PauseSceneIndex);
+        MenuManager.Instance.IsMenuOpen = true;
 
         Player.Brain.enabled = false;
-        PlayerManager.Instance.Stopwatch.StopTime();
     }
 
     public void Resume()
@@ -153,11 +151,9 @@ public class GameManager : Singleton<GameManager>
         CurrentGameState = GameState.Game;
         OnGameResume?.Invoke();
 
-
-        SceneManager.Instance.UnloadScene(PauseSceneIndex);
+        MenuManager.Instance.IsMenuOpen = false;
 
         Player.Brain.enabled = true;
-        PlayerManager.Instance.Stopwatch.StartTime();
     }
 
     public void End()

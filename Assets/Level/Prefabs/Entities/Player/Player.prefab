@@ -440,8 +440,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.4996, y: -0.00044989586, z: 0}
-    m_Extent: {x: 3.4994001, y: 2.49965, z: 0}
+    m_Center: {x: 1.4999499, y: -0.00039994717, z: 0}
+    m_Extent: {x: 3.5002499, y: 2.4994001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -600,7 +600,7 @@ Animator:
   m_GameObject: {fileID: 6073030441954184744}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f60a61802e879f14997a85df6efe0154, type: 2}
+  m_Controller: {fileID: 9100000, guid: 55506801d7cf7c040bbb04eb1f0644ed, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

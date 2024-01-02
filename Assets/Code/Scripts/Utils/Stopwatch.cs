@@ -69,7 +69,12 @@ public class Stopwatch : MonoBehaviour
     public float StopTime()
     {
         if (_isRunning == false)
-            throw new UnityException("The stopwatch is not started.");
+        {
+            //throw new UnityException("The stopwatch is not started.");
+
+            Debug.LogWarning("The stopwatch is not started.");
+            return _time;
+        }
 
         OnStop?.Invoke();
 

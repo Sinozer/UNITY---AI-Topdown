@@ -208,7 +208,9 @@ public class BossEndedState : BaseState<BossStateManager, BossStateManager.EBoss
     public override void OnEnter(BossStateManager manager)
     {
         PlayerManager.Instance.Stopwatch.StopTime();
-        SceneManager.Instance.LoadScene(5);
+        //SceneManager.Instance.LoadScene(5);
+        MenuManager.Instance.DefaultMenuName = "GameWon";
+        MenuManager.Instance.IsMenuOpen = true;
     }
 
     public override void OnExit(BossStateManager manager)

@@ -48,8 +48,6 @@ public class PlayerBrain : EntityBrain
     private GameObject _minimap;
     [SerializeField] private GameObject _light;
 
-    private bool _shoot;
-
     private string[] _animatorConditionNames;
 
     private void Awake()
@@ -63,13 +61,19 @@ public class PlayerBrain : EntityBrain
 
         _pauseInput.action.started += OnPauseStarted;
 
+        _moveInput.action.started += OnMoveStarted;
         _moveInput.action.performed += OnMovePerformed;
         _moveInput.action.canceled += OnMoveCanceled;
+
         _shootInput.action.performed += OnShootPerformed;
         _shootInput.action.canceled += OnShootCanceled;
-        _reloadInput.action.performed += OnReloadPerformed;
+
+        _reloadInput.action.started += OnReloadStarted;
+        _reloadInput.action.canceled += OnReloadCanceled;
+
         _minimapInput.action.performed += OnMinimapPerformed;
         _minimapInput.action.canceled += OnMinimapCanceled;
+
         _dashInput.action.started += OnDashStarted;
 
         Entity.OnDeath += OnDeath;
@@ -81,13 +85,19 @@ public class PlayerBrain : EntityBrain
 
         _pauseInput.action.started -= OnPauseStarted;
 
+        _moveInput.action.started -= OnMoveStarted;
         _moveInput.action.performed -= OnMovePerformed;
         _moveInput.action.canceled -= OnMoveCanceled;
+
         _shootInput.action.performed -= OnShootPerformed;
         _shootInput.action.canceled -= OnShootCanceled;
-        _reloadInput.action.performed -= OnReloadPerformed;
+
+        _reloadInput.action.started -= OnReloadStarted;
+        _reloadInput.action.canceled -= OnReloadCanceled;
+
         _minimapInput.action.performed -= OnMinimapPerformed;
         _minimapInput.action.canceled -= OnMinimapCanceled;
+
         _dashInput.action.started -= OnDashStarted;
 
         Entity.OnDeath -= OnDeath;
@@ -99,10 +109,18 @@ public class PlayerBrain : EntityBrain
 
     private void OnDeath()
     {
+        Animator.SetTrigger("Dead");
+
+        enabled = false;
+        GameManager.Instance.Blackboard.SetValue<Player>("Player", null);
+
         PlayerManager.Instance.Stopwatch.StopTime();
-        SceneManager.Instance.LoadScene(_sceneToLoadOnDeath);
+        MenuManager.Instance.DefaultMenuName = "GameLost";
+        MenuManager.Instance.IsMenuOpen = true;
     }
 
+    #region Inputs
+    #region Pause
     private void OnPauseStarted(InputAction.CallbackContext context)
     {
         if (GameManager.Instance.CurrentGameState == GameManager.GameState.Game)
@@ -113,6 +131,13 @@ public class PlayerBrain : EntityBrain
         {
             GameManager.Instance.Resume();
         }
+    }
+    #endregion Pause
+
+    #region Move
+    private void OnMoveStarted(InputAction.CallbackContext context)
+    {
+        Animator.SetBool("Run", true);
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
@@ -126,15 +151,16 @@ public class PlayerBrain : EntityBrain
     }
     private void CancelMove()
     {
+        Animator.SetBool("Run", false);
+
         MovementAction.MoveInput = Vector2.zero;
-        SetAnimatorCondition(AnimatorCondition.IsIdle);
         MovementAction.ResetAnimationSpeed();
     }
+    #endregion Move
 
+    #region Shoot
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        _shoot = context.ReadValue<float>() > 0;
-
         ShootAction.StartShooting();
     }
 
@@ -144,16 +170,25 @@ public class PlayerBrain : EntityBrain
     }
     private void CancelShoot()
     {
-        _shoot = false;
-        SetAnimatorCondition(AnimatorCondition.IsIdle);
-        ShootAction.ResetAnimationSpeed();
+        //ShootAction.ResetAnimationSpeed();
         ShootAction.StopShooting();
     }
-    private void OnReloadPerformed(InputAction.CallbackContext context)
+    #endregion Shoot
+
+    #region Reload
+    private void OnReloadStarted(InputAction.CallbackContext obj)
     {
-        SetAnimatorCondition(AnimatorCondition.IsReload);
+        Animator.SetTrigger("Reload");
     }
 
+    private void OnReloadCanceled(InputAction.CallbackContext obj)
+    {
+        // NOT USED
+        return;
+    }
+    #endregion Reload
+
+    #region Minimap
     private void OnMinimapPerformed(InputAction.CallbackContext obj)
     {
         Minimap.SetActive(true);
@@ -167,52 +202,15 @@ public class PlayerBrain : EntityBrain
     {
         Minimap.SetActive(false);
     }
+    #endregion Minimap
 
+    #region Dash
     private void OnDashStarted(InputAction.CallbackContext obj)
     {
         DashingAction.TryDash();
     }
-
-    void Update()
-    {
-        if (Entity.IsDead)
-        {
-            SetAnimatorCondition(AnimatorCondition.IsDead);
-            return;
-        }
-
-        if (!_shoot)
-        {
-            ShootAction.ResetAnimationSpeed();
-        }
-        else
-        {
-            SetAnimatorCondition(AnimatorCondition.IsShoot);
-            ShootAction.SetAnimationSpeed();
-        }
-
-        if (MovementAction.MoveInput == Vector2.zero)
-        {
-            MovementAction.ResetAnimationSpeed();
-        }
-        else
-        {
-            SetAnimatorCondition(AnimatorCondition.IsRun);
-            MovementAction.SetAnimationSpeed();
-        }
-
-        // Flip the game object based on the direction of the mouse
-        //var aimPosition = Player.Crosshair.transform.position;
-        //var direction = aimPosition - transform.position;
-
-        //int degree = direction.x > 0 ? 0 : 180;
-
-        //Render.transform.rotation = Quaternion.Euler(0, degree, 0);
-        //Physics.transform.rotation = Quaternion.Euler(0, degree, 0);
-
-        //if (_light != null)
-        //    _light.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
-    }
+    #endregion Dash
+    #endregion Inputs
 
     public void FixedUpdate()
     {
@@ -224,15 +222,5 @@ public class PlayerBrain : EntityBrain
 
     public void StopReloading()
     {
-        SetAnimatorCondition(AnimatorCondition.IsIdle);
-    }
-
-    private void SetAnimatorCondition(AnimatorCondition trueCondition)
-    {
-        var trueConditionName = _animatorConditionNames[(int)trueCondition];
-        foreach (var conditionName in _animatorConditionNames)
-        {
-            Animator.SetBool(conditionName, conditionName == trueConditionName);
-        }
     }
 }

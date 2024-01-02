@@ -98,6 +98,9 @@ public class EntityShoot : EntityChild, IEntityAction
             if (IsInShootCooldown == true)
                 yield return new WaitForSeconds(_lastTimeShot + 1 / AttackSpeed - Time.time);
 
+            if (NotNPC)
+                Animator.SetTrigger("Shoot");
+
             GetTarget();
 
             GameObject projectile = Instantiate(Projectile);
@@ -117,7 +120,7 @@ public class EntityShoot : EntityChild, IEntityAction
             projectile.GetComponent<Rigidbody2D>().velocity = _direction * _projectileData.Speed;
 
             //projectile.GetComponent<BoxCollider2D>().size = projectile.GetComponent<SpriteRenderer>().size;
-            
+
             BoxCollider2D collider = projectile.GetComponent<BoxCollider2D>();
             collider.size = new Vector2(0.35f, 0.12f);
             collider.offset = new Vector2(0.08f, 0);
