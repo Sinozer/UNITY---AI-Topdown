@@ -169,9 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5e87b03eb43bc4a83a219120693e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Action: {fileID: 11400000, guid: 6e66b89bd822df845ba927ace3b8baac, type: 2}
+  Action: {fileID: 0}
   Data:
-    IntData: 1
+    IntData: 0
     StringData: 
     FloatData: 0
     BoolData: 0

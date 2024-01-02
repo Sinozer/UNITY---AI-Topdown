@@ -101,8 +101,7 @@ public class PlayerBrain : EntityBrain
     {
         SetAnimatorCondition(AnimatorCondition.Dead);
 
-        enabled = false;
-        GameManager.Instance.Blackboard.SetValue<Player>("Player", null);
+
 
         PlayerManager.Instance.Stopwatch.StopTime();
         MenuManager.Instance.DefaultMenuName = "GameLost";

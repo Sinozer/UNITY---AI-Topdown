@@ -1,5 +1,4 @@
 using Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimationEventBridge : MonoBehaviour
@@ -14,7 +13,6 @@ public class AnimationEventBridge : MonoBehaviour
         if (vcam == null)
             return;
 
-        // Remove all the vcam targets
         vcam.m_Targets = new CinemachineTargetGroup.Target[0];
     }
 
