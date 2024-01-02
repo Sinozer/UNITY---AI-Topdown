@@ -99,7 +99,7 @@ public class EntityShoot : EntityChild, IEntityAction
                 yield return new WaitForSeconds(_lastTimeShot + 1 / AttackSpeed - Time.time);
 
             if (NotNPC)
-                Animator.SetTrigger("Shoot");
+                Brain.SetAnimatorCondition(PlayerBrain.AnimatorCondition.Shoot);
 
             GetTarget();
 

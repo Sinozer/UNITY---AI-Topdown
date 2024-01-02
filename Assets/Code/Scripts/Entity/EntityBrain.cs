@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ public class EntityBrain : EntityChild
         Dead
     }
 
-    public bool SetAnimatorCondition(AnimatorCondition condition, object value = null)
+    public bool SetAnimatorCondition(Enum condition, object value = null)
     {
         AnimatorControllerParameter parameter = Animator.parameters.FirstOrDefault(p => p.name == condition.ToString());
 

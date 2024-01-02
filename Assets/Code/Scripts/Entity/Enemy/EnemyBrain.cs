@@ -115,7 +115,7 @@ public class EnemyBrain : EntityBrain
 
     public void FollowingPlayer(bool enable)
     {
-        ActionFollowTarget.Target = GameManager.Instance.Player.transform;
+        ActionFollowTarget.Target = GameManager.Instance.Player?.transform;
         ActionFollowTarget.enabled = enable;
     }
 

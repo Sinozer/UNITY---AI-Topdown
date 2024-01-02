@@ -15,16 +15,13 @@ public class PlayerBrain : EntityBrain
 {
     public Player Player => Entity as Player;
 
-    [SerializeField] private int _sceneToLoadOnDeath = 0;
-
     public new enum AnimatorCondition
     {
-        IsIdle,
-        IsRun,
-        IsTalk,
-        IsReload,
-        IsShoot,
-        IsDead
+        Talk,
+        Run,
+        Reload,
+        Shoot,
+        Dead
     }
 
     [Header("Inputs")]
@@ -47,13 +44,6 @@ public class PlayerBrain : EntityBrain
     }
     private GameObject _minimap;
     [SerializeField] private GameObject _light;
-
-    private string[] _animatorConditionNames;
-
-    private void Awake()
-    {
-        _animatorConditionNames = Enum.GetNames(typeof(AnimatorCondition));
-    }
 
     protected override void OnEnable()
     {
@@ -109,7 +99,7 @@ public class PlayerBrain : EntityBrain
 
     private void OnDeath()
     {
-        Animator.SetTrigger("Dead");
+        SetAnimatorCondition(AnimatorCondition.Dead);
 
         enabled = false;
         GameManager.Instance.Blackboard.SetValue<Player>("Player", null);
@@ -137,7 +127,7 @@ public class PlayerBrain : EntityBrain
     #region Move
     private void OnMoveStarted(InputAction.CallbackContext context)
     {
-        Animator.SetBool("Run", true);
+        SetAnimatorCondition(AnimatorCondition.Run, true);
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
@@ -151,7 +141,7 @@ public class PlayerBrain : EntityBrain
     }
     private void CancelMove()
     {
-        Animator.SetBool("Run", false);
+        SetAnimatorCondition(AnimatorCondition.Run, false);
 
         MovementAction.MoveInput = Vector2.zero;
         MovementAction.ResetAnimationSpeed();
@@ -178,7 +168,7 @@ public class PlayerBrain : EntityBrain
     #region Reload
     private void OnReloadStarted(InputAction.CallbackContext obj)
     {
-        Animator.SetTrigger("Reload");
+        SetAnimatorCondition(AnimatorCondition.Reload);
     }
 
     private void OnReloadCanceled(InputAction.CallbackContext obj)
