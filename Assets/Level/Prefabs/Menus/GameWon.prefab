@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 615757270770820376}
   - component: {fileID: 4695026421934975657}
   - component: {fileID: 2162277937392685806}
+  - component: {fileID: 7834506001357834380}
   m_Layer: 5
   m_Name: TimerCanvas
   m_TagString: Untagged
@@ -76,6 +77,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7834506001357834380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4010940606260734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d591269aa01d840a33ba5be207a82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 0}
+  _stopwatch: {fileID: 0}
 --- !u!1 &29475917884412267
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +103,6 @@ GameObject:
   - component: {fileID: 5216420346235884612}
   - component: {fileID: 7315917146709898683}
   - component: {fileID: 4922403372729073584}
-  - component: {fileID: 5130865581134373567}
   - component: {fileID: 8836063452346560255}
   - component: {fileID: 2145255807855148247}
   m_Layer: 5
@@ -181,18 +195,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
---- !u!114 &5130865581134373567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 29475917884412267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3192070bee97fce4d8af9eab5ab75f77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &8836063452346560255
 CanvasRenderer:
   m_ObjectHideFlags: 0

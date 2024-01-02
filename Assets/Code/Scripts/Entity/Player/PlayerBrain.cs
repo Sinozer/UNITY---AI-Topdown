@@ -65,6 +65,7 @@ public class PlayerBrain : EntityBrain
         _minimapInput.action.canceled += OnMinimapCanceled;
 
         _dashInput.action.started += OnDashStarted;
+        _dashInput.action.canceled += OnDashCanceled;
 
         Entity.OnDeath += OnDeath;
     }
@@ -89,6 +90,7 @@ public class PlayerBrain : EntityBrain
         _minimapInput.action.canceled -= OnMinimapCanceled;
 
         _dashInput.action.started -= OnDashStarted;
+        _dashInput.action.canceled -= OnDashCanceled;
 
         Entity.OnDeath -= OnDeath;
 
@@ -196,7 +198,12 @@ public class PlayerBrain : EntityBrain
     #region Dash
     private void OnDashStarted(InputAction.CallbackContext obj)
     {
-        DashingAction.TryDash();
+        DashingAction.StartDash();
+    }
+
+    private void OnDashCanceled(InputAction.CallbackContext obj)
+    {
+        DashingAction.StopDash();
     }
     #endregion Dash
     #endregion Inputs

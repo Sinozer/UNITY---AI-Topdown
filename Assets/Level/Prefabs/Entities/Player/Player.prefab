@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 6073004396539295092}
   - component: {fileID: 1367994482548892181}
   - component: {fileID: 756928072809711011}
+  - component: {fileID: 7068640629497393131}
   m_Layer: 5
   m_Name: TimerCanvas
   m_TagString: Untagged
@@ -201,6 +202,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 3797696639
+--- !u!114 &7068640629497393131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865032959907965476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d591269aa01d840a33ba5be207a82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1002341284859810296
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,8 +453,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.4999499, y: -0.00039994717, z: 0}
-    m_Extent: {x: 3.5002499, y: 2.4994001, z: 0}
+    m_Center: {x: 1.49955, y: -0.00014996529, z: 0}
+    m_Extent: {x: 3.49965, y: 2.49995, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

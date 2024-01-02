@@ -16,30 +16,10 @@ public class Stopwatch : MonoBehaviour
 {
     #region Events
     public event Action OnStart;
+    public event Action OnPerform;
     public event Action OnStop;
     public event Action OnReset;
     #endregion Events
-
-    public TMP_Text Text
-    {
-        get
-        {
-            if (_text == null)
-            {
-                // Find object in scene by name.
-                GameObject go = GameObject.Find("TimerCanvas");
-
-                if (go == null)
-                    return null;
-
-                _text = go.GetComponentInChildren<TMP_Text>();
-            }
-
-            return _text;
-        }
-        set => _text = value;
-    }
-    [SerializeField] private TMP_Text _text;
 
     public float Time => _time;
     private float _time = 0f;
@@ -92,17 +72,14 @@ public class Stopwatch : MonoBehaviour
         _time = 0f;
     }
 
+    /// <summary>
+    /// Get the time as a string.
+    /// </summary>
+    /// <param name="format"> The format to use. </param>
+    /// <returns> The time as a string formatted. </returns>
     public string GetTimeString(string format = "mm\\:ss\\.ff")
     {
         return TimeSpan.ToString(format);
-    }
-
-    public void SetTimerToText()
-    {
-        if (Text == null)
-            return;
-
-        Text.text = GetTimeString();
     }
 
     private void Update()
@@ -112,21 +89,6 @@ public class Stopwatch : MonoBehaviour
 
         _time += UnityEngine.Time.deltaTime;
 
-        SetTimerToText();
-    }
-
-    private void OnEnable()
-    {
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
-    {
-        SetTimerToText();
-    }
-
-    private void OnDisable()
-    {
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+        OnPerform?.Invoke();
     }
 }
