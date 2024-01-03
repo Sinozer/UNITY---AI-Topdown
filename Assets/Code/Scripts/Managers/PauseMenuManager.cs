@@ -5,19 +5,24 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using System.Collections;
 using UnityEngine;
 
 public class PauseMenuManager : Singleton<PauseMenuManager>
 {
     private float _timeScale = 1;
 
-    private void OnEnable()
+    private IEnumerator InitializeAfterMenuManager()
     {
-        if (MenuManager.IsInitialized == false)
-            return;
-
+        yield return new WaitUntil(() => MenuManager.IsInitialized);
+        // Now subscribe to events
         MenuManager.Instance.OnMenuOpen += OnMenuOpen;
         MenuManager.Instance.OnMenuClose += OnMenuClose;
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(InitializeAfterMenuManager());
     }
 
     private void OnDisable()
