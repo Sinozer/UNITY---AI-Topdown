@@ -6,6 +6,7 @@
 // --------------------------------------- //
 
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System.Linq;
 using UnityEngine;
 
@@ -15,31 +16,36 @@ public abstract class Entity : EntityChild
     [SerializeField] protected bool _isNpc = true;
 
     #region Data
+    [OdinSerialize]
+    public bool InstantiateData { get; private set; } = true;
+    [SerializeField, InlineEditor] private CustomBlackboard _data;
+    public CustomBlackboard Data { get => _data; private set => _data = value; }
+
     [SerializeField, DisableInEditorMode] protected SOEntity _baseData;
 
-    public float Health => _health;
-    [SerializeField, DisableInEditorMode, ProgressBar(0, "@_maxHealth", ColorGetter = "@Color.Lerp(Color.red, Color.green, Mathf.Pow(_health / _maxHealth, 2))")] protected float _health;
+    //public float Health => _health;
+    //[SerializeField, DisableInEditorMode, ProgressBar(0, "@_maxHealth", ColorGetter = "@Color.Lerp(Color.red, Color.green, Mathf.Pow(_health / _maxHealth, 2))")] protected float _health;
 
-    public float MaxHealth => _maxHealth;
-    [SerializeField, DisableInEditorMode] protected float _maxHealth;
+    //public float MaxHealth => _maxHealth;
+    //[SerializeField, DisableInEditorMode] protected float _maxHealth;
 
-    public float Damage => _damage;
-    [SerializeField, DisableInEditorMode] protected float _damage;
+    //public float Damage => _damage;
+    //[SerializeField, DisableInEditorMode] protected float _damage;
 
-    public float MovementSpeed
-    {
-        get => _movementSpeed;
-        set => _movementSpeed = value;
-    }
-    [SerializeField, DisableInEditorMode] protected float _movementSpeed;
+    //public float MovementSpeed
+    //{
+    //    get => _movementSpeed;
+    //    set => _movementSpeed = value;
+    //}
+    //[SerializeField, DisableInEditorMode] protected float _movementSpeed;
 
-    public float AttackSpeed => _attackSpeed;
-    [SerializeField, DisableInEditorMode] protected float _attackSpeed;
-    public float AttackRange => _attackRange;
-    [SerializeField, DisableInEditorMode] protected float _attackRange;
+    //public float AttackSpeed => _attackSpeed;
+    //[SerializeField, DisableInEditorMode] protected float _attackSpeed;
+    //public float AttackRange => _attackRange;
+    //[SerializeField, DisableInEditorMode] protected float _attackRange;
 
-    public float VisionRange => _visionRange;
-    [SerializeField, DisableInEditorMode] protected float _visionRange;
+    //public float VisionRange => _visionRange;
+    //[SerializeField, DisableInEditorMode] protected float _visionRange;
 
     public void SetValuesFromBaseData()
     {
@@ -52,18 +58,35 @@ public abstract class Entity : EntityChild
                 _baseData = GameManager.Instance.EntityList.List.First().Value;
         }
 
-        _health = _baseData.MaxHealth;
-        _maxHealth = _baseData.MaxHealth;
-        _damage = _baseData.Damage;
-        _movementSpeed = _baseData.MovementSpeed;
-        _attackSpeed = _baseData.AttackSpeed;
-        _attackRange = _baseData.AttackRange;
-        _visionRange = _baseData.VisionRange;
+        if (_data == null)
+            _data = ScriptableObject.CreateInstance<CustomBlackboard>();
+        else if (InstantiateData)
+            _data = Instantiate(_data);
+        else
+            _data.Awake();
+
+        Data.SetValueIfNotExists<float>("Health", _baseData.MaxHealth);
+        Data.SetValueIfNotExists<float>("MaxHealth", _baseData.MaxHealth);
+        Data.SetValueIfNotExists<float>("Damage", _baseData.Damage);
+        Data.SetValueIfNotExists<float>("MovementSpeed", _baseData.MovementSpeed);
+        Data.SetValueIfNotExists<float>("AttackSpeed", _baseData.AttackSpeed);
+        Data.SetValueIfNotExists<float>("AttackRange", _baseData.AttackRange);
+        Data.SetValueIfNotExists<float>("VisionRange", _baseData.VisionRange);
     }
     #endregion Data
 
-    public bool IsAlive => _health > 0;
-    public bool IsDead => _health <= 0;
+    public bool IsAlive
+    {
+        get
+        {
+            if (Data.TryFind<float>("Health", out float health))
+                return health > 0;
+
+            return false;
+
+        }
+    }
+    public bool IsDead => !IsAlive;
 
     #region Events
     public event System.Action<float> OnHealthChanged;
@@ -77,29 +100,32 @@ public abstract class Entity : EntityChild
 
     public virtual void Heal(float healAmount)
     {
-        _health = Mathf.Clamp(_health + healAmount, 0, _maxHealth);
+        if (Data.TryFind<float>("Health", out float health) == false || Data.TryFind<float>("MaxHealth", out float maxHealth) == false)
+            return;
 
-        OnHealthChanged?.Invoke(Health);
+        Data.SetValue<float>("Health", Mathf.Clamp(health + healAmount, 0, maxHealth));
+
+        OnHealthChanged?.Invoke(Data.GetValue<float>("Health"));
     }
 
     public virtual void TakeDamage(float damage)
     {
-        _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
-        OnHealthChanged?.Invoke(Health);
-        OnHit();
+        if (Data.TryFind<float>("Health", out float health) == false || Data.TryFind<float>("MaxHealth", out float maxHealth) == false)
+            return;
 
-        if (_health <= 0)
+        AudioManager.PlaySFX("Hit");
+        VFXManager.PlayVFX("Hit");
+
+        Data.SetValue<float>("Health", Mathf.Clamp(health - damage, 0, maxHealth));
+
+        OnHealthChanged?.Invoke(Data.GetValue<float>("Health"));
+
+        if (IsDead)
             OnDeath?.Invoke();
     }
 
     public virtual void Attack(Entity target)
     {
-        target.TakeDamage(_damage);
-    }
-
-    public void OnHit()
-    {
-        AudioManager.PlaySFX("Hit");
-        VFXManager.PlayVFX("Hit");
+        target.TakeDamage(Data.GetValue<float>("Damage"));
     }
 }

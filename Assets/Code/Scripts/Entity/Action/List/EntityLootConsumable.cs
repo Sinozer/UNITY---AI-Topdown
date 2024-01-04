@@ -6,43 +6,35 @@
 // --------------------------------------- //
 
 using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityLootConsumable : EntityChild, IEntityAction
+public class EntityLootConsumable : EntityAction
 {
+    /// <summary>
+    /// Loot tables to use when looting.
+    /// </summary>
+    public List<SOLootTable> LootTables => _lootTables;
+    [SerializeField, InlineEditor] private List<SOLootTable> _lootTables;
+
+    protected override IEnumerator Action()
+    {
+        foreach (var lootTable in _lootTables)
+        {
+            lootTable.Loot(this);
+        }
+
+        yield return null;
+    }
+
     private void OnEnable()
     {
-        Entity.OnDeath += Loot;
+        Entity.OnDeath += Execute;
     }
 
     private void OnDisable()
     {
-        Entity.OnDeath -= Loot;
-    }
-
-    #region Fields
-    public List<SOLootTable> LootTables => _lootTables;
-    [SerializeField, InlineEditor] private List<SOLootTable> _lootTables;
-    #endregion Fields
-
-    #region Methods
-    public void Loot()
-    {
-        foreach (var lt in _lootTables)
-        {
-            lt.Loot(this);
-        }
-    }
-    #endregion Methods
-
-    public void ResetAnimationSpeed()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void SetAnimationSpeed()
-    {
-        throw new System.NotImplementedException();
+        Entity.OnDeath -= Execute;
     }
 }

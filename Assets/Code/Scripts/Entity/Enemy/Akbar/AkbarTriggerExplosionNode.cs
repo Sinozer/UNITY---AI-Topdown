@@ -14,7 +14,7 @@ public class AkbarTriggerExplosionNode : ActionNode
         Blackboard.TryFind("EnemyBrain", out _brain);
 
         _brain.Enemy.Attack(_brain.Player);
-        _brain.Enemy.TakeDamage(_brain.Enemy.MaxHealth);
+        _brain.Enemy.TakeDamage(_brain.Enemy.Data.GetValue<float>("MaxHealth"));
 
         _brain.VFXManager.PlayVFX("Explode");
         _brain.AudioManager.PlaySFX("Explode");

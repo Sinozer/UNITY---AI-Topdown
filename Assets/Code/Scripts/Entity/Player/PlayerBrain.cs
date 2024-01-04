@@ -103,9 +103,7 @@ public class PlayerBrain : EntityBrain
     {
         SetAnimatorCondition(AnimatorCondition.Dead);
 
-
-
-        PlayerManager.Instance.Stopwatch.StopTime();
+        GameManager.Instance.Stopwatch.StopTime();
         MenuManager.Instance.DefaultMenuName = "GameLost";
         MenuManager.Instance.IsMenuOpen = true;
     }
@@ -129,11 +127,13 @@ public class PlayerBrain : EntityBrain
     private void OnMoveStarted(InputAction.CallbackContext context)
     {
         SetAnimatorCondition(AnimatorCondition.Run, true);
+
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
         MovementAction.MoveInput = context.ReadValue<Vector2>();
+        MovementAction.Execute();
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
@@ -145,14 +145,14 @@ public class PlayerBrain : EntityBrain
         SetAnimatorCondition(AnimatorCondition.Run, false);
 
         MovementAction.MoveInput = Vector2.zero;
-        MovementAction.ResetAnimationSpeed();
+        MovementAction.Stop();
     }
     #endregion Move
 
     #region Shoot
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        ShootAction.StartShooting();
+        ShootAction.Execute();
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
@@ -162,7 +162,7 @@ public class PlayerBrain : EntityBrain
     private void CancelShoot()
     {
         //ShootAction.ResetAnimationSpeed();
-        ShootAction.StopShooting();
+        ShootAction.Stop();
     }
     #endregion Shoot
 
@@ -198,23 +198,26 @@ public class PlayerBrain : EntityBrain
     #region Dash
     private void OnDashStarted(InputAction.CallbackContext obj)
     {
-        DashingAction.StartDash();
+        if (DashingAction.Target == null)
+            DashingAction.Target = Player.Crosshair.transform;
+
+        DashingAction.Execute();
     }
 
     private void OnDashCanceled(InputAction.CallbackContext obj)
     {
-        DashingAction.StopDash();
+        DashingAction.Stop();
     }
     #endregion Dash
     #endregion Inputs
 
-    public void FixedUpdate()
-    {
-        if (MovementAction.MoveInput != Vector2.zero)
-        {
-            MovementAction.FixedMove();
-        }
-    }
+    //public void FixedUpdate()
+    //{
+    //    if (MovementAction.MoveInput != Vector2.zero)
+    //    {
+    //        MovementAction.FixedMove();
+    //    }
+    //}
 
     public void StopReloading()
     {

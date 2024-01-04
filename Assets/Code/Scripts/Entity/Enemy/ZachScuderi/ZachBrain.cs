@@ -12,7 +12,7 @@ public class ZachBrain : EnemyBrain
     protected override void Start()
     {
         base.Start();
-        BTRunner.GetBlackboard().SetValue("AttackSpeed", Entity.AttackSpeed);
+        BTRunner.GetBlackboard().SetValue("AttackSpeed", Entity.Data.GetValue<float>("AttackSpeed"));
     }
 
     protected override void Update()

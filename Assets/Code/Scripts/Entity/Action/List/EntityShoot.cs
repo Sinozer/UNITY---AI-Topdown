@@ -5,6 +5,7 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -13,14 +14,41 @@ using UnityEngine;
 /// Simple shoot behavior.
 /// This will instantiate a projectile and set its velocity towards the <see cref="Target"/> object.
 /// </summary>
-public class EntityShoot : EntityChild, IEntityAction
+public class EntityShoot : EntityAction, IActionTargetable, IActionCooldown
 {
-    /// <summary>
-    /// Target to shoot at
-    /// </summary>
-    //public Transform Target { get; set; }
-    public GameObject Target { get; set; }
+    public Transform Target
+    {
+        get
+        {
+            if (_target != null)
+                return _target;
 
+            Player player = GameManager.Instance.Player;
+            if (player == null)
+                return null;
+
+            if (Entity.IsNpc == true)
+            {
+                _target = player.transform;
+                _targetPosition = Target.position;
+            }
+            else
+            {
+                _target = player.Crosshair.transform;
+                _targetPosition = Target.position;
+            }
+
+            return _target;
+        }
+        set
+        {
+            _target = value;
+            _targetPosition = Target.position;
+        }
+    }
+    private Transform _target;
+
+    // TODO : Assign this elsewhere
     public GameObject Projectile
     {
         get
@@ -36,29 +64,31 @@ public class EntityShoot : EntityChild, IEntityAction
     }
     private GameObject _projectile;
 
+    // TODO : Assign this elsewhere
     private float AttackSpeed
     {
         get
         {
-            if (NPC)
-                return Entity.AttackSpeed;
-            else
-                return ((Player)Entity).AttackSpeed;
+            return Entity.Data.GetValue<float>("AttackSpeed");
+            //if (NPC)
+            //    return Entity.AttackSpeed;
+            //else
+            //    return ((Player)Entity).AttackSpeed;
         }
     }
 
-    public float LookX => _direction.x;
-
-    [SerializeField] private SOProjectile _projectileData;
+    [SerializeField, InlineEditor] private SOProjectile _projectileData;
 
     public float LastTimeShot => _lastTimeShot;
     private float _lastTimeShot;
 
-    public bool IsInShootCooldown => _lastTimeShot + 1 / Entity.AttackSpeed > Time.time;
+    public bool IsInShootCooldown => (this as IActionCooldown).IsOnCooldown;
+
+    public float CooldownDuration { get => 1 / AttackSpeed; set { } }
+    public float LastUseTime { get; set; }
 
     private Vector2 _direction;
     private Vector2 _targetPosition;
-    private Coroutine _shootCoroutine;
 
     private void Awake()
     {
@@ -73,53 +103,38 @@ public class EntityShoot : EntityChild, IEntityAction
         }
     }
 
-    private void GetTarget()
-    {
-        Player player = GameManager.Instance.Player;
-        if (player == null)
-            return;
-
-        if (Entity.IsNpc == true)
-        {
-            Target = player.gameObject;
-            _targetPosition = Target.transform.position;
-        }
-        else
-        {
-            Target = player.Crosshair.gameObject;
-            _targetPosition = Target.transform.position;
-        }
-    }
-
-    private IEnumerator Shoot()
+    protected override IEnumerator Action()
     {
         while (true)
         {
-            if (IsInShootCooldown == true)
-                yield return new WaitForSeconds(_lastTimeShot + 1 / AttackSpeed - Time.time);
+            if ((this as IActionCooldown).IsOnCooldown)
+                yield return new WaitForSeconds((this as IActionCooldown).GetCooldownTimeRemaining());
+
+            (this as IActionCooldown).StartCooldown();
+
+            AudioManager.PlaySFX("Shoot");
 
             if (NotNPC)
                 Brain.SetAnimatorCondition(PlayerBrain.AnimatorCondition.Shoot);
 
-            GetTarget();
-
-            GameObject projectile = Instantiate(Projectile);
+            GameObject projectile = Instantiate(
+                Projectile,
+                transform.position,
+                Quaternion.Euler(
+                    0,
+                    0,
+                    (this as IActionTargetable).GetAngleToTarget(transform.position) * Mathf.Rad2Deg
+                )
+            );
 
             if (Entity.IsNpc == true)
                 projectile.layer = LayerMask.NameToLayer("OtherProjectile");
             else
                 projectile.layer = LayerMask.NameToLayer("PlayerProjectile");
 
-            projectile.transform.position = transform.position;
-
-            _direction = (_targetPosition - (Vector2)transform.position).normalized;
-            projectile.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg);
-
             projectile.GetComponent<Animator>().runtimeAnimatorController = _projectileData.Controller;
 
-            projectile.GetComponent<Rigidbody2D>().velocity = _direction * _projectileData.Speed;
-
-            //projectile.GetComponent<BoxCollider2D>().size = projectile.GetComponent<SpriteRenderer>().size;
+            projectile.GetComponent<Rigidbody2D>().velocity = (this as IActionTargetable).GetNormalizedDirectionToTarget(transform.position) * _projectileData.Speed;
 
             BoxCollider2D collider = projectile.GetComponent<BoxCollider2D>();
             collider.size = new Vector2(0.35f, 0.12f);
@@ -127,42 +142,9 @@ public class EntityShoot : EntityChild, IEntityAction
 
             projectile.GetComponent<Projectile>().Damage = _projectileData.Damage;
 
-            AudioManager.PlaySFX("Shoot");
-
             Destroy(projectile, _projectileData.LifeTime);
 
-            // Store the last time the entity shot
-            _lastTimeShot = Time.time;
-
-            yield return new WaitForSeconds(1 / AttackSpeed);
+            yield return new WaitForSeconds(CooldownDuration);
         }
-    }
-
-    public void StartShooting()
-    {
-        if (_shootCoroutine != null)
-            return;
-
-        _shootCoroutine = StartCoroutine(Shoot());
-    }
-
-    public void StopShooting()
-    {
-        if (_shootCoroutine == null)
-            return;
-
-        StopCoroutine(_shootCoroutine);
-        _shootCoroutine = null;
-    }
-
-    public void SetAnimationSpeed()
-    {
-        // TODO: Fix this -> Animation and projectile are not sync
-        Animator.speed = AttackSpeed;
-    }
-
-    public void ResetAnimationSpeed()
-    {
-        Animator.speed = 1f;
     }
 }

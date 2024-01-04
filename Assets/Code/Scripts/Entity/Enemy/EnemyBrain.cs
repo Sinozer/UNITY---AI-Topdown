@@ -11,8 +11,8 @@ using UnityEngine;
 
 public class EnemyBrain : EntityBrain
 {
-    public bool IsInVisionRange => Enemy.DistFromPlayer < Entity.VisionRange;
-    public bool IsInShootRange => Enemy.DistFromPlayer < Entity.AttackRange;
+    public bool IsInVisionRange => Enemy.DistFromPlayer < Entity.Data.GetValue<float>("VisionRange");
+    public bool IsInShootRange => Enemy.DistFromPlayer < Entity.Data.GetValue<float>("AttackRange");
 
     protected EnemyBTRunner BTRunner
     {
@@ -85,7 +85,7 @@ public class EnemyBrain : EntityBrain
 
     protected virtual void Start()
     {
-        AIPathfinder.maxSpeed = Entity.MovementSpeed / 50f;
+        AIPathfinder.maxSpeed = Entity.Data.GetValue<float>("MovementSpeed") / 50f;
 
         EntityLookAt lookAtAction = GetAction<EntityLookAt>();
 
@@ -131,21 +131,11 @@ public class EnemyBrain : EntityBrain
 
     public void StartShooting()
     {
-        ShootAction.StartShooting();
+        ShootAction.Execute();
     }
 
     public void StopShooting()
     {
-        ShootAction.StopShooting();
-    }
-
-    public void AttackPlayer()
-    {
-        Entity.Attack(Player);
-    }
-
-    public void OnHit()
-    {
-        Enemy.OnHit();
+        ShootAction.Stop();
     }
 }

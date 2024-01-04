@@ -30,16 +30,17 @@ public class HealthBar : EntityChild
 
     private void Start()
     {
-        SetMaxHealth(Entity.MaxHealth);
-    }
+        if (Entity.Data.TryFind<float>("MaxHealth", out float max) == false)
+            return;
 
-    public void SetMaxHealth(float maxHealth) 
-    { 
-        Slider.maxValue = maxHealth;
-        Slider.value = maxHealth;
+        if (Entity.Data.TryFind<float>("Health", out float health) == false)
+            health = max;
 
-        ChangedHealth.maxValue = maxHealth;
-        ChangedHealth.value = maxHealth;
+        Slider.maxValue = max;
+        Slider.value = health;
+
+        ChangedHealth.maxValue = max;
+        ChangedHealth.value = health;
 
         Gradient.Evaluate(1f);
     }
@@ -67,7 +68,6 @@ public class HealthBar : EntityChild
             ChangedHealth.value -= valueToRemove;
             yield return new WaitForSeconds(0.01f);
         }
-        //ChangedHealth.value = Slider.value;
 
         _coroutine = null;
     }

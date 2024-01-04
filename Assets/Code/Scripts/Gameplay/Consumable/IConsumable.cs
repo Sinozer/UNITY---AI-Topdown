@@ -7,5 +7,5 @@
 
 public interface IConsumable 
 {
-    void Consume(Player player);
+    void Consume(Entity entity);
 }

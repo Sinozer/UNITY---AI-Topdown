@@ -5,9 +5,10 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-public abstract class ObjectChild<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class ObjectChild<T> : SerializedMonoBehaviour where T : MonoBehaviour
 {
     public T Object
     {

@@ -25,10 +25,10 @@ public class GameTimerCanvas : MonoBehaviour
     /// <returns> True if found, false otherwise.</returns>
     private bool SearchForPlayerStopwatch()
     {
-        if (PlayerManager.IsInitialized == false)
+        if (GameManager.IsInitialized == false)
             return false;
 
-        _stopwatch = PlayerManager.Instance.Stopwatch;
+        _stopwatch = GameManager.Instance.Stopwatch;
 
         return _stopwatch != null;
     }

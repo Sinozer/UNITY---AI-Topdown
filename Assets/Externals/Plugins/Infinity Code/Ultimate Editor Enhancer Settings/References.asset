@@ -74,14 +74,6 @@ MonoBehaviour:
     type: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     target: {fileID: 8974582660774562318, guid: acdd97ad9b852c94c8c9f34496ba91c6, type: 3}
-  - title: NEW PlayerBlue_Controller
-    type: UnityEditor.Animations.AnimatorController, UnityEditor.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    target: {fileID: 9100000, guid: 55506801d7cf7c040bbb04eb1f0644ed, type: 2}
-  - title: Akbar_Controller
-    type: UnityEditor.Animations.AnimatorController, UnityEditor.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    target: {fileID: 9100000, guid: eee5ae94b5fdd4949a11c40843de3ff3, type: 2}
   _emptyInspectorItems:
   - title: Ultimate Editor Enhancer
     enabled: 1
@@ -726,10 +718,10 @@ MonoBehaviour:
     rootOnly: 0
     recursive: 1
   _sceneHistory:
-  - name: Main_Level_1
-    path: Assets/Level/Scenes/Main_Level_1.unity
   - name: MainMenu
     path: Assets/Level/Scenes/MainMenu.unity
+  - name: Main_Level_1
+    path: Assets/Level/Scenes/Main_Level_1.unity
   - name: Main_Level_2
     path: Assets/Level/Scenes/Main_Level_2.unity
   - name: End_Win

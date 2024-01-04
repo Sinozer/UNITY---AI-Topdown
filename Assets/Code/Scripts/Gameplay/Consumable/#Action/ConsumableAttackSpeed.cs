@@ -11,9 +11,12 @@ public class ConsumableAttackSpeed : ConsumableChild, IConsumable
 {
     [SerializeField] private float _attackSpeedAmount = 1f;
 
-    public void Consume(Player player)
+    public void Consume(Entity entity)
     {
-        player.AttackSpeed += _attackSpeedAmount;
+        entity.Data.TryFind<float>("AttackSpeed", out float attackSpeed);
+
+        entity.Data.SetValue("AttackSpeed", attackSpeed + _attackSpeedAmount);
+
         Destroy(transform.root.gameObject);
     }
 }

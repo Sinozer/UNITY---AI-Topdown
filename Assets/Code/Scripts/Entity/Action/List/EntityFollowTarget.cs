@@ -6,13 +6,14 @@
 // --------------------------------------- //
 
 using Pathfinding;
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
 /// Simple follow behavior.
 /// This will set the destination on the agent so that it moves towards the <see cref="Target"/> object.
 /// </summary>
-public class EntityFollowTarget : EntityChild, IEntityAction
+public class EntityFollowTarget : EntityAction, IActionTargetable
 {
     /// <summary>
     /// Reference to the <see cref="IAstarAI"/> component on the entity
@@ -36,35 +37,27 @@ public class EntityFollowTarget : EntityChild, IEntityAction
     /// <summary>
     /// Set the target position as the destination for the <see cref="Agent"/>
     /// </summary>
-    public void SetAiDestination()
+    protected override IEnumerator Action()
     {
         if (Target == null)
-            return;
+            yield break;
 
         Agent.destination = Target.position;
+
+        yield return null;
     }
 
     public void OnEnable()
     {
-        Agent.onSearchPath += SetAiDestination;
+        Agent.onSearchPath += StopAndExecute;
     }
     public void OnDisable()
     {
-        Agent.onSearchPath -= SetAiDestination;
+        Agent.onSearchPath -= StopAndExecute;
     }
 
     private void Update()
     {
-        SetAiDestination();
-    }
-
-    public void SetAnimationSpeed()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void ResetAnimationSpeed()
-    {
-        throw new System.NotImplementedException();
+        StopAndExecute();
     }
 }

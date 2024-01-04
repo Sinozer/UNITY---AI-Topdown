@@ -294,6 +294,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5aa53c162e02504081475bc1670f6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _multiplier: 1
 --- !u!1 &1061051873336289640
 GameObject:
@@ -350,15 +359,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb8b8286593a844d848074536c76b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: InstantiateData
+      Entry: 5
+      Data: false
   _isNpc: 0
+  _data: {fileID: 11400000, guid: d94cf3584690e9b44baf9f77fb1065b0, type: 2}
   _baseData: {fileID: 11400000, guid: f2a5894c332f2d24aaf9f9bf319368a8, type: 2}
-  _health: 150
-  _maxHealth: 150
-  _damage: 0
-  _movementSpeed: 250
-  _attackSpeed: 3
-  _attackRange: 0
-  _visionRange: 0
   _crosshair: {fileID: 1135834016345208436, guid: 3a4faa0a8ab298d47859f31c6b9818d2, type: 3}
 --- !u!50 &2079754400785509942
 Rigidbody2D:
@@ -453,8 +468,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.49955, y: -0.00014996529, z: 0}
-    m_Extent: {x: 3.49965, y: 2.49995, z: 0}
+    m_Center: {x: 1.4997001, y: -0.00024998188, z: 0}
+    m_Extent: {x: 3.5, y: 2.5004501, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -516,6 +531,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7bd95dbe7775c40b5745591bf3dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _projectileData: {fileID: 11400000, guid: bef9997b8d09b0b4b82156f5bb97fe36, type: 2}
 --- !u!1 &6073030441954184744
 GameObject:
@@ -878,6 +902,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810be1dde55692941a8289c0b74043ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _pauseInput: {fileID: -988805464858900511, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
   _moveInput: {fileID: 3292558435713424574, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
   _shootInput: {fileID: -3436438092290266539, guid: 0d98e9a80d914174282cae9718f6245d, type: 3}
@@ -933,6 +966,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca78fbd771d54b43b62cd3bf3b90b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
 --- !u!114 &8787512683175754043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -945,8 +987,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3bc4ddbee257a429215da2c10ac23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dashCooldown: 4
-  _dashPower: 40
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
 --- !u!114 &4985588121902744627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,6 +1008,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fbce01117ffd04fafed38d6f4771bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
 --- !u!1001 &2644832789235347329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -971,6 +1029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinimapCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 968549578755377307, guid: 13a3d50c2da7bf94c998eceb8e1755e4, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 968549578755377307, guid: 13a3d50c2da7bf94c998eceb8e1755e4, type: 3}
     - target: {fileID: 4220869783855675305, guid: 13a3d50c2da7bf94c998eceb8e1755e4, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -1236,6 +1298,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8333504347061764979, guid: b1b128060bf57584dad7f2fb92355eca, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8333504347061764979, guid: b1b128060bf57584dad7f2fb92355eca, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1258,6 +1324,10 @@ PrefabInstance:
       propertyPath: _vfxList
       value: 
       objectReference: {fileID: 11400000, guid: d9063f46e98a7234ebf4afc340f8ab29, type: 2}
+    - target: {fileID: 2345963974682118106, guid: 37bb2383b6d51124cb4191150a7f9179, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2345963974682118106, guid: 37bb2383b6d51124cb4191150a7f9179, type: 3}
     - target: {fileID: 8336640683294367949, guid: 37bb2383b6d51124cb4191150a7f9179, type: 3}
       propertyPath: m_Name
       value: VFXManager

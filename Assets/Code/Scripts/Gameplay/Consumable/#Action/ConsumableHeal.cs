@@ -11,9 +11,9 @@ public class ConsumableHeal : ConsumableChild, IConsumable
 {
     [SerializeField] private int _healthAmount = 10;
 
-    public void Consume(Player player)
+    public void Consume(Entity entity)
     {
-        player.Heal(_healthAmount);
+        entity.Heal(_healthAmount);
         Destroy(transform.root.gameObject);
     }
 }

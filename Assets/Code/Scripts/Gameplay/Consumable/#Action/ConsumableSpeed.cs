@@ -11,9 +11,12 @@ public class ConsumableSpeed : ConsumableChild, IConsumable
 {
     [SerializeField] private float _speedAmount = 5f;
 
-    public void Consume(Player player)
+    public void Consume(Entity entity)
     {
-        player.MovementSpeed += _speedAmount;
+        entity.Data.TryFind<float>("MovementSpeed", out float movementSpeed);
+
+        entity.Data.SetValue("MovementSpeed", movementSpeed + _speedAmount);
+
         Destroy(transform.root.gameObject);
     }
 }

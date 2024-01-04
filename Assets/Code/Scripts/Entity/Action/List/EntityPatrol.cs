@@ -13,7 +13,7 @@ using System.Collections;
 /// This will set the destination on the agent so that it moves through the sequence of objects in the <see cref="Waypoints"/> array.
 /// Upon reaching a target it will wait for a random delay between <see cref="DelayRange"/> seconds.
 /// </summary>
-public class EntityPatrol : EntityChild, IEntityAction
+public class EntityPatrol : EntityAction
 {
     /// <summary>
     /// Reference to the <see cref="IAstarAI"/> component on the entity
@@ -22,8 +22,7 @@ public class EntityPatrol : EntityChild, IEntityAction
     {
         get
         {
-            if (_agent == null)
-                _agent = Entity.GetComponentInChildren<IAstarAI>(true);
+            _agent ??= Entity.GetComponentInChildren<IAstarAI>(true);
 
             return _agent;
         }
@@ -46,22 +45,16 @@ public class EntityPatrol : EntityChild, IEntityAction
     /// </summary>
     public int Index { get; set; }
 
-    private Coroutine _patrolCoroutine;
-
     private void OnEnable()
     {
-        _patrolCoroutine = StartCoroutine(StartPatrol());
+        Execute();
     }
     private void OnDisable()
     {
-        if (_patrolCoroutine == null)
-            return;
-
-        StopCoroutine(_patrolCoroutine);
-        _patrolCoroutine = null;
+        Stop();
     }
 
-    private IEnumerator StartPatrol()
+    protected override IEnumerator Action()
     {
         int index = 0;
 
@@ -73,10 +66,7 @@ public class EntityPatrol : EntityChild, IEntityAction
             Agent.SearchPath();
 
             // Wait until we reach the end of the path or until path finding is not pending anymore
-            while (!Agent.reachedEndOfPath || Agent.pathPending)
-            {
-                yield return null;
-            }
+            yield return new WaitUntil(() => Agent.reachedEndOfPath && !Agent.pathPending);
 
             // Random delay before moving to the next waypoint
             float delay = Random.Range(DelayRange.x, DelayRange.y);
@@ -85,16 +75,6 @@ public class EntityPatrol : EntityChild, IEntityAction
             // Move to the next waypoint, loop back to start if at the end
             index = (index + 1) % Waypoints.Count;
         }
-    }
-
-    public void SetAnimationSpeed()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void ResetAnimationSpeed()
-    {
-        throw new System.NotImplementedException();
     }
 
 #if UNITY_EDITOR

@@ -16,6 +16,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField, InlineEditor] private CustomBlackboard _blackboard;
     public CustomBlackboard Blackboard { get => _blackboard; private set => _blackboard = value; }
 
+
+    public Stopwatch Stopwatch { get; private set;}
+
     protected override void Awake()
     {
         base.Awake();
@@ -27,6 +30,8 @@ public class GameManager : Singleton<GameManager>
         }
 
         Blackboard = Instantiate(Blackboard);
+
+        Stopwatch = gameObject.AddComponent<Stopwatch>();
     }
 
     #region Events
@@ -133,7 +138,7 @@ public class GameManager : Singleton<GameManager>
 
         SceneManager.Instance.LoadScene(GameSceneIndex);
 
-        PlayerManager.Instance.Stopwatch.StartTime();
+        Stopwatch.StartTime();
     }
 
     public void Pause()

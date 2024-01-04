@@ -5,60 +5,37 @@
 // --------------------------------------- //
 // --------------------------------------- //
 
+using Sirenix.OdinInspector;
 using System.Collections;
 using UnityEngine;
 
-public class EntityDash : EntityChild, IEntityAction
+public class EntityDash : EntityAction, IActionCooldown, IActionTargetable
 {
-    [SerializeField] private float _dashCooldown;
-    [SerializeField] private float _dashPower;
+    [ShowInInspector, ReadOnly]
+    public Transform Target { get; set; }
 
-    private Coroutine _dashCoroutine;
-    public float LastTimeDash => _lastTimeDash;
-    private float _lastTimeDash;
+    [ShowInInspector]
+    public float Power { get; set; } = 40f;
 
-    public bool IsInDashCooldown => _lastTimeDash + _dashCooldown > Time.time;
+    [ShowInInspector]
+    public float CooldownDuration { get; set; } = 4f;
+    public float LastUseTime { get; set; }
 
-    public void StartDash()
+    protected override IEnumerator Action()
     {
-        if (_dashCoroutine != null)
-            return;
+        if ((this as IActionCooldown).IsOnCooldown)
+            yield return new WaitForSeconds((this as IActionCooldown).GetCooldownTimeRemaining());
 
-        _dashCoroutine = StartCoroutine(Dash());
-    }
-
-    public void StopDash()
-    {
-        if (_dashCoroutine == null)
-            return;
-
-        StopCoroutine(_dashCoroutine);
-
-        _dashCoroutine = null;
-    }
-
-    private IEnumerator Dash()
-    {
-        if (IsInDashCooldown)
-            yield return new WaitForSeconds(_lastTimeDash + _dashCooldown - Time.time);
+        (this as IActionCooldown).StartCooldown();
 
         AudioManager.PlaySFX("Dash");
-        Vector2 _targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 dashDirection = (_targetPosition - (Vector2)Entity.transform.position).normalized;
-        Rigidbody2D.velocity += _dashPower * dashDirection;
 
-        _lastTimeDash = Time.time;
+        // Get the velocity of the dash
+        var velocity = (this as IActionTargetable).GetNormalizedDirectionToTarget(transform.position) * Power;
+
+        // Apply the velocity
+        Rigidbody2D.velocity += velocity;
 
         yield return null;
-    }
-
-    public void SetAnimationSpeed()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void ResetAnimationSpeed()
-    {
-        throw new System.NotImplementedException();
     }
 }

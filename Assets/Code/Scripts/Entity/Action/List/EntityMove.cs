@@ -6,9 +6,10 @@
 // --------------------------------------- //
 
 using Pathfinding;
+using System.Collections;
 using UnityEngine;
 
-public class EntityMove : EntityChild, IEntityAction
+public class EntityMove : EntityAction
 {
     public Vector2 MoveInput { get; set; }
 
@@ -16,10 +17,11 @@ public class EntityMove : EntityChild, IEntityAction
     {
         get
         {
-            if (NPC)
-                return Entity.MovementSpeed;
-            else
-                return ((Player)Entity).MovementSpeed;
+            return Entity.Data.GetValue<float>("MovementSpeed");
+            //if (NPC)
+            //    return Entity.Data.GetValue<float>("MovementSpeed");
+            //else
+            //    return ((Player)Entity).MovementSpeed;
         }
     }
 
@@ -33,21 +35,16 @@ public class EntityMove : EntityChild, IEntityAction
         transform.root.GetComponentInChildren<AIPath>().maxSpeed = MovementSpeed / 50f;
     }
 
-    public void FixedMove()
+    protected override IEnumerator Action()
     {
-        if (NPC)
-            return;
+        while (true)
+        {
+            if (NPC)
+                yield break;
 
-        Rigidbody2D.AddForce(MovementSpeed * 1000 * Time.fixedDeltaTime * MoveInput);
-    }
+            Rigidbody2D.AddForce(MovementSpeed * 300 * Time.fixedDeltaTime * MoveInput);
 
-    public void SetAnimationSpeed()
-    {
-        //// Calculate the speed based on fire rate and adjust the speed of the animator
-        Animator.speed = MovementSpeed / 400f;
-    }
-    public void ResetAnimationSpeed()
-    {
-        Animator.speed = 1;
+            yield return null;
+        }
     }
 }
