@@ -46,14 +46,16 @@ public class Boss : Enemy
         set
         {
             _baseData = value;
-            SetValuesFromBaseData();
+            SetValuesFromBaseData(true);
         }
     }
 
     new private void Awake()
     {
-        if (_phaseBaseData == null)
+        if (_phaseBaseData == null || _phaseBaseData.Count == 0)
             throw new System.Exception("Phase base data is null");
+
+        _baseData = _phaseBaseData[0];
 
         base.Awake();
     }

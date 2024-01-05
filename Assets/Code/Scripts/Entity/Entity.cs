@@ -23,31 +23,53 @@ public abstract class Entity : EntityChild
 
     [SerializeField, DisableInEditorMode] protected SOEntity _baseData;
 
-    //public float Health => _health;
-    //[SerializeField, DisableInEditorMode, ProgressBar(0, "@_maxHealth", ColorGetter = "@Color.Lerp(Color.red, Color.green, Mathf.Pow(_health / _maxHealth, 2))")] protected float _health;
+    public void SetValuesFromBaseData(bool reset = false)
+    {
+        if (_baseData == null)
+            return;
 
-    //public float MaxHealth => _maxHealth;
-    //[SerializeField, DisableInEditorMode] protected float _maxHealth;
+        if (reset)
+        {
+            Data.SetValue<float>("Health", _baseData.MaxHealth);
+            Data.SetValue<float>("MaxHealth", _baseData.MaxHealth);
+            Data.SetValue<float>("Damage", _baseData.Damage);
+            Data.SetValue<float>("MovementSpeed", _baseData.MovementSpeed);
+            Data.SetValue<float>("AttackSpeed", _baseData.AttackSpeed);
+            Data.SetValue<float>("AttackRange", _baseData.AttackRange);
+            Data.SetValue<float>("VisionRange", _baseData.VisionRange);
+        }
+        else
+        {
+            Data.SetValueIfNotExists<float>("Health", _baseData.MaxHealth);
+            Data.SetValueIfNotExists<float>("MaxHealth", _baseData.MaxHealth);
+            Data.SetValueIfNotExists<float>("Damage", _baseData.Damage);
+            Data.SetValueIfNotExists<float>("MovementSpeed", _baseData.MovementSpeed);
+            Data.SetValueIfNotExists<float>("AttackSpeed", _baseData.AttackSpeed);
+            Data.SetValueIfNotExists<float>("AttackRange", _baseData.AttackRange);
+            Data.SetValueIfNotExists<float>("VisionRange", _baseData.VisionRange);
+        }
+    }
+    #endregion Data
 
-    //public float Damage => _damage;
-    //[SerializeField, DisableInEditorMode] protected float _damage;
+    public bool IsAlive
+    {
+        get
+        {
+            if (Data.TryFind<float>("Health", out float health))
+                return health > 0;
 
-    //public float MovementSpeed
-    //{
-    //    get => _movementSpeed;
-    //    set => _movementSpeed = value;
-    //}
-    //[SerializeField, DisableInEditorMode] protected float _movementSpeed;
+            return false;
 
-    //public float AttackSpeed => _attackSpeed;
-    //[SerializeField, DisableInEditorMode] protected float _attackSpeed;
-    //public float AttackRange => _attackRange;
-    //[SerializeField, DisableInEditorMode] protected float _attackRange;
+        }
+    }
+    public bool IsDead => !IsAlive;
 
-    //public float VisionRange => _visionRange;
-    //[SerializeField, DisableInEditorMode] protected float _visionRange;
+    #region Events
+    public event System.Action<float> OnHealthChanged;
+    public event System.Action OnDeath;
+    #endregion Events
 
-    public void SetValuesFromBaseData()
+    protected virtual void Awake()
     {
         if (_baseData == null)
         {
@@ -72,30 +94,6 @@ public abstract class Entity : EntityChild
         Data.SetValueIfNotExists<float>("AttackSpeed", _baseData.AttackSpeed);
         Data.SetValueIfNotExists<float>("AttackRange", _baseData.AttackRange);
         Data.SetValueIfNotExists<float>("VisionRange", _baseData.VisionRange);
-    }
-    #endregion Data
-
-    public bool IsAlive
-    {
-        get
-        {
-            if (Data.TryFind<float>("Health", out float health))
-                return health > 0;
-
-            return false;
-
-        }
-    }
-    public bool IsDead => !IsAlive;
-
-    #region Events
-    public event System.Action<float> OnHealthChanged;
-    public event System.Action OnDeath;
-    #endregion Events
-
-    protected virtual void Awake()
-    {
-        SetValuesFromBaseData();
     }
 
     public virtual void Heal(float healAmount)
