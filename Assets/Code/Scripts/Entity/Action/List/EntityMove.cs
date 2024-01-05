@@ -42,9 +42,9 @@ public class EntityMove : EntityAction
             if (NPC)
                 yield break;
 
-            Rigidbody2D.AddForce(MovementSpeed * 300 * Time.fixedDeltaTime * MoveInput);
+            Rigidbody2D.AddForce(MovementSpeed * 1000 * Time.fixedDeltaTime * MoveInput);
 
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
     }
 }
