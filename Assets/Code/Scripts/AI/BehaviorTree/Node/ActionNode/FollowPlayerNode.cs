@@ -14,7 +14,6 @@ public class FollowPlayerNode : ActionNode
 
     public override void OnStart()
     {
-        //Debug.Log("Follow start");
         Blackboard.TryFind("Self", out _self);
         Blackboard.TryFind("EnemyBrain", out _brain);
         _brain.FollowingPlayer(true);
@@ -23,13 +22,11 @@ public class FollowPlayerNode : ActionNode
 
     public override void OnStop()
     {
-        //Debug.Log("Follow stop");
         _brain?.FollowingPlayer(false);
     }
 
     public override State OnUpdate()
     {
-        //Debug.Log("Follow update");
         if (_self == null)
             return State.Failure;
 

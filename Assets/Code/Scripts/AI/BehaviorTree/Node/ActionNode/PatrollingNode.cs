@@ -30,7 +30,7 @@ public class PatrollingNode : ActionNode
         if (_self == null)
             return State.Failure;
 
-        if (Blackboard.TryFind("IsInVisionRange", out bool isInVisionRange) == false || isInVisionRange == false)
+        if (_brain.IsInVisionRange == false)
             return State.Running;
 
         return State.Success;
