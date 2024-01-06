@@ -138,6 +138,7 @@ public class GameManager : Singleton<GameManager>
 
         SceneManager.Instance.LoadScene(GameSceneIndex);
 
+        Stopwatch.ResetTime();
         Stopwatch.StartTime();
     }
 
